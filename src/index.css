@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Add this in your Tailwind CSS or main CSS file */
+
+.react-tabs__tab--selected {
+    border-bottom: 2px solid red;
+  }
+  
