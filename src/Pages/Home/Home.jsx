@@ -2,7 +2,7 @@
 const Home = () => {
     return (
         <div>
-            this is home            
+            For testing github push            
         </div>
     );
 };
