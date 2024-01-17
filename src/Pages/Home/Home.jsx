@@ -1,8 +1,9 @@
+import JobList from "../../Comonents/JobList/JobList";
 
 const Home = () => {
     return (
         <div>
-            For testing github push            
+            <JobList/>            
         </div>
     );
 };
