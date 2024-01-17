@@ -1,8 +1,9 @@
+import JobList from "../../Comonents/JobList/JobList";
 
 const Home = () => {
     return (
         <div>
-            this is home            
+            <JobList/>            
         </div>
     );
 };
