@@ -27,11 +27,6 @@ const handleSignUp=e=>{
    const password =form.password.value 
 
   
-   if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password)) {
-       
-    return (swal("Error!", "Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character", "error"))
-} 
-
    createUser(email, password)
    .then(result => {
        console.log(result)
@@ -43,10 +38,6 @@ const handleSignUp=e=>{
 
    }
  
-
-
-
-  
   return (
     <div className='flex justify-center items-center min-h-screen'>
     <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
