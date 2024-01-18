@@ -3,7 +3,6 @@ import { LuMapPin } from "react-icons/lu";
 import { IoMdTime } from "react-icons/io";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
-import { Button } from "@chakra-ui/react";
 import { FaCalendarAlt } from "react-icons/fa";
 
 const SingleJobList = ({
@@ -16,39 +15,39 @@ const SingleJobList = ({
 }) => {
   return (
     <div className="p-5 flex flex-col md:flex-row justify-between gap-2 border shadow-xl text-left my-7 ">
+      {/* ----------Company logo------------ */}
       <figure className="">
         <img src={companyLogo} alt="company logo" className="" />
       </figure>
+
+      {/* ----------Job OverView------------ */}
       <div className="">
         <h1 className="text-xl mb-3 font-semibold">{jobName}</h1>
         <div className="flex flex-col md:flex-row md:items-center gap-5">
           <p className="flex items-center gap-2">
-            <LuMapPin color="green" /> <span>{location}</span>
+            <LuMapPin className="text-[#FF3811]" /> <span>{location}</span>
           </p>
           <p className="flex items-center gap-2">
-            <IoMdTime color="green" /> <span>{time}</span>
+            <IoMdTime className="text-[#FF3811]" /> <span>{time}</span>
           </p>
           <p className="flex items-center gap-2">
-            <FaRegMoneyBillAlt color="green" /> <span>{salary}</span>
+            <FaRegMoneyBillAlt className="text-[#FF3811]" />{" "}
+            <span>{salary}</span>
           </p>
         </div>
       </div>
+
+      {/* ------------Apply and DeadLine------------- */}
       <div className="flex flex-col gap-3">
         <div className="flex gap-2">
-          <Button
-            colorScheme="gray"
-            textColor="teal"
-            size="md"
-            fontWeight="extrabold"
-          >
-            <CiHeart />
-          </Button>
-          <Button colorScheme="green" size="md">
-            Apply Now
-          </Button>
+          <button className="btn">
+            <CiHeart className="text-[#FF3811]" />
+          </button>
+          <button className="btn bg-[#FF3811] text-white">Apply Now</button>
         </div>
         <div className="flex items-center gap-2">
-          <FaCalendarAlt color="green" /> <span>Deadline: {deadline}</span>
+          <FaCalendarAlt className="text-[#FF3811]" />{" "}
+          <span>Deadline: {deadline}</span>
         </div>
       </div>
     </div>

@@ -15,7 +15,7 @@ const Navbar = () => {
                         <Link className='mt-4 mr-4 text-base font-medium'>About</Link>
                         <Link className='mt-4 mr-4 text-base font-medium'>Jobs</Link>
                         <Link className='mt-4 mr-4 text-base font-medium'>Contact</Link>
-
+                        <Link to="/signup" className='mt-4 mr-4 text-base font-medium'>Register</Link>
                         <button className='flex h-[64px] w-40  bg-[#FF3811] text-white'>
                             <p className='mt-5 ml-10'>Post a Job</p>
                             <svg className='mt-6' xmlns="http://www.w3.org/2000/svg" width="32" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
