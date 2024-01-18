@@ -12,10 +12,10 @@ import companyLogo1 from "../../assets/company-logo1.jpg";
 
 const JobList = () => {
   return (
-    <div className="flex flex-col items-center">
-      <h1 className="text-3xl font-bold">Job Listing</h1>
-      <div className="mt-8 w-xl">
-        <Tabs align="center" variant="unstyled">
+    <div className="flex flex-col items-center ">
+      <h1 className="text-5xl font-bold">Job Listing</h1>
+      <div className="mt-8 w-full md:w-[70%] ">
+        <Tabs  align="center" variant="unstyled">
           <TabList>
             <Tab>Featured</Tab>
             <Tab>Full Time</Tab>
@@ -28,8 +28,8 @@ const JobList = () => {
             bg="blue.500"
             borderRadius="1px"
           />
-          <TabPanels className="w-full">
-            <TabPanel>
+          <TabPanels >
+            <TabPanel >
               <SingleJobList
                 companyLogo={companyLogo1}
                 jobName={"Software Engineer"}
@@ -37,6 +37,7 @@ const JobList = () => {
                 time={"Full Time"}
                 salary={"$95,000 - $120,000"}
                 deadline={"15 Feb 2024"}
+                
               />
             </TabPanel>
             <TabPanel>
@@ -83,3 +84,4 @@ const JobList = () => {
 };
 
 export default JobList;
+
