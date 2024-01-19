@@ -4,13 +4,13 @@ import {
   FaGooglePlus,
 } from "react-icons/fa";
 import { FaSquareTwitter, FaInstagram } from "react-icons/fa6";
-
+import logo from '../../assets/420167893_392812103320040_1727173477032307330_n.png'
 const Footer = () => {
   return (
     <div className='mt-16 mx-auto'>
       <footer className='grid grid-cols-1 lg:grid-cols-4 footer py-10 '>
         <nav className=''>
-          <img src='' alt='logo' />
+          <img className="w-10" src={logo} alt='logo' />
           <header className=' text-xl'>What HireMaster Does?</header>
           <p>
             HireMaster is an innovative web application that serves as a
