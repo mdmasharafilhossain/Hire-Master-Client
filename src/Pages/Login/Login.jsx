@@ -16,7 +16,6 @@ const Login = () => {
  const handleGoogleSignIn = () =>{
     googleSignIn()
     .then(result =>{
-        console.log(result)
       navigate(from, { replace: true });
        
     })
