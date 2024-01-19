@@ -33,40 +33,5 @@
     "location": "Cairo, Egypt",
     "image": "https://i.ibb.co/m01MzP8/studio-close-up-portrait-young-fresh-blonde-woman-brown-straw-poncho-wool-black-trendy-hat-round-gla.jpg",
     "profession": "Financial Analyst"
-  },
-  {
-    "name": "Elena Martinez",
-    "testimonial": "The user interface is intuitive and easy to navigate. It simplifies complex tasks and enhances productivity. I highly recommend it!",
-    "location": "Los Angeles, USA",
-    "image": "https://i.ibb.co/Vx96fgq/smiling-woman-walking-city-street-stylish-printed-skirt-denim-oversize-jacket-wearing-pink-sunglasse.jpg",
-    "profession": "UX Designer"
-  },
-  {
-    "name": "Hiroshi Yamamoto",
-    "testimonial": "The attention to detail in the design is impressive. Every element serves a purpose, making the overall experience seamless.",
-    "location": "Tokyo, Japan",
-    "image": "https://i.ibb.co/qBSvsGX/portrait-young-businessman.jpg",
-    "profession": "Graphic Artist"
-  },
-  {
-    "name": "Isabella Silva",
-    "testimonial": "The customer support team went above and beyond to assist me. They were patient and resolved my issue with a smile. Exceptional service!",
-    "location": "Rio de Janeiro, Brazil",
-    "image": "https://i.ibb.co/12qLqd5/pexels-hanuman-photo-studio-17668397.jpg",
-    "profession": "Customer Relations"
-  },
-  {
-    "name": "Ravi Patel",
-    "testimonial": "The versatility of the product is unmatched. It caters to a wide range of needs, making it a valuable asset for professionals in any field.",
-    "location": "Mumbai, India",
-    "image": "https://i.ibb.co/jLh7kBC/pexels-r-fera-432059.jpg",
-    "profession": "Business Consultant"
-  },
-  {
-    "name": "Sophie Dubois",
-    "testimonial": "I was pleasantly surprised by the eco-friendly packaging. It reflects the company's commitment to sustainability, and I appreciate that.",
-    "location": "Paris, France",
-    "image": "https://i.ibb.co/X8F9JF3/2023-LOCK2.webp",
-    "profession": "Environmental Scientist"
   }
 ]
