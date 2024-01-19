@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 const Navbar = () => {
     return (
         <div>
-            <div className="navbar absolute mt-[450px] bg-base-100 h-[10px]">
+            <div className="navbar absolute  md:w-1/2 lg:w-full mt-[450px] bg-base-100 h-[10px]">
                 <div className="flex-1">
                     <a className="btn btn-ghost ml-[100px] text-4xl font-bold text-[#FF3811]">HireMaster</a>
                 </div>

@@ -25,9 +25,9 @@ const Testimonials = () => {
     fetchReview();
   }, []);
   return (
-    <div className='mt-16 space-y-10'>
+    <div className='mt-28 mb-20 container mx-auto space-y-10'>
       <div className=''>
-        <h2 className='text-3xl font-bold'>Clients Testimonials</h2>
+        <h2 className='text-5xl  text-center font-bold'>Clients Testimonials</h2>
       </div>
       <Swiper
         slidesPerView={1}
