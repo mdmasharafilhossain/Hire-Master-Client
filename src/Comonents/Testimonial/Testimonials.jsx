@@ -27,6 +27,7 @@ const Testimonials = () => {
   return (
     <div className='mt-16 space-y-10'>
       <div className=''>
+        <h2 className='text-5xl font-bold'>Collaborative Experiences</h2>
         <h2 className='text-3xl font-bold'>Clients Testimonials</h2>
       </div>
       <Swiper
