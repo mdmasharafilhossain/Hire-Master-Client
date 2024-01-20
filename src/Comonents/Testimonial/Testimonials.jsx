@@ -27,7 +27,7 @@ const Testimonials = () => {
   return (
     <div className='container mx-auto my-20 space-y-10'>
       <div className=''>
-        <h2 className='text-5xl font-bold'>Clients Testimonials</h2>
+        <h2 className='text-5xl font-bold'>Collaborative Experiences</h2>
       </div>
       <Swiper
         slidesPerView={1}

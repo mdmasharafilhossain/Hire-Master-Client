@@ -20,7 +20,7 @@ const Footer = () => {
         </div>
         <div className='md:col-span-1 space-y-2'>
           <header className='font-semibold text-lg'>Job Seekers</header>
-          <div className=''>
+          <div className='space-y-1'>
             <Link className='flex items-center'>
               <FaCaretRight />
               Create Account
@@ -32,7 +32,7 @@ const Footer = () => {
             <Link className='flex items-center'>
               <FaCaretRight />
               Video CV
-              <span className='p-[4px] border border-[#ff3811] rounded-2xl ml-1'>
+              <span className='px-[4px] border border-[#ff3811] rounded-lg ml-1'>
                 new
               </span>
             </Link>
@@ -45,7 +45,7 @@ const Footer = () => {
 
         <div className='md:col-span-1 space-y-2'>
           <header className='font-semibold text-lg'>Employers</header>
-          <div>
+          <div className='space-y-1'>
             <Link className='flex items-center'>
               <FaCaretRight />
               Create Account
@@ -66,7 +66,7 @@ const Footer = () => {
         </div>
         <div className='md:col-span-1 space-y-2'>
           <header className='font-semibold text-lg'>Community</header>
-          <div>
+          <div className='space-y-1'>
             <Link className='flex items-center'>
               <FaCaretRight />
               Events
@@ -85,7 +85,7 @@ const Footer = () => {
 
       <footer className='footer py-4 border-t text-base-content border-base-300'>
         <aside className='items-center grid-flow-col'>
-          <p>&copy; 2024 Hire Master. All Rights Reserved.</p>
+          <p>&copy; 2024 HireMaster. All Rights Reserved.</p>
         </aside>
         <nav className='md:place-self-center md:justify-self-end'>
           <div className='grid grid-flow-col gap-4 text-2xl'>
