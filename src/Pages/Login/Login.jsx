@@ -35,7 +35,7 @@ const Login = () => {
   };
 
   return (
-    <div className='p-2 container mx-auto flex flex-col lg:flex-row space-x-10 justify-between items-center my-20'>
+    <div className='container mx-auto flex flex-col lg:flex-row space-x-10 justify-between items-center my-20'>
       <div className='w-full mx-auto'>
         <img
           className=''
