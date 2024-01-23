@@ -6,7 +6,7 @@ const Banner = () => {
 
         <div className='hero-content flex-col lg:flex-row-reverse '>
           <div className='-mt-32'>
-            <h1 className='lg:-ml-[500px] text-6xl text-white font-bold lg:w-[600px]'>
+            <h1 className='lg:-ml-[500px] text-3xl md:text-6xl text-white font-bold lg:w-[600px]'>
               Find the perfect Job that you deserved
             </h1>
             <div className='my-4 lg:w-[500px] lg:-ml-[500px] text-white'>
