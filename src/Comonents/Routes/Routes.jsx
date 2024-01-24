@@ -5,6 +5,7 @@ import SignUp from "../../Pages/SignUp/SignUp";
 import Login from "../../Pages/Login/Login";
 import Error from "../../Pages/Error/Error";
 import Jobs from "../../Pages/Jobs/Jobs";
+import ContactUs from "../../Pages/ContactUs/ContactUs";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "jobs",
         element: <Jobs />,
+      },
+      {
+        path: "contacts",
+        element: <ContactUs />,
       },
     ],
   },
