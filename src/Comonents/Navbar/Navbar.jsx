@@ -41,24 +41,11 @@ const Navbar = () => {
           <hr className='my-10' />
           <DrawerBody>
             <div className='flex flex-col font-medium text-2xl space-y-4'>
-              <Link className='border pl-3 py-1  hover:bg-neutral-200'>
-                Home
-              </Link>
-              <Link className='border pl-3 py-1 hover:bg-neutral-200'>
-                About
-              </Link>
-              <Link className='border pl-3 py-1 hover:bg-neutral-200'>
-                Jobs
-              </Link>
-              <Link
-                className='border pl-3 py-1 hover:bg-neutral-200'
-                to='/contacts'
-              >
-                Contact
-              </Link>
-              <Link className='border pl-3 py-1 hover:bg-neutral-200'>
-                Register
-              </Link>
+              <Link to='/'>Home</Link>
+              <Link to='/about'>About</Link>
+              <Link to='/jobs'>Jobs</Link>
+              <Link to='/contacts'>Contact</Link>
+              <Link to='/signup2'>Register</Link>
               <button className='flex px-5 py-2 items-center space-x-1 font-semibold text-lg bg-[#FF3811] text-white rounded-lg'>
                 <p className=''>Post a Job</p>
                 <MdPostAdd size={30} />
@@ -81,7 +68,7 @@ const Navbar = () => {
           <Link>About</Link>
           <Link>Jobs</Link>
           <Link to='/contacts'>Contact</Link>
-          <Link>Register</Link>
+          <Link to='/signup2'>Register</Link>
         </div>
       </div>
       <button className='hidden md:flex px-5 py-2 items-center space-x-1 font-semibold text-lg bg-[#FF3811] text-white rounded-lg'>

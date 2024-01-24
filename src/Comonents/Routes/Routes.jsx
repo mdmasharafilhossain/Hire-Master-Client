@@ -4,7 +4,11 @@ import Home from "../../Pages/Home/Home";
 import SignUp from "../../Pages/SignUp/SignUp";
 import Login from "../../Pages/Login/Login";
 import Error from "../../Pages/Error/Error";
+import Signup2 from "../../Pages/Signup2/Signup2";
+import ManagerSignup from "../../Pages/Signup2/ManagerSignup";
+import ManagerLogin from "../../Pages/Signup2/ManagerLogin";
 import Jobs from "../../Pages/Jobs/Jobs";
+import JobPost from "../../Pages/JobPost/JobPost";
 import ContactUs from "../../Pages/ContactUs/ContactUs";
 const router = createBrowserRouter([
   {
@@ -18,7 +22,11 @@ const router = createBrowserRouter([
       },
       {
         path: "jobs",
-        element: <Jobs />,
+        element: <Jobs></Jobs>,
+      },
+      {
+        path: "/jobpost",
+        element: <JobPost></JobPost>,
       },
       {
         path: "contacts",
@@ -27,6 +35,26 @@ const router = createBrowserRouter([
     ],
   },
   { path: "/signup", element: <SignUp></SignUp> },
+  {
+    path: "/login",
+    element: <Login></Login>,
+  },
+  {
+    path: "/signup",
+    element: <SignUp></SignUp>,
+  },
+  {
+    path: "/signup2",
+    element: <Signup2></Signup2>,
+  },
+  {
+    path: "/managersignup",
+    element: <ManagerSignup></ManagerSignup>,
+  },
+  {
+    path: "/managerlogin",
+    element: <ManagerLogin></ManagerLogin>,
+  },
   {
     path: "/login",
     element: <Login></Login>,
