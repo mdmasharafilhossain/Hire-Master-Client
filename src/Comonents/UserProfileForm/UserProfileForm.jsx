@@ -39,14 +39,15 @@ const UserProfileForm = () => {
                 UniversityName:data.universityName,
                 Degree:data.degree,
                 GraduationDate:data.Graduation,
-                GPA:data.gpa
+                GPA:data.gpa,
+                Skill:data.skill
 
 
 
     
             }
             // console.log(articleInfo);
-            const ArticleRes = await AxiosPublic.post('/article',UserProfileInfo);
+            const ArticleRes = await AxiosPublic.post('/userProfile',UserProfileInfo);
             console.log(ArticleRes.data);
             if(ArticleRes.data.insertedId){
                 Swal.fire({
@@ -206,7 +207,7 @@ const UserProfileForm = () => {
                             </label>
                            <label className="form-control w-full mt-3">
                                 <div className="label">
-                                    <span className="label-text text-lg font-bold">Portfolio</span>
+                                    <span className="label-text text-lg font-bold">GitHub</span>
 
                                 </div>
                                 <input
@@ -282,64 +283,29 @@ const UserProfileForm = () => {
                             
                            </div>
                          </div>
+                         <hr className="text-bold mt-20" />
                           {/* Skills Main div 4*/}
-                         <div className="flex gap-72 mt-30  mb-10">
+                         <div className="flex gap-[345px] mt-30  mb-10">
                               {/* Text div */}
                            <div className="mt-10">
-                           <p className="text-xl font-bold mr-20">Education</p>
-                            <p className="text-sm ml-9">What schools have you studied at?</p>
+                           <p className="text-xl font-bold mr-12">Skills</p>
+                            <p className="text-sm ml-12">Share your  Skills with us</p>
                            </div>
                            {/* form div */}
                            <div className="flex-1 mb-5">
                            <label className="form-control w-full ">
                                 <div className="label">
-                                    <span className="label-text text-lg font-bold">University Name</span>
+                                    <span className="label-text text-lg font-bold">Your Skills</span>
 
                                 </div>
                                 <input
-                                    {...register("universityName")}
+                                    {...register("skill")}
                                     type="text"
-                                    placeholder="Your University Name" required
+                                    placeholder="eg. HTML,CSS,React ect.." required
                                     className="input input-bordered w-full" />
 
                             </label>
-                           <label className="form-control w-full mt-3">
-                                <div className="label">
-                                    <span className="label-text text-lg font-bold">Graduation</span>
-
-                                </div>
-                                <input
-                                    {...register("Graduation")}
-                                    type="date"
-                                    
-                                    placeholder="Your Linkedin Link" required
-                                    className="input input-bordered w-full" />
-
-                            </label>
-                           <label className="form-control w-full mt-3">
-                                <div className="label">
-                                    <span className="label-text text-lg font-bold">Degree</span>
-
-                                </div>
-                                <input
-                                    {...register("degree")}
-                                    type="text"
-                                    placeholder="Name of your Degree" required
-                                    className="input input-bordered w-full" />
-
-                            </label>
-                           <label className="form-control w-full mt-3">
-                                <div className="label">
-                                    <span className="label-text text-lg font-bold">GPA</span>
-
-                                </div>
-                                <input
-                                    {...register("gpa")}
-                                    type="text"
-                                    placeholder="Your Current GPA" required
-                                    className="input input-bordered w-full" />
-
-                            </label>
+                           
                             
                            </div>
                          </div>
