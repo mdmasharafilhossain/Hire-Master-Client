@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from './../AuthProvider/AuthProvider';
 import { useForm } from "react-hook-form";
 import UseAxiosPublic from "../Hooks/UseAxiosPublic/UseAxiosPublic";
+import Swal from "sweetalert2";
 
 // image added key from imgbb
 const Image_Hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -41,7 +42,7 @@ const UserProfileForm = () => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: "Article Added Successfully",
+                    title: "Your data Added Successfully",
                     showConfirmButton: false,
                     timer: 1500
                   });
