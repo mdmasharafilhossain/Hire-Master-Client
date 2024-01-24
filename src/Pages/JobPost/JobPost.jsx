@@ -1,5 +1,4 @@
 
-
 const JobPost = () => {
     return (
         <div>
