@@ -61,17 +61,27 @@ const UserProfileForm = () => {
 
 
 
-                <div className="flex gap-96 mt-20">
-                    {/* text div */}
+                {/* <div className="flex gap-96 mt-20">
+                    
                     <div className="mt-4">
                         <p className="text-xl font-bold">About</p>
                         <p className="text-sm ml-16">Tell us about Yourself</p>
                     </div >
-                    {/* main div */}
-                    <div className="flex-1">
-                        <form className="container mx-auto space-y-5" onSubmit={handleSubmit(onSubmit)}>
-
-                            <label className="form-control w-full ">
+                    
+                    
+                </div> */}
+                <div>
+                        <form className="container  mx-auto space-y-5" onSubmit={handleSubmit(onSubmit)}>
+                          {/* About Main div 1*/}
+                         <div className="flex gap-96 mt-20 mb-10">
+                              {/* Text div */}
+                           <div className="mt-10">
+                           <p className="text-xl font-bold">About</p>
+                            <p className="text-sm ml-16">Tell us about Yourself</p>
+                           </div>
+                           {/* form div */}
+                           <div className="flex-1">
+                           <label className="form-control w-full mb-5">
                                 <div className="label">
                                     <span className="label-text text-lg font-bold">Your Name*</span>
 
@@ -88,8 +98,8 @@ const UserProfileForm = () => {
                                 <div>
 
                                 </div>
-                                <div>
-                                    <p className="text-lg font-bold mr-32 mb-2">Upload Your Photo*</p>
+                                <div className="mb-3">
+                                    <p className="text-lg font-bold lg:mr-[136px] mb-2">Upload Your Photo*</p>
                                     <input
                                         {...register("image")}
                                         type="file"
@@ -97,7 +107,7 @@ const UserProfileForm = () => {
                                 </div>
                             </div>
                             
-                            <label className="form-control w-full ">
+                            <label className="form-control w-full mb-3">
                                 <div className="label">
                                     <span className="label-text text-lg font-bold">Your Location*</span>
 
@@ -109,7 +119,7 @@ const UserProfileForm = () => {
                                     className="input input-bordered w-full " />
 
                             </label>
-                            <div className="flex gap-5">
+                            <div className="flex gap-5 mb-3">
                                 <select {...register("role")}
                                     className="select select-bordered w-full text-lg font-bold mt-4">
                                     <option disabled selected required>Select Your Role*</option>
@@ -145,12 +155,66 @@ const UserProfileForm = () => {
                                 className="textarea textarea-bordered h-24" placeholder="Your Bio"></textarea>
                                 
                             </label>
+                           </div>
+                         </div>
+                         
+                         <hr className="text-bold mt-20" />
 
+
+                          {/* Social Main div 2*/}
+                         <div className="flex gap-96 mt-30  mb-10">
+                              {/* Text div */}
+                           <div className="mt-10">
+                           <p className="text-xl font-bold">Social Profiles</p>
+                            <p className="text-sm ml-9">Where people can find you</p>
+                           </div>
+                           {/* form div */}
+                           <div className="flex-1 mb-5">
+                           <label className="form-control w-full ">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Portfolio</span>
+
+                                </div>
+                                <input
+                                    {...register("portfolio")}
+                                    type="text"
+                                    placeholder="Your Website Link" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Linkedin</span>
+
+                                </div>
+                                <input
+                                    {...register("linkedin")}
+                                    type="text"
+                                    placeholder="Your Linkedin Link" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Portfolio</span>
+
+                                </div>
+                                <input
+                                    {...register("Github")}
+                                    type="text"
+                                    placeholder="Your github Link" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                            
+                           </div>
+                         </div>
+                         
+                         <hr className="text-bold mt-20" />
                             <input className="btn w-full bg-orange-600 text-white" type="submit" />
                         </form>
                     </div>
-                </div>
-                <hr className="text-bold mt-10" />
+                
             </div>
 
         </div>
