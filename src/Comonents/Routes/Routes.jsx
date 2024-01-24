@@ -8,6 +8,7 @@ import Signup2 from "../../Pages/Signup2/Signup2";
 import ManagerSignup from "../../Pages/Signup2/ManagerSignup";
 import ManagerLogin from "../../Pages/Signup2/ManagerLogin";
 import Jobs from "../../Pages/Jobs/Jobs";
+import JobPost from "../../Pages/JobPost/JobPost";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
         path: "jobs",
         element: <Jobs></Jobs>,
       },
+      {
+        path: "/jobpost",
+        element: <JobPost></JobPost>,
+      }
     ],
   },
   { path: "/signup", element: <SignUp></SignUp> },
