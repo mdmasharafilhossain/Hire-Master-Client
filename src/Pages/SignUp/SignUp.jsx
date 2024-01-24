@@ -5,21 +5,6 @@ import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 import swal from "sweetalert";
 
 const SignUp = () => {
-<<<<<<< HEAD
-    const { createUser , googleSignIn}=useContext(AuthContext)
-    const location = useLocation();
-    const navigate = useNavigate();
-    const from = location.state?.from?.pathname || "/";
-    // google sign in 
-    const handleGoogleSignIn = () =>{
-        googleSignIn()
-        .then(result =>{
-          console.log(result)
-          navigate(from, { replace: true });
-           
-        })
-    }
-=======
   const { createUser, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
@@ -31,7 +16,6 @@ const SignUp = () => {
       navigate(from, { replace: true });
     });
   };
->>>>>>> df6664d3c40c89075552b692eb595fe609d8bd9a
 
   // email sign up
   const handleSignUp = e => {
