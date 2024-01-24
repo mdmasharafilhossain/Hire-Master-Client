@@ -32,7 +32,17 @@ const UserProfileForm = () => {
                 experience: data.experience,
                 role: data.role,
                 email:user?.email,
-                bio:data.bio
+                bio:data.bio,
+                portfolio:data.portfolio,
+                linkedin:data.linkedin,
+                Github:data.Github,
+                UniversityName:data.universityName,
+                Degree:data.degree,
+                GraduationDate:data.Graduation,
+                GPA:data.gpa
+
+
+
     
             }
             // console.log(articleInfo);
@@ -54,7 +64,7 @@ const UserProfileForm = () => {
     }
     return (
         <div className="container mx-auto">
-            <div className="mt-32 border text-center p-14 " >
+            <div className="mt-32 border-2 border-orange-600 text-center p-14 " >
                 <div className="mx-auto text-center  ">
                     <h1 className="text-5xl text-orange-600 border-red-400 font-bold  mb-12 py-4">Set Your HireMaster Profile</h1>
                 </div>
@@ -76,8 +86,8 @@ const UserProfileForm = () => {
                          <div className="flex gap-96 mt-20 mb-10">
                               {/* Text div */}
                            <div className="mt-10">
-                           <p className="text-xl font-bold">About</p>
-                            <p className="text-sm ml-16">Tell us about Yourself</p>
+                           <p className="text-xl font-bold mr-10">About</p>
+                            <p className="text-sm ml-7">Tell us about Yourself</p>
                            </div>
                            {/* form div */}
                            <div className="flex-1">
@@ -162,7 +172,7 @@ const UserProfileForm = () => {
 
 
                           {/* Social Main div 2*/}
-                         <div className="flex gap-96 mt-30  mb-10">
+                         <div className="flex gap-[340px] mt-30  mb-10">
                               {/* Text div */}
                            <div className="mt-10">
                            <p className="text-xl font-bold">Social Profiles</p>
@@ -211,6 +221,130 @@ const UserProfileForm = () => {
                          </div>
                          
                          <hr className="text-bold mt-20" />
+                          {/* Education Main div 3*/}
+                         <div className="flex gap-72 mt-30  mb-10">
+                              {/* Text div */}
+                           <div className="mt-10">
+                           <p className="text-xl font-bold mr-20">Education</p>
+                            <p className="text-sm ml-9">What schools have you studied at?</p>
+                           </div>
+                           {/* form div */}
+                           <div className="flex-1 mb-5">
+                           <label className="form-control w-full ">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">University Name</span>
+
+                                </div>
+                                <input
+                                    {...register("universityName")}
+                                    type="text"
+                                    placeholder="Your University Name" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Graduation</span>
+
+                                </div>
+                                <input
+                                    {...register("Graduation")}
+                                    type="date"
+                                    
+                                    placeholder="Your Linkedin Link" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Degree</span>
+
+                                </div>
+                                <input
+                                    {...register("degree")}
+                                    type="text"
+                                    placeholder="Name of your Degree" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">GPA</span>
+
+                                </div>
+                                <input
+                                    {...register("gpa")}
+                                    type="text"
+                                    placeholder="Your Current GPA" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                            
+                           </div>
+                         </div>
+                          {/* Skills Main div 4*/}
+                         <div className="flex gap-72 mt-30  mb-10">
+                              {/* Text div */}
+                           <div className="mt-10">
+                           <p className="text-xl font-bold mr-20">Education</p>
+                            <p className="text-sm ml-9">What schools have you studied at?</p>
+                           </div>
+                           {/* form div */}
+                           <div className="flex-1 mb-5">
+                           <label className="form-control w-full ">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">University Name</span>
+
+                                </div>
+                                <input
+                                    {...register("universityName")}
+                                    type="text"
+                                    placeholder="Your University Name" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Graduation</span>
+
+                                </div>
+                                <input
+                                    {...register("Graduation")}
+                                    type="date"
+                                    
+                                    placeholder="Your Linkedin Link" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Degree</span>
+
+                                </div>
+                                <input
+                                    {...register("degree")}
+                                    type="text"
+                                    placeholder="Name of your Degree" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">GPA</span>
+
+                                </div>
+                                <input
+                                    {...register("gpa")}
+                                    type="text"
+                                    placeholder="Your Current GPA" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                            
+                           </div>
+                         </div>
+                         
+                         <hr className="text-bold mt-20 bg-orange-600" />
                             <input className="btn w-full bg-orange-600 text-white" type="submit" />
                         </form>
                     </div>
