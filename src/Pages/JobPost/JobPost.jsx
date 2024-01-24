@@ -217,7 +217,7 @@ const JobPost = () => {
                             <span className="label-text">Job Location*</span>
                         </label>
                         <input
-                            type="date"
+                            type="text"
                             placeholder="Job Location"
                             {...register('location', { required: true })}
                             className="input input-bordered w-full" />
