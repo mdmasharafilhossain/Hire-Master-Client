@@ -23,8 +23,31 @@ const UserProfileForm = () => {
             }
         });
         console.log(res.data);
-
-
+        if(res.data.success){
+            const UserProfileInfo = {
+                name: data.name,
+                image: res.data.data.display_url,
+                location: data.location,
+                experience: data.experience,
+                role: data.role,
+                email:user?.email,
+                bio:data.bio
+    
+            }
+            // console.log(articleInfo);
+            const ArticleRes = await AxiosPublic.post('/article',UserProfileInfo);
+            console.log(ArticleRes.data);
+            if(ArticleRes.data.insertedId){
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Article Added Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+           }
+ 
 
 
     }
@@ -118,7 +141,7 @@ const UserProfileForm = () => {
                                 </div>
                                 <textarea 
                                 {...register("bio")}
-                                className="textarea textarea-bordered h-24" placeholder="Your Short Bio"></textarea>
+                                className="textarea textarea-bordered h-24" placeholder="Your Bio"></textarea>
                                 
                             </label>
 
