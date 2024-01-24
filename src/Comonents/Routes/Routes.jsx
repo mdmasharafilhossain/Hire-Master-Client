@@ -7,17 +7,27 @@ import Error from "../../Pages/Error/Error";
 import Signup2 from "../../Pages/Signup2/Signup2";
 import ManagerSignup from "../../Pages/Signup2/ManagerSignup";
 import ManagerLogin from "../../Pages/Signup2/ManagerLogin";
+import Jobs from "../../Pages/Jobs/Jobs";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayOut/>,
+    element: <MainLayOut />,
     errorElement: <Error></Error>,
     children: [
       {
-        path: '/',
-        element: <Home/>,
-      }
-    ]
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "jobs",
+        element: <Jobs></Jobs>,
+      },
+    ],
+  },
+  { path: "/signup", element: <SignUp></SignUp> },
+  {
+    path: "/login",
+    element: <Login></Login>,
   },
   { 
     path: '/signup', element: <SignUp></SignUp> 

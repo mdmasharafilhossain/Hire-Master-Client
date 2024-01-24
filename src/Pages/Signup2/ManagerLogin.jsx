@@ -1,10 +1,27 @@
 import { Link } from 'react-router-dom';
 import svg from '../../assets/login.svg';
 import { FcGoogle } from 'react-icons/fc'
+import { useContext } from 'react';
+import { AuthContext } from '../../Comonents/AuthProvider/AuthProvider';
 
 const ManagerLogin = () => {
+    const {googleSignIn} = useContext(AuthContext)
+    // const from = location.state?.from?.pathname || "/";
+
+    // google sign in 
+    //   const handleGoogleSignIn = () => {
+    //     googleSignIn()
+    //       .then(result => {
+    //         navigate(from, { replace: true });
+
+    //       })
+    //   }
     return (
         <div className='mt-10'>
+            <Link to='/'>
+                <button className="btn btn-outline bg-[#FF3811] text-white btn-sm mt-2 ml-14">Back</button>
+            </Link>
+
             <div className="lg:flex md:flex lg:ml-52 lg:gap-8 md:gap-5  mb-20">
                 <div className="">
                     <img className="w-52 ml-14 lg:w-[400px] md:w-[250px] md:h-[400px] md:mt-16 lg:h-[350px] lg:my-16" src={svg} alt="" />
