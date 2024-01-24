@@ -202,7 +202,7 @@ const UserProfileForm = () => {
                                     {...register("linkedin")}
                                     type="text"
                                     placeholder="Your Linkedin Link" required
-                                    className="input input-bordered w-full" />
+                                     className="input input-bordered w-full" />
 
                             </label>
                            <label className="form-control w-full mt-3">
