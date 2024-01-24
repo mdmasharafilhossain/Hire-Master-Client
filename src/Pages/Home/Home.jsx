@@ -3,6 +3,7 @@ import ExploreByCategory from "../../Comonents/ExploreByCategory/ExploreByCatego
 import JobList from "../../Comonents/JobList/JobList";
 import Testimonials from "../../Comonents/Testimonial/Testimonials";
 
+
 const Home = () => {
   return (
     <div>
@@ -10,6 +11,7 @@ const Home = () => {
       <JobList />
       <Testimonials />
       <ExploreByCategory></ExploreByCategory>
+      
     </div>
   );
 };
