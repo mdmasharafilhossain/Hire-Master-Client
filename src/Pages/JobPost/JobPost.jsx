@@ -1,12 +1,14 @@
 import { useForm } from "react-hook-form";
+import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
+import Swal from "sweetalert2";
 
 
 const JobPost = () => {
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit ,reset} = useForm();
     const onSubmit = async (data) => {
       console.log(data);
-    
+    const axiosPublic=UseAxiosPublic()
     //   const job_title = data.name;
     //   const company_name = data.companyName;
     //   const company_logo = data.logo;
@@ -28,24 +30,39 @@ const JobPost = () => {
 
       const formData = {
         job_title: data.name,
-        company_name: data.companyName,
+        company_name: data.companyname,
         company_logo: data.logo,
         job_role: data.role,
         salary: data.salary,
         job_time: data.time,
         skills: data.skills,
         job_description: data.description,
-        hiring_manager_name: data.managerName,
-        hiring_manager_photo: data.managerPhoto,
-        hiring_manager_email: data.managerEmail,
-        responsibilities: data.responsibilities,
+        hiring_manager_name: data.managername,
+        hiring_manager_photo: data.managerphoto,
+        hiring_manager_email:data.manageremail,
+        responsibilities: data.responsiblities,
         benefits: data.benefits,
         qualification: data.qualification,
         job_posting_date: data.date,
         user_email: data.email,
         job_location: data.location,
       };
-console.log(formData)      
+console.log(formData)    
+const dataForm=await axiosPublic.post('/jobpost', formData);
+
+if(dataForm.data.insertedId){
+    // show success popup
+    reset();
+    Swal.fire({
+        position: "top",
+        icon: "success",
+        title: `${data.name} is added to the Job Post.`,
+        showConfirmButton: false,
+        timer: 1500
+      });
+}
+
+
     
     };
     
@@ -71,7 +88,7 @@ console.log(formData)
                         <input
                         type="text"
                         placeholder="Company Name"
-                        {...register('company name', { required: true })}
+                        {...register('companyname', { required: true })}
                         required
                         className="input input-bordered w-full" />
                     </div>
@@ -158,7 +175,7 @@ console.log(formData)
                         <input
                             type="text"
                             placeholder="Hiring Manager Name"
-                            {...register('manager name', { required: true })}
+                            {...register('managername', { required: true })}
                             className="input input-bordered w-full" />
                     </div>
 
@@ -171,7 +188,7 @@ console.log(formData)
                         <input
                         type="text"
                         placeholder="Hiring Manager Photo"
-                        {...register('manager photo', { required: true })}
+                        {...register('managerphoto', { required: true })}
                         required
                         className="input input-bordered w-full" />
                     </div>
@@ -183,7 +200,7 @@ console.log(formData)
                         <input
                             type="text"
                             placeholder="Hiring Manager Email"
-                            {...register('manager email', { required: true })}
+                            {...register('manageremail', { required: true })}
                             className="input input-bordered w-full" />
                     </div>
 
@@ -208,7 +225,7 @@ console.log(formData)
                         <input
                             type="text"
                             placeholder="Benifits"
-                            {...register('benifits', { required: true })}
+                            {...register('benefits', { required: true })}
                             className="input input-bordered w-full" />
                     </div>
 
