@@ -71,10 +71,11 @@ const Navbar = () => {
           <Link to='/signup2'>Register</Link>
         </div>
       </div>
-      <button className='hidden md:flex px-5 py-2 items-center space-x-1 font-semibold text-lg bg-[#FF3811] text-white rounded-lg'>
+      <Link to="/jobpost"> <button className='hidden md:flex px-5 py-2 items-center space-x-1 font-semibold text-lg bg-[#FF3811] text-white rounded-lg'>
         <p className=''>Post a Job</p>
         <MdPostAdd size={30} />
-      </button>
+      </button></Link>
+     
     </div>
   );
 };

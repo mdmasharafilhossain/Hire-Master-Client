@@ -7,23 +7,46 @@ const JobPost = () => {
     const onSubmit = async (data) => {
       console.log(data);
     
-      const job_title = data.name;
-      const company_name = data.companyName;
-      const company_logo = data.logo;
-      const job_role = data.role;
-      const salary = data.salary;
-      const job_time = data.time;
-      const skills = data.skills;
-      const job_description = data.description;
-      const hiring_manager_name = data.managerName;
-      const hiring_manager_photo = data.managerPhoto;
-      const hiring_manager_email = data.managerEmail;
-      const responsibilities = data.responsibilities;
-      const benefits = data.benefits;
-      const qualification = data.qualification;
-      const job_posting_date = data.date;
-      const user_email = data.email;
-      const job_location = data.location;
+    //   const job_title = data.name;
+    //   const company_name = data.companyName;
+    //   const company_logo = data.logo;
+    //   const job_role = data.role;
+    //   const salary = data.salary;
+    //   const job_time = data.time;
+    //   const skills = data.skills;
+    //   const job_description = data.description;
+    //   const hiring_manager_name = data.managerName;
+    //   const hiring_manager_photo = data.managerPhoto;
+    //   const hiring_manager_email = data.managerEmail;
+    //   const responsibilities = data.responsibilities;
+    //   const benefits = data.benefits;
+    //   const qualification = data.qualification;
+    //   const job_posting_date = data.date;
+    //   const user_email = data.email;
+    //   const job_location = data.location;
+
+
+      const formData = {
+        job_title: data.name,
+        company_name: data.companyName,
+        company_logo: data.logo,
+        job_role: data.role,
+        salary: data.salary,
+        job_time: data.time,
+        skills: data.skills,
+        job_description: data.description,
+        hiring_manager_name: data.managerName,
+        hiring_manager_photo: data.managerPhoto,
+        hiring_manager_email: data.managerEmail,
+        responsibilities: data.responsibilities,
+        benefits: data.benefits,
+        qualification: data.qualification,
+        job_posting_date: data.date,
+        user_email: data.email,
+        job_location: data.location,
+      };
+console.log(formData)      
+    
     };
     
     return (
