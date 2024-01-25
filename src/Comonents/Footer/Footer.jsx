@@ -10,7 +10,8 @@ const Footer = () => {
     <div className='mt-16 mx-auto'>
       <footer className='grid grid-cols-1 lg:grid-cols-4 footer py-10 '>
         <nav className=''>
-          <img src='' alt='logo' />
+          {/* <img src='' alt='logo' /> */}
+          <a className="text-4xl font-bold text-[#FF3811]">HireMaster</a>
           <header className=' text-xl'>What HireMaster Does?</header>
           <p>
             HireMaster is an innovative web application that serves as a

@@ -13,7 +13,7 @@ const Navbar = () => {
 
                         <Link className='mt-4 mr-4 text-base font-medium'>Home</Link>
                         <Link className='mt-4 mr-4 text-base font-medium'>About</Link>
-                        <Link className='mt-4 mr-4 text-base font-medium'>Jobs</Link>
+                        <Link className='mt-4 mr-4 text-base font-medium' to='/jobs'>Jobs</Link>
                         <Link className='mt-4 mr-4 text-base font-medium'>Contact</Link>
                         <Link to="/signup" className='mt-4 mr-4 text-base font-medium'>Register</Link>
                         <button className='flex h-[64px] w-40  bg-[#FF3811] text-white'>

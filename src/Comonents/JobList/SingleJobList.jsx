@@ -14,7 +14,7 @@ const SingleJobList = ({
   deadline,
 }) => {
   return (
-    <div className="p-5 flex flex-col md:flex-row justify-between gap-2 border shadow-xl text-left my-7 ">
+    <div className="px-10 py-5 flex flex-col md:flex-row justify-between gap-2 border shadow-xl text-left my-7 ">
       {/* ----------Company logo------------ */}
       <figure className="">
         <img src={companyLogo} alt="company logo" className="" />
@@ -41,7 +41,7 @@ const SingleJobList = ({
       <div className="flex flex-col gap-3">
         <div className="flex gap-2">
           <button className="btn">
-            <CiHeart className="text-[#FF3811]" />
+            <CiHeart className="text-[#FF3811]" /> Details
           </button>
           <button className="btn bg-[#FF3811] text-white">Apply Now</button>
         </div>
