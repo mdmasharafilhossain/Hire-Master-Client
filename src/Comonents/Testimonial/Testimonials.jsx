@@ -25,10 +25,11 @@ const Testimonials = () => {
     fetchReview();
   }, []);
   return (
-    <div className='mt-16 space-y-10'>
-      <div className=''>
-        <h2 className='text-3xl font-bold'>Clients Testimonials</h2>
-      </div>
+    <div className='container px-3 mx-auto my-10 md:my-20 space-y-5'>
+      <h2 className='text-2xl lg:text-5xl font-bold'>
+        Collaborative Experiences
+      </h2>
+
       <Swiper
         slidesPerView={1}
         spaceBetween={30}
@@ -49,8 +50,8 @@ const Testimonials = () => {
       >
         {testimonial.map(review => (
           <SwiperSlide key={review.name}>
-            <div className='w-full h-[350px] px-4 flex flex-col justify-center space-y-3'>
-              <MdRateReview size={35} />
+            <div className='w-full h-[300px]  flex flex-col justify-center space-y-3'>
+              <MdRateReview color='#ff3811' size={35} />
               <p className='text-lg italic'>{review.testimonial}</p>
 
               <div className='flex gap-x-5 mt-5'>

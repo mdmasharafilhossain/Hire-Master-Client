@@ -11,10 +11,10 @@ import companyLogo1 from "../../assets/company-logo1.jpg";
 
 const JobList = () => {
   return (
-    <div className="flex flex-col items-center ">
+    <div className="flex flex-col items-center mt-20 ">
       <h1 className="text-5xl font-bold">Job Listing</h1>
       {/* --------------------Tab start from here------------------ */}
-      <div className="mt-8 w-full md:w-[70%] ">
+      <div className="mt-16 w-full md:w-[70%] ">
         <Tabs align="center" variant="unstyled">
           <TabList>
             <Tab>Featured</Tab>
