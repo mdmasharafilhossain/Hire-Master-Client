@@ -65,8 +65,8 @@ const Navbar = () => {
       <div className='flex-none'>
         <div className='hidden md:flex  items-center space-x-4 mr-4 font-medium text-lg menu menu-horizontal px-1'>
           <Link>Home</Link>
-          <Link>About</Link>
-          <Link>Jobs</Link>
+          <Link to='/about'>About</Link>
+          <Link to='/jobs'>Jobs</Link>
           <Link to='/contacts'>Contact</Link>
           <Link to='/signup2'>Register</Link>
         </div>
