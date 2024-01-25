@@ -4,12 +4,28 @@ import { useForm } from "react-hook-form";
 const JobPost = () => {
 
     const { register, handleSubmit } = useForm();
-    const onSubmit=async(data)=>{
+    const onSubmit = async (data) => {
+      console.log(data);
     
-      console.log(data)
-           
-        }
-        
+      const job_title = data.name;
+      const company_name = data.companyName;
+      const company_logo = data.logo;
+      const job_role = data.role;
+      const salary = data.salary;
+      const job_time = data.time;
+      const skills = data.skills;
+      const job_description = data.description;
+      const hiring_manager_name = data.managerName;
+      const hiring_manager_photo = data.managerPhoto;
+      const hiring_manager_email = data.managerEmail;
+      const responsibilities = data.responsibilities;
+      const benefits = data.benefits;
+      const qualification = data.qualification;
+      const job_posting_date = data.date;
+      const user_email = data.email;
+      const job_location = data.location;
+    };
+    
     return (
         <div>
              <form onSubmit={handleSubmit(onSubmit)} >
@@ -224,6 +240,9 @@ const JobPost = () => {
                     </div>
 
                 </div>
+                <button className="btn btn-secondary btn-outline btn-block">
+                    Add Job
+                </button>
                
             </form> 
         </div>
