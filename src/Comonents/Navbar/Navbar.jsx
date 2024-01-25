@@ -1,4 +1,4 @@
-import { useDisclosure } from "@chakra-ui/react";
+import { Button, useDisclosure } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
 import { MdPostAdd } from "react-icons/md";
@@ -18,20 +18,19 @@ const Navbar = () => {
   const btnRef = React.useRef();
   return (
     <div className='navbar absolute mt-[450px] bg-base-100 h-[10px]'>
-      <button
+      <Button
         ref={btnRef}
         display={{ base: "block", md: "none" }}
         onClick={onOpen}
-        size={"sm"}
-        //   background={"none"}
       >
         <MdOutlineDashboard className='text-[#FF3811] w-full' size={38} />
-      </button>
+      </Button>
       <Drawer
         isOpen={isOpen}
         placement='left'
         onClose={onClose}
         finalFocusRef={btnRef}
+        size={"sm"}
       >
         <DrawerOverlay />
         <DrawerContent>
@@ -65,17 +64,18 @@ const Navbar = () => {
       </div>
       <div className='flex-none'>
         <div className='hidden md:flex  items-center space-x-4 mr-4 font-medium text-lg menu menu-horizontal px-1'>
-          <Link to='/'>Home</Link>
-          <Link to='/about'>About</Link>
-          <Link to='/jobs'>Jobs</Link>
+          <Link>Home</Link>
+          <Link>About</Link>
+          <Link>Jobs</Link>
           <Link to='/contacts'>Contact</Link>
           <Link to='/signup2'>Register</Link>
         </div>
       </div>
-     <Link to="/jobpost"> <button className='hidden md:flex px-5 py-2 items-center space-x-1 font-semibold text-lg bg-[#FF3811] text-white rounded-lg'>
+      <Link to="/jobpost"> <button className='hidden md:flex px-5 py-2 items-center space-x-1 font-semibold text-lg bg-[#FF3811] text-white rounded-lg'>
         <p className=''>Post a Job</p>
         <MdPostAdd size={30} />
       </button></Link>
+     
     </div>
   );
 };

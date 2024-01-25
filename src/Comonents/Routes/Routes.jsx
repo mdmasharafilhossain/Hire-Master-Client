@@ -9,6 +9,7 @@ import ManagerSignup from "../../Pages/Signup2/ManagerSignup";
 import ManagerLogin from "../../Pages/Signup2/ManagerLogin";
 import Jobs from "../../Pages/Jobs/Jobs";
 import JobPost from "../../Pages/JobPost/JobPost";
+import ContactUs from "../../Pages/ContactUs/ContactUs";
 import About1 from "../../Pages/About/About";
 const router = createBrowserRouter([
   {
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
       {
         path: "/jobpost",
         element: <JobPost></JobPost>,
-      }
+      },
+      {
+        path: "contacts",
+        element: <ContactUs />,
+      },
     ],
   },
   { path: "/signup", element: <SignUp></SignUp> },
@@ -39,22 +44,26 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login></Login>,
   },
-  { 
-    path: '/signup', element: <SignUp></SignUp> 
+  {
+    path: "/signup",
+    element: <SignUp></SignUp>,
   },
-  { 
-    path: '/signup2', element: <Signup2></Signup2>
+  {
+    path: "/signup2",
+    element: <Signup2></Signup2>,
   },
-  { 
-    path: '/managersignup', element: <ManagerSignup></ManagerSignup>
+  {
+    path: "/managersignup",
+    element: <ManagerSignup></ManagerSignup>,
   },
-  { 
-    path: '/managerlogin', element: <ManagerLogin></ManagerLogin>
+  {
+    path: "/managerlogin",
+    element: <ManagerLogin></ManagerLogin>,
   },
- {
-  path:"/login",
-  element:<Login></Login>
- }
+  {
+    path: "/login",
+    element: <Login></Login>,
+  },
 ]);
 
 export default router;
