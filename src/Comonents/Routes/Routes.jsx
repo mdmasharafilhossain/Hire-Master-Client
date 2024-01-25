@@ -10,6 +10,7 @@ import ManagerLogin from "../../Pages/Signup2/ManagerLogin";
 import Jobs from "../../Pages/Jobs/Jobs";
 import JobPost from "../../Pages/JobPost/JobPost";
 import ContactUs from "../../Pages/ContactUs/ContactUs";
+import About1 from "../../Pages/About/About";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path:'/about',
+        element:<About1></About1>
       },
       {
         path: "jobs",
