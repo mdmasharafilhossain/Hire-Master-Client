@@ -9,6 +9,7 @@ import ManagerSignup from "../../Pages/Signup2/ManagerSignup";
 import ManagerLogin from "../../Pages/Signup2/ManagerLogin";
 import Jobs from "../../Pages/Jobs/Jobs";
 import JobPost from "../../Pages/JobPost/JobPost";
+import About1 from "../../Pages/About/About";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path:'/about',
+        element:<About1></About1>
       },
       {
         path: "jobs",
