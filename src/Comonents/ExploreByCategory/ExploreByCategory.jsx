@@ -3,19 +3,12 @@ import { RiCustomerService2Line } from "react-icons/ri";
 import { SiAffinitydesigner } from "react-icons/si";
 import { BsReceipt } from "react-icons/bs";
 import { FaHandshake } from "react-icons/fa6";
-import { Link } from 'react-router-dom';
+
 
 const ExploreByCategory = () => {
     return (
         <div className="max-w-7xl mx-6 md:mx-auto  ">
             <h2 className='text-center text-5xl font-bold mt-8 mb-8'> Explore By Category</h2>
-                    <Link to="/profile">
-                        <div className="avatar">
-                            <div className="w-24 rounded-md border-spacing-7 border-white ">
-                                <img className=' ' src="https://i.ibb.co/zJTr7Sv/depositphotos-468054886-stock-photo-teacher-books-smiling-camera-classroom.webp" />
-                            </div>
-                        </div>
-                    </Link>
             <div className="grid grid-cols-2 mt-20  md:grid-cols-4 gap-8 ">
 
                 <div className="bg-slate-50  py-4 px-3  rounded-md hover:shadow-lg border-2 border-orange-200 hover:border-2 hover:border-orange-500">

@@ -1,5 +1,5 @@
 
-import { FaFacebook, FaGithub, FaPenToSquare, } from "react-icons/fa6";
+import {  FaFacebook, FaGithub, FaPenToSquare, } from "react-icons/fa6";
 import { FaExternalLinkAlt,FaBriefcase, FaLinkedin  } from "react-icons/fa";
 import { PiBookBookmarkFill } from "react-icons/pi";
 import { RiAddBoxFill } from "react-icons/ri";
@@ -7,25 +7,34 @@ import { AiFillProject } from "react-icons/ai";
 import { BsTools } from "react-icons/bs";
 import { IoHome } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { MdPostAdd } from "react-icons/md";
+import { useContext } from "react";
+import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 
 
 const Profile = () => {
 
-   
+   const {user} = useContext(AuthContext)
 
     return (
         <div className="md:flex gap-10  max-w-xl mx-6   md:max-w-5xl md:mx-auto ">
             <div className="flex md:flex-col ml-10 mt-10 mb-6  gap-2">
                 <Link to="/">
                     <div className="p-2 hover:bg-slate-200 rounded-xl ">
-                        <p className=" text-2xl ml-2 "> <IoHome></IoHome></p>
+                        <p className=" text-2xl ml-1 "> <IoHome></IoHome></p>
                         <p>Home</p>
                     </div>
                 </Link>
-                <Link>
+                <Link to="/jobs">
                     <div className="p-2 hover:bg-slate-200 rounded-xl ">
                         <p className=" text-2xl ml-1 "> <FaBriefcase></FaBriefcase></p>
                         <p>Jobs</p>
+                    </div>
+                </Link>
+                <Link to="/jobpost">
+                    <div className="p-2 hover:bg-slate-200 rounded-xl ">
+                        <p className=" text-2xl ml-1 "> <MdPostAdd></MdPostAdd></p>
+                        <p className="">Post job</p>
                     </div>
                 </Link>
                 
@@ -35,12 +44,14 @@ const Profile = () => {
 
             <div className="bg-white  border-[0.5px] border-slate-300 p-6">
                 <div className="  bg-white p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50">
-                    <h3 className="flex justify-end text-xl mb-2"><FaPenToSquare></FaPenToSquare></h3>
+                    <Link to="/profileForm">
+                      <h3 className="flex justify-end text-xl mb-2"><FaPenToSquare></FaPenToSquare></h3>
+                    </Link>
 
                     <div className="md:flex  gap-8">
                         <div className=" avatar">
                             <div className="w-48 rounded-md border-8 border-white ">
-                                <img src="https://i.ibb.co/y8GQdMy/istockphoto-1413766112-612x612.jpg" />
+                                <img src={user?.photoURL} />
 
                             </div>
 
@@ -54,7 +65,7 @@ const Profile = () => {
                                 <h3 className="text-slate-600 font-semibold">Frontend developer</h3>
                                 <h3 className="text-slate-600 font-semibold">Dhaka, Bangladesh</h3>
                             </div>
-                            <h3 className=" text-slate-600 text-lg font-normal">I am a mern stack developer but my main focus is on frontend.  dolor sit, amet consectetur adipisicing elit. Laboriosam veniam sequi molestiae repellat mollitia temporibus quasi adipisci dignissimos ratione velit.</h3>
+                            <h3 className=" text-slate-600 text-lg font-normal">I am a MERN-Stack developer but my main focus is on frontend.</h3>
                               <div className="flex gap-4 mt-4">
                               <h3 className=" text-xl "><FaLinkedin></FaLinkedin></h3>
                               <h3 className=" text-xl "><FaFacebook></FaFacebook></h3>

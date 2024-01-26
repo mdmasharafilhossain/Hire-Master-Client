@@ -723,7 +723,7 @@
     "benefits": [
       "Competitive salary package",
     "Health and dental insurance",
-    "600(k) or pension plan",
+     "600(k) or pension plan",
     "Flexible work hours or remote work options",
     "Professional development opportunities",
     "Paid time off and vacation days",
@@ -741,6 +741,89 @@
       "Effective risk management and problem-solving abilities",
       "Excellent communication and stakeholder management skills"
     ]
+  },
+  {
+    
+      "job_title": "Data Scientist",
+      "company_name": "Tech Innovators Inc.",
+      "company_logo": "https://i.ibb.co/VpCcZgD/c1.jpg",
+      "job_role": "Machine Learning Engineer",
+      "salary": 9000,
+      "job_time": "Full-time",
+      "skills": ["Python", "TensorFlow", "Scikit-Learn", "SQL", "Data Visualization"],
+      "job_description": "Join our innovative team as a Machine Learning Engineer. You'll work on cutting-edge projects, applying machine learning algorithms to solve complex problems and contribute to the advancement of artificial intelligence.",
+      "hiring_manager_name": "Christopher Brown",
+      "hiring_manager_photo": "https://i.ibb.co/kGg3Bk9/3.jpg",
+      "hiring_manager_email": "techinnovators@gmail.com",
+      "responsibilities": ["Develop and implement machine learning models for various applications.", "Collaborate with data scientists and engineers to deploy and maintain models in production.", "Analyze large datasets to extract meaningful insights.", "Stay up-to-date with the latest advancements in machine learning and artificial intelligence.", "Contribute to the documentation of models and algorithms."],
+      "benefits": ["401(k) matching", "Remote work options", "Health and wellness programs"],
+      "qualification": ["Master's degree in Computer Science or related field", "Experience with deep learning frameworks like PyTorch or Keras.", "Strong understanding of statistical modeling and data analysis techniques.", "Excellent communication and collaboration skills.", "Proven ability to work on interdisciplinary projects."],
+      "job_posting_date": "2024-01-22",
+      "user_email": "chris@gmail.com",
+      "job_location": "New York, NY"
+    
+    
+  },
+  {
+    "job_title": "UX/UI Designer",
+    "company_name": "Creative Solutions Agency",
+    "company_logo": "https://i.ibb.co/4Tzjpws/c2.jpg",
+    "job_role": "Senior UX/UI Designer",
+    "salary": 8500,
+    "job_time": "Full-time",
+    "skills": ["Adobe XD", "Sketch", "Figma", "User Research", "Interaction Design"],
+    "job_description": "We are looking for a Senior UX/UI Designer to lead the design efforts of our digital products. If you have a passion for creating intuitive and visually appealing user experiences, join our team and contribute to the success of our client projects.",
+    "hiring_manager_name": "Emily Rodriguez",
+    "hiring_manager_photo": "https://i.ibb.co/KwC15D9/2.jpg",
+    "hiring_manager_email": "creativesolutions@gmail.com",
+    "responsibilities": ["Lead the design of user interfaces for web and mobile applications.", "Collaborate with product managers and developers to define and implement design goals.", "Conduct user research and usability testing to inform design decisions.", "Create wireframes, prototypes, and visual designs for digital products.", "Stay updated on industry trends and best practices in UX/UI design."],
+    "benefits": ["Flexible work hours", "Remote work options", "Professional development budget"],
+    "qualification": ["Bachelor's degree in Design or related field", "Proven experience as a UX/UI Designer with a strong portfolio.", "Expertise in design tools such as Adobe Creative Suite or Sketch.", "Strong understanding of user-centered design principles.", "Excellent communication and presentation skills."],
+    "job_posting_date": "2024-01-23",
+    "user_email": "emily@gmail.com",
+    "job_location": "Los Angeles, CA"
+  },
+  {
+    "job_title": "Network Engineer",
+    "company_name": "Tech Solutions Group",
+    "company_logo": "https://i.ibb.co/7pWkrdB/c3.jpg",
+    "job_role": "Cisco Certified Network Professional",
+    "salary": 7500,
+    "job_time": "Full-time",
+    "skills": ["Cisco Routing and Switching", "Network Security", "TCP/IP", "Wireless Networking", "Troubleshooting"],
+    "job_description": "Tech Solutions Group is hiring a Network Engineer with expertise in Cisco technologies. Join our team to design, implement, and manage secure and efficient network infrastructures for our clients.",
+    "hiring_manager_name": "Michael Turner",
+    "hiring_manager_photo": "https://i.ibb.co/P57wnjh/4.jpg",
+    "hiring_manager_email": "techsolutions@gmail.com",
+    "responsibilities": ["Design and implement scalable network solutions.", "Configure and maintain network hardware and software.", "Troubleshoot and resolve network issues in a timely manner.", "Collaborate with IT teams to ensure the security and reliability of the network infrastructure.", "Stay current with advancements in networking technologies."],
+    "benefits": ["Health and dental insurance", "401(k) matching", "Training and certification programs"],
+    "qualification": ["Bachelor's degree in Information Technology or related field", "CCNP certification or equivalent experience.", "Proven experience in designing and managing enterprise-level networks.", "Knowledge of network monitoring and troubleshooting tools.", "Excellent problem-solving and communication skills."],
+    "job_posting_date": "2024-01-24",
+    "user_email": "michael@gmail.com",
+    "job_location": "Chicago, IL"
+  },
+  {
+    "job_title": "Marketing Specialist",
+    "company_name": "Global Marketing Solutions",
+    "company_logo": "https://i.ibb.co/cv3z381/c4.jpg",
+    "job_role": "Digital Marketing Manager",
+    "salary": 8200,
+    "job_time": "Full-time",
+    "skills": ["Social Media Marketing", "SEO", "Content Creation", "Analytics", "Email Marketing"],
+    "job_description": "Global Marketing Solutions is looking for a talented Digital Marketing Manager to lead our online marketing efforts. Join our team and play a key role in developing and executing digital marketing strategies for our clients.",
+    "hiring_manager_name": "David Thompson",
+    "hiring_manager_photo": "https://i.ibb.co/XbTg05Q/1.webp",
+    "hiring_manager_email": "globalmarketing@gmail.com",
+    "responsibilities": ["Develop and implement digital marketing strategies.", "Manage and optimize online advertising campaigns.", "Create and curate engaging content for social media platforms.", "Analyze and report on the performance of marketing campaigns.", "Stay informed about industry trends and emerging digital marketing technologies."],
+    "benefits": ["Flexible work schedule", "Health and wellness programs", "Performance-based bonuses"],
+    "qualification": ["Bachelor's degree in Marketing or related field", "Proven experience as a Digital Marketing Manager.", "Strong understanding of digital marketing channels and tools.", "Analytical mindset with the ability to interpret data and trends.", "Excellent communication and creative skills."],
+    "job_posting_date": "2024-01-25",
+    "user_email": "david@gmail.com",
+    "job_location": "Miami, FL"
   }
+  
+  
+  
+
   
 ]
