@@ -10,6 +10,7 @@ import ManagerLogin from "../../Pages/Signup2/ManagerLogin";
 import Jobs from "../../Pages/Jobs/Jobs";
 import JobPost from "../../Pages/JobPost/JobPost";
 import ContactUs from "../../Pages/ContactUs/ContactUs";
+import JobDetails from "../../Pages/JobDetails/JobDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,8 +22,12 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "jobs",
+        path: "/jobs",
         element: <Jobs></Jobs>,
+      },
+      {
+        path: "/jobDetails/:id",
+        element: <JobDetails/>,
       },
       {
         path: "/jobpost",
@@ -59,6 +64,7 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login></Login>,
   },
+ 
 ]);
 
 export default router;
