@@ -40,14 +40,15 @@ const Navbar = () => {
           </div>
           <hr className="my-10" />
           <DrawerBody>
-            <div className="flex flex-col font-medium text-2xl space-y-4">
-              <Link to="/">Home</Link>
-              <Link to="/about">About</Link>
-              <Link to="/jobs">Jobs</Link>
-              <Link to="/contacts">Contact</Link>
-              <Link to="/signup2">Register</Link>
-              <button className="flex px-5 py-2 items-center space-x-1 font-semibold text-lg bg-[#FF3811] text-white rounded-lg">
-                <p className="">Post a Job</p>
+            <div className='flex flex-col font-medium text-2xl space-y-4'>
+              <Link to='/'>Home</Link>
+              <Link to='/profile'>Profile</Link>
+              <Link to='/about'>About</Link>
+              <Link to='/jobs'>Jobs</Link>
+              <Link to='/contacts'>Contact</Link>
+              <Link to='/signup2'>Register</Link>
+              <button className='flex px-5 py-2 items-center space-x-1 font-semibold text-lg bg-[#FF3811] text-white rounded-lg'>
+                <p className=''>Post a Job</p>
                 <MdPostAdd size={30} />
               </button>
             </div>
@@ -65,6 +66,7 @@ const Navbar = () => {
       <div className="flex-none">
         <div className="hidden md:flex  items-center space-x-4 mr-4 font-medium text-lg menu menu-horizontal px-1">
           <Link>Home</Link>
+          <Link to='/profile'>Profile</Link>
           <Link to='/about'>About</Link>
           <Link to='/jobs'>Jobs</Link>
           <Link to='/contacts'>Contact</Link>
