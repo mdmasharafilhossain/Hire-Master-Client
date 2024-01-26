@@ -71,9 +71,6 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login></Login>,
   },
-<<<<<<< HEAD
- 
-=======
   {
     path:"profile",
     element:<Profile></Profile>
@@ -82,7 +79,6 @@ const router = createBrowserRouter([
     path:"/profileForm",
     element:<UserProfileForm></UserProfileForm>
   }
->>>>>>> 3af0fa65c898181ad5bef1c21486060c6ec11160
 ]);
 
 export default router;
