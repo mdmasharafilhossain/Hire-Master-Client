@@ -7,9 +7,29 @@ import {
   Tabs,
 } from "@chakra-ui/react";
 import SingleJobList from "./SingleJobList";
-import companyLogo1 from "../../assets/company-logo1.jpg";
+import { Link } from "react-router-dom";
+import useFetchData from "../Hooks/UseFetchData/useFetchData";
 
 const JobList = () => {
+  const { data: jobs, loading, error } = useFetchData("/staticjobpost");
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error fetching data: {error.message}</p>;
+  }
+
+  const remotes = jobs.filter((job) => job.job_time === "Remote").slice(0, 2);
+  const fullTimes = jobs
+    .filter((job) => job.job_time === "Full-time")
+    .slice(0, 2);
+  const partTime = jobs
+    .filter((job) => job.job_time === "Part-time")
+    .slice(0, 2);
+  const intern = jobs.filter((job) => job.job_time === "On-site").slice(0, 2);
+
   return (
     <div className="flex flex-col items-center mt-20 ">
       <h1 className="text-5xl font-bold">Job Listing</h1>
@@ -17,7 +37,7 @@ const JobList = () => {
       <div className="mt-16 w-full md:w-[70%] ">
         <Tabs align="center" variant="unstyled">
           <TabList>
-            <Tab>Featured</Tab>
+            <Tab>Remote</Tab>
             <Tab>Full Time</Tab>
             <Tab>Part Time</Tab>
             <Tab>Internship</Tab>
@@ -31,56 +51,39 @@ const JobList = () => {
           <TabPanels>
             <TabPanel>
               {/* -------------Individual Job Card----------------- */}
-              <SingleJobList
-                companyLogo={companyLogo1}
-                jobName={"Software Engineer"}
-                location={"San Francisco"}
-                time={"Full Time"}
-                salary={"$95,000 - $120,000"}
-                deadline={"15 Feb 2024"}
-              />
+              {remotes.map((job) => (
+                <SingleJobList key={job._id} job={job} />
+              ))}
             </TabPanel>
             <TabPanel>
               {/* -------------Individual Job Card----------------- */}
-              <SingleJobList
-                companyLogo={companyLogo1}
-                jobName={"Backend Engineer"}
-                location={"China"}
-                time={"Full Time"}
-                salary={"$95,000 - $100,000"}
-                deadline={"15 March 2024"}
-              />
+              {fullTimes.map((job) => (
+                <SingleJobList key={job._id} job={job} />
+              ))}
             </TabPanel>
             <TabPanel>
               {/* -------------Individual Job Card----------------- */}
-              <SingleJobList
-                companyLogo={companyLogo1}
-                jobName={"Technical SEO"}
-                location={"Bangladesh"}
-                time={"Part Time"}
-                salary={"$35,000 - $40,000"}
-                deadline={"15 March 2024"}
-              />
+              {partTime.map((job) => (
+                <SingleJobList key={job._id} job={job} />
+              ))}
             </TabPanel>
             <TabPanel>
               {/* -------------Individual Job Card----------------- */}
-              <SingleJobList
-                companyLogo={companyLogo1}
-                jobName={"Web Developer Intern"}
-                location={"Bangladesh"}
-                time={"Internship"}
-                salary={"$25,000 - $30,000"}
-                deadline={"15 March 2024"}
-              />
+              {intern.map((job) => (
+                <SingleJobList key={job._id} job={job} />
+              ))}
             </TabPanel>
           </TabPanels>
         </Tabs>
       </div>
 
       <div className="w-full flex justify-center">
-        <button className="btn bg-[#FF3811] text-white w-[20%] mx-auto">
-          Brows More Jobs
-        </button>
+        <Link
+          to="/jobs"
+          className="btn bg-[#FF3811] text-white w-[20%] mx-auto"
+        >
+          <button>Brows More Jobs</button>
+        </Link>
       </div>
     </div>
   );
