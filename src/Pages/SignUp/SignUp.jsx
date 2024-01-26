@@ -27,11 +27,10 @@ const SignUp = () => {
     createUser(email, password)
       .then(result => {
         console.log(result);
-        navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location.state : "/profileForm");
         return swal("Success!", "Registration Successful", "success");
       })
       .catch(error => console.log(error));
-    return swal("Error!", "Already User", "error");
   };
 
   return (
