@@ -8,8 +8,8 @@ import Navbar from "../../Comonents/Navbar/Navbar";
 const Home = () => {
   return (
     <div>
-      <Navbar/>
-      <Banner></Banner>  
+      <Navbar></Navbar> 
+      <Banner></Banner> 
       <JobList />
       <Testimonials />
       <ExploreByCategory></ExploreByCategory>
