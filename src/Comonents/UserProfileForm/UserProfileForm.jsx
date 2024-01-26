@@ -8,7 +8,7 @@ import { BsPersonSquare } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 // image added key from imgbb
-const Image_Hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const Image_Hosting_key = "23272cf172fd85ad9006a154ec724204";
 const Profile_Hosting = `https://api.imgbb.com/1/upload?key=${Image_Hosting_key}`;
 
 
