@@ -38,7 +38,7 @@ const JobDetails = () => {
 
   return (
     // ----Main div
-    <div className="grid grid-cols-12 max-w-screen-xl mx-auto px-4 py-10">
+    <div className="md:grid grid-cols-12 max-w-screen-xl mx-auto px-4 py-10">
       {/* Left div */}
       <div className=" col-span-8">
         {/* heading div */}
@@ -49,7 +49,7 @@ const JobDetails = () => {
               {job_role && <span className="text-xl">({job_role})</span>}
             </h1>
           </div>
-          <div className="flex items-center gap-5 my-5 text-md font-medium">
+          <div className="md:flex items-center gap-5 my-5 text-md font-medium">
             <div className="flex items-center gap-2">
               <span>
                 <LiaIndustrySolid />
@@ -125,7 +125,7 @@ const JobDetails = () => {
           </div>
         </div>
         {/* Apply button */}
-        <div>
+        <div className="md:block hidden">
           <button className="btn bg-[#ff6445] text-white mx-auto w-1/2 font-semibold text-lg">
             Apply For this Job
           </button>
@@ -135,9 +135,14 @@ const JobDetails = () => {
       <div className=" col-span-4 flex justify-center">
         {/* Apply btn div */}
         <div className="w-4/5 flex flex-col">
-          <button className="btn bg-[#ff6445] text-white mx-auto w-full font-semibold text-lg">
+          <button className="btn bg-[#ff6445] text-white mx-auto w-full font-semibold text-lg sm:hidden md:blockP">
             Apply For this Job
           </button>
+          <div className="md:hidden fixed bottom-0 left-0 right-0">
+            <button className="btn bg-[#ff6445] text-white mx-auto w-full font-semibold text-lg">
+              Apply For this Job
+            </button>
+          </div>
           <div className="bg-gray-100 mt-10 rounded-md p-5">
             <h1 className="text-xl font-bold text-center mb-5 text-orange-500">
               Hiring Manager
