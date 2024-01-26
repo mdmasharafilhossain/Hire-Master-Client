@@ -15,6 +15,7 @@ const Login = () => {
     googleSignIn().then(result => {
       console.log(result);
       navigate(from, { replace: true });
+      return swal("Success!", "Login Successful", "success");
     });
   };
   const handleLogin = e => {
@@ -31,7 +32,7 @@ const Login = () => {
         }
       })
       .catch(error => console.log(error));
-    return swal("Error!", "Already User", "error");
+  
   };
 
   return (
