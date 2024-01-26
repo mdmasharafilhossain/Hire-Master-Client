@@ -1,3 +1,6 @@
+import world from '../../../assets/world-animation.json'
+import Lottie from 'lottie-react';
+
 const Banner = () => {
   return (
     <div className=' mb-12 '>
@@ -25,8 +28,12 @@ const Banner = () => {
             </button>
           </div>
 
-          <div className='border-l border-[#FF3811] h-full'></div>
+          {/* <div className='border  text-white h-full'></div> */}
         </div>
+
+          <div className=' lg:-mt-[450px] lg:h-20 lg:absolute lg:ml-[650px]'>
+            <Lottie className='hidden md:hidden lg:block lg:w-96 '  animationData={world}></Lottie>
+          </div>
       </div>
     </div>
   );
