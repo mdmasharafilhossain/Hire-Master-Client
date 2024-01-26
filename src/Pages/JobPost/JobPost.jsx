@@ -27,7 +27,7 @@ const JobPost = () => {
     //   const user_email = data.email;
     //   const job_location = data.location;
 
-
+    
       const formData = {
         job_title: data.name,
         company_name: data.companyname,
