@@ -36,6 +36,11 @@ const ContactUs = () => {
   };
   return (
     <div className='my-10 md:my-20 px-3'>
+      <div className='container mx-auto'>
+        <Link to='/'>
+          <button className='btn btn-outline btn-sm mt-2'>Back</button>
+        </Link>
+      </div>
       <div className='container md:flex mx-auto items-center justify-center text-center space-y-5 md:space-x-5'>
         <div className='md:w-1/2 space-y-5'>
           <h2 className='text-xl md:text-2xl lg:text-5xl font-bold'>
@@ -80,12 +85,10 @@ const ContactUs = () => {
       </div>
       <div className='container mx-auto flex flex-col md:flex-row items-center my-10 md:my-20 gap-y-10 md:gap-x-10'>
         <div className='w-full md:w-1/2'>
-          <div className='space-y-3 mb-6'>
-            <h2 className='text-xl md:text-4xl text-center font-semibold'>
-              Get in touch
-            </h2>
-            <p className='text-center text-lg'>Lets talk!</p>
-          </div>
+          <h2 className='text-xl md:text-4xl text-center font-semibold mb-6'>
+            Get in touch
+          </h2>
+
           <form
             onSubmit={sendEmail}
             ref={form}

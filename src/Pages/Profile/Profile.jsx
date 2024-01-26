@@ -57,19 +57,27 @@ const Profile = () => {
 
                         </div>
                         <div className="">
-                            <div className="flex justify-between ">
-                                <h2 className="text-xl font-bold">Abu Rayhan</h2>
-                                <h3 className="text-slate-600 font-semibold">National college, Dhaka</h3>
+                            <div className="flex justify-between items-center">
+                                <h2 className="text-xl font-bold">MD Mashrafil Hossain Mahi</h2>
+                                <h3 className="text-slate-600 font-semibold">Green Univeristy</h3>
                             </div>
                             <div className="md:flex justify-between mb-2">
                                 <h3 className="text-slate-600 font-semibold">Frontend developer</h3>
                                 <h3 className="text-slate-600 font-semibold">Dhaka, Bangladesh</h3>
                             </div>
-                            <h3 className=" text-slate-600 text-lg font-normal">I am a MERN-Stack developer but my main focus is on frontend.</h3>
+                            <h3 className=" text-slate-600 text-lg font-normal">I am Mshrafil Hossain Mahi.I am a MERN-Stack developer but my main focus is on Frontend.</h3>
                               <div className="flex gap-4 mt-4">
-                              <h3 className=" text-xl "><FaLinkedin></FaLinkedin></h3>
-                              <h3 className=" text-xl "><FaFacebook></FaFacebook></h3>
-                              <h3 className=" text-xl "><FaGithub></FaGithub></h3>
+                              <Link to="https://www.linkedin.com/in/mdmashrafilhossain22">
+                                <h3 className=" text-xl "><FaLinkedin></FaLinkedin></h3>
+                              </Link>
+                              <Link to="https://www.facebook.com/mdmashrafil.hossain.hima.2212">
+                                 <h3 className=" text-xl "><FaFacebook></FaFacebook></h3>
+                              </Link>
+                              <Link to="https://github.com/mdmasharafilhossain">
+                                 <h3 className=" text-xl "><FaGithub></FaGithub></h3>
+                              </Link>
+                             
+                              
                               </div>
                         </div>
                     </div>
@@ -86,7 +94,7 @@ const Profile = () => {
                         <p className="text-2xl"><PiBookBookmarkFill></PiBookBookmarkFill></p>
                     </div>
                     <div className="ml-4">
-                        <h3 className="text-slate-600 font-semibold">National College, Dhaka</h3>
+                        <h3 className="text-slate-600 font-semibold">Green Univeristy</h3>
                         <h3 className="text-slate-600 font-semibold">Bachelor, CSE</h3>
                         <h3 className="text-slate-600 font-semibold">Jan 2020 - Jan 2024 </h3>
                     </div>
