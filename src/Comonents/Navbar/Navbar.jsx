@@ -42,6 +42,7 @@ const Navbar = () => {
           <DrawerBody>
             <div className='flex flex-col font-medium text-2xl space-y-4'>
               <Link to='/'>Home</Link>
+              <Link to='/profile'>Profile</Link>
               <Link to='/about'>About</Link>
               <Link to='/jobs'>Jobs</Link>
               <Link to='/contacts'>Contact</Link>
@@ -65,6 +66,7 @@ const Navbar = () => {
       <div className='flex-none'>
         <div className='hidden md:flex  items-center space-x-4 mr-4 font-medium text-lg menu menu-horizontal px-1'>
           <Link>Home</Link>
+          <Link to='/profile'>Profile</Link>
           <Link to='/about'>About</Link>
           <Link to='/jobs'>Jobs</Link>
           <Link to='/contacts'>Contact</Link>

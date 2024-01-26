@@ -11,6 +11,8 @@ import Jobs from "../../Pages/Jobs/Jobs";
 import JobPost from "../../Pages/JobPost/JobPost";
 import ContactUs from "../../Pages/ContactUs/ContactUs";
 import About from "../../Pages/About/About";
+import Profile from "../../Pages/Profile/Profile";
+import UserProfileForm from "../UserProfileForm/UserProfileForm";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -64,6 +66,14 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login></Login>,
   },
+  {
+    path:"profile",
+    element:<Profile></Profile>
+  },
+  {
+    path:"/profileForm",
+    element:<UserProfileForm></UserProfileForm>
+  }
 ]);
 
 export default router;
