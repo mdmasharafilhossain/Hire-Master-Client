@@ -317,6 +317,93 @@ const UserProfileForm = () => {
                          </div>
                          
                          <hr className="text-bold mt-20 bg-orange-600" />
+                          {/* Projects Main div 3*/}
+                          <div className="flex gap-[350px] mt-30  mb-10">
+                              {/* Text div */}
+                           <div className="mt-10">
+                           <p className="text-xl font-bold mr-20">Projects</p>
+                            <p className="text-sm ml-4">Tell us about your projects?</p>
+                           </div>
+                           {/* form div */}
+                           <div className="flex-1 mb-5">
+                           <label className="form-control w-full ">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Project Name(1)</span>
+
+                                </div>
+                                <input
+                                    {...register("projectName")}
+                                    type="text"
+                                    placeholder="Your Project Name" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           <div className="flex gap-5">
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Starting Date</span>
+
+                                </div>
+                                <input
+                                    {...register("StartDate")}
+                                    type="date"
+                                    
+                                    placeholder="Your Linkedin Link" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Ending Date</span>
+
+                                </div>
+                                <input
+                                    {...register("EndDate")}
+                                    type="date"
+                                    
+                                    placeholder="Your Linkedin Link" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           </div>
+                           <label className="form-control mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">About Your Project</span>
+                                   
+                                </div>
+                                <textarea 
+                                {...register("AboutProject")}
+                                className="textarea textarea-bordered h-24" placeholder="Description of your project"></textarea>
+                                
+                            </label>
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Main Technology Used</span>
+
+                                </div>
+                                <input
+                                    {...register("TechnologyUsed")}
+                                    type="text"
+                                    placeholder="eg. React, Node.js ect.." required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Live Link</span>
+
+                                </div>
+                                <input
+                                    {...register("LiveLink")}
+                                    type="text"
+                                    placeholder="Live Link of Your Project" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                            
+                           </div>
+                         </div>
+                         <hr className="text-bold mt-20" />
                             <input className="btn w-full bg-orange-600 text-white" type="submit" />
                         </form>
                     </div>
