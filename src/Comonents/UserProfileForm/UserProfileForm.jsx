@@ -43,7 +43,23 @@ const UserProfileForm = () => {
                 Degree:data.degree,
                 GraduationDate:data.Graduation,
                 GPA:data.gpa,
-                Skill:data.skill
+                Skill:data.skill,
+                ProjectName:data.ProjectName,
+                StartDate:data.StartDate,
+                EndDate:data.EndDate,
+                ProjectDescription:data.AboutProject,
+                ProjectTechnologyUsed:data.TechnologyUsed,
+                ProjectLiveLink:data.LiveLink,
+                ProjectName2:data.ProjectName2,
+                StartDate2:data.StartDate2,
+                EndDate2:data.EndDate2,
+                ProjectDescription2:data.AboutProject2,
+                ProjectTechnologyUsed2:data.TechnologyUsed2,
+                ProjectLiveLink2:data.LiveLink2,
+
+
+
+
 
 
 
@@ -332,7 +348,7 @@ const UserProfileForm = () => {
 
                                 </div>
                                 <input
-                                    {...register("projectName")}
+                                    {...register("ProjectName")}
                                     type="text"
                                     placeholder="Your Project Name" required
                                     className="input input-bordered w-full" />
