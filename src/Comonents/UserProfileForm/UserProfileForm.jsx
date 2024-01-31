@@ -366,7 +366,7 @@ const UserProfileForm = () => {
 
                             </label>
                            </div>
-                           <label className="form-control mt-3">
+                            <label className="form-control mt-3">
                                 <div className="label">
                                     <span className="label-text text-lg font-bold">About Your Project</span>
                                    
