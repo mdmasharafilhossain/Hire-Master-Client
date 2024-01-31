@@ -416,6 +416,80 @@ const UserProfileForm = () => {
                                     className="input input-bordered w-full" />
 
                             </label>
+                           <label className="form-control w-full mt-14">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Project Name(2)</span>
+
+                                </div>
+                                <input
+                                    {...register("ProjectName2")}
+                                    type="text"
+                                    placeholder="Your Project Name" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           <div className="flex gap-5">
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Starting Date</span>
+
+                                </div>
+                                <input
+                                    {...register("StartDate2")}
+                                    type="date"
+                                    
+                                    placeholder="Your Linkedin Link" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Ending Date</span>
+
+                                </div>
+                                <input
+                                    {...register("EndDate2")}
+                                    type="date"
+                                    
+                                    placeholder="Your Linkedin Link" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           </div>
+                            <label className="form-control mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">About Your Project</span>
+                                   
+                                </div>
+                                <textarea 
+                                {...register("AboutProject2")}
+                                className="textarea textarea-bordered h-24" placeholder="Description of your project"></textarea>
+                                
+                            </label>
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Main Technology Used</span>
+
+                                </div>
+                                <input
+                                    {...register("TechnologyUsed2")}
+                                    type="text"
+                                    placeholder="eg. React, Node.js ect.." required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Live Link</span>
+
+                                </div>
+                                <input
+                                    {...register("LiveLink2")}
+                                    type="text"
+                                    placeholder="Live Link of Your Project" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
                             
                            </div>
                          </div>
