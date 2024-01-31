@@ -68,6 +68,9 @@ if(dataForm.data.insertedId){
     
     return (
         <div>
+            <div>
+                <h1 className=" font-serif font-bold text-center mt-10 text-3xl">Add Job </h1>
+            </div>
              <form onSubmit={handleSubmit(onSubmit)} >
                 <div className="form-control w-full my-6">
                     <label className="label">
