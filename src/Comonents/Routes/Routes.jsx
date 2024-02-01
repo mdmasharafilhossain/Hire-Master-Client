@@ -14,6 +14,7 @@ import About from "../../Pages/About/About";
 import JobDetails from "../../Pages/JobDetails/JobDetails";
 import Profile from "../../Pages/Profile/Profile";
 import UserProfileForm from "../UserProfileForm/UserProfileForm";
+import Appliedjobs from "../../Pages/Appliedjobs/Appliedjobs";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/jobpost",
         element: <JobPost></JobPost>,
+      },
+      {
+        path: "/appliedjobs",
+        element: <Appliedjobs></Appliedjobs>,
       },
       {
         path: "contacts",
