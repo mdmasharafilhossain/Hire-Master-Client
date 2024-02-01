@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const SingleJobList = ({ job }) => {
   return (
-    <div className='px-10 py-5 flex flex-col md:flex-row justify-between gap-2 border shadow-xl text-left my-7 '>
+    <div className='px-10 py-5 flex flex-col md:flex-row justify-between gap-2 border shadow-xl text-left'>
       {/* ----------Company logo------------ */}
       <figure className='flex items-center justify-center'>
         <img src={job.company_logo} alt='company logo' className='w-12' />
