@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { MdPostAdd } from "react-icons/md";
 import { useContext } from "react";
 import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
+import ProfileNav from "../../Comonents/ProfileNav/ProfileNav";
 
 
 const Profile = () => {
@@ -17,8 +18,10 @@ const Profile = () => {
    const {user} = useContext(AuthContext)
 
     return (
-        <div className="md:flex gap-10  max-w-xl mx-6   md:max-w-5xl md:mx-auto ">
-            <div className="flex md:flex-col ml-10 mt-10 mb-6  gap-2">
+        <div className="max-w-6xl mx-auto ">
+            <ProfileNav></ProfileNav>
+            <div className="md:flex ">
+            <div className="flex md:flex-col ml-2 mt-10 mb-2  gap-2">
                 <Link to="/">
                     <div className="p-2 hover:bg-slate-200 rounded-xl ">
                         <p className=" text-2xl ml-1 "> <IoHome></IoHome></p>
@@ -42,8 +45,8 @@ const Profile = () => {
             </div>
             {/* Profile section */}
 
-            <div className="bg-white  border-[0.5px] border-slate-300 p-6">
-                <div className="  bg-white p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50">
+            <div className="bg-white w-full rounded-md border-[0.5px] border-slate-300 p-6 ">
+                <div className="  bg-white p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50 hover:drop-shadow-lg">
                     <Link to="/profileForm">
                       <h3 className="flex justify-end text-xl mb-2"><FaPenToSquare></FaPenToSquare></h3>
                     </Link>
@@ -65,7 +68,7 @@ const Profile = () => {
                                 <h3 className="text-slate-600 font-semibold">Frontend developer</h3>
                                 <h3 className="text-slate-600 font-semibold">Dhaka, Bangladesh</h3>
                             </div>
-                            <h3 className=" text-slate-600 text-lg font-normal">I am Mshrafil Hossain Mahi.I am a MERN-Stack developer but my main focus is on Frontend.</h3>
+                            <h3 className="w-full text-slate-600 text-lg font-normal">I am Mshrafil Hossain Mahi.I am a MERN-Stack developer but my main focus is on Frontend. I can implement jwt for secure backend </h3>
                               <div className="flex gap-4 mt-4">
                               <Link to="https://www.linkedin.com/in/mdmashrafilhossain22">
                                 <h3 className=" text-xl "><FaLinkedin></FaLinkedin></h3>
@@ -84,7 +87,7 @@ const Profile = () => {
 
                 </div>
                 {/* Education section */}
-                <div className="mt-4 max-w-xl mx-6 border-[0.5px] border-slate-300  hover:bg-blue-50 md:max-w-5xl md:mx-auto  bg-white p-8 rounded-lg">
+                <div className="mt-4  border-[0.5px] border-slate-300  hover:bg-blue-50  hover:drop-shadow-lg  bg-white p-8 rounded-lg">
                     <div className="flex justify-end gap-4">
                         <p className="text-2xl mb-2"><RiAddBoxFill></RiAddBoxFill></p>
                         <p className="text-xl mb-2"><FaPenToSquare></FaPenToSquare></p>
@@ -102,7 +105,7 @@ const Profile = () => {
 
                 </div>
                 {/*Project section */}
-                <div className="mt-4 max-w-xl mx-6 border-[0.5px] border-slate-300 hover:bg-blue-50 md:max-w-5xl md:mx-auto  bg-white p-8 rounded-lg">
+                <div className="mt-4 container  border-[0.5px] border-slate-300 hover:bg-blue-50  hover:drop-shadow-lg  bg-white p-8 rounded-lg">
                     <div className="flex justify-end gap-4">
                         <p className="text-2xl mb-2"><RiAddBoxFill></RiAddBoxFill></p>
                         <p className="text-xl mb-2"><FaPenToSquare></FaPenToSquare></p>
@@ -125,7 +128,7 @@ const Profile = () => {
                     </div>
                 </div>
                 {/*Skills section  */}
-                <div className="mt-4 max-w-xl mx-6 border-[0.5px] border-slate-300 hover:bg-blue-50  md:max-w-5xl md:mx-auto  bg-white p-8 rounded-lg">
+                <div className="mt-4  border-[0.5px] border-slate-300 hover:bg-blue-50 hover:drop-shadow-lg  bg-white p-8 rounded-lg">
                     <div className="flex justify-end gap-4">
                         <p className="text-2xl mb-2"><RiAddBoxFill></RiAddBoxFill></p>
                         <p className="text-xl mb-2"><FaPenToSquare></FaPenToSquare></p>
@@ -148,7 +151,7 @@ const Profile = () => {
                 </div>
                 
                 {/*work experience section  */}
-                <div className="mt-4 max-w-xl mx-6 border-[0.5px] border-slate-300 hover:bg-blue-50 md:max-w-5xl md:mx-auto  bg-white p-8 rounded-lg">
+                <div className="mt-4  border-[0.5px] border-slate-300 hover:bg-blue-50 bg-white p-8 rounded-lg">
                     <div className="flex justify-end gap-4">
                         <p className="text-2xl mb-2"><RiAddBoxFill></RiAddBoxFill></p>
                         <p className="text-xl mb-2"><FaPenToSquare></FaPenToSquare></p>
@@ -166,6 +169,7 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     );
 };
