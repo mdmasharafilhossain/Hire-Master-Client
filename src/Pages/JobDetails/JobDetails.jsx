@@ -38,7 +38,7 @@ const JobDetails = () => {
 
   return (
     // ----Main div
-    <div className="md:grid grid-cols-12 max-w-screen-xl mx-auto px-4 py-10">
+    <div className="md:grid grid-cols-12 max-w-screen-xl mx-auto px-4 py-10 text-justify">
       {/* Left div */}
       <div className=" col-span-8">
         {/* heading div */}
@@ -135,7 +135,7 @@ const JobDetails = () => {
       <div className=" col-span-4 flex justify-center">
         {/* Apply btn div */}
         <div className="w-4/5 flex flex-col">
-          <button className="btn bg-[#ff6445] text-white mx-auto w-full font-semibold text-lg sm:hidden md:blockP">
+          <button className="btn bg-[#ff6445] text-white mx-auto w-full font-semibold text-lg sm:hidden md:block">
             Apply For this Job
           </button>
           <div className="md:hidden fixed bottom-0 left-0 right-0">
