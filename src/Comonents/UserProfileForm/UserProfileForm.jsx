@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { IoMdArrowBack } from "react-icons/io";
 import { BsPersonSquare } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import ProfileNav from "../ProfileNav/ProfileNav";
 
 // image added key from imgbb
 const Image_Hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -87,8 +88,10 @@ const UserProfileForm = () => {
 
     }
     return (
-        <div className="container mx-auto">
-            <div className="mt-32 border-2 border-orange-600 text-center p-14 " >
+        <div className="max-w-6xl mx-auto">
+            <ProfileNav></ProfileNav>
+            <div className="max-w-6xl mx-auto">
+            <div className="mt-2 rounded-md border-[0.5px] border-slate-300 text-center p-14 " >
                 <div className="mx-auto text-center  ">
                     <Link to="/profile">
                        <p className="text-2xl flex"><IoMdArrowBack></IoMdArrowBack> <BsPersonSquare></BsPersonSquare></p>
@@ -665,6 +668,7 @@ const UserProfileForm = () => {
                 
             </div>
 
+        </div>
         </div>
     );
 };
