@@ -1,11 +1,18 @@
-import SingleJobList from "../../Comonents/JobList/SingleJobList";
-import useFetchData from "../../Comonents/Hooks/UseFetchData/useFetchData";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import React from "react";
+import { Button } from "@chakra-ui/react";
+import SingleJobList from "../../Comonents/JobList/SingleJobList";
+import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
+import useFetchData from "../../Comonents/Hooks/UseFetchData/useFetchData";
 
 const Jobs = () => {
-  const [searchJob, setSearchJob] = React.useState("");
-  const [selectedJobTime, setSelectedJobTime] = React.useState("");
+  const axiosPublic = UseAxiosPublic();
+  const [filterJobs, setFilterJobs] = useState([]);
+  const [filterLoading, setFilterLoading] = useState(false);
+  const [filterParams, setFilterParams] = useState({
+    job_title: "",
+    job_time: "",
+  });
 
   const { data: jobs, loading, error } = useFetchData("/staticjobpost");
 
@@ -17,28 +24,34 @@ const Jobs = () => {
     return <p>Error fetching data: {error.message}</p>;
   }
 
-  const handleJobSearch = e => {
-    // setSearchJob(e.target.value);
-    setSearchJob(e.target.value.toLowerCase());
-  };
-  const handleJobTime = e => {
-    setSelectedJobTime(e.target.value);
+  const handleChange = (name, value) => {
+    setFilterParams(params => ({ ...params, [name]: value }));
   };
 
-  // const handleSearched = searchJob => job =>
-  //   // job.job_title.includes(searchJob);
-  //   job.job_title.toLowerCase().includes(searchJob)
-  // console.log(jobs);
-
-  const filterJobs = job => {
-    const matchesTitle = job.job_title.toLowerCase().includes(searchJob);
-    const matchesJobTime = selectedJobTime
-      ? job.job_time === selectedJobTime
-      : true;
-
-    return matchesTitle && matchesJobTime;
+  const handleClearFilters = () => {
+    setFilterParams({
+      job_title: "",
+      job_time: "",
+      job_location: "",
+    });
+    setFilterJobs([]);
   };
 
+  const handleSubmit = e => {
+    e.preventDefault();
+    setFilterLoading(true);
+    axiosPublic
+      .get("/staticjobpost", { params: filterParams })
+      .then(response => {
+        setFilterJobs(response.data);
+        setFilterLoading(false);
+      })
+      .catch(error => {
+        console.error("Error fetching filtered jobs:", error);
+        setFilterLoading(false);
+      });
+  };
+  console.log(filterJobs);
   return (
     <div className='mx-auto w-[90%] '>
       <div className='flex items-center justify-between  my-10 '>
@@ -49,25 +62,25 @@ const Jobs = () => {
           <button className='btn btn-outline btn-sm mt-2'>Back</button>
         </Link>
       </div>
-      <div className='flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mb-4'>
-        <input
-          type='search'
-          value={searchJob}
-          onChange={handleJobSearch}
-          placeholder='Search Job'
-          autoFocus
-          className='outline-none rounded-lg font-semibold text-xl focus:border-[#FF3811] border px-5 py-3 md:py-4 w-full'
-        />
+      <div className='flex justify-center'>
+        <form className='mx-auto flex flex-col w-full' onSubmit={handleSubmit}>
+          <div className='flex items-center w-full border'>
+            <input
+              type='text'
+              name='job_title'
+              placeholder='Job Title'
+              className='flex-1 outline-none px-4 py-2'
+              value={filterParams.job_title}
+              onChange={e => handleChange("job_title", e.target.value)}
+            />
+          </div>
 
-        <div
-          style={{
-            width: "200px",
-          }}
-        >
           <select
-            value={selectedJobTime}
-            onChange={handleJobTime}
-            className='outline-none rounded-lg font-semibold text-xl focus:border-[#FF3811] border px-5 py-3 md:py-4'
+            style={{ width: "200px" }}
+            value={filterParams.job_time}
+            name='job_time'
+            onChange={e => handleChange("job_time", e.target.value)}
+            className='outline-none border px-4 py-2'
           >
             <option value=''>Job Types</option>
             <option value='Intern'>Intern</option>
@@ -77,12 +90,29 @@ const Jobs = () => {
             <option value='On-site'>On-site</option>
             <option value='Hybrid'>Hybrid</option>
           </select>
-        </div>
+
+          <div className='mt-4 space-x-4'>
+            <Button type='submit' colorScheme='blue'>
+              Apply Filters
+            </Button>
+            <Button
+              type='button'
+              variant='outline'
+              onClick={handleClearFilters}
+            >
+              Clear Filters
+            </Button>
+          </div>
+        </form>
       </div>
 
-      {jobs.filter(filterJobs).map(job => (
-        <SingleJobList key={job._id} job={job} />
-      ))}
+      {filterLoading ? (
+        <p>Loading filtered jobs...</p>
+      ) : (
+        (filterJobs.length > 0 ? filterJobs : jobs).map(job => (
+          <SingleJobList key={job._id} job={job} />
+        ))
+      )}
     </div>
   );
 };

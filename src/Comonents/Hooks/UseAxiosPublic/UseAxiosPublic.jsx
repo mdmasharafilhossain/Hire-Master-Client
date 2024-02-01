@@ -10,7 +10,7 @@ const AxiosPublic = axios.create({
 })
 
 const UseAxiosPublic = () => {
-    return AxiosPublic;
+  return AxiosPublic;
 };
 
 export default UseAxiosPublic;
