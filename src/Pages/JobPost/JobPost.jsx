@@ -67,14 +67,16 @@ if(dataForm.data.insertedId){
     };
     
     return (
-        <div>
+        <div >
+           
+            <div className=" mx-auto h-100vh" style={{backgroundImage: 'url(https://i.ibb.co/1K0jfGK/arthur-mazi-Jmuv-Y9-Di9-BU-unsplash.jpg)'}}>
             <div>
-                <h1 className=" font-serif font-bold text-center mt-10 text-3xl">Add Job </h1>
+                <h1 className=" font-serif font-bold text-center p-10 text-3xl uppercase ">Add Job </h1>
             </div>
-             <form onSubmit={handleSubmit(onSubmit)} >
+            <form className="p-10" onSubmit={handleSubmit(onSubmit)} >
                 <div className="form-control w-full my-6">
                     <label className="label">
-                        <span className="label-text">Job Title*</span>
+                        <span className="label-text font-serif font-bold text-lg ">Job Title*</span>
                     </label>
                     <input
                         type="text"
@@ -86,7 +88,7 @@ if(dataForm.data.insertedId){
                 <div className="flex gap-6">
                     <div className="form-control w-full my-6">
                         <label className="label">
-                            <span className="label-text">Company Name*</span>
+                            <span className="label-text font-serif font-bold text-lg ">Company Name*</span>
                         </label>
                         <input
                         type="text"
@@ -98,7 +100,7 @@ if(dataForm.data.insertedId){
 
                     <div className="form-control w-full my-6">
                         <label className="label">
-                            <span className="label-text">Company Logo*</span>
+                            <span className="label-text font-serif font-bold text-lg ">Company Logo*</span>
                         </label>
                         <input
                             type="text"
@@ -111,7 +113,7 @@ if(dataForm.data.insertedId){
                 <div className="flex gap-6">
                     <div className="form-control w-full my-6">
                         <label className="label">
-                            <span className="label-text">Job Role*</span>
+                            <span className="label-text font-serif font-bold text-lg ">Job Role*</span>
                         </label>
                         <input
                         type="text"
@@ -123,7 +125,7 @@ if(dataForm.data.insertedId){
 
                     <div className="form-control w-full my-6">
                         <label className="label">
-                            <span className="label-text">Salary*</span>
+                            <span className="label-text font-serif font-bold text-lg ">Salary*</span>
                         </label>
                         <input
                             type="text"
@@ -136,7 +138,7 @@ if(dataForm.data.insertedId){
                 <div className="flex gap-6">
                     <div className="form-control w-full my-6">
                         <label className="label">
-                            <span className="label-text">Job Time*</span>
+                            <span className="label-text font-serif font-bold text-lg ">Job Time*</span>
                         </label>
                         <input
                         type="text"
@@ -148,7 +150,7 @@ if(dataForm.data.insertedId){
 
                     <div className="form-control w-full my-6">
                         <label className="label">
-                            <span className="label-text">Skills*</span>
+                            <span className="label-text font-serif font-bold text-lg ">Skills*</span>
                         </label>
                         <input
                             type="text"
@@ -161,7 +163,7 @@ if(dataForm.data.insertedId){
                 <div className="flex gap-6">
                     <div className="form-control w-full my-6">
                         <label className="label">
-                            <span className="label-text">Job Description*</span>
+                            <span className="label-text font-serif font-bold text-lg ">Job Description*</span>
                         </label>
                         <input
                         type="text"
@@ -173,7 +175,7 @@ if(dataForm.data.insertedId){
 
                     <div className="form-control w-full my-6">
                         <label className="label">
-                            <span className="label-text">Hiring Manager Name*</span>
+                            <span className="label-text font-serif font-bold text-lg ">Hiring Manager Name*</span>
                         </label>
                         <input
                             type="text"
@@ -186,7 +188,7 @@ if(dataForm.data.insertedId){
                 <div className="flex gap-6">
                     <div className="form-control w-full my-6">
                         <label className="label">
-                            <span className="label-text">Hiring Manager Photo*</span>
+                            <span className="label-text font-serif font-bold text-lg ">Hiring Manager Photo*</span>
                         </label>
                         <input
                         type="text"
@@ -198,7 +200,7 @@ if(dataForm.data.insertedId){
 
                     <div className="form-control w-full my-6">
                         <label className="label">
-                            <span className="label-text">Hiring Manager Email*</span>
+                            <span className="label-text font-serif font-bold text-lg ">Hiring Manager Email*</span>
                         </label>
                         <input
                             type="text"
@@ -211,7 +213,7 @@ if(dataForm.data.insertedId){
                 <div className="flex gap-6">
                     <div className="form-control w-full my-6">
                         <label className="label">
-                            <span className="label-text">Responsiblities*</span>
+                            <span className="label-text font-serif font-bold text-lg ">Responsiblities*</span>
                         </label>
                         <input
                         type="text"
@@ -223,7 +225,7 @@ if(dataForm.data.insertedId){
 
                     <div className="form-control w-full my-6">
                         <label className="label">
-                            <span className="label-text">Benifits*</span>
+                            <span className="label-text font-serif font-bold text-lg ">Benifits*</span>
                         </label>
                         <input
                             type="text"
@@ -236,7 +238,7 @@ if(dataForm.data.insertedId){
                 <div className="flex gap-6">
                     <div className="form-control w-full my-6">
                         <label className="label">
-                            <span className="label-text">Qualification*</span>
+                            <span className="label-text font-serif font-bold text-lg ">Qualification*</span>
                         </label>
                         <input
                         type="text"
@@ -248,7 +250,7 @@ if(dataForm.data.insertedId){
 
                     <div className="form-control w-full my-6">
                         <label className="label">
-                            <span className="label-text">Job Posting Date*</span>
+                            <span className="label-text font-serif font-bold text-lg ">Job Posting Date*</span>
                         </label>
                         <input
                             type="date"
@@ -261,7 +263,7 @@ if(dataForm.data.insertedId){
                 <div className="flex gap-6">
                     <div className="form-control w-full my-6">
                         <label className="label">
-                            <span className="label-text">User Email*</span>
+                            <span className="label-text font-serif font-bold text-lg ">User Email*</span>
                         </label>
                         <input
                         type="email"
@@ -273,7 +275,7 @@ if(dataForm.data.insertedId){
 
                     <div className="form-control w-full my-6">
                         <label className="label">
-                            <span className="label-text">Job Location*</span>
+                            <span className="label-text font-serif font-bold text-lg ">Job Location*</span>
                         </label>
                         <input
                             type="text"
@@ -288,6 +290,9 @@ if(dataForm.data.insertedId){
                 </button>
                
             </form> 
+            </div>
+            
+           
         </div>
     );
 };
