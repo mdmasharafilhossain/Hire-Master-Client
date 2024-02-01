@@ -1,33 +1,28 @@
 import { useForm } from "react-hook-form";
 import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
 import Swal from "sweetalert2";
+import TagsInput from "react-tagsinput";
+import { useState } from "react";
 
 
 const JobPost = () => {
+   
+    const [selectedSkills, setselectedSkills] = useState([]);
+    
+const [selectedResponsibilities, setSelectedResponsibilities] = useState([]);
+
+const [selectedBenefits, setSelectedBenefits] = useState([]);
+
+const [selectedQualification, setSelectedQualification] = useState([]);
 
     const { register, handleSubmit ,reset} = useForm();
+
     const onSubmit = async (data) => {
       console.log(data);
     const axiosPublic=UseAxiosPublic()
-    //   const job_title = data.name;
-    //   const company_name = data.companyName;
-    //   const company_logo = data.logo;
-    //   const job_role = data.role;
-    //   const salary = data.salary;
-    //   const job_time = data.time;
-    //   const skills = data.skills;
-    //   const job_description = data.description;
-    //   const hiring_manager_name = data.managerName;
-    //   const hiring_manager_photo = data.managerPhoto;
-    //   const hiring_manager_email = data.managerEmail;
-    //   const responsibilities = data.responsibilities;
-    //   const benefits = data.benefits;
-    //   const qualification = data.qualification;
-    //   const job_posting_date = data.date;
-    //   const user_email = data.email;
-    //   const job_location = data.location;
+  
 
-    
+
       const formData = {
         job_title: data.name,
         company_name: data.companyname,
@@ -35,14 +30,14 @@ const JobPost = () => {
         job_role: data.role,
         salary: data.salary,
         job_time: data.time,
-        skills: data.skills,
+        skills: selectedSkills,
         job_description: data.description,
         hiring_manager_name: data.managername,
         hiring_manager_photo: data.managerphoto,
         hiring_manager_email:data.manageremail,
-        responsibilities: data.responsiblities,
-        benefits: data.benefits,
-        qualification: data.qualification,
+        responsibilities: selectedResponsibilities,
+        benefits: selectedBenefits,
+        qualification:selectedQualification,
         job_posting_date: data.date,
         user_email: data.email,
         job_location: data.location,
@@ -67,11 +62,10 @@ if(dataForm.data.insertedId){
     };
     
     return (
-        <div >
            
             <div className=" mx-auto h-100vh" style={{backgroundImage: 'url(https://i.ibb.co/1K0jfGK/arthur-mazi-Jmuv-Y9-Di9-BU-unsplash.jpg)'}}>
             <div>
-                <h1 className=" font-serif font-bold text-center p-10 text-3xl uppercase ">Add Job </h1>
+                <h1 className=" font-serif font-bold text-center p-12 text-3xl uppercase ">Add Job </h1>
             </div>
             <form className="p-10" onSubmit={handleSubmit(onSubmit)} >
                 <div className="form-control w-full my-6">
@@ -152,14 +146,26 @@ if(dataForm.data.insertedId){
                         <label className="label">
                             <span className="label-text font-serif font-bold text-lg ">Skills*</span>
                         </label>
-                        <input
-                            type="text"
-                            placeholder="Skills"
-                            {...register('skills', { required: true })}
-                            className="input input-bordered w-full" />
+                        <TagsInput
+          value={selectedSkills}
+          onChange={setselectedSkills}
+          placeHolder="Enter Skills"
+          className="input input-bordered w-full"
+        />
+        <em>press enter to add Skills</em>
+      </div>
+
+      <pre className="mb-2">
+        <input className="hidden"
+          type="text"
+          placeholder="Skills"
+          {...register('skills')}
+          value={selectedSkills.map((skill) => skill.text).join(', ')}
+          readOnly
+        />
+      </pre>
                     </div>
 
-                </div>
                 <div className="flex gap-6">
                     <div className="form-control w-full my-6">
                         <label className="label">
@@ -215,41 +221,80 @@ if(dataForm.data.insertedId){
                         <label className="label">
                             <span className="label-text font-serif font-bold text-lg ">Responsiblities*</span>
                         </label>
-                        <input
-                        type="text"
-                        placeholder="Responsiblities"
-                        {...register('responsiblities', { required: true })}
-                        required
-                        className="input input-bordered w-full" />
+                        <TagsInput
+          value={selectedResponsibilities}
+          onChange={setSelectedResponsibilities}
+          placeHolder="Enter Responsibilities"
+          className="input input-bordered w-full"
+        />
+        <em>press enter to add Responsibilities</em>
+      </div>
+<div>
+      <pre className="mb-2">
+        <input className="hidden"
+          type="text"
+          placeholder="Responsibilities"
+          {...register('responsibilities')}
+          value={selectedResponsibilities.map((responsibility) =>responsibility.text).join(', ')}
+          readOnly
+        />
+      </pre>
                     </div>
 
                     <div className="form-control w-full my-6">
-                        <label className="label">
+
+                    <label className="label">
                             <span className="label-text font-serif font-bold text-lg ">Benifits*</span>
                         </label>
-                        <input
-                            type="text"
-                            placeholder="Benifits"
-                            {...register('benefits', { required: true })}
-                            className="input input-bordered w-full" />
+                       <TagsInput
+          value={selectedBenefits}
+          onChange={setSelectedBenefits}
+          placeHolder="Enter Benefits"
+          className="input input-bordered w-full"
+        />
+        <em>press enter to add Benefits</em>
+
+      <pre className="mb-2">
+        <input className="hidden"
+          type="text"
+          placeholder="Benefits"
+          {...register('benefits')}
+          value={selectedBenefits.map((benefit) =>benefit.text).join(', ')}
+          readOnly
+        />
+      </pre>
+
+
+                      
                     </div>
 
                 </div>
                 <div className="flex gap-6">
                     <div className="form-control w-full my-6">
-                        <label className="label">
+                    <label className="label">
                             <span className="label-text font-serif font-bold text-lg ">Qualification*</span>
                         </label>
-                        <input
-                        type="text"
-                        placeholder="Qualification"
-                        {...register('qualification', { required: true })}
-                        required
-                        className="input input-bordered w-full" />
+                        <TagsInput
+          value={selectedQualification}
+          onChange={setSelectedQualification}
+          placeHolder="Enter Qualification"
+          className="input input-bordered w-full"
+        />
+        <em>press enter to add Qualification</em>
+      <pre className="mb-2">
+        <input className="hidden"
+          type="text"
+          placeholder="Qualification"
+          {...register('qualification')}
+          value={selectedQualification.map((qualification) =>qualification.text).join(', ')}
+          readOnly
+        />
+      </pre>
+                       
                     </div>
 
                     <div className="form-control w-full my-6">
-                        <label className="label">
+  <label className="label">
                             <span className="label-text font-serif font-bold text-lg ">Job Posting Date*</span>
                         </label>
                         <input
@@ -257,8 +302,12 @@ if(dataForm.data.insertedId){
                             placeholder="Job Posting Date"
                             {...register('date', { required: true })}
                             className="input input-bordered w-full" />
-                    </div>
 
+
+
+                       
+                    </div>
+                   
                 </div>
                 <div className="flex gap-6">
                     <div className="form-control w-full my-6">
@@ -274,7 +323,7 @@ if(dataForm.data.insertedId){
                     </div>
 
                     <div className="form-control w-full my-6">
-                        <label className="label">
+                         <label className="label">
                             <span className="label-text font-serif font-bold text-lg ">Job Location*</span>
                         </label>
                         <input
@@ -285,15 +334,16 @@ if(dataForm.data.insertedId){
                     </div>
 
                 </div>
-                <button className="btn btn-secondary btn-outline btn-block">
-                    Add Job
-                </button>
-               
+                <button className="bg-gray-500 btn-block hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
+                Add Job
+</button>
+             
+             
             </form> 
-            </div>
-            
-           
-        </div>
+         </div>
+       
+          
+        
     );
 };
 
