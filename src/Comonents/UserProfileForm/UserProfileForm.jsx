@@ -333,7 +333,7 @@ const UserProfileForm = () => {
                          </div>
                          
                          <hr className="text-bold mt-20 bg-orange-600" />
-                          {/* Projects Main div 3*/}
+                          {/* Projects Main div 5*/}
                           <div className="flex gap-[350px] mt-30  mb-10">
                               {/* Text div */}
                            <div className="mt-10">
@@ -490,6 +490,167 @@ const UserProfileForm = () => {
                                     className="input input-bordered w-full" />
 
                             </label>
+                            
+                           </div>
+                         </div>
+                         <hr className="text-bold mt-20" />
+                          {/* Experience Main div 6*/}
+                          <div className="flex gap-80 mt-30  mb-10">
+                              {/* Text div */}
+                           <div className="mt-10">
+                           <p className="text-xl font-bold mr-14">Experience</p>
+                            <p className="text-sm ml-7">Tell us about your Experience?</p>
+                           </div>
+                           {/* form div */}
+                           <div className="flex-1 mb-5">
+                           <label className="form-control w-full ">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Company Name</span>
+
+                                </div>
+                                <input
+                                    {...register("CompanyName")}
+                                    type="text"
+                                    placeholder="Where are you working now.." 
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           <div className="flex gap-5">
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Starting Date</span>
+
+                                </div>
+                                <input
+                                    {...register("StartDate3")}
+                                    type="date"
+                                    
+                                    placeholder="Your Linkedin Link" 
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Ending Date</span>
+
+                                </div>
+                                <input
+                                    {...register("EndDate3")}
+                                    type="date"
+                                    
+                                    placeholder="Your Linkedin Link" 
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           </div>
+                            {/* <label className="form-control mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">About Your Project</span>
+                                   
+                                </div>
+                                <textarea 
+                                {...register("AboutProject")}
+                                className="textarea textarea-bordered h-24" placeholder="Description of your project"></textarea>
+                                
+                            </label> */}
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Job Title</span>
+
+                                </div>
+                                <input
+                                    {...register("JobTitle")}
+                                    type="text"
+                                    placeholder="eg. Junior Web Developer, React Developer ect.." 
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Location</span>
+
+                                </div>
+                                <input
+                                    {...register("LiveLink")}
+                                    type="text"
+                                    placeholder="Location" 
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Job Type</span>
+
+                                </div>
+                                <input
+                                    {...register("JobType")}
+                                    type="text"
+                                    placeholder="eg. Full-Time , Remote ect..." 
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           {/* <div className="flex gap-5">
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Starting Date</span>
+
+                                </div>
+                                <input
+                                    {...register("StartDate2")}
+                                    type="date"
+                                    
+                                    placeholder="Your Linkedin Link" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Ending Date</span>
+
+                                </div>
+                                <input
+                                    {...register("EndDate2")}
+                                    type="date"
+                                    
+                                    placeholder="Your Linkedin Link" required
+                                    className="input input-bordered w-full" />
+
+                            </label>
+                           </div> */}
+                            {/* <label className="form-control mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">About Your Project</span>
+                                   
+                                </div>
+                                <textarea 
+                                {...register("AboutProject2")}
+                                className="textarea textarea-bordered h-24" placeholder="Description of your project"></textarea>
+                                
+                            </label> */}
+                           {/* <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Main Technology Used</span>
+
+                                </div>
+                                <input
+                                    {...register("TechnologyUsed2")}
+                                    type="text"
+                                    placeholder="eg. React, Node.js ect.." required
+                                    className="input input-bordered w-full" />
+
+                            </label> */}
+                           {/* <label className="form-control w-full mt-3">
+                                <div className="label">
+                                    <span className="label-text text-lg font-bold">Live Link</span>
+
+                                </div>
+                                <input
+                                    {...register("LiveLink2")}
+                                    type="text"
+                                    placeholder="Live Link of Your Project" required
+                                    className="input input-bordered w-full" />
+
+                            </label> */}
                             
                            </div>
                          </div>
