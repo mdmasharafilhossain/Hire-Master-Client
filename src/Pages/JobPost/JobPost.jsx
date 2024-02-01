@@ -67,7 +67,7 @@ const JobPost = () => {
     };
 
     return (
-        <div>
+        <div className="px-20">
             <form onSubmit={handleSubmit(onSubmit)} >
                 <div className="form-control w-full my-6">
                     <label className="label">
@@ -280,7 +280,7 @@ const JobPost = () => {
                     </div>
 
                 </div>
-                <button className="btn btn-secondary btn-outline btn-block">
+                <button className="btn bg-[#ff6445] btn-outline btn-block text-white font-bold text-xl">
                     Add Job
                 </button>
 
