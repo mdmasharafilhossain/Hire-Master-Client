@@ -9,7 +9,7 @@ const ManagerLogin = () => {
     const { signIn, googleSignIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
-    const from = location.state?.from?.pathname || "/";
+    const from = location.state?.from?.pathname || "/jobpost";
 
     // google sign in
     const handleGoogleSignIn = () => {
@@ -27,12 +27,12 @@ const ManagerLogin = () => {
         signIn(email, password)
             .then(result => {
                 if (result) {
-                    navigate(location?.state ? location.state : "/");
+                    navigate(location?.state ? location.state : "/jobpost");
                     return swal("Success!", "Login Successful", "success");
                 }
             })
             .catch(error => console.log(error));
-        return swal("Error!", "Already User", "error");
+        // return swal("Error!", "Already User", "error");
     };
 
     return (

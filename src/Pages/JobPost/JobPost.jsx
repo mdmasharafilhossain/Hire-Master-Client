@@ -58,9 +58,8 @@ if(dataForm.data.insertedId){
 }
 
 
-    
     };
-    
+
     return (
            
             <div className=" mx-auto h-100vh" style={{backgroundImage: 'url(https://i.ibb.co/1K0jfGK/arthur-mazi-Jmuv-Y9-Di9-BU-unsplash.jpg)'}}>
@@ -85,11 +84,11 @@ if(dataForm.data.insertedId){
                             <span className="label-text font-serif font-bold text-lg ">Company Name*</span>
                         </label>
                         <input
-                        type="text"
-                        placeholder="Company Name"
-                        {...register('companyname', { required: true })}
-                        required
-                        className="input input-bordered w-full" />
+                            type="text"
+                            placeholder="Company Name"
+                            {...register('companyname', { required: true })}
+                            required
+                            className="input input-bordered w-full" />
                     </div>
 
                     <div className="form-control w-full my-6">
@@ -110,11 +109,11 @@ if(dataForm.data.insertedId){
                             <span className="label-text font-serif font-bold text-lg ">Job Role*</span>
                         </label>
                         <input
-                        type="text"
-                        placeholder="Job Role"
-                        {...register('role', { required: true })}
-                        required
-                        className="input input-bordered w-full" />
+                            type="text"
+                            placeholder="Job Role"
+                            {...register('role', { required: true })}
+                            required
+                            className="input input-bordered w-full" />
                     </div>
 
                     <div className="form-control w-full my-6">
@@ -135,11 +134,11 @@ if(dataForm.data.insertedId){
                             <span className="label-text font-serif font-bold text-lg ">Job Time*</span>
                         </label>
                         <input
-                        type="text"
-                        placeholder="Job Time"
-                        {...register('time', { required: true })}
-                        required
-                        className="input input-bordered w-full" />
+                            type="text"
+                            placeholder="Job Time"
+                            {...register('time', { required: true })}
+                            required
+                            className="input input-bordered w-full" />
                     </div>
 
                     <div className="form-control w-full my-6">
@@ -172,11 +171,11 @@ if(dataForm.data.insertedId){
                             <span className="label-text font-serif font-bold text-lg ">Job Description*</span>
                         </label>
                         <input
-                        type="text"
-                        placeholder="Job Description"
-                        {...register('description', { required: true })}
-                        required
-                        className="input input-bordered w-full" />
+                            type="text"
+                            placeholder="Job Description"
+                            {...register('description', { required: true })}
+                            required
+                            className="input input-bordered w-full" />
                     </div>
 
                     <div className="form-control w-full my-6">
@@ -197,11 +196,11 @@ if(dataForm.data.insertedId){
                             <span className="label-text font-serif font-bold text-lg ">Hiring Manager Photo*</span>
                         </label>
                         <input
-                        type="text"
-                        placeholder="Hiring Manager Photo"
-                        {...register('managerphoto', { required: true })}
-                        required
-                        className="input input-bordered w-full" />
+                            type="text"
+                            placeholder="Hiring Manager Photo"
+                            {...register('managerphoto', { required: true })}
+                            required
+                            className="input input-bordered w-full" />
                     </div>
 
                     <div className="form-control w-full my-6">
@@ -315,11 +314,11 @@ if(dataForm.data.insertedId){
                             <span className="label-text font-serif font-bold text-lg ">User Email*</span>
                         </label>
                         <input
-                        type="email"
-                        placeholder="User Email"
-                        {...register('email', { required: true })}
-                        required
-                        className="input input-bordered w-full" />
+                            type="email"
+                            placeholder="User Email"
+                            {...register('email', { required: true })}
+                            required
+                            className="input input-bordered w-full" />
                     </div>
 
                     <div className="form-control w-full my-6">
