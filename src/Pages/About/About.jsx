@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const About = () => {
     return (
@@ -613,7 +613,7 @@ const About = () => {
                                 </span>
                                 <h2 className="mb-5 text-3xl font-bold text-dark text-[#FF3811] sm:text-[40px]/[48px]">
                                     Make our customers happy by giving services.
-                                </h2>
+                                </h2> 
                                 <p className="mb-5 text-base text-body-color dark:text-dark-6">
                                     HireMaster is a cutting-edge hiring platform designed to streamline the recruitment process. With its intuitive interface, employers can efficiently connect with top talent, while job seekers benefit from personalized job matches and a user-friendly application experience.
                                     <br></br> 
