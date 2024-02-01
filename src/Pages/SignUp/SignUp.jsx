@@ -13,7 +13,8 @@ const SignUp = () => {
   const handleGoogleSignIn = () => {
     googleSignIn().then(result => {
       console.log(result);
-      navigate(from, { replace: true });
+      navigate("/profileForm");
+      return swal("Success!", "Login Successful", "success");
     });
   };
 
@@ -27,11 +28,11 @@ const SignUp = () => {
     createUser(email, password)
       .then(result => {
         console.log(result);
-        navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location.state : "/profileForm");
         return swal("Success!", "Registration Successful", "success");
       })
       .catch(error => console.log(error));
-    return swal("Error!", "Already User", "error");
+    
   };
 
   return (

@@ -1,6 +1,4 @@
 import { FreeMode, Pagination } from "swiper/modules";
-
-import { MdRateReview } from "react-icons/md";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -16,7 +14,6 @@ const Testimonials = () => {
       try {
         const response = await fetch("/testimonials.json");
         const data = await response.json();
-        // console.log(data);
         setTestimonial(data);
       } catch (error) {
         console.log("Error fetching testimonials:", error);
@@ -24,11 +21,17 @@ const Testimonials = () => {
     };
     fetchReview();
   }, []);
+
   return (
-    <div className='container px-3 mx-auto my-10 md:my-20 space-y-5'>
-      <h2 className='text-2xl lg:text-5xl font-bold'>
-        Collaborative Experiences
-      </h2>
+    <div className='container px-4 mx-auto my-10 md:my-20'>
+      <div className='mb-10 md:mb-20 space-y-5'>
+        <h2 className='text-3xl lg:text-5xl font-bold text-center '>
+          Collaborative Experiences
+        </h2>
+        <p className='text-2xl md:text-3xl text-center font-medium'>
+          Insights from Job Applicants and Recruiting Agencies.
+        </p>
+      </div>
 
       <Swiper
         slidesPerView={1}
@@ -50,21 +53,24 @@ const Testimonials = () => {
       >
         {testimonial.map(review => (
           <SwiperSlide key={review.name}>
-            <div className='w-full h-[300px]  flex flex-col justify-center space-y-3'>
-              <MdRateReview color='#ff3811' size={35} />
-              <p className='text-lg italic'>{review.testimonial}</p>
-
-              <div className='flex gap-x-5 mt-5'>
+            <div className='w-full  h-[420px]'>
+              <div className='-mb-14'>
                 <img
-                  className='rounded-xl w-[84px] h-[84px]'
+                  className='rounded-tr-3xl w-24 h-[82px]'
                   src={review.image}
                   alt=''
                 />
-                <div>
-                  <h3 className='font-semibold text-lg'>{review.name}</h3>
-                  <p>{review.profession}</p>
-                  <p>{review.location}</p>
+              </div>
+              <div className='p-6 flex flex-col items-center space-y-5 justify-center h-[350px] rounded-2xl border hover:shadow-md'>
+                <div className='text-left  space-y-1'>
+                  <h3 className='font-semibold text-xl'>{review.name}</h3>
+                  <p className='text-gray-500'>{review.profession}</p>
+                  <p className='text-gray-500'>{review.location}</p>
                 </div>
+
+                <p className='text-lg text-center w-full'>
+                  {review.testimonial}
+                </p>
               </div>
             </div>
           </SwiperSlide>

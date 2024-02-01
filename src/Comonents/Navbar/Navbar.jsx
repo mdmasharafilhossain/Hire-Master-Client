@@ -17,17 +17,17 @@ const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
   return (
-    <div className='navbar absolute mt-[450px] bg-base-100 h-[10px]'>
+    <div className="navbar absolute mt-[450px] bg-base-100 h-[10px]">
       <Button
         ref={btnRef}
         display={{ base: "block", md: "none" }}
         onClick={onOpen}
       >
-        <MdOutlineDashboard className='text-[#FF3811] w-full' size={38} />
+        <MdOutlineDashboard className="text-[#FF3811] w-full" size={38} />
       </Button>
       <Drawer
         isOpen={isOpen}
-        placement='left'
+        placement="left"
         onClose={onClose}
         finalFocusRef={btnRef}
         size={"sm"}
@@ -35,13 +35,14 @@ const Navbar = () => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <div className='flex ml-5 mt-2'>
-            <img src={logo} className='w-28' alt='logo' />
+          <div className="flex ml-5 mt-2">
+            <img src={logo} className="w-28" alt="logo" />
           </div>
-          <hr className='my-10' />
+          <hr className="my-10" />
           <DrawerBody>
             <div className='flex flex-col font-medium text-2xl space-y-4'>
               <Link to='/'>Home</Link>
+              <Link to='/profile'>Profile</Link>
               <Link to='/about'>About</Link>
               <Link to='/jobs'>Jobs</Link>
               <Link to='/contacts'>Contact</Link>
@@ -54,28 +55,31 @@ const Navbar = () => {
           </DrawerBody>
         </DrawerContent>
       </Drawer>
-      <div className='flex-1'>
+      <div className="flex-1">
         <Link
-          to='/'
-          className='text-3xl md:text-4xl font-bold ml-1 text-[#FF3811]'
+          to="/"
+          className="text-3xl md:text-4xl font-bold ml-1 text-[#FF3811]"
         >
           HireMaster
         </Link>
       </div>
-      <div className='flex-none'>
-        <div className='hidden md:flex  items-center space-x-4 mr-4 font-medium text-lg menu menu-horizontal px-1'>
+      <div className="flex-none">
+        <div className="hidden md:flex  items-center space-x-4 mr-4 font-medium text-lg menu menu-horizontal px-1">
           <Link>Home</Link>
-          <Link>About</Link>
-          <Link>Jobs</Link>
+          <Link to='/profile'>Profile</Link>
+          <Link to='/about'>About</Link>
+          <Link to='/jobs'>Jobs</Link>
           <Link to='/contacts'>Contact</Link>
           <Link to='/signup2'>Register</Link>
         </div>
       </div>
-      <Link to="/jobpost"> <button className='hidden md:flex px-5 py-2 items-center space-x-1 font-semibold text-lg bg-[#FF3811] text-white rounded-lg'>
-        <p className=''>Post a Job</p>
-        <MdPostAdd size={30} />
-      </button></Link>
-     
+      <Link to="/jobpost">
+        {" "}
+        <button className="hidden md:flex px-5 py-2 items-center space-x-1 font-semibold text-lg bg-[#FF3811] text-white rounded-lg">
+          <p className="">Post a Job</p>
+          <MdPostAdd size={30} />
+        </button>
+      </Link>
     </div>
   );
 };
