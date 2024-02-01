@@ -56,8 +56,12 @@ const UserProfileForm = () => {
                 ProjectDescription2:data.AboutProject2,
                 ProjectTechnologyUsed2:data.TechnologyUsed2,
                 ProjectLiveLink2:data.LiveLink2,
-
-
+                CompanyName:data.CompanyName,
+                WorkingStartDate:data.StartDate3,
+                WorkingEndDate:data.EndDate3,
+                JobTitle:data.JobTitle,
+                Location:data.Location,
+                JobType:data.JobType
 
 
 
@@ -106,11 +110,11 @@ const UserProfileForm = () => {
                 <div>
                         <form className="container  mx-auto space-y-5" onSubmit={handleSubmit(onSubmit)}>
                           {/* About Main div 1*/}
-                         <div className="flex gap-96 mt-20 mb-10">
+                         <div className="flex lg:gap-[365px] mt-20 mb-10">
                               {/* Text div */}
                            <div className="mt-10">
-                           <p className="text-xl font-bold mr-10">About</p>
-                            <p className="text-sm ml-7">Tell us about Yourself</p>
+                           <p className="text-xl font-bold mr-5">About</p>
+                            <p className="text-sm ml-12">Tell us about Yourself</p>
                            </div>
                            {/* form div */}
                            <div className="flex-1">
@@ -307,11 +311,11 @@ const UserProfileForm = () => {
                          </div>
                          <hr className="text-bold mt-20" />
                           {/* Skills Main div 4*/}
-                         <div className="flex gap-[345px] mt-30  mb-10">
+                         <div className="flex lg:gap-[352px] mt-30  mb-10">
                               {/* Text div */}
                            <div className="mt-10">
-                           <p className="text-xl font-bold mr-12">Skills</p>
-                            <p className="text-sm ml-12">Share your  Skills with us</p>
+                           <p className="text-xl font-bold lg:mr-16">Skills</p>
+                            <p className="text-sm ml-9">Share your  Skills with us</p>
                            </div>
                            {/* form div */}
                            <div className="flex-1 mb-5">
@@ -334,11 +338,11 @@ const UserProfileForm = () => {
                          
                          <hr className="text-bold mt-20 bg-orange-600" />
                           {/* Projects Main div 5*/}
-                          <div className="flex gap-[350px] mt-30  mb-10">
+                          <div className="flex lg:gap-[330px] mt-30  mb-10">
                               {/* Text div */}
                            <div className="mt-10">
-                           <p className="text-xl font-bold mr-20">Projects</p>
-                            <p className="text-sm ml-4">Tell us about your projects?</p>
+                           <p className="text-xl font-bold mr-14">Projects</p>
+                            <p className="text-sm ml-9">Tell us about your projects?</p>
                            </div>
                            {/* form div */}
                            <div className="flex-1 mb-5">
@@ -495,7 +499,7 @@ const UserProfileForm = () => {
                          </div>
                          <hr className="text-bold mt-20" />
                           {/* Experience Main div 6*/}
-                          <div className="flex gap-80 mt-30  mb-10">
+                          <div className="flex lg:gap-80 mt-30  mb-10">
                               {/* Text div */}
                            <div className="mt-10">
                            <p className="text-xl font-bold mr-14">Experience</p>
@@ -571,7 +575,7 @@ const UserProfileForm = () => {
 
                                 </div>
                                 <input
-                                    {...register("LiveLink")}
+                                    {...register("Location")}
                                     type="text"
                                     placeholder="Location" 
                                     className="input input-bordered w-full" />
