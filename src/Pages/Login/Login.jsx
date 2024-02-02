@@ -1,11 +1,12 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import swal from "sweetalert";
 import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 
 const Login = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
+  const [invalidAuth, setInvalidAuth] = React.useState("");
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -31,8 +32,9 @@ const Login = () => {
           return swal("Success!", "Login Successful", "success");
         }
       })
-      .catch(error => console.log(error));
-  
+      .catch(error => {
+        setInvalidAuth(error?.code);
+      });
   };
 
   return (
@@ -72,6 +74,7 @@ const Login = () => {
                     required
                   />
                 </div>
+                <p className='text-red-500 px-3'>{invalidAuth}</p>
                 <div className='form-control'>
                   <button
                     type='submit'

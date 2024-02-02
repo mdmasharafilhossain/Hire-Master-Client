@@ -1,11 +1,13 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 import swal from "sweetalert";
 
 const SignUp = () => {
+  const [userExists, setUserExists] = React.useState("");
   const { createUser, googleSignIn } = useContext(AuthContext);
+
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
@@ -31,8 +33,9 @@ const SignUp = () => {
         navigate(location?.state ? location.state : "/profileForm");
         return swal("Success!", "Registration Successful", "success");
       })
-      .catch(error => console.log(error));
-    
+      .catch(error => {
+        setUserExists(error.code);
+      });
   };
 
   return (
@@ -83,6 +86,7 @@ const SignUp = () => {
                     required
                   />
                 </div>
+                <p className='text-red-500 px-3'>{userExists}</p>
                 <div className='form-control'>
                   <button
                     type='submit'
