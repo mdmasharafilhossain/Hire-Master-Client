@@ -91,7 +91,7 @@ const UserProfileForm = () => {
         <div className="max-w-6xl mx-auto">
             <ProfileNav></ProfileNav>
             <div className="max-w-6xl mx-auto">
-            <div className="mt-2 rounded-md border-[0.5px] border-slate-300 text-center p-14 " >
+            <div className=" rounded-md border-[0.5px] border-slate-300 text-center p-14 " >
                 <div className="mx-auto text-center  ">
                     <Link to="/profile">
                        <p className="text-2xl flex"><IoMdArrowBack></IoMdArrowBack> <BsPersonSquare></BsPersonSquare></p>
@@ -113,11 +113,11 @@ const UserProfileForm = () => {
                 <div>
                         <form className="container  mx-auto space-y-5" onSubmit={handleSubmit(onSubmit)}>
                           {/* About Main div 1*/}
-                         <div className="flex lg:gap-[365px] mt-20 mb-10">
+                         <div className="flex md:gap-20 lg:gap-[365px] mt-20 mb-10">
                               {/* Text div */}
                            <div className="mt-10">
-                           <p className="text-xl font-bold mr-5">About</p>
-                            <p className="text-sm ml-12">Tell us about Yourself</p>
+                           <p className="text-xl font-bold md:mr-16 lg:mr-5">About</p>
+                            <p className="text-sm lg:ml-12">Tell us about Yourself</p>
                            </div>
                            {/* form div */}
                            <div className="flex-1">
@@ -139,7 +139,7 @@ const UserProfileForm = () => {
 
                                 </div>
                                 <div className="mb-3">
-                                    <p className="text-lg font-bold lg:mr-[136px] mb-2">Upload Your Photo*</p>
+                                    <p className="text-lg font-bold md:mr-[135px] lg:mr-[136px] mb-2">Upload Your Photo*</p>
                                     <input
                                         {...register("image")}
                                         type="file"

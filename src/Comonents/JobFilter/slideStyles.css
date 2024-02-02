@@ -1,0 +1,53 @@
+#range-slider-gradient {
+  height: 8px;
+  border-radius: 12px;
+  background: hsl(24, 12%, 92%);
+}
+
+#range-slider-gradient .range-slider__thumb {
+  border: 6px solid #fff;
+  box-sizing: border-box;
+}
+
+#range-slider-gradient .range-slider__thumb[data-lower] {
+  background: #1d81e6;
+}
+
+#range-slider-gradient .range-slider__thumb[data-upper] {
+  background: #ff3811;
+}
+
+#range-slider-gradient .range-slider__range {
+  background: linear-gradient(to right, #2f85dc, #ff3811);
+  background-size: 200% 100%;
+  background-position: 50% 0;
+}
+
+#range-slider-gradient .range-slider__range[data-active],
+#range-slider-gradient
+  .range-slider__thumb[data-active]
+  ~ .range-slider__range {
+  animation: move-bg 0.75s infinite linear;
+}
+
+@keyframes move-bg {
+  0% {
+    background-position: 50% 0;
+  }
+
+  25% {
+    background-position: 100% 0;
+  }
+
+  50% {
+    background-position: 50% 0;
+  }
+
+  75% {
+    background-position: 0% 0;
+  }
+
+  100% {
+    background-position: 50% 0;
+  }
+}
