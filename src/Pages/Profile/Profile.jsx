@@ -19,8 +19,10 @@ const Profile = () => {
 
     return (
         <>
+        
         <Navbar2></Navbar2>
-            <div className="md:flex gap-10  max-w-xl mx-6   md:max-w-5xl md:mx-auto ">
+        
+            <div className="md:flex gap-10  max-w-xl mx-6  mt-24 md:max-w-5xl md:mx-auto ">
                 <div className="flex md:flex-col ml-10 mt-10 mb-6  gap-2">
                     <Link to="/">
                         <div className="p-2 hover:bg-slate-200 rounded-xl ">
