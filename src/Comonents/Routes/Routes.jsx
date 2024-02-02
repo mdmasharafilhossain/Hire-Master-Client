@@ -14,16 +14,13 @@ import About from "../../Pages/About/About";
 import JobDetails from "../../Pages/JobDetails/JobDetails";
 import Profile from "../../Pages/Profile/Profile";
 import UserProfileForm from "../UserProfileForm/UserProfileForm";
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
 import ProfileHead from "../../Pages/ProfileHead/ProfileHead";
 import Education from "../../Pages/Education/Education";
-=======
+
 import Appliedjobs from "../../Pages/Appliedjobs/Appliedjobs";
 import PrivateRoute from "./PrivateRoute";
->>>>>>> 5560d31f0bdf335b2c26711e61ec484d770f9a9f
->>>>>>> ce285a78ca76135179ff352eb5bfaa09c465b9ee
+
 const router = createBrowserRouter([
   {
     path: "/",

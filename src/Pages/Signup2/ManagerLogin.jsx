@@ -32,7 +32,7 @@ const ManagerLogin = () => {
                 }
             })
             .catch(error => console.log(error));
-        // return swal("Error!", "Already User", "error");
+        
     };
 
     return (
@@ -45,9 +45,6 @@ const ManagerLogin = () => {
                 <div className="">
                     <img className="w-52 ml-14 lg:w-[400px] md:w-[250px] md:h-[400px] md:mt-16 lg:h-[350px] lg:my-16" src={svg} alt="" />
                 </div>
-
-
-
                 <div className="border lg:w-[500px] md:w-[420px] rounded-lg p-12 h-[500px]">
                     <h2 className="text-4xl text-center my-4 text-[#444444] font-bold">Login</h2>
                     <div>
