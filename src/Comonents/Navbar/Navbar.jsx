@@ -22,7 +22,7 @@ const Navbar = () => {
       .catch()
   }
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
+   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
   return (
     <div className="navbar absolute mt-[450px] bg-base-100 h-[10px]">
