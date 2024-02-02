@@ -4,6 +4,7 @@ import "react-range-slider-input/dist/style.css";
 import "./slideStyles.css";
 
 const JobFilter = ({
+  jobs,
   handleSubmit,
   filterParams,
   setFilterParams,
@@ -37,7 +38,7 @@ const JobFilter = ({
       job_time: [],
       salaryRange: `${[0, 250000][0]}-${[0, 250000][1]}`,
     });
-    setFilterJobs([]);
+    setFilterJobs(jobs);
     setValue([0, 250000]);
   };
 
@@ -53,7 +54,7 @@ const JobFilter = ({
           type='text'
           name='job_title'
           placeholder='Search Job'
-          className='outline-none w-3/4 lg:w-full py-2 pl-2 rounded-full border active:border-[#FF3811]'
+          className='outline-none w-3/4 lg:w-full py-2 pl-2 rounded-full border'
           value={filterParams.job_title}
           onChange={e => handleChange("job_title", e.target.value)}
         />

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import SingleJobList from "../../Comonents/JobList/SingleJobList";
 import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
 import useFetchData from "../../Comonents/Hooks/UseFetchData/useFetchData";
@@ -19,6 +19,11 @@ const Jobs = () => {
 
   const { data: jobs, loading, error } = useFetchData("/staticjobpost");
 
+  React.useEffect(() => {
+    if (jobs) {
+      setFilterJobs(jobs);
+    }
+  }, [jobs]);
   if (loading) {
     // return <p>Loading...</p>;
     return <Loader />;
@@ -35,6 +40,7 @@ const Jobs = () => {
       .then(response => {
         setFilterJobs(response.data);
         setFilterLoading(false);
+        console.log(response.data.message);
       })
       .catch(error => {
         console.error("Error fetching filtered jobs:", error);
@@ -66,6 +72,7 @@ const Jobs = () => {
       <div className='px-2 lg:flex lg:gap-x-10 my-10'>
         <div className='lg:w-1/4'>
           <JobFilter
+            jobs={jobs}
             handleSubmit={handleSubmit}
             filterParams={filterParams}
             setFilterParams={setFilterParams}
@@ -77,10 +84,14 @@ const Jobs = () => {
         <div className='lg:flex-grow'>
           {filterLoading ? (
             <Loader />
-          ) : (
-            (filterJobs.length > 0 ? filterJobs : jobs).map(job => (
-              <SingleJobList key={job._id} job={job} />
+          ) : filterJobs.length > 0 ? (
+            filterJobs.map(filteredJob => (
+              <SingleJobList key={filteredJob._id} job={filteredJob} />
             ))
+          ) : (
+            <p className='text-center md:text-start text-red-500 text-xl md:text-2xl'>
+              No jobs found matching your criteria.Reset Filters!
+            </p>
           )}
         </div>
       </div>
