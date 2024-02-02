@@ -113,11 +113,11 @@ const UserProfileForm = () => {
                 <div>
                         <form className="container  mx-auto space-y-5" onSubmit={handleSubmit(onSubmit)}>
                           {/* About Main div 1*/}
-                         <div className="flex lg:gap-[365px] mt-20 mb-10">
+                         <div className="flex md:gap-20 lg:gap-[365px] mt-20 mb-10">
                               {/* Text div */}
                            <div className="mt-10">
-                           <p className="text-xl font-bold mr-5">About</p>
-                            <p className="text-sm ml-12">Tell us about Yourself</p>
+                           <p className="text-xl font-bold md:mr-16 lg:mr-5">About</p>
+                            <p className="text-sm lg:ml-12">Tell us about Yourself</p>
                            </div>
                            {/* form div */}
                            <div className="flex-1">
@@ -139,7 +139,7 @@ const UserProfileForm = () => {
 
                                 </div>
                                 <div className="mb-3">
-                                    <p className="text-lg font-bold lg:mr-[136px] mb-2">Upload Your Photo*</p>
+                                    <p className="text-lg font-bold md:mr-[135px] lg:mr-[136px] mb-2">Upload Your Photo*</p>
                                     <input
                                         {...register("image")}
                                         type="file"
