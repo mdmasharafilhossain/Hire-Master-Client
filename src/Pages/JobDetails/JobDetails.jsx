@@ -7,7 +7,7 @@ import { LiaIndustrySolid } from "react-icons/lia";
 const JobDetails = () => {
   const { id } = useParams();
 
-  const { data: jobs, loading, error } = useFetchData("/staticjobpost");
+  const { data: job, loading, error } = useFetchData(`/staticjobpost/${id}`);
 
   if (loading) {
     return <p>Loading ........</p>;
@@ -16,8 +16,6 @@ const JobDetails = () => {
     return <p>error</p>;
   }
   console.log(id);
-  console.log(jobs);
-  const job = jobs.filter((item) => item._id === id)[0];
   console.log(job);
   const {
     job_title,

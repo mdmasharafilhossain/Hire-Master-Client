@@ -67,7 +67,7 @@ if(dataForm.data.insertedId){
     };
     
     return (
-        <div>
+        <div className="px-20">
              <form onSubmit={handleSubmit(onSubmit)} >
                 <div className="form-control w-full my-6">
                     <label className="label">
