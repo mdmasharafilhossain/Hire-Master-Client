@@ -1,9 +1,20 @@
+import { useContext } from 'react';
 import { MdPostAdd } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Navbar2 = () => {
+
+    const {user, logOut} = useContext(AuthContext)
+
+    const handleSignOut = () =>{
+        logOut()
+        .then()
+        .catch()
+    }
+
     return (
-        <div className="navbar shadow-lg shadow-base-200  bg-base-100 mb-5">
+        <div className="navbar shadow-lg fixed top-0 z-50 shadow-base-200  bg-base-100 mb-5">
             <div className="flex-1">
                 <a className="btn btn-ghost text-xl md:text-3xl font-bold ml-1 text-[#FF3811] ">HireMaster</a>
             </div>
@@ -37,8 +48,10 @@ const Navbar2 = () => {
                                 <span className="badge">New</span>
                             </a>
                         </li>
-                        <li><a>Login</a></li>
-                        <li><a>Logout</a></li>
+                        
+                        <NavLink to='/login'>
+                        <li onClick={handleSignOut}><a>Logout</a></li>
+                        </NavLink>
                     </ul>
                 </div>
             </div>
