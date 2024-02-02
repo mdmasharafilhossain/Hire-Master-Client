@@ -10,9 +10,12 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
+
+  
     <div className='container mx-auto px-3 mt-20 mb-10'>
       <hr />
       <footer className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-10 place-items-start'>
+development
         <div className='md:col-span-2 lg:col-span-1'>
           <nav className='text-start mb-4'>
             <img className='w-28 mx-auto' src={logo} alt='logo' />
@@ -82,7 +85,7 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <footer className='footer px-10 py-4 border-t text-base-content border-base-300'>
+      <footer className='footer px-3 py-4 border-t text-base-content border-base-300'>
         <aside className='items-center grid-flow-col'>
           <p>&copy; 2024 HireMaster. All Rights Reserved.</p>
         </aside>

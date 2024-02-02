@@ -1,0 +1,829 @@
+
+[
+  {
+    "job_title": "Software Engineer",
+    "company_name": "JB Connect Limited",
+    "company_logo": "https://i.ibb.co/cTQpSTh/jb-connect-limited-logo.jpg",
+    "job_role": "React Developer",
+    "salary": 8000,
+    "job_time": "Intern",
+    "skills": ["JavaScript", "React", "Node.js", "NoSQL", "Tailwind CSS"],
+    "job_description": "We are seeking a skilled and enthusiastic React.js Developer to join our dynamic development team. The ideal candidate will be responsible for building responsive and engaging user interfaces, collaborating with cross-functional teams to deliver high-quality web applications.",
+    "hiring_manager_name": "Alexandra Johnson",
+    "hiring_manager_photo": "https://i.ibb.co/Z8M4SWM/comment-people-2.png",
+    "hiring_manager_email": "jbconnect@gmail.com",
+    "responsibilities": ["Develop new user-facing features using React.js while ensuring the technical feasibility of UI/UX designs.", "Collaborate with product managers, designers, and other developers to translate business requirements into high-quality code","Build reusable components and front-end libraries for future use.","Participate in code reviews to maintain code quality and provide constructive feedback to peers.","Troubleshoot and debug issues, and work closely with the QA team to address bugs and other issues.","Contribute to the continuous improvement of development processes and tools."],
+    "benefits": ["Health insurance", "Flexible work hours", "Professional development opportunities"],
+    "qualification": ["Bachelor's degree in Computer Science or related field","Proven experience as a React.js Developer with a strong portfolio of projects.","Experience with state management libraries such as Redux or Context API.","Knowledge of modern front-end build pipelines and tools (e.g., Webpack, Babel).","Understanding of version control systems, such as Git.","Excellent problem-solving skills and attention to detail.","Ability to work in an agile and fast-paced environment"],
+    "job_posting_date": "2024-01-21",
+    "user_email": "mahi@gmail.com",
+    "job_location": "San Francisco, CA"
+  },
+  {
+    "job_title": "iOS Developer",
+    "company_name": "Editr Apps",
+    "company_logo": "https://i.ibb.co/xg8bYtz/1705196395659.jpg",
+    "job_role": "iOS Developer",
+    "salary": 60000,
+    "job_time": "Full-time",
+    "skills": ["Kaggle", "Objective-C", "iOS Development"],
+    "job_description": "This is an opportunity for someone who is passionate coding have lots of problem solving experience (Leetcode, Kaggle, ICPC, Topcoder etc.).Participate in the creation of top ranking world class mobile applications whose usage cross over millions of iPhone app users." ,
+    "hiring_manager_name": "Christopher Davis",
+    "hiring_manager_photo": "https://i.ibb.co/Cs2cLjg/comment-people-5.png",
+    "hiring_manager_email": "editrapps@gmail.com",
+    "responsibilities": ["Participate in software development using Waterfall/ Agile/Scrum development process.", "Analyze product requirements and propose solutions to them.","Implement the feature/functionality specified in the product requirements." ,"Quickly adapt to new development environments and changing business requirements" ,"Constantly follow a hardworking, dedicated approach to deliver timely and well structured code","Write design specifications and other development documentation."],
+    "benefits": ["Remote work options", "Paid time off", "401(k)","Flexible office hours: Sunday to Thursday.","Highly Competitive Salary and Long Term Benefits with Excellent Career Opportunity in a Focused & Growing startup.","Most importantly, a friendly work environment with opportunity to learn & share among a number of highly skilled mentors."],
+    "qualification": ["Bachelor's degree in Marketing or related field","Github repository link, StackOverflow or similar programming related site (Leetcode, Kaggle, ICPC, Topcoder etc.)'s profile links.","Ability to communicate clearly and concisely both in writing and orally.","Exposure to complex Camera / Video technologies is a plus."],
+    "job_posting_date": "2024-01-21",
+    "user_email": "mahi@gamil.com",
+    "job_location": "Dhaka, Bangladesh"
+  },
+  {
+    "job_title": "Data Scientist",
+    "company_name": "Innovate Analytics Solutions",
+    "company_logo": "https://i.ibb.co/Npm8YD1/iqvia-logo.jpg",
+    "job_role": "Machine Learning Engineer",
+    "salary": 90000,
+    "job_time": "Remote",
+    "skills": ["Python", "Machine Learning", "Data Analysis"],
+    "job_description": "As a Machine learning engineer, you will develop algorithms that enhance the daily life and professional outcomes of our end-users. You will join a team of other ML engineers / data scientists, big data, and software engineers, all responsible for the delivery of algorithms through the Orchestrated Analytics Platform from the ground up. You will work with product and business stakeholders to deliver algorithms with very clear business objectives, including requirements gathering, model development, prototyping, and interfacing with the software engineering team. Ideal candidates will bring a well-rounded skillset capable of spanning customer-focus, data science and software development disciplines to shape early-stage ideas into fully assessed, designed, and implemented machine learning solutions.",
+    "hiring_manager_name": "Dr. Emily Rodriguez",
+    "hiring_manager_photo": "https://i.ibb.co/swXD40B/comment-people-4.png",
+    "hiring_manager_email": "Innovate@gmail.com",
+    "responsibilities": ["Work closely with non-technical stakeholders to successfully execute ML models and algorithms in the platform. ", "Analyze large datasets","Interface with software engineering & Algorithm SME team for the development of the product." , "Design and develop proof-of-concept solutions as needed using ML Products." , "Mentor and coach junior team members. Educate leadership team to bring up to speed with technical advances." , "Build, Own and Support production grade, scalable algorithms in the Next Best ML Platform."],
+    "benefits": ["Health and dental coverage", "Remote work flexibility", "Stock options"],
+    "qualification": ["Master's degree in Data Science or related field","5+ years’ experience working on creating and deploying machine learning algorithms.","Creative problem solver with a strong knowledge of statistics/data analytics, and machine learning methods and strategies.","Experience with software engineering best practices (programming, testing, version control, agile development, etc.)","Excellent communication (written and oral) and interpersonal skills"],
+    "job_posting_date": "2024-01-21",
+    "user_email": "mahi@gamil.com",
+    "job_location": "Seattle, WA"
+  },
+  {
+    "job_title": "Graphic Designer",
+    "company_name": "Creative Designs Co",
+    "company_logo": "https://i.ibb.co/xjvM2Dz/1631316305616.jpg",
+    "job_role": "Visual Communication Specialist",
+    "salary": 6000,
+    "job_time": "Part-time",
+    "skills": ["Adobe Creative Suite", "Typography", "Illustration"],
+    "job_description": "Britannia Garment Packaging is a global supplier of labelling and packaging solutions to the garment industry. Headquartered in the UK, we provide labelling and packaging for leading retailers and prominent brands around the world. With nearly 500 employees and a proud heritage in British garment packaging, we are a growing business with a global network of production facilities.",
+    "hiring_manager_name": "Sheikh Sirajul Islam Joni",
+    "hiring_manager_photo": "https://i.ibb.co/g4zJ7q7/comment-people-1.png",
+    "hiring_manager_email": "Sheikh@gmail.com",
+    "responsibilities": ["Create graphics for print and digital media", "Collaborate with marketing team","This full-time on-site role is for a Digital Press Operator located in Dhaka. The Digital Press Operator will be responsible for operating and maintaining digital printing equipment in a fast-paced production environment, ensuring accurate and high-quality output. The Operator should have experience with digital printing equipment, be able to perform routine maintenance and cleaning of the equipment, and troubleshoot or escalate any issues that may arise."],
+    "benefits": ["Casual dress code", "Flexible scheduling", "Employee discount program"],
+    "qualification": ["Bachelor's degree in Graphic Design or related field","Proficient in using digital printers and RIP software, as well as Adobe Creative Suite","Experience troubleshooting print quality issues and performing routine equipment maintenance","Excellent communication and interpersonal skills with the ability to work collaboratively in a team environment","Demonstrated ability to work effectively in a fast-paced, deadline-driven environment","Experience with packaging, printing, and/or the garment industry is preferred"],
+    "job_posting_date": "2024-01-21",
+    "user_email": "mahi@gamil.com",
+    "job_location": "Los Angeles, USA"
+  },
+  {
+    "job_title": "Network Engineer",
+    "company_name": "TechNet Solutions",
+    "company_logo": "https://i.ibb.co/9VBcDWy/technet.png",
+    "salary": 60000,
+    "working_field": "Network Infrastructure",
+    "job_time": "Remote",
+    "skills": [
+      "Designing and implementing scalable and secure Cisco-based network solutions",
+      "Expertise in firewall management and network security",
+      "LAN/WAN optimization and troubleshooting"
+    ],
+    "job_description": "Join TechNet Solutions as a Network Engineer to play a pivotal role in designing and managing our sophisticated network infrastructure. We are committed to ensuring seamless connectivity and the highest standards of network security.",
+    "hiring_manager_name": "Emily Johnson",
+    "hiring_manager_photo": "https://i.ibb.co/qFLmXmn/businesswoman-with-glasses-crossed-arms.jpg",
+    "hiring_manager_email": "emily.johnson@technet.com",
+    "responsibilities": [
+      "Design and implement cutting-edge network solutions to meet business requirements",
+      "Troubleshoot and resolve complex network issues promptly",
+      "Collaborate with cross-functional teams to optimize network performance"
+    ],
+    "benefits": [
+      "Competitive salary with performance bonuses",
+      "Comprehensive health insurance coverage",
+      "Flexible work hours to promote work-life balance"
+    ],
+    "job_posting_date": "2024-02-01",
+    "user_email": "applicant@email.com",
+    "job_location": "Toronto,Canada",
+
+    "qualification": [
+      "Bachelor's degree in Computer Science or related field",
+      "Certifications such as CCNA, CCNP, or equivalent",
+      "Proven experience in designing and implementing network solutions",
+      "Strong understanding of LAN/WAN technologies",
+      "Knowledge of network security best practices"
+    ]
+  },
+  {
+    "job_title": "DevOps Engineer",
+    "company_name": "CloudOps Innovations",
+    "salary": 70000,
+    "company_logo": "https://i.ibb.co/1LtPVm0/cloudops.png",
+    "working_field": "DevOps",
+    "job_time": "Full-time",
+    "skills": [
+      "Expertise in setting up and maintaining robust CI/CD pipelines",
+      "Proficient in containerization technologies like Docker and Kubernetes",
+      "Strong background in infrastructure as code using tools like Terraform",
+      "Scripting skills in Bash and Python"
+    ],
+    "job_description": "CloudOps Innovations is searching for a skilled DevOps Engineer to optimize our development and deployment processes. Collaborate with a dynamic team and contribute to the efficiency and scalability of our infrastructure.",
+    "hiring_manager_name": "Mark Robertson",
+    "hiring_manager_photo": "https://i.ibb.co/q9NsnCr/pexels-gustavo-fring-4173168.jpg",
+    "hiring_manager_email": "mark.robertson@cloudops.com",
+    "responsibilities": [
+      "Implement and maintain CI/CD pipelines to streamline development workflows",
+      "Automate infrastructure provisioning using Terraform and other tools",
+      "Collaborate closely with development teams to enhance deployment efficiency"
+    ],
+    "benefits": [
+      "Competitive salary and stock options",
+      "Professional development opportunities for career growth",
+      "Health and wellness programs for employees"
+    ],
+    "job_posting_date": "2024-02-05",
+    "user_email": "applicant@email.com",
+    "job_location": "936 Kiehn Route,USA",
+
+    "qualification": [
+      "Bachelor's degree in Computer Science or related field",
+      "Certifications such as CCNA, CCNP, or equivalent",
+      "Proven experience in designing and implementing network solutions",
+      "Strong understanding of LAN/WAN technologies",
+      "Knowledge of network security best practices"
+    ]
+  },
+
+  {
+    "job_title": "IT Support Specialist",
+    "company_name": "TechSupport Solutions",
+    "company_logo": "https://i.ibb.co/Rbx5Kk2/techsupport.png",
+    "salary": 65000,
+    "working_field": "IT Support",
+    "job_time": "On-site",
+    "skills": [
+      "Extensive experience in troubleshooting hardware and software issues",
+      "Customer-focused with exceptional communication and interpersonal skills",
+      "Familiarity with ITIL Foundation principles"
+    ],
+    "job_description": "TechSupport Solutions is hiring an IT Support Specialist to provide unparalleled technical assistance to our employees. If you are passionate about solving IT challenges and ensuring smooth day-to-day operations, join our dedicated team.",
+    "hiring_manager_name": "Andrew Miller",
+    "hiring_manager_photo": "https://i.ibb.co/H7JNJJ2/model-2911329-1280.jpg",
+    "hiring_manager_email": "andrew.miller@techsupport.com",
+    "responsibilities": [
+      "Provide prompt and effective technical support to end-users",
+      "Troubleshoot and resolve hardware and software issues",
+      "Maintain comprehensive IT documentation for future reference"
+    ],
+    "benefits": [
+      "Competitive salary and performance-based bonuses",
+      "Comprehensive health and dental insurance",
+      "Generous paid time off and flexible work hours"
+    ],
+    "job_posting_date": "2024-02-10",
+    "user_email": "applicant@email.com",
+    "job_location": "4059 Carling Avenue,Canada",
+    "qualification": [
+      "Associate degree in IT or related field",
+      "Proven experience in troubleshooting hardware and software issues",
+      "Excellent customer service and communication skills",
+      "Familiarity with ITIL Foundation principles",
+      "Ability to work well in a team and handle multiple tasks"
+    ]
+  },
+  {
+    "job_title": "IT Manager",
+    "company_name": "InnoTech Solutions",
+    "company_logo": "https://i.ibb.co/f24SH4T/image.png",
+    "working_field": "IT Management",
+    "salary": 80000,
+    "job_time": "Hybrid",
+    "skills": [
+      "Proven leadership and people management skills",
+      "Experience in project management and IT strategy development",
+      "Budgeting and financial management skills"
+    ],
+    "job_description": "InnoTech Solutions is seeking an experienced IT Manager to lead our IT department. If you have a track record of successful IT leadership and a passion for developing and implementing effective IT strategies, we want you on our team.",
+    "hiring_manager_name": "Sarah Williams",
+    "hiring_manager_photo": "https://i.ibb.co/TqYrW8X/smiling-blonde-business-woman.jpg",
+    "hiring_manager_email": "sarah.williams@innotech.com",
+    "responsibilities": [
+      "Lead and mentor a high-performing IT team",
+      "Develop and implement effective IT policies and procedures",
+      "Manage IT projects, budgets, and resources efficiently"
+    ],
+    "benefits": [
+      "Competitive salary and 401(k) with company match",
+      "Flexible work schedule to support work-life balance",
+      "Opportunities for professional development and career advancement"
+    ],
+    "job_posting_date": "2024-02-15",
+    "user_email": "applicant@email.com",
+    "job_location": "15 Sellamuttu Avenue, 03,Sri Lanka",
+    "qualification": [
+      "Bachelor's degree in IT or related field",
+      "Proven experience in IT leadership and management",
+      "Strong project management and budgeting skills",
+      "Excellent communication and interpersonal skills",
+      "Strategic thinking and ability to align IT with business goals"
+    ]
+  },
+  {
+    "job_title": "Project Manager",
+    "company_name": "TechPro",
+    "company_logo": "https://i.ibb.co/c6Nvq4w/techpro.png",
+    "salary": 90000,
+    "working_field": "Project Management",
+    "job_time": "Hybrid",
+    "skills": [
+      "Proven project management skills with a focus on IT projects",
+      "Strong risk management and communication abilities",
+      "Effective team leadership and collaboration"
+    ],
+    "job_description": "TechPro Solutions is looking for a Project Manager to oversee our technology projects. Join us in ensuring successful project delivery, meeting client expectations, and contributing to the growth of our dynamic organization.",
+    "hiring_manager_name": "Ane Anderson",
+    "hiring_manager_photo": "https://i.ibb.co/tsbcMzs/portrait-smiling-blonde-businesswoman-formal-dressed-standing-with-crossed-arms-isolated-dark-textur.jpg",
+    "hiring_manager_email": "ane.anderson@techpro.com",
+    "responsibilities": [
+      "Plan and execute technology projects with a focus on quality and timelines",
+      "Monitor project progress, identify and mitigate risks proactively",
+      "Collaborate with cross-functional teams to achieve project goals"
+    ],
+    "benefits": [
+      "Competitive salary and comprehensive health and dental insurance",
+      "Professional development opportunities to enhance your skills",
+      "A collaborative and inclusive work environment"
+    ],
+    "job_posting_date": "2024-02-20",
+    "user_email": "applicant@email.com",
+    "job_location": "Boulevard Ceulemans 832,Belgium",
+    "qualification": [
+      "Bachelor's degree in Project Management or related field",
+      "Proven experience in managing IT projects",
+      "Strong leadership and team collaboration skills",
+      "Effective risk management and problem-solving abilities",
+      "Excellent communication and stakeholder management skills"
+    ]
+  },
+  {
+    "job_title": "Frontend Developer",
+    "company_name": "Code And Co limited",
+    "company_logo": "https://i.ibb.co/JcRJmT8/gradient-code-logo-23-2148830995.jpg",
+    "job_role": "Frontend Development",
+    "salary": 5000,
+    "job_time": "Full-time",
+    "skills": ["HTML", "Css", "Javascript", "react"],
+    "job_description": "Develop responsive, user-friendly web interfaces using HTML, CSS, JavaScript, and React.",
+    "hiring_manager_name": "Peter Jackson",
+    "hiring_manager_photo": "https://i.ibb.co/MSTxCjW/Screenshot-98.png",
+    "hiring_manager_email": "jackson45@gmail.com",
+    "responsibilities": ["Make User interface for large and small company", "Collaborate with team","ensuring accurate and pixel perfect User Interfaces"],
+    "benefits": ["Work life balance", "Flexible scheduling", "Promotion as your skill grow"],
+    "qualification": ["Bachelor's degree in CSE","Efficient in coding review ","Good at communicate with team"],
+    "job_posting_date": "2024-01-14",
+    "user_email": "mrabc@gamil.com",
+    "job_location": "Rome, Italy"
+  },
+{
+    "job_title": "Backend DEveloper",
+    "company_name": "CYBERCODE Company Ltd",
+    "company_logo": "https://i.ibb.co/LnCFcTs/Screenshot-96.png",
+    "job_role": "Backend Development",
+    "salary": 7000,
+    "job_time": "Hybrid",
+    "skills": ["Node js", "Express js", "Mongodb", "Prisma"],
+    "job_description": "Develop and maintain the core functionality of web applications",
+    "hiring_manager_name": "Teddy",
+    "hiring_manager_photo": "https://i.ibb.co/Lv80jkk/Screenshot-100.png",
+    "hiring_manager_email": "teddy11@gmail.com",
+    "responsibilities": ["Optimize server-side code for maximum speed and responsiveness", "Collaborate with team","ensure the secure api using jwt"],
+    "benefits": ["Work life balance", "Health care Insurance", "Promotion as your skill grow"],
+    "qualification": ["Bachelor's degree in CSE","Efficient in coding review","Team management and leadership ability"],
+    "job_posting_date": "2024-01-10",
+    "user_email": "mrxyz@gamil.com",
+    "job_location": "Osaka, Japan"
+  },
+{
+    "job_title": "Senior Full-Stack Developer",
+    "company_name": "NEWCODE Corporation",
+    "company_logo": "https://i.ibb.co/6mz99B0/creative-gradient-code-logo-template-23-2148806022.jpg",
+    "job_role": "Full-Stack Development",
+    "salary": 9000,
+    "job_time": "Hybrid",
+    "skills": ["Javascript","Tailwind" ,"React", "Node js", "Express js", "Mongodb"],
+    "job_description": "Develop, maintain and train junior developers",
+    "hiring_manager_name": "Tom Hardy",
+    "hiring_manager_photo": "https://i.ibb.co/VtHXzBW/Screenshot-99.png",
+    "hiring_manager_email": "hardyandtom@gmail.com",
+    "responsibilities": ["Build Full-Stack website with best user experience and ensure the security", "train junior developer and to grow them","fix difficult bug in needed"],
+    "benefits": ["Work life balance", "Health care Insurance", "Remote work flexibility"],
+    "qualification": ["Bachelor's degree in CSE","Efficient in coding review","Team management and leadership ability"],
+    "job_posting_date": "2024-01-06",
+    "user_email": "mrxyz@gamil.com",
+    "job_location": "Florida, USA"
+  },
+{
+    "job_title": "Junior Game Developer",
+    "company_name": "SUPREME Inc",
+    "company_logo": "https://i.ibb.co/tm95NsJ/supreme-logo-letter-s-logo-template-design-460848-12706.jpg",
+    "job_role": "Unreal Engin Game Developer ",
+    "salary": 4000,
+    "job_time": "Full-time",
+    "skills": ["C++","Unreal Engin", "3D Rendering"],
+    "job_description": "Write and maintain internal documentation to help your team members understand the system architecture and your code",
+    "hiring_manager_name": "Jenifer",
+    "hiring_manager_photo": "https://i.ibb.co/RQHzY1K/Screenshot-101.png",
+    "hiring_manager_email": "jenifer12@gmail.com",
+    "responsibilities": ["Develop and test content in a 3D space for both VR and flat-screen delivery", "Collaborate closely with the design team to prototype and implement new features in our VR web app","fix difficult bug in needed"],
+    "benefits": ["Work life balance", "Health care Insurance", "Remote work flexibility"],
+    "qualification": ["Bachelor's degree in any Field","Efficient in coding review","Fluent in english communication"],
+    "job_posting_date": "2024-01-18",
+    "user_email": "user@gamil.com",
+    "job_location": "Helsinki, Finland"
+  },
+  {
+    "job_title": "Systems Administrator",
+    "company_name": "IT Coordinator",
+    "company_logo": "https://i.ibb.co/4m5KhnJ/ecomclips-logo.jpg",
+    "salary": 75000,
+    "working_field": "IT Operations",
+    "job_time": "Hybrid",
+    "skills": [
+      "Managing and optimizing Windows and Linux server environments",
+      "Expertise in server virtualization technologies (e.g., VMware, Hyper-V)",
+      "Proactive monitoring and troubleshooting of IT systems"
+    ],
+    "job_description": "Join TechHub Solutions as a Systems Administrator to contribute to the stability and efficiency of our IT operations. Be a key player in maintaining and enhancing our server infrastructure.",
+    "hiring_manager_name": "Thouhid Hussain",
+    "hiring_manager_photo": " https://i.ibb.co/5Bsy6f0/50808948-1999284166846020-2174188543465750528-n.jpg",
+    "hiring_manager_email": "hussain@techhub.com",
+    "responsibilities": [
+      "Manage and maintain Windows and Linux server environments",
+      "Implement and optimize server virtualization solutions",
+      "Collaborate with IT teams to address system-related issues"
+    ],
+    "benefits": [
+      "Competitive salary with annual performance reviews",
+      "401(k) retirement plan with company matching",
+      "Professional development opportunities"
+    ],
+    "job_posting_date": "2024-02-15",
+    "user_email": "newapplicant@email.com",
+    "job_location": "Sylhet, Bangladesh",
+    "qualification": [
+      "Bachelor's or Master's degree in Information Technology or related field",
+      "Certifications such as MCSA, VCP, or equivalent",
+      "Proven experience in managing IT systems and server environments",
+      "Strong problem-solving and communication skills"
+    ]
+  },
+  {
+    "job_title": "Data Scientist",
+    "company_name": "Foodpanda",
+    "company_logo": "https://i.ibb.co/ZxK0cZW/foodpanda-logo.jpg",
+    "salary": 9000,
+    "working_field": "Data Science",
+    "job_time": "Intern",
+    "skills": [
+      "Advanced proficiency in machine learning algorithms",
+      "Experience with big data analytics tools (e.g., Spark, Hadoop)",
+      "Strong programming skills in Python or R"
+    ],
+    "job_description": "Join Quantum Innovations as a Data Scientist to leverage your expertise in machine learning and analytics. Contribute to cutting-edge projects that harness the power of data for innovative solutions.",
+    "hiring_manager_name": "Dr. Christopher Rodriguez",
+    "hiring_manager_photo": "https://i.ibb.co/NW7KW9w/images-1.jpg",
+    "hiring_manager_email": "chris.rodriguez@quantum.com",
+    "responsibilities": [
+      "Develop and implement machine learning models for predictive analysis",
+      "Collaborate with cross-functional teams to extract insights from large datasets",
+      "Contribute to the continuous improvement of data analysis processes"
+    ],
+    "benefits": [
+      "Competitive salary with performance-based bonuses",
+      "Health and wellness programs",
+      "Professional development opportunities"
+    ],
+    "job_posting_date": "2024-02-10",
+    "user_email": "applicant@email.com",
+    "job_location": "San Francisco, USA",
+    "qualification": [
+      "Master's or Ph.D. in Computer Science, Statistics, or a related field",
+      "Experience in developing and deploying machine learning models",
+      "Knowledge of data visualization tools (e.g., Tableau)",
+      "Excellent communication and teamwork skills"
+    ]
+  },
+
+  {
+    "job_title": "Software Developer",
+    "company_name": "ITcordinator",
+    "company_logo": "https://i.ibb.co/9vHXTnG/itcordinator.jpg",
+    "salary": 80000,
+    "working_field": "Software Development",
+    "job_time": "Hybrid",
+    "skills": [
+      "Proficiency in Java, JavaScript, or Python",
+      "Experience with front-end and back-end development",
+      "Knowledge of database management systems (e.g., MySQL, MongoDB)"
+    ],
+    "job_description": "CodeCraft Solutions is seeking a skilled Software Developer to contribute to the development of innovative software solutions. Join our dynamic team and be part of projects that shape the future of technology.",
+    "hiring_manager_name": "Alexandra Turner",
+    "hiring_manager_photo": "https://i.ibb.co/fnRKpdz/bldxj0g-ke8x-lrawaipg.jpg",
+    "hiring_manager_email": "alex.turner@codecraft.com",
+    "responsibilities": [
+      "Design, code, and test software applications",
+      "Collaborate with cross-functional teams to understand project requirements",
+      "Contribute to the continuous improvement of coding practices"
+    ],
+    "benefits": [
+      "Competitive salary with annual performance reviews",
+      "Flexible work hours and remote work options",
+      "Opportunities for professional growth and development"
+    ],
+    "job_posting_date": "2024-02-15",
+    "user_email": "applicant@email.com",
+    "job_location": "London, UK",
+    "qualification": [
+      "Bachelor's or Master's degree in Computer Science or related field",
+      "Proven experience in software development",
+      "Strong problem-solving and debugging skills",
+      "Excellent teamwork and communication abilities"
+    ]
+  },
+  {
+    "job_title": "Cloud Solutions Architect",
+    "company_name": "CloudScape Technologies",
+    "company_logo": "https://i.ibb.co/HzyTR5t/wundermanthompsondhaka-logo.jpg",
+    "salary": 95000,
+    "working_field": "Cloud Computing",
+    "job_time": "Hybrid",
+    "skills": [
+      "Expertise in cloud platforms (e.g., AWS, Azure, GCP)",
+      "Experience with containerization and orchestration tools (e.g., Docker, Kubernetes)",
+      "Strong understanding of infrastructure as code (IaC)"
+    ],
+    "job_description": "Join CloudScape Technologies as a Cloud Solutions Architect to design and implement scalable and secure cloud solutions. Be a key player in shaping the future of cloud infrastructure and services.",
+    "hiring_manager_name": "Mark Anderson",
+    "hiring_manager_photo": "https://i.ibb.co/nbT5kV8/happy-mid-aged-business-man-600nw-2307212331.webp",
+    "hiring_manager_email": "mark.anderson@cloudscape.com",
+    "responsibilities": [
+      "Architect, design, and implement cloud solutions for clients",
+      "Provide expertise in cloud infrastructure and services",
+      "Collaborate with clients to understand and address their cloud needs"
+    ],
+    "benefits": [
+      "Competitive salary with performance-based incentives",
+      "Health and wellness programs",
+      "Opportunities for professional development and certification"
+    ],
+    "job_posting_date": "2024-02-20",
+    "user_email": "applicant@email.com",
+    "job_location": "Remote",
+    "qualification": [
+      "Bachelor's or Master's degree in Computer Science or related field",
+      "Certifications in cloud platforms (e.g., AWS Certified Solutions Architect)",
+      "Proven experience in designing and implementing cloud solutions",
+      "Excellent communication and client-facing skills"
+    ]
+  },
+  {
+    "job_title": "Senior Software Engineer (Android)",
+    "company_name": "Enosis Solutions",
+    "company_logo": "https://i.ibb.co/VmZjVTV/image.png",
+    "salary": 85000,
+    "working_field": "Software",
+    "job_time": "Onsite",
+    "skills": [
+      "Must have knowledge of Android UI design principles, patterns, and best practices.",
+    "Must be familiar with RESTful APIs to connect Android applications to back-end services.",
+      "Must be able to take ownership of work through all phases.",
+    "Must have strong communication skills in English, both written and verbal."
+    ],
+    "job_description": "looking for a Senior Software Engineer (Android), having professional experience and good knowledge on mobile application development. Your primary focus will be developing mobile apps for clients following best software development practices in a timely manner.",
+    "hiring_manager_name": "Sakib Ahmed",
+    "hiring_manager_photo": "https://ibb.co/Jqbw7KH",
+    "hiring_manager_email": "sakib.enosys@gmail.com",
+    "responsibilities": [
+      "Design, code, test and implement according to software design specifications following standard coding styles and practices.",
+    "Analyze the requirements and understand the deliverables.",
+    "Ensure that projects are accurately estimated and delivered to schedule.",
+    "Participate in code/design reviews.",
+    "Collaborate with team members and ensure knowledge transfer.",
+    "Actively contribute to the process of continual improvement regarding self, team, and systems."
+    ],
+    "benefits": [
+      "Competitive salary with performance bonuses",
+      "Comprehensive health insurance coverage",
+      "Flexible work hours to promote work-life balance"
+    ],
+    "job_posting_date": "2024-04-04",
+    "user_email": "applicant_user1@email.com",
+    "job_location": "Dhaka, Bangladesh",
+
+    "qualification": [
+      "Bachelor's degree in Computer Science or related field",
+     "Must have experience in programming under Android SDK using Kotlin.",
+    "Must have knowledge of Android UI design principles, patterns, and best practices.",
+    "Must be familiar with RESTful APIs to connect Android applications to back-end services."
+    ]
+  },
+  {
+    "job_title": "Senior Java Backend Developer (m/w/d)",
+    "company_name": "VolksByte.com",
+    "salary": 150000,
+    "company_logo": "https://i.ibb.co/3r20rmN/image.png",
+    "working_field": "Backend",
+    "job_time": "On-site",
+    "skills": [
+     "Proficient in Java programming language",
+    "Experience with Java-based frameworks like Spring or Hibernate",
+    "Understanding of database systems, SQL, and ORM (Object-Relational Mapping)",
+    "Knowledge of web application architecture and design patterns",
+    "Familiarity with RESTful API development",
+    "Experience with version control systems, such as Git",
+    "Understanding of microservices architecture"
+    ],
+    "job_description": "VolksByte.com is a German-based software company with a strong global footprint, and now we're looking to expand our operations in Bangladesh. We want to blend German engineering precision with Bangladeshi innovation to provide world-class software solutions. VolksByte is a dynamic and innovative company dedicated to revolutionizing the digital landscape.",
+    "hiring_manager_name": "Adelbert Robertson",
+    "hiring_manager_photo": "https://ibb.co/L6L4dqY",
+    "hiring_manager_email": "Adelbert.robertson@volksbytes.com",
+    "responsibilities": [
+      "Further development of the existing software base and libraries – including refactoring",
+    "Interface development for the integration of existing systems",
+    "Setting up new products, including designing a system architecture for new products",
+    "Coordination and collaboration with other software teams with the aim of maintaining and improving uniform standards",
+    "Code documentation and linking the documentation platform"
+    ],
+    "benefits": [
+      "Software development with the latest software technologies and frameworks",
+    "A team of outstanding specialists in many areas of software development",
+    "A quiet, creative, culinary and sporty environment in the new office building in the center of Lienz or in co-working offices in Graz and Innsbruck",
+    "Two Festival Bonuses",
+    "Performance Bonuses",
+    "Salary Increments based on performance",
+    "Loyalty Bonus",
+    "Other Benefits as Per Company Policy"
+    ],
+    "job_posting_date": "2024-01-15",
+    "user_email": "applicant_user2@email.com",
+    "job_location": "936 Kiehn Route,Berlin",
+
+    "qualification": [
+     "Bachelor's or Master's degree in Computer Science or related field",
+    "Proficient in Java programming language",
+    "Experience with Java-based frameworks like Spring or Hibernate",
+    "Strong understanding of database systems, SQL, and ORM (Object-Relational Mapping)",
+    "Knowledge of web application architecture and design patterns",
+    "Familiarity with RESTful API development",
+    "Experience with version control systems, such as Git",
+    "Understanding of microservices architecture",
+    "Knowledge of server-side templating languages",
+    "Ability to work with and optimize database queries",
+    "Understanding of security best practices for web development",
+    "Problem-solving and debugging skills"
+    ]
+  },
+
+  {
+    "job_title": "SEO Specialist",
+    "company_name": "Profile Bakery",
+    "company_logo": "https://i.ibb.co/R61RQVT/image.png",
+    "salary": 50000,
+    "working_field": "SEO Support",
+    "job_time": "On-site",
+    "skills": [
+      "Keyword research and analysis",
+    "On-page SEO optimization",
+    "Off-page SEO strategies",
+    "Content strategy and optimization",
+    "Link building techniques",
+    "Technical SEO analysis and implementation",
+    "Competitor analysis",
+    "Google Analytics and other SEO tools proficiency"
+    ],
+    "job_description": "Our company specializes in creating stunning portrait photos using the latest AI technology. Our portraits are designed to capture your unique personality and showcase your best characteristics. With our team of experienced photographers and advanced software, we offer professional portrait photography that is both affordable and efficient. Whether you need a new headshot for your LinkedIn profile or an updated portrait for your business website, we can help you make a great impression.",
+    "hiring_manager_name": "Andrew Albert",
+    "hiring_manager_photo": "https://ibb.co/MC6wVqG",
+    "hiring_manager_email": "andrew.albert@techsupport.com",
+    "responsibilities": [
+      "Identify potential websites and partners for backlinking and collaboration.",
+    "Continuously update and maintain lead lists in the CRM system.",
+    "Reach out to potential partners via email or other communication channels to initiate partnerships.",
+    "Craft personalized and professional communication for each potential partner, reflecting our brand's tone and values.",
+    "Manage ongoing communications with partners to build and maintain strong relationships.",
+    "Coordinate and follow up on partnership agreements and collaborations to ensure successful implementation.",
+    "Regularly update and maintain the CRM system with accurate and current information.",
+    "Track and report on outreach activities and partnership developments."
+    ],
+    "benefits": [
+      "Attractive Salary in USD",
+    "Provision for successful work",
+    "Opportunity within a company with a solid track record of performance"
+    ],
+    "job_posting_date": "2024-01-10",
+    "user_email": "applicant_user3@email.com",
+    "job_location": "4059 Carling Avenue,Canada",
+    "qualification": [
+       "At least 1 year experience ideally in SEO / SEM within Professional Services industry.",
+    "Working knowledge of Lead Generation, Outreach, and Partnership Management.",
+    "Highly goal-driven and able to work well in fast-paced environments.",
+    "Strong attention to detail and ability to deliver work of a high standard.",
+    "Strong networker and relationship builder.",
+    "Proven experience in a similar role, particularly in outreach, lead generation, or partnership development.",
+    "Strong proficiency in CRM software and MS Office or similar applications."
+    ]
+  },
+  {
+    "job_title": "Salse Manager",
+    "company_name": "InfoTech Solutions",
+    "company_logo": "https://i.ibb.co/znq5Lhc/image.png",
+    "working_field": "IT Salse Management",
+    "salary": 80000,
+    "job_time": "Hybrid",
+    "skills": [
+      "Strong understanding of IT products and services",
+    "Excellent sales and negotiation skills",
+    "Ability to develop and implement sales strategies",
+    "Deep knowledge of the IT industry and market trends",
+    "Effective communication and interpersonal skills",
+    "Proven experience in managing and leading sales teams",
+    "Customer relationship management (CRM) proficiency",
+    "Strategic thinking and planning abilities",
+    "Result-oriented and target-driven mindset",
+    "Problem-solving and decision-making skills",
+    "Adaptability to evolving technologies and industry changes",
+    "Networking and relationship-building capabilities",
+    "Presentation and proposal development skills",
+    "Understanding of pricing models and contract negotiations",
+    "Analytical skills to assess market conditions and competition",
+    "Time management and organizational skills"
+    ],
+    "job_description": "InfoTech Solutions is seeking an experienced IT Salse Manager to lead our IT department. If you have a track record of successful IT leadership and a passion for developing and implementing effective IT strategies, we want you on our team.",
+    "hiring_manager_name": "Bill Williams",
+    "hiring_manager_photo": "https://ibb.co/5T4XMqj",
+    "hiring_manager_email": "bill.williams@innotech.com",
+    "responsibilities": [
+      "Develop and execute effective sales strategies to meet or exceed sales targets",
+    "Lead and manage a high-performing sales team",
+    "Build and maintain strong relationships with key clients and partners",
+    "Understand and stay updated on IT products, services, and industry trends",
+    "Identify and pursue new business opportunities in the IT sector",
+    "Collaborate with cross-functional teams to ensure successful product/service delivery",
+    "Analyze market conditions and competition to inform sales strategies"
+    ],
+    "benefits": [
+      "Competitive salary and 401(k) with company match",
+      "Flexible work schedule to support work-life balance",
+      "Opportunities for professional development and career advancement"
+    ],
+    "job_posting_date": "2024-01-02",
+    "user_email": "applicant_user4@email.com",
+    "job_location": "15 Kakrail, Dhaka",
+    "qualification": [
+      "Bachelor's degree in IT or related field",
+      "Proven experience in IT leadership and management",
+      "Strong project management and budgeting skills",
+      "Excellent communication and interpersonal skills",
+      "Strategic thinking and ability to align IT with business goals"
+    ]
+  },
+  {
+    "job_title": "Scrum Master",
+    "company_name": "IQVIA",
+    "company_logo": "https://i.ibb.co/wzmTHsG/image.png",
+    "salary": 90000,
+    "working_field": "Project Management",
+    "job_time": "Hybrid",
+    "skills": [
+      "Ability to lead and influence without direct authority",
+    "Excellent communication and interpersonal skills",
+    "Conflict resolution and problem-solving abilities",
+    "Strong servant-leadership mindset",
+    "Experience in applying Agile and Scrum practices in real-world projects",
+    "Understanding of software development processes and methodologies",
+    "Ability to facilitate effective sprint planning, review, and retrospective meetings",
+    "Knowledge of other Agile frameworks and methodologies (e.g., Kanban)",
+    "Continuous improvement mindset for the team and processes"
+    ],
+    "job_description": "As a Scrum Master for multiple product development teams, you will facilitate the scrum processes by implementing agile best practices, promoting effective collaboration, and providing organizational leadership. You will help the global development teams perform at their highest level while maintaining adherence to the established Agile/Scrum methodologies, from concept to deployment. We are looking for someone who enjoys working in a highly collaborative organization that values quality and shared interaction. Your primary objectives are to support, motivate and coach our high-performing development teams as they deliver truly cutting-edge products for some of the largest healthcare industry clients in the country.",
+    "hiring_manager_name": "Mike Anderson",
+    "hiring_manager_photo": "https://ibb.co/926Xgvx",
+    "hiring_manager_email": "mike.anderson@techpro.com",
+    "responsibilities": [
+       "Promote and nurture team creativity and efficiency",
+    "Ensure each Scrum team member has the resources and information needed for success",
+    "Remove impediments for your team members and shield them from external interference",
+    "Execute the Scrum framework and supporting processes",
+    "Proactively coach team members on Scrum and agile best practices",
+    "Provide agile leadership and coaching for the development team and project stakeholders regarding process methodologies, scrum practices, collaboration tools, etc.",
+    "Organize, schedule, and facilitate agile ceremonies, including daily stand-up, sprint reviews, sprint retrospectives, backlog grooming, sprint planning, and other meetings as needed",
+    "Collaborate with Product Owners and other key stakeholders to identify, refine, and shape the product backlog and roadmap to support business value delivery",
+    "Consistently deliver established team reporting and guidance metrics"
+    ],
+    "benefits": [
+      "Competitive salary package",
+    "Health and dental insurance",
+     "600(k) or pension plan",
+    "Flexible work hours or remote work options",
+    "Professional development opportunities",
+    "Paid time off and vacation days",
+    "Performance bonuses",
+    "Recognition and rewards program",
+    "Health and wellness programs"
+    ],
+    "job_posting_date": "2024-01-20",
+    "user_email": "applicant_user5@email.com",
+    "job_location": "Boulevard Ceulemans 832,Belgium",
+    "qualification": [
+      "Bachelor's degree in Project Management or related field",
+      "Proven experience in managing IT projects",
+      "Strong leadership and team collaboration skills",
+      "Effective risk management and problem-solving abilities",
+      "Excellent communication and stakeholder management skills"
+    ]
+  },
+  {
+    
+      "job_title": "Data Scientist",
+      "company_name": "Tech Innovators Inc.",
+      "company_logo": "https://i.ibb.co/VpCcZgD/c1.jpg",
+      "job_role": "Machine Learning Engineer",
+      "salary": 9000,
+      "job_time": "Intern",
+      "skills": ["Python", "TensorFlow", "Scikit-Learn", "SQL", "Data Visualization"],
+      "job_description": "Join our innovative team as a Machine Learning Engineer. You'll work on cutting-edge projects, applying machine learning algorithms to solve complex problems and contribute to the advancement of artificial intelligence.",
+      "hiring_manager_name": "Christopher Brown",
+      "hiring_manager_photo": "https://i.ibb.co/kGg3Bk9/3.jpg",
+      "hiring_manager_email": "techinnovators@gmail.com",
+      "responsibilities": ["Develop and implement machine learning models for various applications.", "Collaborate with data scientists and engineers to deploy and maintain models in production.", "Analyze large datasets to extract meaningful insights.", "Stay up-to-date with the latest advancements in machine learning and artificial intelligence.", "Contribute to the documentation of models and algorithms."],
+      "benefits": ["401(k) matching", "Remote work options", "Health and wellness programs"],
+      "qualification": ["Master's degree in Computer Science or related field", "Experience with deep learning frameworks like PyTorch or Keras.", "Strong understanding of statistical modeling and data analysis techniques.", "Excellent communication and collaboration skills.", "Proven ability to work on interdisciplinary projects."],
+      "job_posting_date": "2024-01-22",
+      "user_email": "chris@gmail.com",
+      "job_location": "New York, NY"
+    
+    
+  },
+  {
+    "job_title": "UX/UI Designer",
+    "company_name": "Creative Solutions Agency",
+    "company_logo": "https://i.ibb.co/4Tzjpws/c2.jpg",
+    "job_role": "Senior UX/UI Designer",
+    "salary": 8500,
+    "job_time": "Intern",
+    "skills": ["Adobe XD", "Sketch", "Figma", "User Research", "Interaction Design"],
+    "job_description": "We are looking for a Senior UX/UI Designer to lead the design efforts of our digital products. If you have a passion for creating intuitive and visually appealing user experiences, join our team and contribute to the success of our client projects.",
+    "hiring_manager_name": "Emily Rodriguez",
+    "hiring_manager_photo": "https://i.ibb.co/KwC15D9/2.jpg",
+    "hiring_manager_email": "creativesolutions@gmail.com",
+    "responsibilities": ["Lead the design of user interfaces for web and mobile applications.", "Collaborate with product managers and developers to define and implement design goals.", "Conduct user research and usability testing to inform design decisions.", "Create wireframes, prototypes, and visual designs for digital products.", "Stay updated on industry trends and best practices in UX/UI design."],
+    "benefits": ["Flexible work hours", "Remote work options", "Professional development budget"],
+    "qualification": ["Bachelor's degree in Design or related field", "Proven experience as a UX/UI Designer with a strong portfolio.", "Expertise in design tools such as Adobe Creative Suite or Sketch.", "Strong understanding of user-centered design principles.", "Excellent communication and presentation skills."],
+    "job_posting_date": "2024-01-23",
+    "user_email": "emily@gmail.com",
+    "job_location": "Los Angeles, CA"
+  },
+  {
+    "job_title": "Network Engineer",
+    "company_name": "Tech Solutions Group",
+    "company_logo": "https://i.ibb.co/7pWkrdB/c3.jpg",
+    "job_role": "Cisco Certified Network Professional",
+    "salary": 7500,
+    "job_time": "Part-time",
+    "skills": ["Cisco Routing and Switching", "Network Security", "TCP/IP", "Wireless Networking", "Troubleshooting"],
+    "job_description": "Tech Solutions Group is hiring a Network Engineer with expertise in Cisco technologies. Join our team to design, implement, and manage secure and efficient network infrastructures for our clients.",
+    "hiring_manager_name": "Michael Turner",
+    "hiring_manager_photo": "https://i.ibb.co/P57wnjh/4.jpg",
+    "hiring_manager_email": "techsolutions@gmail.com",
+    "responsibilities": ["Design and implement scalable network solutions.", "Configure and maintain network hardware and software.", "Troubleshoot and resolve network issues in a timely manner.", "Collaborate with IT teams to ensure the security and reliability of the network infrastructure.", "Stay current with advancements in networking technologies."],
+    "benefits": ["Health and dental insurance", "401(k) matching", "Training and certification programs"],
+    "qualification": ["Bachelor's degree in Information Technology or related field", "CCNP certification or equivalent experience.", "Proven experience in designing and managing enterprise-level networks.", "Knowledge of network monitoring and troubleshooting tools.", "Excellent problem-solving and communication skills."],
+    "job_posting_date": "2024-01-24",
+    "user_email": "michael@gmail.com",
+    "job_location": "Chicago, IL"
+  },
+  {
+    "job_title": "Marketing Specialist",
+    "company_name": "Global Marketing Solutions",
+    "company_logo": "https://i.ibb.co/cv3z381/c4.jpg",
+    "job_role": "Digital Marketing Manager",
+    "salary": 8200,
+    "job_time": "On-site",
+    "skills": ["Social Media Marketing", "SEO", "Content Creation", "Analytics", "Email Marketing"],
+    "job_description": "Global Marketing Solutions is looking for a talented Digital Marketing Manager to lead our online marketing efforts. Join our team and play a key role in developing and executing digital marketing strategies for our clients.",
+    "hiring_manager_name": "David Thompson",
+    "hiring_manager_photo": "https://i.ibb.co/XbTg05Q/1.webp",
+    "hiring_manager_email": "globalmarketing@gmail.com",
+    "responsibilities": ["Develop and implement digital marketing strategies.", "Manage and optimize online advertising campaigns.", "Create and curate engaging content for social media platforms.", "Analyze and report on the performance of marketing campaigns.", "Stay informed about industry trends and emerging digital marketing technologies."],
+    "benefits": ["Flexible work schedule", "Health and wellness programs", "Performance-based bonuses"],
+    "qualification": ["Bachelor's degree in Marketing or related field", "Proven experience as a Digital Marketing Manager.", "Strong understanding of digital marketing channels and tools.", "Analytical mindset with the ability to interpret data and trends.", "Excellent communication and creative skills."],
+    "job_posting_date": "2024-01-25",
+    "user_email": "david@gmail.com",
+    "job_location": "Miami, FL"
+  }
+  
+  
+  
+
+  
+]
