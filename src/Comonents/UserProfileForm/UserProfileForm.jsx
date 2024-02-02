@@ -91,7 +91,7 @@ const UserProfileForm = () => {
         <div className="max-w-6xl mx-auto">
             <ProfileNav></ProfileNav>
             <div className="max-w-6xl mx-auto">
-            <div className="mt-2 rounded-md border-[0.5px] border-slate-300 text-center p-14 " >
+            <div className=" rounded-md border-[0.5px] border-slate-300 text-center p-14 " >
                 <div className="mx-auto text-center  ">
                     <Link to="/profile">
                        <p className="text-2xl flex"><IoMdArrowBack></IoMdArrowBack> <BsPersonSquare></BsPersonSquare></p>
