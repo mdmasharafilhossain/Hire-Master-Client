@@ -198,6 +198,7 @@ const Profile = () => {
            </div>)
             }
         </div>
+    
     );
 };
 
