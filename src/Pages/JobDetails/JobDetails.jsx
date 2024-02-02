@@ -4,8 +4,19 @@ import { CiLocationOn } from "react-icons/ci";
 import { CiDollar } from "react-icons/ci";
 import { FaWifi } from "react-icons/fa6";
 import { LiaIndustrySolid } from "react-icons/lia";
+import { useContext } from "react";
+import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
+import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
+import Swal from "sweetalert2";
+
+
 const JobDetails = () => {
   const { id } = useParams();
+  const { user } = useContext(AuthContext)
+  const AxiosPublic = UseAxiosPublic()
+
+  const email = user?.email;
+  // console.log('Current user is',user);
 
   const { data: job, loading, error } = useFetchData(`/staticjobpost/${id}`);
 
@@ -15,8 +26,10 @@ const JobDetails = () => {
   if (error) {
     return <p>error</p>;
   }
-  console.log(id);
-  console.log(job);
+  // console.log(id);
+  // console.log(jobs);
+  // const job = jobs.filter((item) => item._id === id)[0];
+  // console.log(job);
   const {
     job_title,
     company_name,
@@ -33,6 +46,45 @@ const JobDetails = () => {
     qualification,
     job_location,
   } = job;
+
+  const appliedJobs = {
+    id,
+    email,
+    job_title,
+    company_name,
+    job_role,
+    salary,
+    job_time,
+    skills,
+    job_description,
+    hiring_manager_name,
+    hiring_manager_photo,
+    hiring_manager_email,
+    responsibilities,
+    benefits,
+    qualification,
+    job_location,
+  }
+  
+  // console.log(appliedJobs);
+  const handleAppliedJobs = () => {
+    AxiosPublic.post('/users-appliedjobs', appliedJobs)
+      .then(res => {
+        console.log('add to database');
+        if (res.data.insertedId ) {
+          Swal.fire({
+            title: 'Success!',
+            text: ' Successfull Applied',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
+        }
+        
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
 
   return (
     // ----Main div
@@ -124,20 +176,21 @@ const JobDetails = () => {
         </div>
         {/* Apply button */}
         <div className="md:block hidden">
-          <button className="btn bg-[#ff6445] text-white mx-auto w-1/2 font-semibold text-lg">
+          <button onClick={handleAppliedJobs} className="btn bg-[#ff6445] text-white mx-auto w-1/2 font-semibold text-lg">
             Apply For this Job
           </button>
         </div>
       </div>
       {/* right div */}
       <div className=" col-span-4 flex justify-center">
+
         {/* Apply btn div */}
         <div className="w-4/5 flex flex-col">
-          <button className="btn bg-[#ff6445] text-white mx-auto w-full font-semibold text-lg sm:hidden md:block">
+          <button onClick={handleAppliedJobs} className="btn bg-[#ff6445] text-white mx-auto w-full font-semibold text-lg sm:hidden md:blockP">
             Apply For this Job
           </button>
           <div className="md:hidden fixed bottom-0 left-0 right-0">
-            <button className="btn bg-[#ff6445] text-white mx-auto w-full font-semibold text-lg">
+            <button onClick={handleAppliedJobs} className="btn bg-[#ff6445] text-white mx-auto w-full font-semibold text-lg">
               Apply For this Job
             </button>
           </div>
