@@ -20,7 +20,7 @@ const Navbar = () => {
     logOut()
       .then()
       .catch()
-  }
+   }
 
     const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
