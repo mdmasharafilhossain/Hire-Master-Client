@@ -18,7 +18,7 @@ const JobDetails = () => {
   const email = user?.email;
   // console.log('Current user is',user);
 
-  const { data: job, loading, error } = useFetchData(`/staticjobpost/${id}`);
+  const { data: jobs, loading, error } = useFetchData(`/staticjobpost/${id}`);
 
   if (loading) {
     return <Loader />;
