@@ -5,8 +5,16 @@ import { FaRegMoneyBillAlt } from "react-icons/fa";
 // import { CiHeart } from "react-icons/ci";
 import { FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const SingleJobList = ({ job }) => {
+  const {user} = useContext(AuthContext);
+  const email = user?.email;
+  let hiring_manager = false;
+  if(email === job.hiring_manager_email){
+    hiring_manager = true;
+  }
   return (
     <div className='px-10 py-2 md:py-5 mb-3 flex flex-col md:flex-row justify-between gap-y-1 md:gap-y-0 md:gap-2 border text-center md:text-left hover:shadow-md hover:rounded-3xl'>
       {/* ----------Company logo------------ */}
@@ -44,7 +52,9 @@ const SingleJobList = ({ job }) => {
               Details
             </button>
           </Link>
-          <button className='btn bg-[#FF3811] text-white'>Apply Now</button>
+          {
+            !hiring_manager && 
+            <button className='btn bg-[#FF3811] text-white'>Apply Now</button>}
         </div>
         <div className='flex items-center justify-center gap-2'>
           <FaCalendarAlt className='text-[#FF3811]' />{" "}

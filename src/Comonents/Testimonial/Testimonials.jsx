@@ -31,6 +31,7 @@ const Testimonials = () => {
         <p className='text-2xl md:text-3xl text-center font-medium'>
           Insights from Job Applicants and Recruiting Agencies.
         </p>
+
       </div>
 
       <Swiper
