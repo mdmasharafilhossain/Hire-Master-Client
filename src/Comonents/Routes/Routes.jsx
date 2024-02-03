@@ -16,9 +16,12 @@ import Profile from "../../Pages/Profile/Profile";
 import UserProfileForm from "../UserProfileForm/UserProfileForm";
 import MyJobs from "../../Pages/Jobs/MyJobs";
 
+import ProfileHead from "../../Pages/ProfileHead/ProfileHead";
+import Education from "../../Pages/Education/Education";
 
 import Appliedjobs from "../../Pages/Appliedjobs/Appliedjobs";
 import PrivateRoute from "./PrivateRoute";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,20 +33,32 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path:'/about',
-        element:<About></About>
+        path: "/about",
+        element: <About></About>,
       },
       {
         path: "/jobs",
-        element: <PrivateRoute><Jobs></Jobs></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <Jobs></Jobs>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/jobDetails/:id",
-        element: <PrivateRoute><JobDetails/></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <JobDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/jobpost",
-        element: <PrivateRoute><JobPost></JobPost></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <JobPost></JobPost>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/appliedjobs",
@@ -51,7 +66,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/myPostedJobs",
-        element: <MyJobs/>
+        element: <MyJobs />,
       },
       {
         path: "contacts",
@@ -85,13 +100,21 @@ const router = createBrowserRouter([
     element: <Login></Login>,
   },
   {
-    path:"profile",
-    element:<Profile></Profile>
+    path: "profile",
+    element: <Profile></Profile>,
   },
   {
-    path:"/profileForm",
-    element:<UserProfileForm></UserProfileForm>
-  }
+    path: "/profileForm",
+    element: <UserProfileForm></UserProfileForm>,
+  },
+  {
+    path: "/profileHead",
+    element: <ProfileHead></ProfileHead>,
+  },
+  {
+    path: "/education",
+    element: <Education></Education>,
+  },
 ]);
 
 export default router;

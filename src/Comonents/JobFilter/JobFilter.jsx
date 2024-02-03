@@ -4,6 +4,7 @@ import "react-range-slider-input/dist/style.css";
 import "./slideStyles.css";
 
 const JobFilter = ({
+  jobs,
   handleSubmit,
   filterParams,
   setFilterParams,
@@ -37,14 +38,14 @@ const JobFilter = ({
       job_time: [],
       salaryRange: `${[0, 250000][0]}-${[0, 250000][1]}`,
     });
-    setFilterJobs([]);
+    setFilterJobs(jobs);
     setValue([0, 250000]);
   };
 
   return (
     <form
       onSubmit={handleSubmit}
-      className='mx-auto my-10 flex flex-col w-full space-y-5 bg-white'
+      className='mx-auto my-10 lg:my-0 flex flex-col w-full space-y-5 lg:space-y-2 bg-white'
     >
       <div className='space-y-3'>
         <label className='text-lg font-medium block'>Job Title</label>
@@ -53,7 +54,7 @@ const JobFilter = ({
           type='text'
           name='job_title'
           placeholder='Search Job'
-          className='outline-none w-3/4 lg:w-full py-2 pl-2 rounded-full border border-orange-500'
+          className='outline-none w-3/4 lg:w-full py-2 pl-2 rounded-full border'
           value={filterParams.job_title}
           onChange={e => handleChange("job_title", e.target.value)}
         />
@@ -163,10 +164,15 @@ const JobFilter = ({
 
       <div className='flex space-x-5'>
         <Button type='submit' colorScheme='blue'>
-          Apply Filters
+          Filter Jobs
         </Button>
-        <Button type='button' variant='outline' onClick={handleClearFilters}>
-          Clear Filters
+        <Button
+          type='button'
+          variant='outline'
+          colorScheme='red'
+          onClick={handleClearFilters}
+        >
+          Reset Filters
         </Button>
       </div>
     </form>
