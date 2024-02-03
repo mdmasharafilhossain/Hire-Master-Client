@@ -60,8 +60,8 @@ const JobFilter = ({
         />
       </div>
 
-      <div className='lg:grid lg:grid-cols-2 items-center w-full space-y-3 space-x-2 md:space-x-4 lg:space-x-0'>
-        <label className='lg:col-span-2 text-lg font-medium block'>
+      <div className='lg:grid lg:grid-cols-3 items-center w-full space-y-3 lg:space-y-0 space-x-2 md:space-x-4 lg:space-x-0'>
+        <label className='lg:col-span-3 text-lg font-medium block'>
           Job Type
         </label>
         <label>
@@ -150,7 +150,7 @@ const JobFilter = ({
           />
         </div>
         <div className='rounded-xl w-1/2 md:w-1/5 lg:w-full border gap-y-1 px-2 flex flex-col'>
-          <label className='block'> </label>
+          <label className='block text-[10px]'> </label>
           Max Salary
           <input
             type='text'
@@ -163,16 +163,17 @@ const JobFilter = ({
       </div>
 
       <div className='flex space-x-5'>
-        <Button type='submit' colorScheme='blue'>
+        <Button size={"sm"} type='submit' colorScheme='blue'>
           Filter Jobs
         </Button>
         <Button
           type='button'
+          size={"sm"}
           variant='outline'
           colorScheme='red'
           onClick={handleClearFilters}
         >
-          Reset Filters
+          Reset Filter
         </Button>
       </div>
     </form>

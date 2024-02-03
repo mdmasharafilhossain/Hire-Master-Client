@@ -9,10 +9,10 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const SingleJobList = ({ job }) => {
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const email = user?.email;
   let hiring_manager = false;
-  if(email === job.hiring_manager_email){
+  if (email === job.hiring_manager_email) {
     hiring_manager = true;
   }
   return (
@@ -46,15 +46,20 @@ const SingleJobList = ({ job }) => {
       {/* ------------Apply and DeadLine------------- */}
       <div className='flex flex-col gap-3'>
         <div className='flex items-center justify-center gap-2'>
-          <Link className='btn btn-warning' to={`/jobDetails/${job._id}`}>
+          <Link
+            className='btn btn-sm  btn-warning'
+            to={`/jobDetails/${job._id}`}
+          >
             <button>
               {/* <CiHeart className="text-[#FF3811]" />  */}
               Details
             </button>
           </Link>
-          {
-            !hiring_manager && 
-            <button className='btn bg-[#FF3811] text-white'>Apply Now</button>}
+          {!hiring_manager && (
+            <button className='btn btn-sm  bg-[#FF3811] text-white'>
+              Apply Now
+            </button>
+          )}
         </div>
         <div className='flex items-center justify-center gap-2'>
           <FaCalendarAlt className='text-[#FF3811]' />{" "}
