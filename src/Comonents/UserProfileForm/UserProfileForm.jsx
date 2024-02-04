@@ -25,6 +25,7 @@ const UserProfileForm = () => {
         "content-type": "multipart/form-data",
       },
     });
+    
     console.log(res.data);
     if (res.data.success) {
       const UserProfileInfo = {
@@ -81,7 +82,7 @@ const UserProfileForm = () => {
   };
   return (
     <div className='max-w-6xl mx-auto'>
-      <ProfileNav></ProfileNav>
+      <ProfileNav profile={"profile"} setProfile={"profileForm"}></ProfileNav>
       <div className='max-w-6xl mx-auto'>
         <div className=' rounded-md border-[0.5px] border-slate-300 text-center p-14 '>
           <div className='mx-auto text-center  '>
