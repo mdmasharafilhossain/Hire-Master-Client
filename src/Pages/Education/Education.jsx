@@ -4,10 +4,13 @@ import Swal from "sweetalert2";
 import useProfile from "../../Comonents/Hooks/useProfile/useProfile";
 
 
-const Education = () => {
 
+const Education = () => {
+   
     const axiosPublic = UseAxiosPublic()
     const [profileData] = useProfile()
+    const myProfileData = profileData[0]
+    console.log(profileData[0])
 
     const {
         register,
@@ -19,13 +22,13 @@ const Education = () => {
         console.log(data)
 
             const userInfo = {
-                UniversityName:data.institute,
+                UniversityName:data.institute
                 
             }
-            const menuRes = await axiosPublic.patch("/UsersProfile", userInfo)
-            console.log(menuRes.data)
-            if(menuRes.data.modifiedCount > 0){
-                Swal.fire("Pet Updated successfully");
+            const userRes = await axiosPublic.patch(`/UsersProfile/${myProfileData._id}`, userInfo)
+            console.log(userRes.data)
+            if(userRes.data.modifiedCount > 0){
+                Swal.fire("Successfully Edited");
             }
 
     }
@@ -166,7 +169,7 @@ const Education = () => {
                         {errors.longDescription && <span className="mt-2 text-red-600 w-full">description is required </span>}
                         <p className="border-[0.5px] border-slate-400 mt-2 mb-1 w-full"></p>
 
-                        <button className=" btn px-8  bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-200  text-lg font-semibold">Edit</button>
+                        <button onSubmit={handleSubmit(onSubmit)} className=" btn px-8  bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-200  text-lg font-semibold">Edit</button>
                     </form>
                 </div>
             </div>
