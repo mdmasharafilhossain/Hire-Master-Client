@@ -27,7 +27,7 @@ const ManagerLogin = () => {
     signIn(email, password)
       .then(result => {
         if (result) {
-          navigate(location?.state ? location.state : "/jobpost");
+          navigate(location?.state ? location.state : "/managerProfile");
           return swal("Success!", "Login Successful", "success");
         }
       })

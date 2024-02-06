@@ -31,7 +31,7 @@ const Profile = () => {
     <div>
       {profileData.map(data => (
         <div key={data._id} className='max-w-6xl mx-auto '>
-          <ProfileNav></ProfileNav>
+          <ProfileNav profile={"profile"} setProfile={"profileForm"}></ProfileNav>
           <div className='md:flex '>
             <div className='flex md:flex-col ml-2 mt-10 mb-2  gap-2'>
               <Link to='/'>

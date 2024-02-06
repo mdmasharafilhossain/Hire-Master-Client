@@ -27,7 +27,7 @@ const ManagerSignup = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result);
-        navigate(location?.state ? location.state : "/profileForm");
+        navigate(location?.state ? location.state : "/managerForm");
         return swal("Success!", "Registration Successful", "success");
       })
       .catch((error) => {

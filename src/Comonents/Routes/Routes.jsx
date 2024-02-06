@@ -21,6 +21,8 @@ import Education from "../../Pages/Education/Education";
 
 import Appliedjobs from "../../Pages/Appliedjobs/Appliedjobs";
 import PrivateRoute from "./PrivateRoute";
+import ManagerProfile from "../../Pages/Profile/ManagerProfile";
+import ManagerForm from "../../Pages/ManagerProfileForm/ManagerForm";
 
 const router = createBrowserRouter([
   {
@@ -102,6 +104,14 @@ const router = createBrowserRouter([
   {
     path: "profile",
     element: <Profile></Profile>,
+  },
+  {
+    path: "/managerProfile",
+    element: <ManagerProfile/>
+  },
+  {
+    path: "/managerForm",
+    element: <ManagerForm/>
   },
   {
     path: "/profileForm",

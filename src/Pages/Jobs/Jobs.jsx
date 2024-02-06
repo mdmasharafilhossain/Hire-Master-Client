@@ -19,7 +19,7 @@ const Jobs = () => {
     salaryRange: `${value[0]}-${value[1]}`,
   });
 
-  const { data: jobs, loading, error } = useFetchData("/staticjobpost");
+  const { data: jobs, loading, refetch } = useFetchData("/staticjobpost");
 
   React.useEffect(() => {
     if (jobs) {
@@ -31,9 +31,10 @@ const Jobs = () => {
     return <Loader />;
   }
 
-  if (error) {
-    return <p>Error fetching data: {error.message}</p>;
-  }
+  // if (error) {
+  //   return <p>Error fetching data: {error.message}</p>;
+  // }
+  refetch();
   const handleSubmit = e => {
     e.preventDefault();
     setFilterLoading(true);
@@ -52,7 +53,7 @@ const Jobs = () => {
   };
   console.log(filterJobs);
   return (
-    <div className='mx-auto'>
+    <div className='mx-auto px-4'>
       <Navbar2 />
       <div className='mt-20'>
         <div className='flex gap-x-5 md:gap-x-10 justify-center items-center px-4 py-5 sm:px-6'>
@@ -64,7 +65,9 @@ const Jobs = () => {
                 Job Opportunity!!
               </span>
             </h1>
-            <p className='mt-2 max-w-[550px]  mx-auto text-base text-gray-500 font-medium sm:text-lg md:mt-2 md:max-w-3xl'>
+
+            <p className='mt-3 max-w-[550px]  mx-auto text-base text-gray-500 font-medium sm:text-lg md:mt-5 md:max-w-3xl'>
+
               With our comprehensive job listings, you will never miss out on
               exciting opportunities. Apply today and start your journey with
               us.
