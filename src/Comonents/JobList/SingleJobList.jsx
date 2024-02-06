@@ -44,16 +44,24 @@ const SingleJobList = ({ job }) => {
       </div>
 
       {/* ------------Apply and DeadLine------------- */}
-      <div className="flex flex-col gap-3">
-        <div className="flex items-center justify-center gap-2">
-          <Link className="btn btn-warning" to={`/jobDetails/${job._id}`}>
+
+      <div className='flex flex-col gap-3'>
+        <div className='flex items-center justify-center gap-2'>
+          <Link
+            className='btn btn-sm  btn-warning'
+            to={`/jobDetails/${job._id}`}
+          >
             <button>
               {/* <CiHeart className="text-[#FF3811]" />  */}
               Details
             </button>
           </Link>
           {!hiring_manager && (
-            <button className="btn bg-[#FF3811] text-white">Apply Now</button>
+
+            <button className='btn btn-sm  bg-[#FF3811] text-white'>
+              Apply Now
+            </button>
+
           )}
         </div>
         <div className="flex items-center justify-center gap-2">
