@@ -4,10 +4,10 @@ import Lottie from 'lottie-react';
 
 const Banner = () => {
   return (
-    <div className=' mb-12 '>
+     <div className=' mb-12 '>
       
       <div className="hero h-[650px] bg-[url('/bg-1.avif')]">
-        <div className='hero-overlay bg-opacity-60'></div>
+         <div className='hero-overlay bg-opacity-60'></div>
 
         <div className='hero-content flex-col lg:flex-row-reverse '>
           <div className='-mt-32'>
