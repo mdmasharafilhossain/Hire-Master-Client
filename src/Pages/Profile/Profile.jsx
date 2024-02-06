@@ -18,6 +18,8 @@ const Profile = () => {
   const { user } = useContext(AuthContext);
   const AxiosPublic = UseAxiosPublic();
 
+  
+
   const { data: profileData = [] } = useQuery({
     queryKey: ["data", user?.email],
     queryFn: async () => {

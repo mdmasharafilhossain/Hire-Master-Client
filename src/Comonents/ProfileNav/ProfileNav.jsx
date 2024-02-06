@@ -12,7 +12,7 @@ const ProfileNav = () => {
                             to="/profile" style={{ fontSize: 20, fontWeight: 600 }}
                             className={({ isActive, isPending }) =>
                                 isPending ? "pending" : isActive ?
-                                    "text-[#FF444A] underline" : ""
+                                    "text-[#FF3811] underline" : ""
                             }
                         >
                             Profile
@@ -24,7 +24,7 @@ const ProfileNav = () => {
                             to="/profileForm" style={{ fontSize: 20, fontWeight: 600 }}
                             className={({ isActive, isPending }) =>
                                 isPending ? "pending" : isActive ?
-                                    "text-[#FF444A] underline " : ""
+                                    "text-[#FF3811] underline " : ""
                             }
                         >
                             Set Profile
