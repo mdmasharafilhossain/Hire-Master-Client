@@ -3,6 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import React, { useContext } from "react";
 import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 import swal from "sweetalert";
+import { saveUsersInDb } from "../../api";
 
 const SignUp = () => {
   const [userExists, setUserExists] = React.useState("");
@@ -10,26 +11,46 @@ const SignUp = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
-  const from = location.state?.from?.pathname || "/";
+  // const from = location.state?.from?.pathname || "/";
   // google sign in
+
+  const saveUser = async user => {
+    const response = await saveUsersInDb(user);
+    console.log(response.data);
+  };
+
   const handleGoogleSignIn = () => {
-    googleSignIn().then(result => {
-      console.log(result);
-      navigate("/profileForm");
-      return swal("Success!", "Login Successful", "success");
-    });
+    googleSignIn()
+      .then(result => {
+        if (result) {
+          const user = {
+            name: result.user.displayName,
+            email: result.user.email,
+          };
+          saveUser(user);
+        }
+        navigate("/profileForm");
+        return swal("Success!", "Login Successful", "success");
+      })
+      .catch(error => {
+        swal(error.message);
+      });
   };
 
   // email sign up
   const handleSignUp = e => {
     e.preventDefault();
     const form = e.target;
+    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
 
     createUser(email, password)
       .then(result => {
-        console.log(result);
+        if (result) {
+          const user = { name, email };
+          saveUser(user);
+        }
         navigate(location?.state ? location.state : "/profileForm");
         return swal("Success!", "Registration Successful", "success");
       })
