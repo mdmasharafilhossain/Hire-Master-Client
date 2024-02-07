@@ -8,11 +8,6 @@ const AxiosPublic = axios.create({
 })
 
 
-
-const AxiosPublic = axios.create({
-  baseURL: "http://localhost:5000",
-});
-
 const UseAxiosPublic = () => {
   return AxiosPublic;
 };
