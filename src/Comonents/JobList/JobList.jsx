@@ -12,15 +12,16 @@ import useFetchData from "../Hooks/UseFetchData/useFetchData";
 import Loader from "../Loader/Loader";
 
 const JobList = () => {
-  const { data: jobs, loading, error } = useFetchData("/staticjobpost");
+  const { data: jobs, loading, refetch } = useFetchData("/staticjobpost", 'jobs');
 
   if (loading) {
     return <Loader />;
   }
 
-  if (error) {
-    return <p>Error fetching data: {error.message}</p>;
-  }
+  // if (error) {
+  //   return <p>Error fetching data: {error.message}</p>;
+  // }
+  refetch();
 
   const remotes = jobs.filter(job => job.job_time === "Remote").slice(0, 2);
   const fullTimes = jobs

@@ -27,10 +27,13 @@ const ManagerSignup = () => {
     createUser(email, password)
       .then((result) => {
         console.log(result);
-        navigate(location?.state ? location.state : "/jobpost");
+        navigate(location?.state ? location.state : "/managerForm");
         return swal("Success!", "Registration Successful", "success");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        return swal("Error!", `${error.message}`, "error");
+      });
   };
 
   return (

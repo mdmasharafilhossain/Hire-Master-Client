@@ -1,28 +1,24 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import UseAxiosPublic from "../UseAxiosPublic/UseAxiosPublic";
+import { useContext } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
-const useFetchData = url => {
+const useFetchData = (api, key) => {
+  const { user } = useContext(AuthContext);
   const axiosPublic = UseAxiosPublic();
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axiosPublic.get(url);
-        setData(response.data);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [axiosPublic, url]);
-
-  return { data, loading, error };
+  const {
+    data: data = [],
+    isPending: loading,
+    refetch,
+  } = useQuery({
+    queryKey: [key, user?.email],
+    queryFn: async () => {
+      const res = await axiosPublic.get(api);
+      return res.data;
+    },
+  });
+  return { data, loading, refetch };
 };
 
 export default useFetchData;
