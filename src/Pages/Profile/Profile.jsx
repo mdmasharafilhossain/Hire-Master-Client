@@ -18,6 +18,8 @@ const Profile = () => {
   const { user } = useContext(AuthContext);
   const AxiosPublic = UseAxiosPublic();
 
+  
+
   const { data: profileData = [] } = useQuery({
     queryKey: ["data", user?.email],
     queryFn: async () => {
@@ -31,7 +33,7 @@ const Profile = () => {
     <div>
       {profileData.map(data => (
         <div key={data._id} className='max-w-6xl mx-auto '>
-          <ProfileNav></ProfileNav>
+          <ProfileNav profile={"profile"} setProfile={"profileForm"}></ProfileNav>
           <div className='md:flex '>
             <div className='flex md:flex-col ml-2 mt-10 mb-2  gap-2'>
               <Link to='/'>
@@ -178,7 +180,7 @@ const Profile = () => {
                     </span>
                     : HTML, Css, Javascript, React, Node js, Express js, Mongodb
                   </h3>
-                  <Link to={data.ProjectLiveLink} className='text-xl'>
+                  <Link target="_blank" to={data.ProjectLiveLink} className='text-xl'>
                     <FaExternalLinkAlt></FaExternalLinkAlt>
                   </Link>
                 </div>

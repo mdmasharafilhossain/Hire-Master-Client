@@ -46,7 +46,7 @@ const Navbar = () => {
       <DrawerContent>
         <DrawerCloseButton />
         <div className="flex ml-5 mt-2">
-          <img src={logo} className="w-28" alt="logo" />
+          <img src="https://i.ibb.co/BcFWdqk/Hire-Master-Logo-2.png"className="w-28" alt="logo" />
         </div>
         <hr className="my-10" />
         <DrawerBody>
@@ -80,7 +80,7 @@ const Navbar = () => {
         to="/"
         className="lg:ml-[200px]  text-3xl md:text-4xl font-bold ml-1 text-[#FF3811]"
       >
-        HireMaster
+        <img  className=" w-44 md:w-40 lg:w-48 ml-10 md:ml-5 lg:ml-20" src="https://i.ibb.co/BcFWdqk/Hire-Master-Logo-2.png" alt="" />
       </Link>
     </div>
     <div className="flex-none">
