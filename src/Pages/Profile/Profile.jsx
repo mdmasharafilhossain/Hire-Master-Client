@@ -18,6 +18,8 @@ const Profile = () => {
   const { user } = useContext(AuthContext);
   const AxiosPublic = UseAxiosPublic();
 
+  
+
   const { data: profileData = [] } = useQuery({
     queryKey: ["data", user?.email],
     queryFn: async () => {
@@ -178,7 +180,7 @@ const Profile = () => {
                     </span>
                     : HTML, Css, Javascript, React, Node js, Express js, Mongodb
                   </h3>
-                  <Link to={data.ProjectLiveLink} className='text-xl'>
+                  <Link target="_blank" to={data.ProjectLiveLink} className='text-xl'>
                     <FaExternalLinkAlt></FaExternalLinkAlt>
                   </Link>
                 </div>
