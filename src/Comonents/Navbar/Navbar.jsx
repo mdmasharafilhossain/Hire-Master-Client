@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { MdPostAdd } from "react-icons/md";
 import { MdOutlineDashboard } from "react-icons/md";
-// import logo from "../../assets/hire_master-logo.png";
+import logo from "../../assets/hire_master-logo.png";
 
 import {
   Drawer,
@@ -80,7 +80,7 @@ const Navbar = () => {
         to="/"
         className="text-3xl md:text-4xl font-bold ml-1 text-[#FF3811]"
       >
-        HireMaster
+        <img  className=" w-44 md:w-40 lg:w-48 ml-10 md:ml-5 lg:ml-20" src="https://i.ibb.co/BcFWdqk/Hire-Master-Logo-2.png" alt="" />
       </Link>
     </div>
     <div className="flex-none">
