@@ -23,6 +23,7 @@ const Education = () => {
 
             const userInfo = {
                 UniversityName:data.institute
+
                 
             }
             const userRes = await axiosPublic.patch(`/UsersProfile/${myProfileData._id}`, userInfo)
@@ -46,7 +47,7 @@ const Education = () => {
                         
 
                         <h3 className='text-slate-600 text-lg font-semibold'>School</h3>
-                        <input defaultValue={data.UniversityName} className='pl-2 rounded-md py-2   w-full text-lg font-medium '
+                        <input defaultValue={myProfileData.UniversityName} className='pl-2 rounded-md py-2   w-full text-lg font-medium '
                             {...register("institute", { required: true })} type="text" placeholder='Institute Name' id="" />
                         {errors.name && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
 
@@ -59,16 +60,17 @@ const Education = () => {
                         <input   className='pl-2 rounded-md py-2 border-[0.0px] border-black    w-full text-lg font-medium '
                             {...register("location", { required: true })} type="text" placeholder='e.g CSE' id="" />
                         {errors.location && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
-                        
+
+                        {/* Start Date */}
                         <div className="">
                         <label className="text-slate-600 text-lg font-semibold">Start Date </label>
-                        <div className=" md:flex items-center gap-6 w-full">
+                        <div className=" grid grid-cols-2 gap-6">
                         <div>
                        
-                       <select  {...register("category", { required: true })} className="text-lg font-medium rounded-md py-2 w-[300px] md:w-[460px] "   id="">
+                       <select  {...register("category", { required: true })} className="text-lg font-medium rounded-md py-2 w-full"   id="">
 
                            <option className="text-lg font-medium " value="Jan">January</option>
-                           <option className="text-lg font-medium" value="Feb">February</option>
+                           <option selected className="text-lg font-medium" value="Feb">February</option>
                            <option className="text-lg font-medium" value="Mar">March</option>
                            <option className="text-lg font-medium" value="Apr">April</option>
                            <option className="text-lg font-medium" value="May">May</option>
@@ -82,7 +84,7 @@ const Education = () => {
                        </select>
                        </div>
                         <div>
-                        <select  {...register("category", { required: true })} className="text-lg font-medium rounded-md py-2  w-[300px] md:w-[460px]"   id="">
+                        <select  {...register("category", { required: true })} className="text-lg font-medium rounded-md py-2  w-full"   id="">
 
                             <option className="text-lg font-medium " value="2024">2024</option>
                             <option className="text-lg font-medium" value="2023">2023</option>
@@ -112,13 +114,15 @@ const Education = () => {
                        
                         </div>
                         </div>
+                        
+                         {/* end Date */}
                         <div className="">
                         <label className="text-slate-600 text-lg font-semibold">End Date (Or Expected)</label>
-                        <div className=" md:flex items-center gap-6 w-full">
+                        <div className=" grid grid-cols-2 gap-6">
                             
                         <div>
                        
-                       <select  {...register("category", { required: true })} className="text-lg font-medium rounded-md py-2 w-[300px] md:w-[460px] "   id="">
+                       <select  {...register("category", { required: true })} className="text-lg font-medium rounded-md py-2  w-full"   id="">
 
                            <option className="text-lg font-medium " value="Jan">January</option>
                            <option className="text-lg font-medium" value="Feb">February</option>
@@ -135,7 +139,7 @@ const Education = () => {
                        </select>
                        </div>
                         <div>
-                        <select  {...register("category", { required: true })} className="text-lg font-medium rounded-md py-2  w-[300px] md:w-[460px]"   id="">
+                        <select  {...register("category", { required: true })} className="text-lg font-medium rounded-md py-2 w-full"   id="">
 
                         <option className="text-lg font-medium "  value="2024">2024</option>
                             <option className="text-lg font-medium" value="2023">2023</option>

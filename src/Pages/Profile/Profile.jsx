@@ -7,17 +7,17 @@ import { BsTools } from "react-icons/bs";
 import { IoHome } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { MdPostAdd } from "react-icons/md";
-import { useContext } from "react";
+import { useContext} from "react";
 import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 import ProfileNav from "../../Comonents/ProfileNav/ProfileNav";
 import { useQuery } from "@tanstack/react-query";
 import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
 import { TbWorld } from "react-icons/tb";
+import ProfileImage from "./ProfileImage";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
   const AxiosPublic = UseAxiosPublic();
-
   
 
   const { data: profileData = [] } = useQuery({
@@ -30,9 +30,9 @@ const Profile = () => {
   console.log(profileData);
 
   return (
-    <div>
+    <div >
       {profileData.map(data => (
-        <div key={data._id} className='max-w-6xl mx-auto '>
+        <div  key={data._id} className='max-w-6xl mx-auto '>
           <ProfileNav profile={"profile"} setProfile={"profileForm"}></ProfileNav>
           <div className='md:flex '>
             <div className='flex md:flex-col ml-2 mt-10 mb-2  gap-2'>
@@ -68,18 +68,15 @@ const Profile = () => {
 
             <div className='bg-white w-full rounded-md border-[0.5px] border-slate-300 p-6 '>
               <div className='  bg-white p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50 hover:drop-shadow-lg'>
-                <Link>
+                <Link to='/profileHead'>
                   <h3 className='flex justify-end text-xl mb-2'>
                     <FaPenToSquare></FaPenToSquare>
                   </h3>
                 </Link>
 
-                <div className='md:flex  gap-8'>
-                  <div className=' avatar'>
-                    <div className='w-48 rounded-md border-8 border-white '>
-                      <img src={user?.photoURL} />
-                    </div>
-                  </div>
+                <div  className='md:flex  gap-8'>
+                  <ProfileImage></ProfileImage>
+                  
                   <div className=''>
                     <div className='flex justify-between items-center'>
                       <h2 className='text-xl font-bold'>{data.name}</h2>

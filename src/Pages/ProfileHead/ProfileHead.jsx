@@ -61,24 +61,24 @@ const ProfileHead = () => {
         <div className="mt-10 max-w-5xl mx-auto border-[0.5px] border-slate-400 p-10 bg-[#f4f2ee] rounded-lg">
             <div className="">
                 <div  >
-                    <h2 className='text-3xl font-bold text-blue-600'>Edit Education</h2>
+                    <h2 className='text-3xl font-bold text-blue-600'>Edit</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)} className=' '>
 
-                        <h3 className='text-white text-lg  font-medium'>Profile Picture</h3>
+                        {/* <h3 className='text-white text-lg  font-medium'>Profile Picture</h3>
                         <input  className='pl-2  rounded-md py-2 w-full text-lg '
                             {...register("photo", { required: true })} type="file" placeholder='Password' id="" />
-                        {errors.photo && <span className="mt-2 text-red-600 ">picture is required </span>}
+                        {errors.photo && <span className="mt-2 text-red-600 ">picture is required </span>} */}
 
-                        <h3 className='text-white text-lg  font-medium'>Pet Name</h3>
+                        <h3 className='text-white text-lg  font-medium'>Name</h3>
                         <input  className='pl-2 rounded-md py-2   w-full text-lg'
-                            {...register("name", { required: true })} type="text" placeholder='Name' id="" />
+                            {...register("name", { required: true })} type="text" placeholder='Enter Your Name' id="" />
                         {errors.name && <span className="mt-2 text-red-600 w-full">Name is required </span>}
 
-                        <h3 className='text-white text-lg  font-medium'>Pet Age</h3>
+                        <h3 className='text-white text-lg  font-medium'>Institute</h3>
                         <input  className='pl-2 rounded-md py-2    w-full text-lg'
-                            {...register("age", { required: true })} type="number" placeholder='Age' id="" />
-                        {errors.age && <span className="mt-2 text-red-600 w-full">Age is required </span>}
+                            {...register("age", { required: true })} type="number" placeholder='Institute' id="" />
+                        {errors.age && <span className="mt-2 text-red-600 w-full">Institute is required </span>}
                         
                         <div className="">
                         <label className="text-lg font-semibold text-white">Category: </label>
