@@ -3,6 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import React, { useContext } from "react";
 import swal from "sweetalert";
 import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
+import { saveUsersInDb } from "../../api";
 
 const Login = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
@@ -11,13 +12,27 @@ const Login = () => {
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
 
+  const saveUser = async user => {
+    const response = await saveUsersInDb(user);
+    console.log(response.data);
+  };
   // google sign in
   const handleGoogleSignIn = () => {
-    googleSignIn().then(result => {
-      console.log(result);
-      navigate(from, { replace: true });
-      return swal("Success!", "Login Successful", "success");
-    });
+    googleSignIn()
+      .then(result => {
+        if (result) {
+          const user = {
+            name: result.user.displayName,
+            email: result.user.email,
+          };
+          saveUser(user);
+        }
+        navigate(from, { replace: true });
+        return swal("Success!", "Login Successful", "success");
+      })
+      .catch(error => {
+        console.log(error.message);
+      });
   };
   const handleLogin = e => {
     e.preventDefault();
