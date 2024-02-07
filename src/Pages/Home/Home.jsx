@@ -3,6 +3,7 @@ import ExploreByCategory from "../../Comonents/ExploreByCategory/ExploreByCatego
 import JobList from "../../Comonents/JobList/JobList";
 import Testimonials from "../../Comonents/Testimonial/Testimonials";
 import Navbar from "../../Comonents/Navbar/Navbar";
+import PaymentHomeCard from "../../Comonents/Payment/PaymentHomeCard/PaymentHomeCard";
 
 
 const Home = () => {
@@ -13,7 +14,7 @@ const Home = () => {
       <JobList />
       <Testimonials />
       <ExploreByCategory></ExploreByCategory>
-      
+      <PaymentHomeCard></PaymentHomeCard>
     </div>
   );
 };
