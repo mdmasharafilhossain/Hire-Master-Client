@@ -78,7 +78,7 @@ const Navbar = () => {
     <div className="flex-1">
       <Link
         to="/"
-        className="text-3xl md:text-4xl font-bold ml-1 text-[#FF3811]"
+        className="lg:ml-[200px]  text-3xl md:text-4xl font-bold ml-1 text-[#FF3811]"
       >
         <img  className=" w-44 md:w-40 lg:w-48 ml-10 md:ml-5 lg:ml-20" src="https://i.ibb.co/BcFWdqk/Hire-Master-Logo-2.png" alt="" />
       </Link>
