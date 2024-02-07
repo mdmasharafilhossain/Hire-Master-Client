@@ -1,4 +1,4 @@
-gitimport { useContext } from "react";
+import { useContext } from "react";
 import useFetchData from "../../Comonents/Hooks/UseFetchData/useFetchData";
 import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 import SingleJobList from "../../Comonents/JobList/SingleJobList";
