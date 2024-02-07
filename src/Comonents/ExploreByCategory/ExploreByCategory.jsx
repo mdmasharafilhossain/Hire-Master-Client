@@ -7,7 +7,7 @@ import { FaHandshake } from "react-icons/fa6";
 
 const ExploreByCategory = () => {
     return (
-        <div className="max-w-7xl mx-6 md:mx-auto  ">
+        <div className="max-w-7xl mx-6 px-10 md:mx-auto  ">
             <h2 className='text-center text-5xl font-bold mt-8 mb-8'> Explore By Category</h2>
             <div className="grid grid-cols-2 mt-20  md:grid-cols-4 gap-8 ">
 
