@@ -5,9 +5,13 @@ import axios from "axios";
 
 
 
+// const AxiosPublic = axios.create({
+//   baseURL: "http://localhost:5000",
+// });
+
 const AxiosPublic = axios.create({
-  baseURL: "http://localhost:5000",
-});
+    baseURL:'http://localhost:5000'
+})
 
 const UseAxiosPublic = () => {
   return AxiosPublic;
