@@ -78,7 +78,7 @@ const Navbar = () => {
     <div className="flex-1">
       <Link
         to="/"
-        className="text-3xl md:text-4xl font-bold ml-1 text-[#FF3811]"
+        className="lg:ml-[200px]  text-3xl md:text-4xl font-bold ml-1 text-[#FF3811]"
       >
         HireMaster
       </Link>
