@@ -157,9 +157,11 @@ const Profile = () => {
                   <p className='text-2xl mb-2'>
                     <RiAddBoxFill></RiAddBoxFill>
                   </p>
-                  <p className='text-xl mb-2'>
+                 <Link to="/projects">
+                 <p className='text-xl mb-2'>
                     <FaPenToSquare></FaPenToSquare>
                   </p>
+                 </Link>
                 </div>
                 <div className='flex items-center gap-2'>
                   <h3 className='text-xl font-bold'>Projects</h3>
@@ -234,9 +236,11 @@ const Profile = () => {
                   <p className='text-2xl mb-2'>
                     <RiAddBoxFill></RiAddBoxFill>
                   </p>
+                  <Link to="/experience">
                   <p className='text-xl mb-2'>
                     <FaPenToSquare></FaPenToSquare>
                   </p>
+                  </Link>
                 </div>
                 <div className='flex items-center gap-2'>
                   <h3 className='text-xl font-bold'>Experience</h3>
@@ -259,6 +263,9 @@ const Profile = () => {
                   </h3>
                   <h3 className='text-slate-600 font-semibold'>
                     {data.WorkingStartDate} | {data.WorkingEndDate}
+                  </h3>
+                  <h3 className='text-slate-600 font-semibold'>
+                    That was a it company and i work their for 2 years.
                   </h3>
                 </div>
               </div>

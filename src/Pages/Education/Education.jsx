@@ -173,8 +173,8 @@ const Education = () => {
                         {errors.category && <span className="mt-2 text-red-600 ">Select A Category</span>}
 
                         <h3 className='text-slate-600 text-lg font-semibold'>Description</h3>
-                        <textarea  {...register("longDescription", { required: true })} type="text" placeholder='Add Your Description' className='pl-2 rounded-md py-2    w-full text-lg font-medium ' cols="30" rows="2"></textarea>
-                        {errors.longDescription && <span className="mt-2 text-red-600 w-full">description is required </span>}
+                        <textarea  {...register("description", { required: true })} type="text" placeholder='Add Your Description' className='pl-2 rounded-md py-2    w-full text-lg font-medium ' cols="30" rows="2"></textarea>
+                        {errors.description && <span className="mt-2 text-red-600 w-full">description is required </span>}
                         <p className="border-[0.5px] border-slate-400 mt-2 mb-1 w-full"></p>
 
                         <button onSubmit={handleSubmit(onSubmit)} className=" btn px-8  bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-200  text-lg font-semibold">Edit</button>

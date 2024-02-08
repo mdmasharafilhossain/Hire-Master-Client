@@ -4,7 +4,7 @@ import useProfile from "../../Comonents/Hooks/useProfile/useProfile";
 import Swal from "sweetalert2";
 
 
-const Projects = () => {
+const Experience = () => {
 
     const axiosPublic = UseAxiosPublic()
     const [profileData] = useProfile()
@@ -32,31 +32,37 @@ const Projects = () => {
             }
 
     }
+
     return (
         <div>
         {
             profileData.map(data => <div key={data._id} className="mt-10 max-w-5xl mx-auto border-[0.5px] border-slate-400 p-10 bg-[#f4f2ee] rounded-lg">
             <div className="">
                 <div  >
-                    <h2 className='text-3xl font-bold text-blue-600'>Edit Project</h2>
+                    <h2 className='text-3xl font-bold text-blue-600'>Edit Education</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)} className=' '>
 
                         
 
-                        <h3 className='text-slate-600 text-lg font-semibold'>Project Name</h3>
+                        <h3 className='text-slate-600 text-lg font-semibold'>Job Title</h3>
                         <input defaultValue={myProfileData.UniversityName} className='pl-2 rounded-md py-2   w-full text-lg font-medium '
-                            {...register("projectName", { required: true })} type="text" placeholder='Enter your project name' id="" />
-                        {errors.projectName && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
+                            {...register("title", { required: true })} type="text" placeholder='Ex: Frontend Developer' id="" />
+                        {errors.title && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
 
-                        <h3 className='text-slate-600 text-lg font-semibold'>Project Link</h3>
+                        <h3 className='text-slate-600 text-lg font-semibold'>Employment type</h3>
                         <input defaultValue={data.Degree}  className='pl-2 rounded-md py-2    w-full text-lg font-medium '
-                            {...register("link", { required: true })} type="url" placeholder='Add your project link' id="" />
-                        {errors.link && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
+                            {...register("jobType", { required: true })} type="number" placeholder='Ex: Full-Time' id="" />
+                        {errors.jobType && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
 
-                        <h3 className='text-slate-600 text-lg font-semibold'>Technologies</h3>
+                        <h3 className='text-slate-600 text-lg font-semibold'>Company name</h3>
                         <input   className='pl-2 rounded-md py-2 border-[0.0px] border-black    w-full text-lg font-medium '
-                            {...register("location", { required: true })} type="text" placeholder='e.g HTML, Css, React' id="" />
+                            {...register("companyName", { required: true })} type="text" placeholder='Ex: Microsoft' id="" />
+                        {errors.companyName && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
+
+                        <h3 className='text-slate-600 text-lg font-semibold'>Location</h3>
+                        <input   className='pl-2 rounded-md py-2 border-[0.0px] border-black    w-full text-lg font-medium '
+                            {...register("location", { required: true })} type="text" placeholder='Ex: Dhaka, Bangladesh' id="" />
                         {errors.location && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
 
                         {/* Start Date */}
@@ -117,7 +123,7 @@ const Projects = () => {
                         
                          {/* end Date */}
                         <div className="">
-                        <label className="text-slate-600 text-lg font-semibold">End Date</label>
+                        <label className="text-slate-600 text-lg font-semibold">End Date (Or Expected)</label>
                         <div className=" grid grid-cols-2 gap-6">
                             
                         <div>
@@ -171,7 +177,7 @@ const Projects = () => {
                         {errors.category && <span className="mt-2 text-red-600 ">Select A Category</span>}
 
                         <h3 className='text-slate-600 text-lg font-semibold'>Description</h3>
-                        <textarea  {...register("description", { required: true })} type="text" placeholder='Describe your project' className='pl-2 rounded-md py-2    w-full text-lg font-medium ' cols="30" rows="2"></textarea>
+                        <textarea  {...register("description", { required: true })} type="text" placeholder='Describe your experience' className='pl-2 rounded-md py-2    w-full text-lg font-medium ' cols="30" rows="2"></textarea>
                         {errors.description && <span className="mt-2 text-red-600 w-full">description is required </span>}
                         <p className="border-[0.5px] border-slate-400 mt-2 mb-1 w-full"></p>
 
@@ -186,4 +192,4 @@ const Projects = () => {
     );
 };
 
-export default Projects;
+export default Experience;
