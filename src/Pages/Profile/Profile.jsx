@@ -18,7 +18,6 @@ import ProfileImage from "./ProfileImage";
 const Profile = () => {
   const { user } = useContext(AuthContext);
   const AxiosPublic = UseAxiosPublic();
-  
 
   const { data: profileData = [] } = useQuery({
     queryKey: ["data", user?.email],
@@ -45,15 +44,14 @@ const Profile = () => {
                   <p>Home</p>
                 </div>
               </Link>
-              <Link>
-                <div className='p-2 hover:bg-slate-200 rounded-xl '>
-                  <p className=' text-2xl ml-1 '>
-                    {" "}
-                    <FaBriefcase></FaBriefcase>
-                  </p>
-                  <p>Jobs</p>
+
+              <Link to={`/appliedjobs/${user.email}`}>
+                <div className="p-2 hover:bg-slate-200 rounded-xl ">
+                  <p className=" text-2xl ml-1 "> <FaBriefcase></FaBriefcase></p>
+                  <p>My Jobs</p>
                 </div>
               </Link>
+
               <Link to='/jobpost'>
                 <div className='p-2 hover:bg-slate-200 rounded-xl '>
                   <p className=' text-2xl ml-1 '>
