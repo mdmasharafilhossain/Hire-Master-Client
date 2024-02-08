@@ -63,7 +63,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/appliedjobs",
+        path: "/appliedjobs/:email",
         element: <Appliedjobs></Appliedjobs>,
       },
       {
