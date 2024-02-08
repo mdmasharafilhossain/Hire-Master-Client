@@ -46,7 +46,7 @@ const Education = () => {
 
                         
 
-                        <h3 className='text-slate-600 text-lg font-semibold'>School</h3>
+                        <h3 className='text-slate-600 text-lg font-semibold'>Institute</h3>
                         <input defaultValue={myProfileData.UniversityName} className='pl-2 rounded-md py-2   w-full text-lg font-medium '
                             {...register("institute", { required: true })} type="text" placeholder='Institute Name' id="" />
                         {errors.name && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
@@ -67,10 +67,11 @@ const Education = () => {
                         <div className=" grid grid-cols-2 gap-6">
                         <div>
                        
-                       <select  {...register("category", { required: true })} className="text-lg font-medium rounded-md py-2 w-full"   id="">
+                       <select  {...register("start-month", { required: true })} className="text-lg font-medium rounded-md py-2 w-full"   id="">
 
-                           <option className="text-lg font-medium " value="Jan">January</option>
-                           <option selected className="text-lg font-medium" value="Feb">February</option>
+                           <option selected disabled className="text-lg font-medium" value="Jan">Month</option>
+                           <option className="text-lg font-medium" value="Jan">January</option>
+                           <option className="text-lg font-medium"  value="Feb">February</option>
                            <option className="text-lg font-medium" value="Mar">March</option>
                            <option className="text-lg font-medium" value="Apr">April</option>
                            <option className="text-lg font-medium" value="May">May</option>
@@ -84,8 +85,9 @@ const Education = () => {
                        </select>
                        </div>
                         <div>
-                        <select  {...register("category", { required: true })} className="text-lg font-medium rounded-md py-2  w-full"   id="">
+                        <select  {...register("start-year", { required: true })} className="text-lg font-medium rounded-md py-2  w-full"   id="">
 
+                            <option selected disabled  className="text-lg font-medium ">Year</option>
                             <option className="text-lg font-medium " value="2024">2024</option>
                             <option className="text-lg font-medium" value="2023">2023</option>
                             <option className="text-lg font-medium" value="2022">2022</option>
@@ -122,10 +124,11 @@ const Education = () => {
                             
                         <div>
                        
-                       <select  {...register("category", { required: true })} className="text-lg font-medium rounded-md py-2  w-full"   id="">
+                       <select  {...register("end-month", { required: true })} className="text-lg font-medium rounded-md py-2  w-full"   id="">
 
-                           <option className="text-lg font-medium " value="Jan">January</option>
-                           <option className="text-lg font-medium" value="Feb">February</option>
+                       <option selected disabled className="text-lg font-medium" value="Jan">Month</option>
+                           <option className="text-lg font-medium" value="Jan">January</option>
+                           <option className="text-lg font-medium"  value="Feb">February</option>
                            <option className="text-lg font-medium" value="Mar">March</option>
                            <option className="text-lg font-medium" value="Apr">April</option>
                            <option className="text-lg font-medium" value="May">May</option>
@@ -139,9 +142,10 @@ const Education = () => {
                        </select>
                        </div>
                         <div>
-                        <select  {...register("category", { required: true })} className="text-lg font-medium rounded-md py-2 w-full"   id="">
+                        <select  {...register("end-year", { required: true })} className="text-lg font-medium rounded-md py-2 w-full"   id="">
 
-                        <option className="text-lg font-medium "  value="2024">2024</option>
+                        <option selected disabled  className="text-lg font-medium ">Year</option>
+                            <option className="text-lg font-medium " value="2024">2024</option>
                             <option className="text-lg font-medium" value="2023">2023</option>
                             <option className="text-lg font-medium" value="2022">2022</option>
                             <option className="text-lg font-medium" value="2021">2021</option>
@@ -185,3 +189,7 @@ const Education = () => {
 };
 
 export default Education;
+
+
+
+

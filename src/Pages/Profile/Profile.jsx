@@ -141,7 +141,13 @@ const Profile = () => {
                     {data.Degree}
                   </h3>
                   <h3 className='text-slate-600 font-semibold'>
+                    Science
+                  </h3>
+                  <h3 className='text-slate-600 font-semibold'>
                     {data.GraduationDate}
+                  </h3>
+                  <h3 className='text-slate-600 font-semibold'>
+                    I have passed hsc from national college
                   </h3>
                 </div>
               </div>
