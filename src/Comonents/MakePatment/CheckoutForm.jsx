@@ -19,7 +19,7 @@ const CheckoutForm = () => {
     }
 
     return (
-        <form className="container mx-auto border-2 rounded-lg border-orange-600 w-3/4 py-20 px-20" onSubmit={handleSubmit}>
+         <form className="container mx-auto border-2 rounded-lg border-orange-600 w-3/4 py-20 px-20" onSubmit={handleSubmit}>
             <CardElement
         options={{
           style: {
