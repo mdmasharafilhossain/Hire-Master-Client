@@ -10,13 +10,14 @@ const ManagerLogin = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-  const from = location.state?.from?.pathname || "/";
+  // const from = location.state?.from?.pathname || "/";
 
   // google sign in
   const handleGoogleSignIn = () => {
     googleSignIn().then(result => {
       console.log(result);
-      navigate(from, { replace: true });
+      // navigate(from, { replace: true });
+      navigate(location?.state ? location.state : "/managerProfile");
     });
   };
   const handleLogin = e => {
