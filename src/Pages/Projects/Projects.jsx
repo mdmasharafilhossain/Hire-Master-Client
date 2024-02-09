@@ -1,12 +1,11 @@
 import { useForm } from "react-hook-form";
 import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
-import Swal from "sweetalert2";
 import useProfile from "../../Comonents/Hooks/useProfile/useProfile";
+import Swal from "sweetalert2";
 
 
+const Projects = () => {
 
-const Education = () => {
-   
     const axiosPublic = UseAxiosPublic()
     const [profileData] = useProfile()
     const myProfileData = profileData[0]
@@ -33,32 +32,31 @@ const Education = () => {
             }
 
     }
-
     return (
-       <div>
+        <div>
         {
             profileData.map(data => <div key={data._id} className="mt-10 max-w-5xl mx-auto border-[0.5px] border-slate-400 p-10 bg-[#f4f2ee] rounded-lg">
             <div className="">
                 <div  >
-                    <h2 className='text-3xl font-bold text-blue-600'>Edit Education</h2>
+                    <h2 className='text-3xl font-bold text-blue-600'>Edit Project</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)} className=' '>
 
                         
 
-                        <h3 className='text-slate-600 text-lg font-semibold'>Institute</h3>
+                        <h3 className='text-slate-600 text-lg font-semibold'>Project Name</h3>
                         <input defaultValue={myProfileData.UniversityName} className='pl-2 rounded-md py-2   w-full text-lg font-medium '
-                            {...register("institute", { required: true })} type="text" placeholder='Institute Name' id="" />
-                        {errors.name && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
+                            {...register("projectName", { required: true })} type="text" placeholder='Enter your project name' id="" />
+                        {errors.projectName && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
 
-                        <h3 className='text-slate-600 text-lg font-semibold'>Degree</h3>
+                        <h3 className='text-slate-600 text-lg font-semibold'>Project Link</h3>
                         <input defaultValue={data.Degree}  className='pl-2 rounded-md py-2    w-full text-lg font-medium '
-                            {...register("age", { required: true })} type="number" placeholder='e.g Bachelor' id="" />
-                        {errors.age && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
+                            {...register("link", { required: true })} type="url" placeholder='Add your project link' id="" />
+                        {errors.link && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
 
-                        <h3 className='text-slate-600 text-lg font-semibold'>Field Of Study</h3>
+                        <h3 className='text-slate-600 text-lg font-semibold'>Technologies</h3>
                         <input   className='pl-2 rounded-md py-2 border-[0.0px] border-black    w-full text-lg font-medium '
-                            {...register("location", { required: true })} type="text" placeholder='e.g CSE' id="" />
+                            {...register("location", { required: true })} type="text" placeholder='e.g HTML, Css, React' id="" />
                         {errors.location && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
 
                         {/* Start Date */}
@@ -119,7 +117,7 @@ const Education = () => {
                         
                          {/* end Date */}
                         <div className="">
-                        <label className="text-slate-600 text-lg font-semibold">End Date (Or Expected)</label>
+                        <label className="text-slate-600 text-lg font-semibold">End Date</label>
                         <div className=" grid grid-cols-2 gap-6">
                             
                         <div>
@@ -173,7 +171,7 @@ const Education = () => {
                         {errors.category && <span className="mt-2 text-red-600 ">Select A Category</span>}
 
                         <h3 className='text-slate-600 text-lg font-semibold'>Description</h3>
-                        <textarea  {...register("description", { required: true })} type="text" placeholder='Add Your Description' className='pl-2 rounded-md py-2    w-full text-lg font-medium ' cols="30" rows="2"></textarea>
+                        <textarea  {...register("description", { required: true })} type="text" placeholder='Describe your project' className='pl-2 rounded-md py-2    w-full text-lg font-medium ' cols="30" rows="2"></textarea>
                         {errors.description && <span className="mt-2 text-red-600 w-full">description is required </span>}
                         <p className="border-[0.5px] border-slate-400 mt-2 mb-1 w-full"></p>
 
@@ -188,8 +186,4 @@ const Education = () => {
     );
 };
 
-export default Education;
-
-
-
-
+export default Projects;
