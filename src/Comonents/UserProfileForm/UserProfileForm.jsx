@@ -598,7 +598,7 @@ const UserProfileForm = () => {
                 </div>
               </div>
               <p className="border-[0.5px] border-slate-400 mt-2 mb-1 w-full"></p>
-              <button onSubmit={handleSubmit(onSubmit)} className=" mt-2 btn px-8  bg-[#FF444A] text-white rounded-md hover:text-black hover:bg-red-300  text-lg font-semibold">Create</button>
+              <button  className=" mt-2 btn px-8  bg-[#FF444A] text-white rounded-md hover:text-black hover:bg-red-300  text-lg font-semibold">Create</button>
             </form>
           </div>
         </div>

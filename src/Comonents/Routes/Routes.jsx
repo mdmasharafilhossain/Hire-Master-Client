@@ -23,6 +23,9 @@ import Appliedjobs from "../../Pages/Appliedjobs/Appliedjobs";
 import PrivateRoute from "./PrivateRoute";
 import ManagerProfile from "../../Pages/Profile/ManagerProfile";
 import ManagerForm from "../../Pages/ManagerProfileForm/ManagerForm";
+import MakePayment from "../MakePatment/MakePayment";
+
+
 import Projects from "../../Pages/Projects/Projects";
 import Experience from "../../Pages/Experience/Experience";
 import Skills from "../../Pages/Skills/Skills";
@@ -109,12 +112,24 @@ const router = createBrowserRouter([
     element: <Profile></Profile>,
   },
   {
+      path:"/MakePaymentRoute",
+      element:<MakePayment></MakePayment>
+  },
+  {
     path: "/managerProfile",
-    element: <ManagerProfile/>
+    element: (
+      <PrivateRoute>
+        <ManagerProfile />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/managerForm",
-    element: <ManagerForm/>
+    element: (
+      <PrivateRoute>
+        <ManagerForm />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/profileForm",
@@ -129,8 +144,8 @@ const router = createBrowserRouter([
     element: <Education></Education>,
   },
   {
-    path:"/projects",
-    element:<Projects></Projects>
+    path: "/projects",
+    element: <Projects></Projects>,
   },
   {
     path:"/experience",
