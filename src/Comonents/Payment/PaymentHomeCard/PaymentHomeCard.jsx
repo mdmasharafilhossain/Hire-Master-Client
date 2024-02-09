@@ -6,7 +6,7 @@ const PaymentHomeCard = () => {
         <div className="container mx-auto mt-20">
              <h2 className='text-center text-5xl font-bold  mb-20'>Our Plans</h2>
              <div className="grid gap-20  grid-cols-1 md:grid-cols-2 lg:grid-cols-2  mx-5   md:mx-5 lg:mx-60 ">
-              {/* First Page */}
+              {/* First Card */}
                <div className="border-2 shadow-lg border-pink-300 rounded-lg py-5 w-full">
                 <h2 className="mb-10 ml-5 border rounded-md font-bold w-40 px-2 py-1 bg-pink-300">Free For 1 Months</h2>
                 <div className="flex ml-5 md:ml-5 lg:ml-5 gap-32 md:gap-24 lg:gap-40 mb-10">
@@ -36,7 +36,7 @@ const PaymentHomeCard = () => {
                </div>
             
                
-              {/* Third Page */}
+              {/* Second Card */}
                <div className="border-2 shadow-lg border-blue-300 rounded-lg py-5 w-full">
                 <div className="flex gap-32 md:gap-28 lg:gap-36">
                 <h2 className="  ml-5 text-xl border rounded-md font-bold px-2 py-1 bg-blue-300 h-10">Premium</h2>
@@ -58,7 +58,7 @@ const PaymentHomeCard = () => {
                     
                 </div>
 
-                <Link to="/Subscription"><button className="btn  ml-12 text-base btn-secondary border-none text-black font-bold bg-blue-300 hover:bg-blue-400 w-3/4 mt-[150px] rounded-3xl">Get Premium</button></Link>
+                <Link to="/MakePaymentRoute"><button className="btn  ml-12 text-base btn-secondary border-none text-black font-bold bg-blue-300 hover:bg-blue-400 w-3/4 mt-[150px] rounded-3xl">Get Premium</button></Link>
                 <p className="text-[12px] ml-5 text-center">For 6 people who reside at the same address<br></br>
                 <span className="underline ">Terms Apply</span>
                 </p>
