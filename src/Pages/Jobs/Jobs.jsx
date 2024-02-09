@@ -22,7 +22,7 @@ const Jobs = () => {
   const { data: jobs, loading, refetch } = useFetchData("/staticjobpost");
 
   React.useEffect(() => {
-    if (jobs) {
+    if (jobs.length > 0) {
       setFilterJobs(jobs);
     }
   }, [jobs]);
@@ -31,9 +31,6 @@ const Jobs = () => {
     return <Loader />;
   }
 
-  // if (error) {
-  //   return <p>Error fetching data: {error.message}</p>;
-  // }
   refetch();
   const handleSubmit = e => {
     e.preventDefault();
@@ -51,57 +48,58 @@ const Jobs = () => {
         setFilterLoading(false);
       });
   };
-  console.log(filterJobs);
+  console.log(jobs);
   return (
-    <div className='mx-auto px-4'>
+    <>
       <Navbar2 />
-      <div className='mt-20'>
-        <div className='flex gap-x-5 md:gap-x-10 justify-center items-center px-4 py-5 sm:px-6'>
-          <div className='bg-[#FF3811] h-40 w-[5px] rounded-full'></div>
-          <div className='text-center '>
-            <h1 className='text-xl font-bold tracking-tight text-gray-900 md:text-3xl'>
-              <span className='block lg:inline'>Find Your Perfect</span>{" "}
-              <span className='block text-[#FF3811] lg:inline'>
-                Job Opportunity!!
-              </span>
-            </h1>
+      <div className='mx-auto px-4'>
+        <div className='mt-20'>
+          <div className='flex gap-x-5 md:gap-x-10 justify-center items-center px-4 py-5 sm:px-6'>
+            <div className='bg-[#FF3811] h-40 w-[5px] rounded-full'></div>
+            <div className='text-center '>
+              <h1 className='text-xl font-bold tracking-tight text-gray-900 md:text-3xl'>
+                <span className='block lg:inline'>Find Your Perfect</span>{" "}
+                <span className='block text-[#FF3811] lg:inline'>
+                  Job Opportunity!!
+                </span>
+              </h1>
 
-            <p className='mt-3 max-w-[550px]  mx-auto text-base text-gray-500 font-medium sm:text-lg md:mt-5 md:max-w-3xl'>
-
-              With our comprehensive job listings, you will never miss out on
-              exciting opportunities. Apply today and start your journey with
-              us.
-            </p>
+              <p className='mt-3 max-w-[550px]  mx-auto text-base text-gray-500 font-medium sm:text-lg md:mt-5 md:max-w-3xl'>
+                With our comprehensive job listings, you will never miss out on
+                exciting opportunities. Apply today and start your journey with
+                us.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className='px-2 md:px-6 container mx-auto lg:flex lg:gap-x-10 my-10'>
+          <div className='lg:w-1/3'>
+            <JobFilter
+              jobs={jobs}
+              handleSubmit={handleSubmit}
+              filterParams={filterParams}
+              setFilterParams={setFilterParams}
+              value={value}
+              setValue={setValue}
+              setFilterJobs={setFilterJobs}
+            />
+          </div>
+          <div className='lg:flex-grow'>
+            {filterLoading ? (
+              <Loader />
+            ) : filterJobs.length > 0 ? (
+              filterJobs.map(filteredJob => (
+                <SingleJobList key={filteredJob._id} job={filteredJob} />
+              ))
+            ) : (
+              <p className='text-center md:text-start text-red-500 text-xl md:text-2xl w-3/4 mx-auto'>
+                {filterMessage}
+              </p>
+            )}
           </div>
         </div>
       </div>
-      <div className='px-2 md:px-6 container mx-auto lg:flex lg:gap-x-10 my-10'>
-        <div className='lg:w-1/3'>
-          <JobFilter
-            jobs={jobs}
-            handleSubmit={handleSubmit}
-            filterParams={filterParams}
-            setFilterParams={setFilterParams}
-            value={value}
-            setValue={setValue}
-            setFilterJobs={setFilterJobs}
-          />
-        </div>
-        <div className='lg:flex-grow'>
-          {filterLoading ? (
-            <Loader />
-          ) : filterJobs.length > 0 ? (
-            filterJobs.map(filteredJob => (
-              <SingleJobList key={filteredJob._id} job={filteredJob} />
-            ))
-          ) : (
-            <p className='text-center md:text-start text-red-500 text-xl md:text-2xl w-3/4 mx-auto'>
-              {filterMessage}
-            </p>
-          )}
-        </div>
-      </div>
-    </div>
+    </>
   );
 };
 

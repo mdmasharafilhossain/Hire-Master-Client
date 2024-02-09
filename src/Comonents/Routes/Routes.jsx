@@ -26,6 +26,8 @@ import ManagerForm from "../../Pages/ManagerProfileForm/ManagerForm";
 import MakePayment from "../MakePatment/MakePayment";
 
 
+import Projects from "../../Pages/Projects/Projects";
+import Experience from "../../Pages/Experience/Experience";
 
 const router = createBrowserRouter([
   {
@@ -66,7 +68,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/appliedjobs",
+        path: "/appliedjobs/:email",
         element: <Appliedjobs></Appliedjobs>,
       },
       {
@@ -132,6 +134,14 @@ const router = createBrowserRouter([
     path: "/education",
     element: <Education></Education>,
   },
+  {
+    path:"/projects",
+    element:<Projects></Projects>
+  },
+  {
+    path:"/experience",
+    element:<Experience></Experience>
+  }
 ]);
 
 export default router;

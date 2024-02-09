@@ -19,15 +19,15 @@ const CheckoutForm = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="container mx-auto border-2 rounded-lg border-orange-600 w-3/4 py-20 px-20" onSubmit={handleSubmit}>
             <CardElement
         options={{
           style: {
             base: {
-              fontSize: '16px',
-              color: '#424770',
+              fontSize: '25px',
+              color: '#FB8C00',
               '::placeholder': {
-                color: '#aab7c4',
+                color: '#FB8C00',
               },
             },
             invalid: {
@@ -36,7 +36,7 @@ const CheckoutForm = () => {
           },
         }}
       />
-      <button type="submit" disabled={!stripe}>
+      <button className="border rounded-lg px-5 py-1 hover: bg-orange-500 hover:bg-orange-600 text-white" type="submit" disabled={!stripe}>
         Pay
       </button>
 

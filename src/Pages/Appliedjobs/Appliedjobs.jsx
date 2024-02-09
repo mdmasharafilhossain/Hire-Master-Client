@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
 import SingleAppliedJobs from "./SingleAppliedJobs";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
+import Navbar2 from "../../Comonents/Navbar/Navbar2";
 
 const Appliedjobs = () => {
     const [jobData, setJobData] = useState(null);
@@ -9,13 +11,16 @@ const Appliedjobs = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const {user} = useContext(AuthContext)
+    const email = user?.email;
+
     const AxiosPublic = UseAxiosPublic()
     // AxiosPublic.get()
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await AxiosPublic.get('http://localhost:5000/showapplied-jobs');
+                const response = await AxiosPublic.get(`http://localhost:5000/singleappliedjobs/${email}`);
                 setJobData(response.data);
                 setLoading(false);
             } catch (error) {
@@ -36,6 +41,9 @@ const Appliedjobs = () => {
 
     return (
         <div className="">
+            <div className="mb-28">
+            <Navbar2></Navbar2>
+            </div>
             <h1 className="text-4xl mt-6 text-center font-bold">Applied Jobs</h1>
             <div className='container mx-auto'>
                 <Link to='/'>
