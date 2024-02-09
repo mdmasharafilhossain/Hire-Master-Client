@@ -16,7 +16,7 @@ const SingleJobList = ({ job }) => {
     hiring_manager = true;
   }
   return (
-    <div className="px-10 py-2 md:py-5 mb-3 flex flex-col md:flex-row justify-between gap-y-1 md:gap-y-0 md:gap-2 border text-center md:text-left hover:shadow-md hover:rounded-3xl hover:bg-green-300">
+    <div className="px-10 py-2 md:py-5 mb-3 flex flex-col md:flex-row justify-between gap-y-1 md:gap-y-0 md:gap-2 border text-center md:text-left hover:shadow-md hover:rounded-3xl hover:bg-orange-200">
       {/* ----------Company logo------------ */}
       <figure className=" md:flex items-center justify-center ">
         <img src={job.company_logo} alt="company logo" className="w-16 mx-auto" />
