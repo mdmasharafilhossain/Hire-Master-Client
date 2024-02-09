@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ProfileNav from "../../Comonents/ProfileNav/ProfileNav";
 import { IoHome } from "react-icons/io5";
-import { FaBriefcase, FaLinkedin } from "react-icons/fa";
+import { FaBriefcase, FaLinkedin, FaSignOutAlt } from "react-icons/fa";
 import { MdPostAdd } from "react-icons/md";
 import { FaLocationDot, FaPenToSquare } from "react-icons/fa6";
 import { TbWorld } from "react-icons/tb";
@@ -17,8 +17,10 @@ import { HiBuildingOffice2 } from "react-icons/hi2";
 import { RiHomeOfficeLine } from "react-icons/ri";
 import { GiNetworkBars } from "react-icons/gi";
 
+
 const ManagerProfile = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
   const email = user?.email;
 
   const {
@@ -30,9 +32,17 @@ const ManagerProfile = () => {
 
   refetch();
   console.log(profile);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        navigate("/signup2");
+      })
+      .catch((error) => console.log(error));
+  };
 
   return (
     <div>
+    
       <div className="max-w-6xl mx-auto ">
         <ProfileNav
           profile={"managerProfile"}
@@ -50,7 +60,7 @@ const ManagerProfile = () => {
             </Link>
             <Link to="/jobs">
               <div className="p-2 hover:bg-slate-200 rounded-xl ">
-                <p className=" text-2xl ml-1 ">
+                <p className=" text-2xl ">
                   <FaBriefcase></FaBriefcase>
                 </p>
                 <p>Jobs</p>
@@ -58,7 +68,7 @@ const ManagerProfile = () => {
             </Link>
             <Link to="/myPostedJobs">
               <div className="p-2 hover:bg-slate-200 rounded-xl ">
-                <p className=" text-2xl ml-1 ">
+                <p className=" text-2xl ">
                   <GiNetworkBars />
                 </p>
                 <p>My Jobs</p>
@@ -66,11 +76,20 @@ const ManagerProfile = () => {
             </Link>
             <Link to="/jobpost">
               <div className="p-2 hover:bg-slate-200 rounded-xl ">
-                <p className=" text-2xl ml-1 ">
+                <p className=" text-2xl ">
                   <MdPostAdd></MdPostAdd>
                 </p>
                 <p className="">Post job</p>
               </div>
+            </Link>
+            <Link>
+              <button
+                onClick={handleLogOut}
+                className="p-2 hover:bg-slate-200 rounded-xl "
+              >
+                <FaSignOutAlt></FaSignOutAlt>
+                LogOut
+              </button>
             </Link>
           </div>
 
