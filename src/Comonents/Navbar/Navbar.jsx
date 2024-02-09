@@ -46,7 +46,7 @@ const Navbar = () => {
   console.log(profileRoute);
 
   return (
-    <div className="navbar absolute mt-[450px] bg-base-100 h-[10px]">
+    <div className='navbar sticky  border top-0 z-50 bg-base-100 h-[10px]'>
       <Button
         ref={btnRef}
         display={{ base: "block", md: "none" }}
