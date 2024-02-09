@@ -99,7 +99,7 @@ const Navbar = () => {
       </Drawer>
       <div className="flex-1">
         <Link
-          to='/'
+          to="/"
           className='text-3xl md:text-4xl font-bold ml-1 text-[#FF3811]'
         >
           <img

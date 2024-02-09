@@ -17,7 +17,6 @@ import { HiBuildingOffice2 } from "react-icons/hi2";
 import { RiHomeOfficeLine } from "react-icons/ri";
 import { GiNetworkBars } from "react-icons/gi";
 
-
 const ManagerProfile = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -42,12 +41,12 @@ const ManagerProfile = () => {
 
   return (
     <div>
-    
       <div className="max-w-6xl mx-auto ">
         <ProfileNav
           profile={"managerProfile"}
           setProfile={"managerForm"}
         ></ProfileNav>
+
         <div className="md:flex ">
           <div className="flex md:flex-col ml-2 mt-10 mb-2  gap-2">
             <Link to="/">
@@ -92,164 +91,169 @@ const ManagerProfile = () => {
               </button>
             </Link>
           </div>
+          {!profile ? (
+            <h2 className="text-4xl text-center m-auto">Profile have not set yet</h2>
+          ) : (
+            <>
+              {/* Profile section */}
 
-          {/* Profile section */}
+              <div className="bg-white w-full rounded-md border-[0.5px] border-slate-300 p-6 ">
+                <div className="  bg-white p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50 hover:drop-shadow-lg">
+                  <Link>
+                    <h3 className="flex justify-end text-xl mb-2">
+                      <FaPenToSquare></FaPenToSquare>
+                    </h3>
+                  </Link>
 
-          <div className="bg-white w-full rounded-md border-[0.5px] border-slate-300 p-6 ">
-            <div className="  bg-white p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50 hover:drop-shadow-lg">
-              <Link>
-                <h3 className="flex justify-end text-xl mb-2">
-                  <FaPenToSquare></FaPenToSquare>
-                </h3>
-              </Link>
-
-              <div className="md:flex  gap-8">
-                <div className=" avatar">
-                  <div className="w-48 rounded-md border-8 border-white ">
-                    <img src={profile.image || user?.photoURL} />
+                  <div className="md:flex  gap-8">
+                    <div className=" avatar">
+                      <div className="w-48 rounded-md border-8 border-white ">
+                        <img src={profile.image || user?.photoURL} />
+                      </div>
+                    </div>
+                    <div className="">
+                      <div className="flex justify-between items-center">
+                        <h2 className="text-xl font-bold">{profile.name}</h2>
+                      </div>
+                      <div className="mb-2">
+                        <h3 className="text-slate-600 font-semibold">
+                          Expertise field : {profile.role}
+                        </h3>
+                        <h3 className="text-slate-600 font-semibold">
+                          Phone : {profile.phone}
+                        </h3>
+                        <h3 className="text-slate-600 font-semibold">
+                          {profile.location}
+                        </h3>
+                      </div>
+                      <h3 className="w-full text-slate-600 text-lg font-normal">
+                        {profile.bio}
+                      </h3>
+                      <div className="flex gap-4 mt-4">
+                        <Link to={profile.linkedin}>
+                          <h3 className=" text-xl ">
+                            <FaLinkedin></FaLinkedin>
+                          </h3>
+                        </Link>
+                        <Link to={profile.portfolio}>
+                          <h3 className=" text-2xl ">
+                            <TbWorld></TbWorld>
+                          </h3>
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="">
-                  <div className="flex justify-between items-center">
-                    <h2 className="text-xl font-bold">{profile.name}</h2>
+                {/* Education section */}
+                <div className="mt-4  border-[0.5px] border-slate-300  hover:bg-blue-50  hover:drop-shadow-lg  bg-white p-8 rounded-lg">
+                  <div className="flex justify-end gap-4">
+                    <p className="text-2xl mb-2">
+                      <RiAddBoxFill></RiAddBoxFill>
+                    </p>
+                    <Link to="/education">
+                      <p className="text-xl mb-2">
+                        <FaPenToSquare></FaPenToSquare>
+                      </p>
+                    </Link>
                   </div>
-                  <div className="mb-2">
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-xl font-bold">Education</h3>
+                    <p className="text-2xl">
+                      <PiBookBookmarkFill></PiBookBookmarkFill>
+                    </p>
+                  </div>
+                  <div className="ml-4">
                     <h3 className="text-slate-600 font-semibold">
-                      Expertise field : {profile.role}
+                      {profile.universityName}
                     </h3>
                     <h3 className="text-slate-600 font-semibold">
-                      Phone : {profile.phone}
+                      {profile.degree}
                     </h3>
                     <h3 className="text-slate-600 font-semibold">
-                      {profile.location}
+                      {profile.graduationDate}
                     </h3>
                   </div>
-                  <h3 className="w-full text-slate-600 text-lg font-normal">
-                    {profile.bio}
-                  </h3>
-                  <div className="flex gap-4 mt-4">
-                    <Link to={profile.linkedin}>
-                      <h3 className=" text-xl ">
-                        <FaLinkedin></FaLinkedin>
+                </div>
+                {/* Company */}
+                <div className="mt-4  border-[0.5px] border-slate-300  hover:bg-blue-50  hover:drop-shadow-lg  bg-white p-8 rounded-lg">
+                  <div className="flex justify-end gap-4">
+                    <p className="text-2xl mb-2">
+                      <RiAddBoxFill></RiAddBoxFill>
+                    </p>
+                    <Link to="/education">
+                      <p className="text-xl mb-2">
+                        <FaPenToSquare></FaPenToSquare>
+                      </p>
+                    </Link>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-xl font-bold">Company Information</h3>
+                    <p className="text-2xl">
+                      <RiHomeOfficeLine />
+                    </p>
+                  </div>
+                  <div className="ml-4 flex flex-col gap-2">
+                    <h3 className="text-slate-600 font-semibold flex items-center gap-2">
+                      <HiBuildingOffice2 /> {profile.companyName}
+                    </h3>
+                    <Link to={profile.companyLocation}>
+                      <h3 className=" text-xl flex">
+                        <FaLocationDot />
+                        <span className="text-blue underline text-sm">
+                          {profile.companyLocation}
+                        </span>
                       </h3>
                     </Link>
-                    <Link to={profile.portfolio}>
-                      <h3 className=" text-2xl ">
-                        <TbWorld></TbWorld>
+                    <Link to={profile.companyWebsite}>
+                      <h3 className=" text-xl flex">
+                        <CgWebsite />
+                        <span className="text-blue underline text-sm">
+                          {profile.companyWebsite}
+                        </span>
                       </h3>
                     </Link>
+                    <h3 className="text-slate-600 font-semibold flex items-center">
+                      <FcViewDetails /> {profile.companyDetails}
+                    </h3>
+                  </div>
+                </div>
+                {/*work experience section  */}
+                <div className="mt-4  border-[0.5px] border-slate-300 hover:bg-blue-50 bg-white p-8 rounded-lg hover:drop-shadow-lg">
+                  <div className="flex justify-end gap-4">
+                    <p className="text-2xl mb-2">
+                      <RiAddBoxFill></RiAddBoxFill>
+                    </p>
+                    <p className="text-xl mb-2">
+                      <FaPenToSquare></FaPenToSquare>
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <h3 className="text-xl font-bold">Experience</h3>
+                    <p className="text-2xl">
+                      <FaBriefcase></FaBriefcase>
+                    </p>
+                  </div>
+                  <div className="ml-4 mb-10">
+                    <h3 className="text-slate-600 font-semibold">
+                      {profile.JobTitle}
+                    </h3>
+                    <h3 className="text-slate-600 font-semibold">
+                      {profile.JobType}
+                    </h3>
+                    <h3 className="text-slate-600 font-semibold">
+                      {profile.CompanyName}
+                    </h3>
+                    <h3 className="text-slate-600 font-semibold">
+                      {profile.Location}
+                    </h3>
+                    <h3 className="text-slate-600 font-semibold">
+                      {profile.WorkingStartDate} | {profile.WorkingEndDate}
+                    </h3>
                   </div>
                 </div>
               </div>
-            </div>
-            {/* Education section */}
-            <div className="mt-4  border-[0.5px] border-slate-300  hover:bg-blue-50  hover:drop-shadow-lg  bg-white p-8 rounded-lg">
-              <div className="flex justify-end gap-4">
-                <p className="text-2xl mb-2">
-                  <RiAddBoxFill></RiAddBoxFill>
-                </p>
-                <Link to="/education">
-                  <p className="text-xl mb-2">
-                    <FaPenToSquare></FaPenToSquare>
-                  </p>
-                </Link>
-              </div>
-              <div className="flex items-center gap-2">
-                <h3 className="text-xl font-bold">Education</h3>
-                <p className="text-2xl">
-                  <PiBookBookmarkFill></PiBookBookmarkFill>
-                </p>
-              </div>
-              <div className="ml-4">
-                <h3 className="text-slate-600 font-semibold">
-                  {profile.universityName}
-                </h3>
-                <h3 className="text-slate-600 font-semibold">
-                  {profile.degree}
-                </h3>
-                <h3 className="text-slate-600 font-semibold">
-                  {profile.graduationDate}
-                </h3>
-              </div>
-            </div>
-            {/* Company */}
-            <div className="mt-4  border-[0.5px] border-slate-300  hover:bg-blue-50  hover:drop-shadow-lg  bg-white p-8 rounded-lg">
-              <div className="flex justify-end gap-4">
-                <p className="text-2xl mb-2">
-                  <RiAddBoxFill></RiAddBoxFill>
-                </p>
-                <Link to="/education">
-                  <p className="text-xl mb-2">
-                    <FaPenToSquare></FaPenToSquare>
-                  </p>
-                </Link>
-              </div>
-              <div className="flex items-center gap-2">
-                <h3 className="text-xl font-bold">Company Information</h3>
-                <p className="text-2xl">
-                  <RiHomeOfficeLine />
-                </p>
-              </div>
-              <div className="ml-4 flex flex-col gap-2">
-                <h3 className="text-slate-600 font-semibold flex items-center gap-2">
-                  <HiBuildingOffice2 /> {profile.companyName}
-                </h3>
-                <Link to={profile.companyLocation}>
-                  <h3 className=" text-xl flex">
-                    <FaLocationDot />
-                    <span className="text-blue underline text-sm">
-                      {profile.companyLocation}
-                    </span>
-                  </h3>
-                </Link>
-                <Link to={profile.companyWebsite}>
-                  <h3 className=" text-xl flex">
-                    <CgWebsite />
-                    <span className="text-blue underline text-sm">
-                      {profile.companyWebsite}
-                    </span>
-                  </h3>
-                </Link>
-                <h3 className="text-slate-600 font-semibold flex items-center">
-                  <FcViewDetails /> {profile.companyDetails}
-                </h3>
-              </div>
-            </div>
-            {/*work experience section  */}
-            <div className="mt-4  border-[0.5px] border-slate-300 hover:bg-blue-50 bg-white p-8 rounded-lg hover:drop-shadow-lg">
-              <div className="flex justify-end gap-4">
-                <p className="text-2xl mb-2">
-                  <RiAddBoxFill></RiAddBoxFill>
-                </p>
-                <p className="text-xl mb-2">
-                  <FaPenToSquare></FaPenToSquare>
-                </p>
-              </div>
-              <div className="flex items-center gap-2">
-                <h3 className="text-xl font-bold">Experience</h3>
-                <p className="text-2xl">
-                  <FaBriefcase></FaBriefcase>
-                </p>
-              </div>
-              <div className="ml-4 mb-10">
-                <h3 className="text-slate-600 font-semibold">
-                  {profile.JobTitle}
-                </h3>
-                <h3 className="text-slate-600 font-semibold">
-                  {profile.JobType}
-                </h3>
-                <h3 className="text-slate-600 font-semibold">
-                  {profile.CompanyName}
-                </h3>
-                <h3 className="text-slate-600 font-semibold">
-                  {profile.Location}
-                </h3>
-                <h3 className="text-slate-600 font-semibold">
-                  {profile.WorkingStartDate} | {profile.WorkingEndDate}
-                </h3>
-              </div>
-            </div>
-          </div>
+            </>
+          )}
         </div>
       </div>
     </div>
