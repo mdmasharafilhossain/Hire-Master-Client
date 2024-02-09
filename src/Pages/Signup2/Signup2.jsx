@@ -19,7 +19,7 @@ const Signup2 = () => {
           <p className='w-52 '>
             Apply for remote and visa-sponsored job opportunities
           </p>
-          <Link to='/signup'>
+          <Link to='/login'>
             <button className='btn btn-outline text-white'>Click Here</button>
           </Link>
         </div>
@@ -30,7 +30,7 @@ const Signup2 = () => {
           <p className='w-52'>
             Tap into 400,000+ qualified candidates at no cost
           </p>
-          <Link to='/managersignup'>
+          <Link to='/managerlogin'>
             <button className='hover:bg-[#FF3811] btn btn-outline text-white'>
               Click Here
             </button>
