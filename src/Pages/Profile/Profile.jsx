@@ -195,9 +195,11 @@ const Profile = () => {
                   <p className='text-2xl mb-2'>
                     <RiAddBoxFill></RiAddBoxFill>
                   </p>
+                  <Link to="/skills">
                   <p className='text-xl mb-2'>
                     <FaPenToSquare></FaPenToSquare>
                   </p>
+                  </Link>
                 </div>
                 <div className='flex items-center gap-2'>
                   <h3 className='text-xl font-bold'>Skills </h3>
