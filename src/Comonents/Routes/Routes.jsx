@@ -116,11 +116,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/managerProfile",
-    element: <ManagerProfile/>
+    element: (
+      <PrivateRoute>
+        <ManagerProfile />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/managerForm",
-    element: <ManagerForm/>
+    element: (
+      <PrivateRoute>
+        <ManagerForm />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/profileForm",
@@ -135,13 +143,13 @@ const router = createBrowserRouter([
     element: <Education></Education>,
   },
   {
-    path:"/projects",
-    element:<Projects></Projects>
+    path: "/projects",
+    element: <Projects></Projects>,
   },
   {
-    path:"/experience",
-    element:<Experience></Experience>
-  }
+    path: "/experience",
+    element: <Experience></Experience>,
+  },
 ]);
 
 export default router;
