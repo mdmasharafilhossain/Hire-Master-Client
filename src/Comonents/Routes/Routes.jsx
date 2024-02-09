@@ -23,6 +23,9 @@ import Appliedjobs from "../../Pages/Appliedjobs/Appliedjobs";
 import PrivateRoute from "./PrivateRoute";
 import ManagerProfile from "../../Pages/Profile/ManagerProfile";
 import ManagerForm from "../../Pages/ManagerProfileForm/ManagerForm";
+import MakePayment from "../MakePatment/MakePayment";
+
+
 import Projects from "../../Pages/Projects/Projects";
 import Experience from "../../Pages/Experience/Experience";
 
@@ -106,6 +109,10 @@ const router = createBrowserRouter([
   {
     path: "profile",
     element: <Profile></Profile>,
+  },
+  {
+      path:"/MakePaymentRoute",
+      element:<MakePayment></MakePayment>
   },
   {
     path: "/managerProfile",
