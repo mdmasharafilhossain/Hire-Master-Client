@@ -28,6 +28,7 @@ import MakePayment from "../MakePatment/MakePayment";
 
 import Projects from "../../Pages/Projects/Projects";
 import Experience from "../../Pages/Experience/Experience";
+import Skills from "../../Pages/Skills/Skills";
 
 const router = createBrowserRouter([
   {
@@ -147,9 +148,13 @@ const router = createBrowserRouter([
     element: <Projects></Projects>,
   },
   {
-    path: "/experience",
-    element: <Experience></Experience>,
+    path:"/experience",
+    element:<Experience></Experience>
   },
+  {
+    path:"/skills",
+    element:<Skills></Skills>
+  }
 ]);
 
 export default router;

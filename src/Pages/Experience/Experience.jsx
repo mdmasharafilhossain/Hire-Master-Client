@@ -39,12 +39,11 @@ const Experience = () => {
             profileData.map(data => <div key={data._id} className="mt-10 max-w-5xl mx-auto border-[0.5px] border-slate-400 p-10 bg-[#f4f2ee] rounded-lg">
             <div className="">
                 <div  >
-                    <h2 className='text-3xl font-bold text-blue-600'>Edit Education</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)} className=' '>
 
-                        
 
+                    <h2 className='text-3xl font-bold text-[#FF444A]'>Edit Experience</h2>
                         <h3 className='text-slate-600 text-lg font-semibold'>Job Title</h3>
                         <input defaultValue={myProfileData.UniversityName} className='pl-2 rounded-md py-2   w-full text-lg font-medium '
                             {...register("title", { required: true })} type="text" placeholder='Ex: Frontend Developer' id="" />
@@ -52,7 +51,7 @@ const Experience = () => {
 
                         <h3 className='text-slate-600 text-lg font-semibold'>Employment type</h3>
                         <input defaultValue={data.Degree}  className='pl-2 rounded-md py-2    w-full text-lg font-medium '
-                            {...register("jobType", { required: true })} type="number" placeholder='Ex: Full-Time' id="" />
+                            {...register("jobType", { required: true })} type="text" placeholder='Ex: Full-Time' id="" />
                         {errors.jobType && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
 
                         <h3 className='text-slate-600 text-lg font-semibold'>Company name</h3>
@@ -181,7 +180,7 @@ const Experience = () => {
                         {errors.description && <span className="mt-2 text-red-600 w-full">description is required </span>}
                         <p className="border-[0.5px] border-slate-400 mt-2 mb-1 w-full"></p>
 
-                        <button onSubmit={handleSubmit(onSubmit)} className=" btn px-8  bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-200  text-lg font-semibold">Edit</button>
+                        <button onSubmit={handleSubmit(onSubmit)} className=" btn px-8  bg-[#FF444A] text-white rounded-md hover:text-black hover:bg-red-300  text-lg font-semibold">Edit</button>
                     </form>
                 </div>
             </div>
