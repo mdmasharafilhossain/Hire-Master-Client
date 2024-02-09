@@ -58,7 +58,7 @@ const PaymentHomeCard = () => {
                     
                 </div>
 
-                <Link to="/PaymentRoute"><button className="btn  ml-12 text-base btn-secondary border-none text-black font-bold bg-blue-300 hover:bg-blue-400 w-3/4 mt-[150px] rounded-3xl">Get Premium</button></Link>
+                <Link to="/MakePaymentRoute"><button className="btn  ml-12 text-base btn-secondary border-none text-black font-bold bg-blue-300 hover:bg-blue-400 w-3/4 mt-[150px] rounded-3xl">Get Premium</button></Link>
                 <p className="text-[12px] ml-5 text-center">For 6 people who reside at the same address<br></br>
                 <span className="underline ">Terms Apply</span>
                 </p>

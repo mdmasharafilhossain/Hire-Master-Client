@@ -23,7 +23,9 @@ import Appliedjobs from "../../Pages/Appliedjobs/Appliedjobs";
 import PrivateRoute from "./PrivateRoute";
 import ManagerProfile from "../../Pages/Profile/ManagerProfile";
 import ManagerForm from "../../Pages/ManagerProfileForm/ManagerForm";
-import PaymentRoute from "../Payment/PaymentRoute/PaymentRoute";
+import MakePayment from "../MakePatment/MakePayment";
+
+
 
 const router = createBrowserRouter([
   {
@@ -107,8 +109,8 @@ const router = createBrowserRouter([
     element: <Profile></Profile>,
   },
   {
-      path:"/PaymentRoute",
-      element:<PaymentRoute></PaymentRoute>
+      path:"/MakePaymentRoute",
+      element:<MakePayment></MakePayment>
   },
   {
     path: "/managerProfile",
