@@ -1,7 +1,9 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const CheckoutForm = () => {
+  const navigate = useNavigate();
     const stripe = useStripe();
     const elements = useElements();
 
@@ -16,6 +18,28 @@ const CheckoutForm = () => {
         if (card == null) {
             return;
           }
+
+          const {error, paymentMethod} = await stripe.createPaymentMethod({
+            type: 'card',
+            card,
+          });
+      
+          if (error) {
+            console.log('[error]', error);
+          } else {
+            console.log('Payment Successful', paymentMethod);
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Payment Successfully",
+              showConfirmButton: false,
+              timer: 1500
+            });
+            navigate('/')
+
+          }
+        
+          
     }
 
     return (
