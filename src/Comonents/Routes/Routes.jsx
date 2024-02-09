@@ -23,6 +23,8 @@ import Appliedjobs from "../../Pages/Appliedjobs/Appliedjobs";
 import PrivateRoute from "./PrivateRoute";
 import ManagerProfile from "../../Pages/Profile/ManagerProfile";
 import ManagerForm from "../../Pages/ManagerProfileForm/ManagerForm";
+import Projects from "../../Pages/Projects/Projects";
+import Experience from "../../Pages/Experience/Experience";
 
 const router = createBrowserRouter([
   {
@@ -125,6 +127,14 @@ const router = createBrowserRouter([
     path: "/education",
     element: <Education></Education>,
   },
+  {
+    path:"/projects",
+    element:<Projects></Projects>
+  },
+  {
+    path:"/experience",
+    element:<Experience></Experience>
+  }
 ]);
 
 export default router;
