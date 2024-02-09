@@ -3,7 +3,7 @@ import contactImg from "../../assets/contactImg.jpg";
 import { useRef, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
-
+import Navbar2 from "../../Comonents/Navbar/Navbar2";
 
 const ContactUs = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -37,14 +37,9 @@ const ContactUs = () => {
   };
   return (
     <>
-      
-      <div className='my-10 md:my-20 px-3'>
-        <div className='container mx-auto'>
-          <Link to='/'>
-            <button className='btn btn-outline btn-sm mt-2'>Back</button>
-          </Link>
-        </div>
-        <div className='container md:flex mx-auto items-center justify-center text-center space-y-5 md:space-x-5'>
+      <Navbar2 />
+      <div className='my-10 md:my-20 px-3 container mx-auto '>
+        <div className=' md:flex items-center justify-center text-center space-y-5 md:space-x-5'>
           <div className='md:w-1/2 space-y-5'>
             <h2 className='text-xl md:text-2xl lg:text-5xl font-bold'>
               We’d love being connected.
