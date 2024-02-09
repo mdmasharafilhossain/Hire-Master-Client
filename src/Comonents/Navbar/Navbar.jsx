@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { MdPostAdd } from "react-icons/md";
 import { MdOutlineDashboard } from "react-icons/md";
-import logo from "../../assets/hire_master-logo.png";
+// import logo from "../../assets/hire_master-logo.png";
 
 import {
   Drawer,
