@@ -6,89 +6,103 @@ import UseAxiosSecure from "../Hooks/UseAxiosSecure/UseAxiosSecure";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const CheckoutForm = () => {
-  
-  const {user} = useContext(AuthContext)
-  const [clientSecret, setClinetSecret]= useState("");
-  const [transitionId,setTransitionId]= useState("");
-  const [error,setError] = useState('');
-    const stripe = useStripe();
-    const elements = useElements();
-    const axiosSecure = UseAxiosSecure();
-    const PayAblePrice = 16.99;
+
+  const { user } = useContext(AuthContext)
+  const [clientSecret, setClinetSecret] = useState("");
+  const [transitionId, setTransitionId] = useState("");
+  const [error, setError] = useState('');
+  const stripe = useStripe();
+  const elements = useElements();
+  const axiosSecure = UseAxiosSecure();
+  const PayAblePrice = 16.99;
 
 
-    useEffect(()=>{
-      axiosSecure.post("/create-payment-intent",{price:PayAblePrice})
-      .then(res=>{
+  useEffect(() => {
+    axiosSecure.post("/create-payment-intent", { price: PayAblePrice })
+      .then(res => {
         console.log(res.data.clientSecret);
         setClinetSecret(res.data.clientSecret);
       })
-    },[axiosSecure,PayAblePrice])
+  }, [axiosSecure, PayAblePrice])
 
-    const handleSubmit = async (event) =>{
-        event.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-        if(!stripe || !elements){
-            return;
-        }
-        
-        const card = elements.getElement(CardElement);
-        if (card == null) {
-            return;
-          }
-
-          const {error, paymentMethod} = await stripe.createPaymentMethod({
-            type: 'card',
-            card,
-          });
-      
-          if (error) {
-            console.log('[error]', error);
-            setError(error.message);
-          } else {
-            console.log('Payment Successful', paymentMethod);
-            
-            
-            setError("");
-
-          }
-
-          //confirm payment 
-
-          const {paymentIntent, error: confirmError} = await stripe.confirmCardPayment(clientSecret,{
-            payment_method:{
-              card: card,
-              billing_details:{
-                  email:user?.email || "anonymous",
-                  name:user?.displayName || "anonymous",
-              }
-            }
-          })
-
-          if(confirmError){
-            console.log("Confirm Error",confirmError.message)
-          }
-          else{
-            console.log('payment Intent',paymentIntent)
-            if(paymentIntent.status === 'succeeded'){
-              console.log("Transition ID :",paymentIntent.id)
-              setTransitionId(paymentIntent.id);
-              Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "Payment Successfully",
-                showConfirmButton: false,
-                timer: 1500
-              });
-            }
-          }
-        
-          
+    if (!stripe || !elements) {
+      return;
     }
 
-    return (
-         <form className="container mx-auto border-2 rounded-lg border-orange-600 w-3/4 py-20 px-20" onSubmit={handleSubmit}>
-            <CardElement
+    const card = elements.getElement(CardElement);
+    if (card == null) {
+      return;
+    }
+
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: 'card',
+      card,
+    });
+
+    if (error) {
+      console.log('[error]', error);
+      setError(error.message);
+    } else {
+      console.log('Payment Successful', paymentMethod);
+
+
+      setError("");
+
+    }
+
+    //confirm payment 
+
+    const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: card,
+        billing_details: {
+          email: user?.email || "anonymous",
+          name: user?.displayName || "anonymous",
+        }
+      }
+    })
+
+    if (confirmError) {
+      console.log("Confirm Error", confirmError.message)
+    }
+    else {
+      console.log('payment Intent', paymentIntent)
+      if (paymentIntent.status === 'succeeded') {
+        console.log("Transition ID :", paymentIntent.id)
+        setTransitionId(paymentIntent.id);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Payment Successfully",
+          showConfirmButton: false,
+          timer: 1500
+        });
+
+        // Save info in database 
+
+
+        const payment = {
+          email:user.email,
+          name:user.displayName,
+          price:PayAblePrice,
+          date: new Date(),
+          transaction_ID:paymentIntent.id
+        }
+        console.log(payment);
+        const res = axiosSecure.post("/payments", payment);
+        console.log('payment saved',res);
+      }
+    }
+
+
+  }
+
+  return (
+    <form className="container mx-auto border-2 rounded-lg border-orange-600 w-3/4 py-20 px-20" onSubmit={handleSubmit}>
+      <CardElement
         options={{
           style: {
             base: {
@@ -108,11 +122,11 @@ const CheckoutForm = () => {
         Pay
       </button>
       <p className="text-red-700 font-bold">{error}</p>
-       {
+      {
         transitionId && <p className="text-green-600 font-bold mt-10">Your Transition ID : {transitionId}</p>
-       }
-        </form>
-    );
+      }
+    </form>
+  );
 };
 
 export default CheckoutForm;
