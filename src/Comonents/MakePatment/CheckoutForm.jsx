@@ -1,9 +1,11 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const CheckoutForm = () => {
   const navigate = useNavigate();
+  const [error,setError] = useState('');
     const stripe = useStripe();
     const elements = useElements();
 
@@ -26,6 +28,7 @@ const CheckoutForm = () => {
       
           if (error) {
             console.log('[error]', error);
+            setError(error.message);
           } else {
             console.log('Payment Successful', paymentMethod);
             Swal.fire({
@@ -63,6 +66,7 @@ const CheckoutForm = () => {
       <button className="border rounded-lg px-5 py-1 hover: bg-orange-500 hover:bg-orange-600 text-white" type="submit" disabled={!stripe}>
         Pay
       </button>
+      <p className="text-red-700 font-bold">{error}</p>
 
         </form>
     );
