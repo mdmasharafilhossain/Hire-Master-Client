@@ -7,6 +7,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const CheckoutForm = () => {
 
+  const [clicked, setClicked] = useState(false);
   const { user } = useContext(AuthContext)
   const [clientSecret, setClinetSecret] = useState("");
   const [transitionId, setTransitionId] = useState("");
@@ -27,7 +28,7 @@ const CheckoutForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    setClicked(true);
     if (!stripe || !elements) {
       return;
     }
@@ -92,13 +93,17 @@ const CheckoutForm = () => {
           transaction_ID:paymentIntent.id
         }
         console.log(payment);
-        const res = axiosSecure.post("/payments", payment);
-        console.log('payment saved',res);
+        axiosSecure.post("/payments",payment)
+        .then(res=>{
+          console.log(res.data);
+        })
       }
     }
 
-
+   
   }
+
+  
 
   return (
     <form className="container mx-auto border-2 rounded-lg border-orange-600 w-3/4 py-20 px-20" onSubmit={handleSubmit}>
@@ -118,8 +123,8 @@ const CheckoutForm = () => {
           },
         }}
       />
-      <button disabled={!stripe || !clientSecret} className="border rounded-lg px-5 py-1 hover: bg-orange-500 hover:bg-orange-600 text-white" type="submit">
-        Pay
+      <button disabled={!stripe || !clientSecret || clicked} className={`border rounded-lg px-5 py-1 ${!stripe || !clientSecret || clicked ? 'bg-white text-black' : 'bg-orange-500 hover:bg-orange-600 text-white'}`} type="submit">
+      Pay
       </button>
       <p className="text-red-700 font-bold">{error}</p>
       {
