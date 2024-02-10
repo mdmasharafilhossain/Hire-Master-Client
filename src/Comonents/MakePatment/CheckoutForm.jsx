@@ -1,13 +1,29 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+
 import Swal from "sweetalert2";
+import UseAxiosSecure from "../Hooks/UseAxiosSecure/UseAxiosSecure";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const CheckoutForm = () => {
-  const navigate = useNavigate();
+  
+  const {user} = useContext(AuthContext)
+  const [clientSecret, setClinetSecret]= useState("");
+  const [transitionId,setTransitionId]= useState("");
   const [error,setError] = useState('');
     const stripe = useStripe();
     const elements = useElements();
+    const axiosSecure = UseAxiosSecure();
+    const PayAblePrice = 16.99;
+
+
+    useEffect(()=>{
+      axiosSecure.post("/create-payment-intent",{price:PayAblePrice})
+      .then(res=>{
+        console.log(res.data.clientSecret);
+        setClinetSecret(res.data.clientSecret);
+      })
+    },[axiosSecure,PayAblePrice])
 
     const handleSubmit = async (event) =>{
         event.preventDefault();
@@ -31,15 +47,40 @@ const CheckoutForm = () => {
             setError(error.message);
           } else {
             console.log('Payment Successful', paymentMethod);
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: "Payment Successfully",
-              showConfirmButton: false,
-              timer: 1500
-            });
-            navigate('/')
+            
+            
+            setError("");
 
+          }
+
+          //confirm payment 
+
+          const {paymentIntent, error: confirmError} = await stripe.confirmCardPayment(clientSecret,{
+            payment_method:{
+              card: card,
+              billing_details:{
+                  email:user?.email || "anonymous",
+                  name:user?.displayName || "anonymous",
+              }
+            }
+          })
+
+          if(confirmError){
+            console.log("Confirm Error",confirmError.message)
+          }
+          else{
+            console.log('payment Intent',paymentIntent)
+            if(paymentIntent.status === 'succeeded'){
+              console.log("Transition ID :",paymentIntent.id)
+              setTransitionId(paymentIntent.id);
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Payment Successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
+            }
           }
         
           
@@ -63,11 +104,13 @@ const CheckoutForm = () => {
           },
         }}
       />
-      <button className="border rounded-lg px-5 py-1 hover: bg-orange-500 hover:bg-orange-600 text-white" type="submit" disabled={!stripe}>
+      <button disabled={!stripe || !clientSecret} className="border rounded-lg px-5 py-1 hover: bg-orange-500 hover:bg-orange-600 text-white" type="submit">
         Pay
       </button>
       <p className="text-red-700 font-bold">{error}</p>
-
+       {
+        transitionId && <p className="text-green-600 font-bold mt-10">Your Transition ID : {transitionId}</p>
+       }
         </form>
     );
 };
