@@ -148,8 +148,8 @@ const router = createBrowserRouter([
     element: <Projects></Projects>,
   },
   {
-    path: "/experience",
-    element: <Experience></Experience>,
+    path:"/experience",
+    element:<Experience></Experience>
   },
   {
     path:"/skills",
