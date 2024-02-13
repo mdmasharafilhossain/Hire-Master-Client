@@ -46,7 +46,7 @@ const ChatBotHelper = () => {
     //           { value: 'no', label: 'No', trigger: '8' },
     //         ],
     //       },
-    //       {
+    //        {
     //         id: '6',
     //         message: 'Okay, no problem. How can I assist you with something else?',
     //         end: true,
