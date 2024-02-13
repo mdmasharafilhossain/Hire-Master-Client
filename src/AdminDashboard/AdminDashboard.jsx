@@ -4,10 +4,15 @@ import { AuthContext } from "../Comonents/AuthProvider/AuthProvider";
 import { FiAlignJustify } from "react-icons/fi";
 import { FaUsers } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
+import { useState } from 'react';
 const AdminDashboard = () => {
     const {user} = useContext(AuthContext);
+    const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
+    const handleRouteClick = () => {
+        setShowWelcomeMessage(false);
+    };
     return (
-        <div className="flex gap-20 container mx-auto">
+        <div className="flex  container mx-auto">
            <div >
                
                <div className="drawer lg:drawer-open ">
@@ -31,8 +36,8 @@ const AdminDashboard = () => {
 
 
           <ul className="menu p-4 py-auto"> 
-                    <li  className="font-bold text-sm text-white"><NavLink to="/AdminDashboard/AllUsers"  className="text-sm font-bold"><FaUsers />All Job Seekers</NavLink></li>
-                    <li  className="font-bold text-sm text-white"><NavLink to="/"  className="text-sm font-bold"><FaHome />Go Back Home</NavLink></li>
+                    <li  onClick={handleRouteClick} className="font-bold text-sm text-white"><NavLink to="/AdminDashboard/AllUsers"  className="text-sm font-bold"> <FaUsers />All Job Seekers</NavLink></li>
+                    <li  onClick={handleRouteClick} className="font-bold text-sm text-white"><NavLink to="/"  className="text-sm font-bold"><FaHome />Go Back Home</NavLink></li>
                     
                     
                </ul>
@@ -42,6 +47,12 @@ const AdminDashboard = () => {
     </div>
     
                    </div>
+                   {/* Welcome message for admin */}
+            {showWelcomeMessage && (
+                <div>
+                    <h1 className="text-5xl font-bold mt-60 ml-32">Welcome Admin <span className="text-orange-600">{user?.displayName}</span>!!!</h1>
+                </div>
+            )}
 
             {/* Outlet */}
             <div>

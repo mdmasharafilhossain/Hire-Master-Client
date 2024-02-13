@@ -5,10 +5,12 @@ import { useContext } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../Comonents/AuthProvider/AuthProvider';
 import UseAxiosSecure from '../../Comonents/Hooks/UseAxiosSecure/UseAxiosSecure';
+import UseAxiosPublic from '../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic';
 
 const AllUsers = () => {
     const [page,setPage]= useState(0);
     const axiosSecure = UseAxiosSecure();
+    const AxiosPublic = UseAxiosPublic();
     const {loading} = useContext(AuthContext);
     const { refetch, data: {result : users = [], UsersCount = 0} = {} } = useQuery({
         queryKey: ['users',page],
@@ -38,8 +40,53 @@ const AllUsers = () => {
            }
         })
        }
+
+       const handleRemoveAdmin = user => {
+        axiosSecure.patch(`/users/remove-admin/${user._id}`)
+        .then(res => {
+            console.log(res.data);
+            if (res.data.modifiedCount > 0) {
+                refetch();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${user.name} is no longer an Admin`,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        });
+    };
        const totalPages = Math.ceil(UsersCount / 4);
     const pages = [...new Array(totalPages).fill(0)]
+
+    const handleDelete = (user) =>{
+        
+        Swal.fire({
+            title: `Are you sure to delete ${user?.name}?`,
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: `Yes, delete ${user?.name}`
+          }).then(async (result) => {
+            if (result.isConfirmed) {
+                const res = await AxiosPublic.delete(`/users/JobSeeker/${user._id}`);
+                console.log(res.data);
+            if(res.data.deletedCount){
+                refetch();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `Delete SuccessFully User ${user?.name}`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
+            }
+          });
+    }
     return (
         <div>
             <div className="flex justify-evenly my-6 mb-10">
@@ -88,7 +135,12 @@ const AllUsers = () => {
                                     className="btn btn-ghost btn-xs font-bold">Make Admin</button>
                                    }
                                 </th>
-                                <td><button className='btn bg-orange-500'>Remove User</button></td>
+                                
+                                <td>
+                                {
+                                    user.role == 'admin'? <button onClick={() => handleRemoveAdmin(user)} className='btn bg-red-600 text-xs text-white font-bold'>Remove Admin</button> : ""
+                                }
+                                    <button onClick={()=>handleDelete(user)} className='btn bg-red-600 text-xs text-white font-bold'>Remove User</button></td>
                             </tr>)
                         }
                         
@@ -99,7 +151,7 @@ const AllUsers = () => {
             </div>
             <div className="text-center mt-10 mb-10 ">
            {
-            pages.map((item,index)=><button onClick={()=> setPage(index)}
+            pages.map((item,index)=><button key={item._id} onClick={()=> setPage(index)}
             className={`btn border  ${page === index ? "bg-slate-300 text-black":"bg-orange-600 text-white"} `}>{index+1}</button>)
            }
            
