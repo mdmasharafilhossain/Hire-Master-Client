@@ -27,7 +27,7 @@ const SignUp = () => {
           const user = {
             name: result.user.displayName,
             email: result.user.email,
-            photo: result.user.photoURL
+            photo: result?.user?.photoURL
           };
           saveUser(user);
         }
@@ -46,7 +46,7 @@ const SignUp = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    const photo = 
+    const photo = form.photo.value;
     createUser(email, password)
       .then(result => {
         
