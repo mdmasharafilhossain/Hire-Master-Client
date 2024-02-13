@@ -51,10 +51,10 @@ const AllUsers = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
+                            <th className='text-xl text-orange-600'>Image</th>
+                            <th className='text-xl text-orange-600'>Name</th>
+                            <th className='text-xl text-orange-600'>Email</th>
+                            <th className='text-xl text-orange-600'>Role</th>
                             <th></th>
                         </tr>
                     </thead>
