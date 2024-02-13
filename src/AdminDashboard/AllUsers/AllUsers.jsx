@@ -55,7 +55,8 @@ const AllUsers = () => {
                             <th className='text-xl text-orange-600'>Name</th>
                             <th className='text-xl text-orange-600'>Email</th>
                             <th className='text-xl text-orange-600'>Role</th>
-                            <th></th>
+                            <th className='text-xl text-orange-600'>Action</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -87,6 +88,7 @@ const AllUsers = () => {
                                     className="btn btn-ghost btn-xs font-bold">Make Admin</button>
                                    }
                                 </th>
+                                <td><button className='btn bg-orange-500'>Remove User</button></td>
                             </tr>)
                         }
                         
