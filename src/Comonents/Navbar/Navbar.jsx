@@ -83,8 +83,13 @@ const Navbar = () => {
                 <div>
                   <div className=" mb-3">
                     <Link to={`/${profileRoute}`}>Profile</Link>
+                   
+                  </div>
+                  <div className="mb-3">
+                  <Link to="AdminDashboard">Admin</Link>
                   </div>
                   <Link onClick={handleSignOut}>Logout</Link>
+                 
                 </div>
               ) : (
                 <Link to="/signup2">Register</Link>
@@ -120,6 +125,9 @@ const Navbar = () => {
               <Link className="lg:pr-3 md:pr-3" to={`/${profileRoute}`}>
                 Profile
               </Link>
+              
+                  <Link className="lg:pr-3 md:pr-3" to="AdminDashboard">Admin</Link>
+                  
               <Link onClick={handleSignOut}>Logout</Link>
             </div>
           ) : (
