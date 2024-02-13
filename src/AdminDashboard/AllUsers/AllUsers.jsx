@@ -38,12 +38,12 @@ const AllUsers = () => {
            }
         })
        }
-       const totalPages = Math.ceil(UsersCount / 5);
+       const totalPages = Math.ceil(UsersCount / 4);
     const pages = [...new Array(totalPages).fill(0)]
     return (
         <div>
-            <div className="flex justify-evenly my-6">
-                <h2 className="text-4xl font-bold">All User</h2>
+            <div className="flex justify-evenly my-6 mb-10">
+                <h2 className="text-4xl font-bold">All Job Seeker List</h2>
                
             </div>
             <div className="overflow-x-auto ml-10">
@@ -61,7 +61,7 @@ const AllUsers = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            users.map(user => <tr key={user._id}>
+                            users.map((user,index) => <tr key={user._id}  className={index % 2 === 0 ? 'bg-slate-200' : 'bg-orange-200'}>
                                 
                                 <td>
                                     <div className="flex items-center gap-3">
@@ -74,17 +74,17 @@ const AllUsers = () => {
                                     </div>
                                 </td>
                                 <td>
-                                    <h1>{user.name}</h1>
+                                    <h1 className='font-bold'>{user.name}</h1>
                                     <br />
                                     
                                 </td>
-                                <td>{user.email}</td>
+                                <td className='font-bold'>{user.email}</td>
                                 <th>
                                    {
-                                    user.role === 'admin' ? <button className='btn bg-orange-500 text-white'>Admin</button> : 
+                                    user.role === 'admin' ? <button className='btn bg-orange-600 text-white font-bold'>Admin</button> : 
                                     <button 
                                     onClick={()=> handleMakeAdmin(user) }
-                                    className="btn btn-ghost btn-xs">Make Admin</button>
+                                    className="btn btn-ghost btn-xs font-bold">Make Admin</button>
                                    }
                                 </th>
                             </tr>)
@@ -98,7 +98,7 @@ const AllUsers = () => {
             <div className="text-center mt-10 mb-10 ">
            {
             pages.map((item,index)=><button onClick={()=> setPage(index)}
-            className={`btn border  ${page === index ? "bg-orange-400 text-black":"bg-orange-600 text-white"} `}>{index+1}</button>)
+            className={`btn border  ${page === index ? "bg-slate-300 text-black":"bg-orange-600 text-white"} `}>{index+1}</button>)
            }
            
            </div>
