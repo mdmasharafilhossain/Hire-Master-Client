@@ -31,6 +31,7 @@ import Experience from "../../Pages/Experience/Experience";
 import Skills from "../../Pages/Skills/Skills";
 import AdminDashboard from "../../AdminDashboard/AdminDashboard";
 import AllUsers from "../../AdminDashboard/allUsers/allUsers";
+import AllJobPost from "../../AdminDashboard/AllJobPost/AllJobPost";
 
 
 
@@ -174,6 +175,10 @@ const router = createBrowserRouter([
       {
         path:"/AdminDashboard/AllUsers",
         element: <AllUsers></AllUsers>
+      },
+      {
+        path:"/AdminDashboard/AllJobPost",
+        element:<AllJobPost></AllJobPost>
       }
 
 
