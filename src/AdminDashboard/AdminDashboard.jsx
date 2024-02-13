@@ -2,6 +2,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import { useContext } from 'react';
 import { AuthContext } from "../Comonents/AuthProvider/AuthProvider";
 import { FiAlignJustify } from "react-icons/fi";
+import { BiBriefcase } from "react-icons/bi";
 import { FaUsers } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { useState } from 'react';
@@ -37,6 +38,7 @@ const AdminDashboard = () => {
 
           <ul className="menu p-4 py-auto"> 
                     <li  onClick={handleRouteClick} className="font-bold text-sm text-white"><NavLink to="/AdminDashboard/AllUsers"  className="text-sm font-bold"> <FaUsers />All Job Seekers</NavLink></li>
+                    <li  onClick={handleRouteClick} className="font-bold text-sm text-white"><NavLink to="/AdminDashboard/AllJobPost"  className="text-sm font-bold"> <BiBriefcase />All Job Post</NavLink></li>
                     <li  onClick={handleRouteClick} className="font-bold text-sm text-white"><NavLink to="/"  className="text-sm font-bold"><FaHome />Go Back Home</NavLink></li>
                     
                     
