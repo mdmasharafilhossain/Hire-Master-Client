@@ -88,7 +88,7 @@ const AllUsers = () => {
                                     className="btn btn-ghost btn-xs font-bold">Make Admin</button>
                                    }
                                 </th>
-                                <td><button className='btn bg-orange-500'>Remove User</button></td>
+                                <td><button className='btn bg-red-600 text-white font-bold'>Remove User</button></td>
                             </tr>)
                         }
                         
