@@ -2,7 +2,8 @@ import { NavLink, Outlet } from "react-router-dom";
 import { useContext } from 'react';
 import { AuthContext } from "../Comonents/AuthProvider/AuthProvider";
 import { FiAlignJustify } from "react-icons/fi";
-
+import { FaUsers } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 const AdminDashboard = () => {
     const {user} = useContext(AuthContext);
     return (
@@ -30,7 +31,8 @@ const AdminDashboard = () => {
 
 
           <ul className="menu p-4 py-auto"> 
-                    <li  className="font-bold text-sm text-white"><NavLink to="/AdminDashboard/AllUsers" className="text-sm font-bold">All Job Seekers</NavLink></li>
+                    <li  className="font-bold text-sm text-white"><NavLink to="/AdminDashboard/AllUsers"  className="text-sm font-bold"><FaUsers />All Job Seekers</NavLink></li>
+                    <li  className="font-bold text-sm text-white"><NavLink to="/"  className="text-sm font-bold"><FaHome />Go Back Home</NavLink></li>
                     
                     
                </ul>
