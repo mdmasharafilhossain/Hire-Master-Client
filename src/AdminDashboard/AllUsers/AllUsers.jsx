@@ -40,6 +40,23 @@ const AllUsers = () => {
            }
         })
        }
+
+       const handleRemoveAdmin = user => {
+        axiosSecure.patch(`/users/remove-admin/${user._id}`)
+        .then(res => {
+            console.log(res.data);
+            if (res.data.modifiedCount > 0) {
+                refetch();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${user.name} is no longer an Admin`,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        });
+    };
        const totalPages = Math.ceil(UsersCount / 4);
     const pages = [...new Array(totalPages).fill(0)]
 
@@ -119,7 +136,9 @@ const AllUsers = () => {
                                    }
                                 </th>
                                 
-                                <td><button onClick={()=>handleDelete(user)} className='btn bg-red-600 text-white font-bold'>Remove User</button></td>
+                                <td>
+                                <button onClick={() => handleRemoveAdmin(user)} className='btn bg-red-600 text-xs text-white font-bold'>Remove Admin</button> 
+                                    <button onClick={()=>handleDelete(user)} className='btn bg-red-600 text-xs text-white font-bold'>Remove User</button></td>
                             </tr>)
                         }
                         

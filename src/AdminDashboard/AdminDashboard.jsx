@@ -12,7 +12,7 @@ const AdminDashboard = () => {
         setShowWelcomeMessage(false);
     };
     return (
-        <div className="flex gap-20 container mx-auto">
+        <div className="flex  container mx-auto">
            <div >
                
                <div className="drawer lg:drawer-open ">
