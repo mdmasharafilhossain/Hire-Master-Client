@@ -29,6 +29,14 @@ import MakePayment from "../MakePatment/MakePayment";
 import Projects from "../../Pages/Projects/Projects";
 import Experience from "../../Pages/Experience/Experience";
 import Skills from "../../Pages/Skills/Skills";
+import AdminDashboard from "../../AdminDashboard/AdminDashboard";
+import AllUsers from "../../AdminDashboard/allUsers/allUsers";
+
+
+
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -154,6 +162,22 @@ const router = createBrowserRouter([
   {
     path:"/skills",
     element:<Skills></Skills>
+  },
+
+  // Admin Dashboard 
+
+  {
+     path:"/AdminDashboard",
+     element:<AdminDashboard></AdminDashboard>,
+     children:[
+      
+      {
+        path:"/AdminDashboard/AllUsers",
+        element: <AllUsers></AllUsers>
+      }
+
+
+     ]
   }
 ]);
 
