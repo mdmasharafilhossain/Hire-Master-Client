@@ -27,6 +27,7 @@ const SignUp = () => {
           const user = {
             name: result.user.displayName,
             email: result.user.email,
+            photo: result?.user?.photoURL
           };
           saveUser(user);
         }
@@ -45,11 +46,12 @@ const SignUp = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-
+    const photo = form.photo.value;
     createUser(email, password)
       .then(result => {
+        
         if (result) {
-          const user = { name, email };
+          const user = { name, email, photo };
           saveUser(user);
         }
         navigate(location?.state ? location.state : "/profileForm");
@@ -106,6 +108,15 @@ const SignUp = () => {
                       type='password'
                       name='password'
                       placeholder='Password (6 or more characters)'
+                      className='text-xs sm:text-base border border-gray-300 px-3 py-2 outline-none'
+                      required
+                    />
+                  </div>
+                  <div className='form-control'>
+                    <input
+                      type='photo'
+                      name='photo'
+                      placeholder='Upload your photo'
                       className='text-xs sm:text-base border border-gray-300 px-3 py-2 outline-none'
                       required
                     />
