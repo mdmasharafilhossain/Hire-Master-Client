@@ -7,7 +7,7 @@ import { FaHome } from "react-icons/fa";
 const AdminDashboard = () => {
     const {user} = useContext(AuthContext);
     return (
-        <div className="flex container mx-auto">
+        <div className="flex gap-40 container mx-auto">
            <div >
                
                <div className="drawer lg:drawer-open ">
