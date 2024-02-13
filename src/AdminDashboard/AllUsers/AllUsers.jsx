@@ -137,7 +137,9 @@ const AllUsers = () => {
                                 </th>
                                 
                                 <td>
-                                <button onClick={() => handleRemoveAdmin(user)} className='btn bg-red-600 text-xs text-white font-bold'>Remove Admin</button> 
+                                {
+                                    user.role == 'admin'? <button onClick={() => handleRemoveAdmin(user)} className='btn bg-red-600 text-xs text-white font-bold'>Remove Admin</button> : ""
+                                }
                                     <button onClick={()=>handleDelete(user)} className='btn bg-red-600 text-xs text-white font-bold'>Remove User</button></td>
                             </tr>)
                         }
