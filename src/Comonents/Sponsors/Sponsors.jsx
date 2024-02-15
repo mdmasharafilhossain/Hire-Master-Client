@@ -31,9 +31,7 @@ const Sponsors = () => {
   return (
     <div className='mx-auto my-12 md:my-24'>
       <div className=' mb-10 space-y-2'>
-        <h1 className='text-3xl md:text-5xl font-bold text-center'>
-          Our Amazing Sponsors
-        </h1>
+        <h1 className='text-3xl md:text-5xl font-bold text-center'>Sponsors</h1>
         <p className='text-lg mx-auto max-w-xs sm:max-w-3xl md:text-2xl font-semibold text-center text-gray-600'>
           Thanks to these incredible sponsors for supporting our mission and
           making it all possible.
