@@ -39,7 +39,14 @@ const Sponsors = () => {
           making it all possible.
         </p>
       </div>
-      <Marquee className='flex items-center'>
+      <Marquee
+        speed={35}
+        delay={0}
+        loop={0}
+        gradientColor='248 251 253'
+        gradientWidth={200}
+        className='flex items-center'
+      >
         {sponsors.map((sponsor, idx) => (
           <div className='' key={idx}>
             <img className='w-56 mr-10' src={sponsor.logo} alt={sponsor.name} />
