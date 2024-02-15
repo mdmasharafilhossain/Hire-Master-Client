@@ -129,7 +129,7 @@ const AllUsers = () => {
                                 <td className='font-bold'>{user.email}</td>
                                 <th>
                                    {
-                                    user.role === 'admin' ? <button className='btn bg-orange-600 text-white font-bold'>Admin</button> : 
+                                    user.role === 'admin' ? <button onClick={() => handleRemoveAdmin(user)} className='btn bg-orange-600 btn-xs text-white font-bold'> Remove Admin</button> : 
                                     <button 
                                     onClick={()=> handleMakeAdmin(user) }
                                     className="btn btn-ghost btn-xs font-bold">Make Admin</button>
@@ -137,10 +137,8 @@ const AllUsers = () => {
                                 </th>
                                 
                                 <td>
-                                {
-                                    user.role == 'admin'? <button onClick={() => handleRemoveAdmin(user)} className='btn bg-red-600 text-xs text-white font-bold'>Remove Admin</button> : ""
-                                }
-                                    <button onClick={()=>handleDelete(user)} className='btn bg-red-600 text-xs text-white font-bold'>Remove User</button></td>
+                              
+                                    <button onClick={()=>handleDelete(user)} className='btn btn-xs bg-red-600 text-xs text-white font-bold'>Remove User</button></td>
                             </tr>)
                         }
                         
