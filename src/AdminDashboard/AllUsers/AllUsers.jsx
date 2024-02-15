@@ -122,7 +122,7 @@ const AllUsers = () => {
                                     </div>
                                 </td>
                                 <td>
-                                    <h1 className='font-bold'>{user.name}</h1>
+                                   <button> <h1 className='font-bold'>{user.name}</h1></button>
                                     <br />
                                     
                                 </td>

@@ -25,7 +25,7 @@ const AdminDashboard = () => {
           </div>
           <div className="drawer-side">
             <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-            <ul className="menu p-4 w-60 min-h-screen z-50 bg-orange-600 text-base-content">
+            <ul className="menu p-4 w-60 min-h-full bg-orange-600 text-base-content">
 
               <div className="space-y-2 mb-10">
                 <img className="w-20 ml-16 mt-6 rounded-full" src={user?.photoURL} alt="" />
