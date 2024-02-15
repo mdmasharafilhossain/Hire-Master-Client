@@ -4,7 +4,7 @@ import { saveSubscriberInDb } from "../../api";
 import { useNavigate } from "react-router-dom";
 import { TbLoaderQuarter } from "react-icons/tb";
 
-const JobNews = () => {
+const NewsSubscription = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const JobNews = () => {
     setEmail("");
     setLoading(false);
     if (res.data.insertedId) {
-      // navigate("/News");
+      navigate("/tech-news");
     }
   };
 
@@ -71,4 +71,4 @@ const JobNews = () => {
   );
 };
 
-export default JobNews;
+export default NewsSubscription;
