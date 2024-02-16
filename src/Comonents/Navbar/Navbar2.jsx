@@ -56,6 +56,14 @@ const Navbar2 = () => {
           Jobs
         </NavLink>
         <NavLink
+          to='/tech-news'
+          className={({ isActive }) =>
+            `{ ${isActive ? "text-[#FF3811] underline " : " "}}`
+          }
+        >
+          News
+        </NavLink>
+        <NavLink
           to='/about'
           className={({ isActive }) =>
             `{ ${isActive ? "text-[#FF3811] underline " : " "}}`
