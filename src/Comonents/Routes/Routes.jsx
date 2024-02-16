@@ -74,7 +74,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/appliedjobs/:email",
-        element: <Appliedjobs></Appliedjobs>,
+        element: (
+          <PrivateRoute>
+            <Appliedjobs></Appliedjobs>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myPostedJobs",
@@ -168,7 +172,6 @@ const router = createBrowserRouter([
     path: "/skills",
     element: <Skills></Skills>,
   },
-
   // Admin Dashboard
 
   {
