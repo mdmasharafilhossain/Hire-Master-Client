@@ -25,19 +25,14 @@ import ManagerProfile from "../../Pages/Profile/ManagerProfile";
 import ManagerForm from "../../Pages/ManagerProfileForm/ManagerForm";
 import MakePayment from "../MakePatment/MakePayment";
 
-
 import Projects from "../../Pages/Projects/Projects";
 import Experience from "../../Pages/Experience/Experience";
 import Skills from "../../Pages/Skills/Skills";
 import AdminDashboard from "../../AdminDashboard/AdminDashboard";
 import AllUsers from "../../AdminDashboard/allUsers/allUsers";
 import AllJobPost from "../../AdminDashboard/AllJobPost/AllJobPost";
-
-
-
-
-
-
+import JobNews from "../../Pages/JobNews/JobNews";
+import NewsDetails from "../JobNews/NewsDetails";
 
 const router = createBrowserRouter([
   {
@@ -89,6 +84,15 @@ const router = createBrowserRouter([
         path: "contacts",
         element: <ContactUs />,
       },
+
+      {
+        path: "tech-news",
+        element: <JobNews />,
+      },
+      {
+        path: "tech-news/:title",
+        element: <NewsDetails />,
+      },
     ],
   },
   { path: "/signup", element: <SignUp></SignUp> },
@@ -121,8 +125,8 @@ const router = createBrowserRouter([
     element: <Profile></Profile>,
   },
   {
-      path:"/MakePaymentRoute",
-      element:<MakePayment></MakePayment>
+    path: "/MakePaymentRoute",
+    element: <MakePayment></MakePayment>,
   },
   {
     path: "/managerProfile",
@@ -157,33 +161,30 @@ const router = createBrowserRouter([
     element: <Projects></Projects>,
   },
   {
-    path:"/experience",
-    element:<Experience></Experience>
+    path: "/experience",
+    element: <Experience></Experience>,
   },
   {
-    path:"/skills",
-    element:<Skills></Skills>
+    path: "/skills",
+    element: <Skills></Skills>,
   },
 
-  // Admin Dashboard 
+  // Admin Dashboard
 
   {
-     path:"/AdminDashboard",
-     element:<AdminDashboard></AdminDashboard>,
-     children:[
-      
+    path: "/AdminDashboard",
+    element: <AdminDashboard></AdminDashboard>,
+    children: [
       {
-        path:"/AdminDashboard/AllUsers",
-        element: <AllUsers></AllUsers>
+        path: "/AdminDashboard/AllUsers",
+        element: <AllUsers></AllUsers>,
       },
       {
-        path:"/AdminDashboard/AllJobPost",
-        element:<AllJobPost></AllJobPost>
-      }
-
-
-     ]
-  }
+        path: "/AdminDashboard/AllJobPost",
+        element: <AllJobPost></AllJobPost>,
+      },
+    ],
+  },
 ]);
 
 export default router;
