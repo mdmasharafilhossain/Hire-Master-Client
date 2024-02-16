@@ -8,6 +8,7 @@ import { FaHome } from "react-icons/fa";
 import { useState } from 'react';
 const AdminDashboard = () => {
   const { user } = useContext(AuthContext);
+  console.log(user)
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
   const handleRouteClick = () => {
     setShowWelcomeMessage(false);
@@ -30,6 +31,7 @@ const AdminDashboard = () => {
               <div className="space-y-2 mb-10">
                 <img className="w-20 ml-16 mt-6 rounded-full" src={user?.photoURL} alt="" />
                 <h1 className="text-sm text-white text-center font-bold">{user?.displayName}</h1>
+                
               </div>
 
 
