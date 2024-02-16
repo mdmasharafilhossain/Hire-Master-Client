@@ -84,7 +84,16 @@ import { FaRegBell } from "react-icons/fa";
           Jobs
         </NavLink>
         <NavLink
-          to="/about"
+          to='/tech-news'
+          className={({ isActive }) =>
+            `{ ${isActive ? "text-[#FF3811] underline " : " "}}`
+          }
+        >
+          News
+        </NavLink>
+
+        <NavLink
+          to='/about'
           className={({ isActive }) =>
             `{ ${isActive ? "text-[#FF3811] underline " : " "}}`
           }

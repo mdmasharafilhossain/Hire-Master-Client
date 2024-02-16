@@ -105,7 +105,7 @@ const ProfileHead = () => {
                         {errors.github && <span className="mt-2 text-red-600 w-full">Github is required </span>}
 
                         <h3 className='text-slate-600 text-lg font-semibold'>Description</h3>
-                        <textarea  {...register("description", { required: true })} type="text" placeholder='Describe Your Self' className='pl-2 rounded-md py-2 border-[0.0px] border-black    w-full text-lg font-medium' cols="30" rows="2"></textarea>
+                        <textarea  {...register("description", { required: true })} type="text" placeholder='Describe Yourself' className='pl-2 rounded-md py-2 border-[0.0px] border-black    w-full text-lg font-medium' cols="30" rows="2"></textarea>
                         {errors.description && <span className="mt-2 text-red-600 w-full">description is required </span>}
 
                         <p className="border-[0.5px] border-slate-400 mt-2 mb-1 w-full"></p>

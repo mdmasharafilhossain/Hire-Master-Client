@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "./../AuthProvider/AuthProvider";
 import { useForm } from "react-hook-form";
 import UseAxiosPublic from "../Hooks/UseAxiosPublic/UseAxiosPublic";
@@ -11,6 +11,7 @@ const Profile_Hosting = `https://api.imgbb.com/1/upload?key=${Image_Hosting_key}
 
 const UserProfileForm = () => {
   const { user } = useContext(AuthContext);
+  const [disabled, setDisabled] = useState(true)
   console.log(user);
   const { register, handleSubmit, formState: { errors } } = useForm();
   const AxiosPublic = UseAxiosPublic();
@@ -73,13 +74,14 @@ const UserProfileForm = () => {
       console.log(ArticleRes.data);
       if (ArticleRes.data.insertedId) {
         Swal.fire({
-          position: "top-end",
+          position: "center",
           icon: "success",
-          title: "Your data Added Successfully",
+          title: "Profile Created Successfully",
           showConfirmButton: false,
           timer: 1500,
         });
       }
+          setDisabled(false)
     }
   };
   return (
@@ -598,7 +600,10 @@ const UserProfileForm = () => {
                 </div>
               </div>
               <p className="border-[0.5px] border-slate-400 mt-2 mb-1 w-full"></p>
-              <button  className=" mt-2 btn px-8  bg-[#FF444A] text-white rounded-md hover:text-black hover:bg-red-300  text-lg font-semibold">Create</button>
+             {
+              disabled ? <button  className=" mt-2 btn px-8  bg-[#FF444A] text-white rounded-md hover:text-black hover:bg-red-300  text-lg font-semibold">Create</button>:
+              <button disabled className="  mt-2 btn px-8  bg-[#FF444A] text-white rounded-md hover:text-black hover:bg-red-300  text-lg font-semibold">Create</button>
+             }
             </form>
           </div>
         </div>
