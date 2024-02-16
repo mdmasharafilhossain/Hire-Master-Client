@@ -23,18 +23,17 @@ const Navbar = () => {
       .then(() => {
         navigate("/signup2");
       })
-      .catch((error) => console.log(error));
+      .catch(error => console.log(error));
   };
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
   const email = user?.email;
-  const {
-    data: profile,
-    loading,
-    refetch,
-  } = useFetchData(`/managerProfile/${email}`, "profile");
+  const { data: profile, loading, refetch } = useFetchData(
+    `/managerProfile/${email}`,
+    "profile"
+  );
   if (!loading) {
     refetch();
   }
@@ -52,11 +51,11 @@ const Navbar = () => {
         display={{ base: "block", md: "none" }}
         onClick={onOpen}
       >
-        <MdOutlineDashboard className="text-[#FF3811] w-full" size={38} />
+        <MdOutlineDashboard className='text-[#FF3811] w-full' size={38} />
       </Button>
       <Drawer
         isOpen={isOpen}
-        placement="left"
+        placement='left'
         onClose={onClose}
         finalFocusRef={btnRef}
         size={"sm"}
@@ -64,81 +63,83 @@ const Navbar = () => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <div className="flex ml-5 mt-2">
+          <div className='flex ml-5 mt-2'>
             <img
-              src="https://i.ibb.co/BcFWdqk/Hire-Master-Logo-2.png"
-              className="w-28"
-              alt="logo"
+              src='https://i.ibb.co/BcFWdqk/Hire-Master-Logo-2.png'
+              className='w-28'
+              alt='logo'
             />
           </div>
-          <hr className="my-10" />
+          <hr className='my-10' />
           <DrawerBody>
-            <div className="flex flex-col font-medium text-2xl space-y-4">
-              <Link to="/">Home</Link>
-              <Link to="/about">About</Link>
-              <Link to="/jobs">Jobs</Link>
-              <Link to="/contacts">Contact</Link>
+            <div className='flex flex-col font-medium text-2xl space-y-4'>
+              <Link to='/'>Home</Link>
+              <Link to='/about'>About</Link>
+              <Link to='/jobs'>Jobs</Link>
+              <Link to='/tech-news'>News</Link>
+              <Link to='/contacts'>Contact</Link>
 
               {user ? (
                 <div>
-                  <div className=" mb-3">
+                  <div className=' mb-3'>
                     <Link to={`/${profileRoute}`}>Profile</Link>
-                   
                   </div>
-                  <div className="mb-3">
-                  <Link to="AdminDashboard">Admin</Link>
+                  <div className='mb-3'>
+                    <Link to='AdminDashboard'>Admin</Link>
                   </div>
                   <Link onClick={handleSignOut}>Logout</Link>
-                 
                 </div>
               ) : (
-                <Link to="/signup2">Register</Link>
+                <Link to='/signup2'>Register</Link>
               )}
-              <button className="flex px-5 py-2 items-center space-x-1 font-semibold text-lg bg-[#FF3811] text-white rounded-lg">
-                <p className="">Post a Job</p>
+              <button className='flex px-5 py-2 items-center space-x-1 font-semibold text-lg bg-[#FF3811] text-white rounded-lg'>
+                <p className=''>Post a Job</p>
                 <MdPostAdd size={30} />
               </button>
             </div>
           </DrawerBody>
         </DrawerContent>
       </Drawer>
-      <div className="flex-1">
+      <div className='flex-1'>
         <Link
-          to="/"
+          to='/'
           className='text-3xl md:text-4xl font-bold ml-1 text-[#FF3811]'
         >
           <img
-            className=" w-44 md:w-40 lg:w-48 ml-10 md:ml-5 lg:ml-20"
-            src="https://i.ibb.co/BcFWdqk/Hire-Master-Logo-2.png"
-            alt=""
+            className=' w-44 md:w-40 lg:w-48 ml-10 md:ml-5 lg:ml-20'
+            src='https://i.ibb.co/BcFWdqk/Hire-Master-Logo-2.png'
+            alt=''
           />
         </Link>
       </div>
-      <div className="flex-none">
-        <div className="hidden md:flex  items-center space-x-4 mr-4 font-medium lg:text-lg mdmenu menu-horizontal px-1 md:text-base">
+      <div className='flex-none'>
+        <div className='hidden md:flex  items-center space-x-4 mr-4 font-medium lg:text-lg mdmenu menu-horizontal px-1 md:text-base'>
           <Link>Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/jobs">Jobs</Link>
-          <Link to="/contacts">Contact</Link>
+          <Link to='/about'>About</Link>
+          <Link to='/jobs'>Jobs</Link>
+          <Link to='/tech-news'>News</Link>
+          <Link to='/contacts'>Contact</Link>
           {user ? (
             <div>
-              <Link className="lg:pr-3 md:pr-3" to={`/${profileRoute}`}>
+              <Link className='lg:pr-3 md:pr-3' to={`/${profileRoute}`}>
                 Profile
               </Link>
-              
-                  <Link className="lg:pr-3 md:pr-3" to="AdminDashboard">Admin</Link>
-                  
+
+              <Link className='lg:pr-3 md:pr-3' to='AdminDashboard'>
+                Admin
+              </Link>
+
               <Link onClick={handleSignOut}>Logout</Link>
             </div>
           ) : (
-            <Link to="/signup2">Register</Link>
+            <Link to='/signup2'>Register</Link>
           )}
         </div>
       </div>
-      <Link to="/jobpost">
+      <Link to='/jobpost'>
         {" "}
-        <button className="hidden md:flex lg:w-44  lg:text-xl md:w-36 md:text-sm px-5 py-2 items-center space-x-1 font-semibold text-lg bg-[#FF3811] text-white rounded-lg">
-          <p className="lg:pl-2">Post a Job</p>
+        <button className='hidden md:flex lg:w-44  lg:text-xl md:w-36 md:text-sm px-5 py-2 items-center space-x-1 font-semibold text-lg bg-[#FF3811] text-white rounded-lg'>
+          <p className='lg:pl-2'>Post a Job</p>
           <MdPostAdd size={30} />
         </button>
       </Link>

@@ -24,7 +24,9 @@ const JobNews = () => {
       <Navbar />
       <div className='mx-auto my-16 md:my-28 max-w-7xl '>
         <div className='text-center space-y-1'>
-          <p className='font-bold tracking-tighter'>Read, Learn, Grow</p>
+          <p className='font-bold tracking-tighter text-[#FF3811]'>
+            Read, Learn, Grow
+          </p>
           <h2 className='text-3xl md:text-5xl font-bold '>
             Harmonizing Careers and Job Trends
           </h2>

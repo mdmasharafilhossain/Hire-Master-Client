@@ -38,21 +38,37 @@ const NewsDetails = () => {
   console.log(newsDetails);
   //   const { title: newsTitle, author, imageUrl, datePublished } = newsDetails;
   return (
-    <div className='max-w-7xl mx-auto'>
-      <div className='flex items-center gap-x-2'>
-        <Link to='/'>Home</Link>
-        <TbSlash />
-        <Link to='/tech-news'>tech-news</Link>
-        <TbSlash />
+    <div className='max-w-7xl mx-auto my-14 md:my-24'>
+      <div className='flex items-center gap-x-1 text-[#FF3811] font-semibold md:text-xl px-4 md:px-10'>
+        <div className='flex items-center'>
+          <Link to='/'>Home</Link>
+          <TbSlash />
+        </div>
+        <div className='flex items-center'>
+          <Link to='/tech-news'>tech-news</Link>
+          <TbSlash />
+        </div>
         <Link>{newsDetails?.title.slice(0, 10)}...</Link>
       </div>
       <div>
-        <h2>{newsDetails?.title}</h2>
-        <img src={newsDetails?.imageUrl} alt='' />
-        <h3>{newsDetails?.subtitle}</h3>
-        <p>{newsDetails?.content}</p>
-        <p>{newsDetails?.author}</p>
-        <p>{newsDetails?.datePublished}</p>
+        <h2 className='text-3xl px-4 md:px-10 md:text-5xl text-center font-medium my-10'>
+          {newsDetails?.title}
+        </h2>
+        <div className='w-full'>
+          <img
+            className='w-3/4 mx-auto rounded-2xl'
+            src={newsDetails?.imageUrl}
+            alt=''
+          />
+        </div>
+        <div className='px-4 mt-10 mb-5 md:px-10'>
+          <h3 className='text-xl md:text-3xl'>{newsDetails?.subtitle}</h3>
+          <p className='text-base md:text-lg'>{newsDetails?.content}</p>
+        </div>
+        <div className='font-normal px-4 md:px-10 mt-5'>
+          <p>Author-{newsDetails?.author}</p>
+          <p className='italic'>Published on-{newsDetails?.datePublished}</p>
+        </div>
       </div>
     </div>
   );
