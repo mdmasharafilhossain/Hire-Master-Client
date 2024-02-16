@@ -3,6 +3,7 @@ import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic"
 import Swal from "sweetalert2";
 import TagsInput from "react-tagsinput";
 import { useState } from "react";
+import Navbar2 from "../../Comonents/Navbar/Navbar2";
 
 const JobPost = () => {
   const [selectedSkills, setselectedSkills] = useState([]);
@@ -55,16 +56,11 @@ const JobPost = () => {
   };
 
   return (
-    <div
-      className=" mx-auto h-100vh"
-      //   style={{
-      //     backgroundImage:
-      //       "url(https://i.ibb.co/1K0jfGK/arthur-mazi-Jmuv-Y9-Di9-BU-unsplash.jpg)",
-      //   }}
-    >
+    <div className=" mx-auto h-100vh">
+        <Navbar2/>
       <div>
         <h1 className=" font-serif font-bold text-center p-12 text-3xl uppercase ">
-          Add Job{" "}
+          Add Job
         </h1>
       </div>
       <form className="p-10" onSubmit={handleSubmit(onSubmit)}>
@@ -375,9 +371,9 @@ const JobPost = () => {
             />
           </div>
         </div>
-        <button 
-        className="btn btn-warning w-full bg-white text-black text-xl font-semibold hover:bg-orange-500 hover:text-white"
-        // className="btn w-full bg-orange-600 text-white"
+        <button
+          className="btn btn-warning w-full bg-white text-black text-xl font-semibold hover:bg-orange-500 hover:text-white"
+          // className="btn w-full bg-orange-600 text-white"
         >
           ADD JOB
         </button>

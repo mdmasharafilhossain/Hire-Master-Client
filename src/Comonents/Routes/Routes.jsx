@@ -25,7 +25,6 @@ import ManagerProfile from "../../Pages/Profile/ManagerProfile";
 import ManagerForm from "../../Pages/ManagerProfileForm/ManagerForm";
 import MakePayment from "../MakePatment/MakePayment";
 
-
 import Projects from "../../Pages/Projects/Projects";
 import Experience from "../../Pages/Experience/Experience";
 import Skills from "../../Pages/Skills/Skills";
@@ -70,7 +69,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/appliedjobs/:email",
-        element: <Appliedjobs></Appliedjobs>,
+        element: (
+          <PrivateRoute>
+            <Appliedjobs></Appliedjobs>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myPostedJobs",
@@ -112,8 +115,8 @@ const router = createBrowserRouter([
     element: <Profile></Profile>,
   },
   {
-      path:"/MakePaymentRoute",
-      element:<MakePayment></MakePayment>
+    path: "/MakePaymentRoute",
+    element: <MakePayment></MakePayment>,
   },
   {
     path: "/managerProfile",
@@ -148,13 +151,13 @@ const router = createBrowserRouter([
     element: <Projects></Projects>,
   },
   {
-    path:"/experience",
-    element:<Experience></Experience>
+    path: "/experience",
+    element: <Experience></Experience>,
   },
   {
-    path:"/skills",
-    element:<Skills></Skills>
-  }
+    path: "/skills",
+    element: <Skills></Skills>,
+  },
 ]);
 
 export default router;
