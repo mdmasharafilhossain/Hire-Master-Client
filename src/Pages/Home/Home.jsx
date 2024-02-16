@@ -5,6 +5,7 @@ import Testimonials from "../../Comonents/Testimonial/Testimonials";
 import Navbar from "../../Comonents/Navbar/Navbar";
 import PaymentHomeCard from "../../Comonents/Payment/PaymentHomeCard/PaymentHomeCard";
 import Sponsors from "../../Comonents/Sponsors/Sponsors";
+import NewsSubscription from "../../Comonents/JobNews/NewsSubscription";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <ExploreByCategory></ExploreByCategory>
       <PaymentHomeCard></PaymentHomeCard>
       <Sponsors />
+      <NewsSubscription />
     </div>
   );
 };
