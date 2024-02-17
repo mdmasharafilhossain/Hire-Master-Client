@@ -33,6 +33,8 @@ import AllUsers from "../../AdminDashboard/allUsers/allUsers";
 import AllJobPost from "../../AdminDashboard/AllJobPost/AllJobPost";
 import JobNews from "../../Pages/JobNews/JobNews";
 import NewsDetails from "../JobNews/NewsDetails";
+import CreateJobNews from "../../AdminDashboard/CreateNews/CreateJobNews";
+import AdminJobNews from "../../AdminDashboard/AllJobNews/AdminJobNews";
 
 const router = createBrowserRouter([
   {
@@ -74,7 +76,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/appliedjobs/:email",
-        element: <Appliedjobs></Appliedjobs>,
+        element: (
+          <PrivateRoute>
+            <Appliedjobs></Appliedjobs>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myPostedJobs",
@@ -168,7 +174,6 @@ const router = createBrowserRouter([
     path: "/skills",
     element: <Skills></Skills>,
   },
-
   // Admin Dashboard
 
   {
@@ -182,6 +187,14 @@ const router = createBrowserRouter([
       {
         path: "/AdminDashboard/AllJobPost",
         element: <AllJobPost></AllJobPost>,
+      },
+      {
+        path: "/AdminDashboard/create-news",
+        element: <CreateJobNews />,
+      },
+      {
+        path: "/AdminDashboard/all-news",
+        element: <AdminJobNews />,
       },
     ],
   },
