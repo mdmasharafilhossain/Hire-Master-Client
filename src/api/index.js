@@ -20,3 +20,15 @@ export const getManagerInfo = async email => {
 export const saveSubscriberInDb = async subscriber => {
   return await axiosPublic.post("/subscribers", subscriber);
 };
+
+export const saveJobNewsInDb = async news => {
+  return await axiosPublic.post("/job-news", news);
+};
+
+export const getJobNewsFromDb = async () => {
+  return await axiosPublic.get("/job-news");
+};
+
+export const deleteJobNewsFromDb = async slug => {
+  return await axiosPublic.delete(`/job-news/${slug}`);
+};
