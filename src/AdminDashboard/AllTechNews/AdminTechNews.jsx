@@ -1,13 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import { getJobNewsFromDb } from "../../api";
+import { getTechNewsFromDb } from "../../api";
 import Loader from "../../Comonents/Loader/Loader";
 import AdminNewsCard from "./AdminNewsCard";
 
-const AdminJobNews = () => {
+const AdminTechNews = () => {
   const { isFetching, data, refetch } = useQuery({
     queryKey: ["adminJobs"],
     queryFn: async () => {
-      const res = await getJobNewsFromDb();
+      const res = await getTechNewsFromDb();
       return res.data;
     },
   });
@@ -35,4 +35,4 @@ const AdminJobNews = () => {
   );
 };
 
-export default AdminJobNews;
+export default AdminTechNews;

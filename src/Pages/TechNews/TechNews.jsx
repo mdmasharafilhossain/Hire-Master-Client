@@ -1,24 +1,23 @@
-import { useEffect, useState } from "react";
 import Navbar from "../../Comonents/Navbar/Navbar";
-import NewsCard from "../../Comonents/JobNews/NewsCard";
 import { Center } from "@chakra-ui/react";
+import { useQuery } from "@tanstack/react-query";
+import { getTechNewsFromDb } from "../../api";
+import Loader from "../../Comonents/Loader/Loader";
+import NewsCard from "../../Comonents/JobNews/NewsCard";
 
-const JobNews = () => {
-  const [techNews, setTechNews] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/technews.json");
-        const data = await response.json();
-        setTechNews(data);
-      } catch (error) {
-        console.error("Error fetching tech news data:", error);
-      }
-    };
+const TechNews = () => {
+  const { isFetching, data } = useQuery({
+    queryKey: ["adminJobs"],
+    queryFn: async () => {
+      const res = await getTechNewsFromDb();
+      return res.data;
+    },
+  });
 
-    fetchData();
-  }, []);
-  console.log(techNews);
+  if (isFetching) {
+    return <Loader />;
+  }
+
   return (
     <>
       <Navbar />
@@ -37,7 +36,7 @@ const JobNews = () => {
         </div>
 
         <div className='mt-16 grid mx-auto   justify-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 '>
-          {techNews.map((news, idx) => (
+          {data.map((news, idx) => (
             <Center key={idx}>
               <NewsCard news={news} />
             </Center>
@@ -48,4 +47,4 @@ const JobNews = () => {
   );
 };
 
-export default JobNews;
+export default TechNews;
