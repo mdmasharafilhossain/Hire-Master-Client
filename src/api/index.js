@@ -29,6 +29,9 @@ export const getJobNewsFromDb = async () => {
   return await axiosPublic.get("/job-news");
 };
 
-export const deleteJobNewsFromDb = async slug => {
+/* export const deleteJobNewsFromDb = async slug => {
   return await axiosPublic.delete(`/job-news/${slug}`);
+}; */
+export const deleteJobNewsFromDb = async id => {
+  return await axiosPublic.delete(`/job-news/${id}`);
 };

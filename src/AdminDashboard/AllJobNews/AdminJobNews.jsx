@@ -4,7 +4,7 @@ import Loader from "../../Comonents/Loader/Loader";
 import AdminNewsCard from "./AdminNewsCard";
 
 const AdminJobNews = () => {
-  const { isFetching, data } = useQuery({
+  const { isFetching, data, refetch } = useQuery({
     queryKey: ["adminJobs"],
     queryFn: async () => {
       const res = await getJobNewsFromDb();
@@ -27,7 +27,7 @@ const AdminJobNews = () => {
         {data.length > 0 &&
           data.map(news => (
             <div key={news._id}>
-              <AdminNewsCard news={news} />
+              <AdminNewsCard news={news} refetch={refetch} />
             </div>
           ))}
       </div>
