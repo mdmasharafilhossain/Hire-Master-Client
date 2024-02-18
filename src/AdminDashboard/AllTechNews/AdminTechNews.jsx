@@ -11,7 +11,7 @@ const AdminTechNews = () => {
   const itemsPerPage = 5;
 
   const { isFetching, data, refetch } = useQuery({
-    queryKey: ["adminJobs", currentPage, itemsPerPage],
+    queryKey: ["adminNews", currentPage, itemsPerPage],
     queryFn: async ({ queryKey }) => {
       const [_key, page, limit] = queryKey;
       const res = await getAdminTechNewsFromDb(page, limit);
