@@ -2,41 +2,33 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { TbSlash } from "react-icons/tb";
 import Loader from "../Loader/Loader";
+import toast from "react-hot-toast";
+import { getSingleTechNewsFromDb } from "../../api";
 
 const NewsDetails = () => {
   const [newsDetails, setNewsDetails] = useState(null);
-  const { title: newsParams } = useParams();
+  const { slug } = useParams();
+  // console.log(slug);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchNewsDetails = async () => {
-      try {
+    try {
+      const fetchNews = async () => {
         setLoading(true);
-        const response = await fetch("/technews.json");
-        const data = await response.json();
-        const selectedJob = data.find(job => job.title === newsParams);
-
-        if (selectedJob) {
-          setNewsDetails(selectedJob);
-          setLoading(false);
-        } else {
-          setLoading(false);
-          console.error(`Job with title "${newsParams}" not found.`);
-        }
-      } catch (error) {
-        console.error("Error fetching job details:", error);
-      }
-    };
-
-    fetchNewsDetails();
-  }, [newsParams]);
+        const res = await getSingleTechNewsFromDb(slug);
+        setNewsDetails(res.data);
+        setLoading(false);
+      };
+      fetchNews();
+    } catch (error) {
+      toast.error(error?.message);
+    }
+  }, [slug]);
 
   if (loading) {
     <Loader />;
   }
 
-  console.log(newsDetails);
-  //   const { title: newsTitle, author, imageUrl, datePublished } = newsDetails;
   return (
     <div className='max-w-7xl mx-auto my-14 md:my-24'>
       <div className='flex items-center gap-x-1 text-[#FF3811] font-semibold md:text-xl px-4 md:px-10'>
@@ -62,9 +54,14 @@ const NewsDetails = () => {
           />
         </div>
         <div className='px-4 mt-10 mb-5 md:px-10'>
-          <h3 className='text-xl md:text-3xl'>{newsDetails?.subtitle}</h3>
-          <p className='text-base md:text-lg'>{newsDetails?.content}</p>
+          <h3 className='text-xl font-medium md:text-3xl'>
+            {newsDetails?.subtitle}
+          </h3>
+          <p className='text-base md:text-lg text-justify my-5'>
+            {newsDetails?.content}
+          </p>
         </div>
+        <hr />
         <div className='font-normal px-4 md:px-10 mt-5'>
           <p>Author-{newsDetails?.author}</p>
           <p className='italic'>Published on-{newsDetails?.datePublished}</p>
