@@ -31,10 +31,10 @@ import Skills from "../../Pages/Skills/Skills";
 import AdminDashboard from "../../AdminDashboard/AdminDashboard";
 import AllUsers from "../../AdminDashboard/allUsers/allUsers";
 import AllJobPost from "../../AdminDashboard/AllJobPost/AllJobPost";
-import JobNews from "../../Pages/JobNews/JobNews";
 import NewsDetails from "../JobNews/NewsDetails";
 import CreateJobNews from "../../AdminDashboard/CreateNews/CreateJobNews";
-import AdminJobNews from "../../AdminDashboard/AllJobNews/AdminJobNews";
+import TechNews from "../../Pages/TechNews/TechNews";
+import AdminTechNews from "../../AdminDashboard/AllTechNews/AdminTechNews";
 
 const router = createBrowserRouter([
   {
@@ -93,10 +93,10 @@ const router = createBrowserRouter([
 
       {
         path: "tech-news",
-        element: <JobNews />,
+        element: <TechNews />,
       },
       {
-        path: "tech-news/:title",
+        path: "tech-news/:slug",
         element: <NewsDetails />,
       },
     ],
@@ -194,7 +194,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/AdminDashboard/all-news",
-        element: <AdminJobNews />,
+        element: <AdminTechNews />,
       },
     ],
   },

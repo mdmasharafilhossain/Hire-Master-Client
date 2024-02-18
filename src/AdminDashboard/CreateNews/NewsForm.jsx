@@ -56,7 +56,7 @@ const NewsForm = ({ onSubmit, user }) => {
             type='text'
             placeholder='Content'
             className='text-lg outline-none border px-2 py-1 h-[80px] md:h-[150px] resize-none'
-            {...register("content", { required: true, maxLength: 2000 })}
+            {...register("content", { required: true, maxLength: 5000 })}
           />
           {errors.content && (
             <span className='text-red-500'>Content is required!</span>

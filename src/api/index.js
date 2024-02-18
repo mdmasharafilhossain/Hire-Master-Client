@@ -25,10 +25,17 @@ export const saveJobNewsInDb = async news => {
   return await axiosPublic.post("/job-news", news);
 };
 
-export const getJobNewsFromDb = async () => {
-  return await axiosPublic.get("/job-news");
+export const getTechNewsFromDb = async () => {
+  return await axiosPublic.get("/tech-news");
 };
 
-export const deleteJobNewsFromDb = async slug => {
+export const getSingleTechNewsFromDb = async slug => {
+  return await axiosPublic.get(`/tech-news/${slug}`);
+};
+
+/* export const deleteJobNewsFromDb = async slug => {
   return await axiosPublic.delete(`/job-news/${slug}`);
+}; */
+export const deleteJobNewsFromDb = async id => {
+  return await axiosPublic.delete(`/job-news/${id}`);
 };
