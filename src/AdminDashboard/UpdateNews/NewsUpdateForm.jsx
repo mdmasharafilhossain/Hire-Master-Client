@@ -1,16 +1,24 @@
 import { useForm } from "react-hook-form";
 
-const NewsForm = ({ onSubmit, user }) => {
+const NewsUpdateForm = ({ onSubmit, newsDetails }) => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm();
 
+  const {
+    title,
+    author,
+    imageUrl,
+    content,
+    datePublished,
+    subtitle,
+  } = newsDetails;
+
   return (
     <form
-      onSubmit={handleSubmit(data => onSubmit(data, reset))}
+      onSubmit={handleSubmit(onSubmit)}
       className='border container mx-auto my-10 rounded-3xl'
     >
       <div className='flex flex-col px-3 sm:px-6 md:px-16 lg:px-20 py-8 sm:py-12'>
@@ -19,6 +27,7 @@ const NewsForm = ({ onSubmit, user }) => {
           <input
             type='text'
             placeholder='Title'
+            defaultValue={title}
             className='text-lg w-full outline-none border px-2 py-1 '
             {...register("title", { required: true })}
           />
@@ -31,6 +40,7 @@ const NewsForm = ({ onSubmit, user }) => {
           <input
             type='text'
             placeholder='Subtitle'
+            defaultValue={subtitle}
             className='text-lg outline-none border px-2 py-1 '
             {...register("subtitle", { required: true })}
           />
@@ -43,6 +53,7 @@ const NewsForm = ({ onSubmit, user }) => {
           <input
             type='text'
             placeholder='Image url'
+            defaultValue={imageUrl}
             className='text-lg w-full outline-none border px-2 py-1 '
             {...register("imageUrl", { required: true })}
           />
@@ -55,6 +66,7 @@ const NewsForm = ({ onSubmit, user }) => {
           <textarea
             type='text'
             placeholder='Content'
+            defaultValue={content}
             className='text-lg outline-none border px-2 py-1 h-[150px] resize-none'
             {...register("content", { required: true, maxLength: 5000 })}
           />
@@ -69,7 +81,7 @@ const NewsForm = ({ onSubmit, user }) => {
             <input
               type='text'
               placeholder='Author'
-              defaultValue={user?.displayName}
+              defaultValue={author}
               className='text-lg w-full outline-none border px-2 py-1 '
               {...register("author", { required: true })}
             />
@@ -81,6 +93,7 @@ const NewsForm = ({ onSubmit, user }) => {
             <label className='text-sm md:text-lg'>Date</label>
             <input
               type='date'
+              defaultValue={datePublished}
               className='text-lg w-full outline-none border px-2 py-1 '
               {...register("datePublished", { required: true })}
             />
@@ -104,4 +117,4 @@ const NewsForm = ({ onSubmit, user }) => {
   );
 };
 
-export default NewsForm;
+export default NewsUpdateForm;
