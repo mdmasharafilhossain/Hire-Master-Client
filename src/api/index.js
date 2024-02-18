@@ -21,12 +21,15 @@ export const saveSubscriberInDb = async subscriber => {
   return await axiosPublic.post("/subscribers", subscriber);
 };
 
-export const saveJobNewsInDb = async news => {
-  return await axiosPublic.post("/job-news", news);
+export const saveNewsInDb = async news => {
+  return await axiosPublic.post("/tech-news", news);
 };
 
 export const getTechNewsFromDb = async () => {
   return await axiosPublic.get("/tech-news");
+};
+export const getAdminTechNewsFromDb = async (page, limit) => {
+  return await axiosPublic.get(`/tech-news?page=${page}&limit=${limit}`);
 };
 
 export const getSingleTechNewsFromDb = async slug => {
@@ -36,6 +39,10 @@ export const getSingleTechNewsFromDb = async slug => {
 /* export const deleteJobNewsFromDb = async slug => {
   return await axiosPublic.delete(`/job-news/${slug}`);
 }; */
-export const deleteJobNewsFromDb = async id => {
-  return await axiosPublic.delete(`/job-news/${id}`);
+export const deleteNewsFromDb = async slug => {
+  return await axiosPublic.delete(`/tech-news/${slug}`);
+};
+
+export const updateNewsInDb = async (slug, news) => {
+  return await axiosPublic.patch(`/tech-news/${slug}`, news);
 };

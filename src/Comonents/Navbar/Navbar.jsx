@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { MdPostAdd } from "react-icons/md";
 import { MdOutlineDashboard } from "react-icons/md";
 
-
 import {
   Drawer,
   DrawerBody,
@@ -125,7 +124,7 @@ const Navbar = () => {
                 Profile
               </Link>
 
-              <Link className='lg:pr-3 md:pr-3' to='AdminDashboard'>
+              <Link className='lg:pr-3 md:pr-3' to='/AdminDashboard'>
                 Admin
               </Link>
 

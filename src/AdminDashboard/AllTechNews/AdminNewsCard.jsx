@@ -10,12 +10,13 @@ import {
   Button,
 } from "@chakra-ui/react";
 import Swal from "sweetalert2";
-import { deleteJobNewsFromDb } from "../../api";
+import { deleteNewsFromDb } from "../../api";
+import { Link } from "react-router-dom";
 
 const AdminNewsCard = ({ news, refetch }) => {
-  const { title, subtitle, slug, _id, imageUrl } = news;
+  const { title, subtitle, slug, imageUrl } = news;
 
-  /* const handleNewsDelete = async slug => {
+  const handleNewsDelete = async slug => {
     Swal.fire({
       title: `Are you sure to delete ?`,
       icon: "warning",
@@ -25,8 +26,8 @@ const AdminNewsCard = ({ news, refetch }) => {
       confirmButtonText: `Yes, delete`,
     }).then(async result => {
       if (result.isConfirmed) {
-        const res = await deleteJobNewsFromDb(slug);
-        console.log(res.data);
+        const res = await deleteNewsFromDb(slug);
+        // console.log(res.data);
         if (res.data) {
           refetch();
           Swal.fire({
@@ -39,32 +40,8 @@ const AdminNewsCard = ({ news, refetch }) => {
         }
       }
     });
-  }; */
-  const handleNewsDelete = async id => {
-    Swal.fire({
-      title: `Are you sure to delete ?`,
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: `Yes, delete`,
-    }).then(async result => {
-      if (result.isConfirmed) {
-        const res = await deleteJobNewsFromDb(id);
-        console.log(res.data);
-        if (res.data.deletedCount > 0) {
-          refetch();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: `News ${title} deleted successfully`,
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
-      }
-    });
   };
+
   return (
     <div>
       <Card
@@ -91,12 +68,14 @@ const AdminNewsCard = ({ news, refetch }) => {
           </CardBody>
 
           <CardFooter gap={5}>
-            <Button si variant='outline' colorScheme='orange'>
-              <EditIcon marginRight={1} />
-              Edit News
-            </Button>
+            <Link to={`/AdminDashboard/all-news/${slug}`}>
+              <Button si variant='outline' colorScheme='orange'>
+                <EditIcon marginRight={1} />
+                Edit News
+              </Button>
+            </Link>
             <Button
-              onClick={() => handleNewsDelete(_id)}
+              onClick={() => handleNewsDelete(slug)}
               colorScheme='red'
               variant='solid'
             >
