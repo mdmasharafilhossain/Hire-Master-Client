@@ -28,6 +28,9 @@ export const saveNewsInDb = async news => {
 export const getTechNewsFromDb = async () => {
   return await axiosPublic.get("/tech-news");
 };
+export const getAdminTechNewsFromDb = async (page, limit) => {
+  return await axiosPublic.get(`/tech-news?page=${page}&limit=${limit}`);
+};
 
 export const getSingleTechNewsFromDb = async slug => {
   return await axiosPublic.get(`/tech-news/${slug}`);
