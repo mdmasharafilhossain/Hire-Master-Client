@@ -20,7 +20,7 @@ const AdminTechNews = () => {
   return (
     <div className='pl-5'>
       <h2 className='text-center font-bold mt-6 text-2xl md:text-4xl'>
-        All <span className='text-[#FF3811]'>Job News.</span>
+        All <span className='text-[#FF3811]'>Tech News.</span>
       </h2>
       <hr className='my-5' />
       <div className='rounded-2xl space-y-3 md:space-y-5 shadow-md px-3 sm:px-6 md:px-16 lg:px-20 py-8 sm:py-12'>

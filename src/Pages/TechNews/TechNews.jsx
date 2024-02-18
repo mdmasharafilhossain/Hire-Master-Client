@@ -3,7 +3,7 @@ import { Center } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import { getTechNewsFromDb } from "../../api";
 import Loader from "../../Comonents/Loader/Loader";
-import NewsCard from "../../Comonents/JobNews/NewsCard";
+import NewsCard from "../../Comonents/TechNews/NewsCard";
 
 const TechNews = () => {
   const { isFetching, data } = useQuery({
