@@ -23,7 +23,7 @@ const TechNews = () => {
   if (isFetching) {
     return <Loader />;
   }
-  console.log(data);
+  // console.log(data);
   const handlePageChange = pageNumber => {
     setCurrentPage(pageNumber);
     refetch();
