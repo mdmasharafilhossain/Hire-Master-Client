@@ -40,13 +40,14 @@ export const getSingleTechNewsFromDb = async slug => {
   return await axiosPublic.get(`/tech-news/${slug}`);
 };
 
-/* export const deleteJobNewsFromDb = async slug => {
-  return await axiosPublic.delete(`/job-news/${slug}`);
-}; */
 export const deleteNewsFromDb = async slug => {
   return await axiosPublic.delete(`/tech-news/${slug}`);
 };
 
 export const updateNewsInDb = async (slug, news) => {
   return await axiosPublic.patch(`/tech-news/${slug}`, news);
+};
+
+export const saveFairRegistrationInDb = async user => {
+  return await axiosPublic.post(`/fair-registration`, user);
 };
