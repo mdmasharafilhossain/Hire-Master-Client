@@ -75,6 +75,7 @@ const Navbar = () => {
               <Link to='/'>Home</Link>
               <Link to='/about'>About</Link>
               <Link to='/jobs'>Jobs</Link>
+              <Link to='/job-fair'>Jobfair</Link>
               <Link to='/tech-news'>News</Link>
               <Link to='/contacts'>Contact</Link>
 
@@ -116,6 +117,7 @@ const Navbar = () => {
           <Link to='/'>Home</Link>
           <Link to='/about'>About</Link>
           <Link to='/jobs'>Jobs</Link>
+          <Link to='/job-fair'>Jobfair</Link>
           <Link to='/tech-news'>News</Link>
           <Link to='/contacts'>Contact</Link>
           {user ? (

@@ -36,6 +36,8 @@ import AdminTechNews from "../../AdminDashboard/AllTechNews/AdminTechNews";
 import CreateNews from "../../AdminDashboard/CreateNews/CreateNews";
 import UpdateNews from "../../AdminDashboard/UpdateNews/UpdateNews";
 import NewsDetails from "../TechNews/NewsDetails";
+import JobFair from "../../Pages/JobFair/JobFair";
+import JobFairRegistrationForm from "../JobFair/JobFairRegistrationForm";
 
 const router = createBrowserRouter([
   {
@@ -100,7 +102,15 @@ const router = createBrowserRouter([
         path: "tech-news/:slug",
         element: <NewsDetails />,
       },
+      {
+        path: "job-fair",
+        element: <JobFair />,
+      },
     ],
+  },
+  {
+    path: "job-fair/registration",
+    element: <JobFairRegistrationForm />,
   },
   { path: "/signup", element: <SignUp></SignUp> },
   {
