@@ -51,3 +51,11 @@ export const updateNewsInDb = async (slug, news) => {
 export const saveFairRegistrationInDb = async user => {
   return await axiosPublic.post(`/fair-registration`, user);
 };
+
+export const getFairRegisteredUser = async email => {
+  return await axiosPublic.get(`/fair-registration/${email}`);
+};
+
+export const updateFairRegisteredUserInDb = async (id, userInfo) => {
+  return await axiosPublic.patch(`/fair-registration/update/${id}`, userInfo);
+};
