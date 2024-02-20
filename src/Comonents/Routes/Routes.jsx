@@ -36,6 +36,10 @@ import AdminTechNews from "../../AdminDashboard/AllTechNews/AdminTechNews";
 import CreateNews from "../../AdminDashboard/CreateNews/CreateNews";
 import UpdateNews from "../../AdminDashboard/UpdateNews/UpdateNews";
 import NewsDetails from "../TechNews/NewsDetails";
+import JobFair from "../../Pages/JobFair/JobFair";
+import JobFairRegistrationForm from "../JobFair/JobFairRegistrationForm";
+import JobFairProfile from "../../Pages/JobFair/JobFairProfile";
+import FairProfileSettings from "../JobFair/FairProfileSettings";
 
 const router = createBrowserRouter([
   {
@@ -100,7 +104,33 @@ const router = createBrowserRouter([
         path: "tech-news/:slug",
         element: <NewsDetails />,
       },
+      {
+        path: "job-fair",
+        element: (
+          <PrivateRoute>
+            <JobFair />
+          </PrivateRoute>
+        ),
+      },
     ],
+  },
+  {
+    path: "job-fair/profile",
+    element: <JobFairProfile />,
+    children: [
+      // {
+      //   path: "profile",
+      //   element:,
+      // },
+      {
+        path: "settings",
+        element: <FairProfileSettings />,
+      },
+    ],
+  },
+  {
+    path: "job-fair/registration",
+    element: <JobFairRegistrationForm />,
   },
   { path: "/signup", element: <SignUp></SignUp> },
   {

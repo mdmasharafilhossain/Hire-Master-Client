@@ -1,15 +1,21 @@
 import Navbar from "../../Comonents/Navbar/Navbar";
-import { Center } from "@chakra-ui/react";
+import { Button, Center } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
-import { getTechNewsFromDb } from "../../api";
+import { getUserTechNewsFromDb } from "../../api";
 import Loader from "../../Comonents/Loader/Loader";
 import NewsCard from "../../Comonents/TechNews/NewsCard";
+import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
+import { useState } from "react";
 
 const TechNews = () => {
-  const { isFetching, data } = useQuery({
-    queryKey: ["adminJobs"],
-    queryFn: async () => {
-      const res = await getTechNewsFromDb();
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+
+  const { isFetching, data, refetch } = useQuery({
+    queryKey: ["news", currentPage, itemsPerPage],
+    queryFn: async ({ queryKey }) => {
+      const [_key, page, limit] = queryKey;
+      const res = await getUserTechNewsFromDb(page, limit);
       return res.data;
     },
   });
@@ -17,7 +23,13 @@ const TechNews = () => {
   if (isFetching) {
     return <Loader />;
   }
-
+  // console.log(data);
+  const handlePageChange = pageNumber => {
+    setCurrentPage(pageNumber);
+    refetch();
+  };
+  const totalPages = Math.ceil(data?.totalNewsCount / itemsPerPage) || 1;
+  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
   return (
     <>
       <Navbar />
@@ -36,11 +48,41 @@ const TechNews = () => {
         </div>
 
         <div className='mt-16 grid mx-auto   justify-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 '>
-          {data.map((news, idx) => (
+          {data?.news.map((news, idx) => (
             <Center key={idx}>
               <NewsCard news={news} />
             </Center>
           ))}
+        </div>
+        <div className='flex items-center justify-center my-5 gap-x-5'>
+          <Button
+            colorScheme='orange'
+            variant='outline'
+            onClick={() => handlePageChange(currentPage - 1)}
+            isDisabled={currentPage <= 1}
+          >
+            <ArrowLeftIcon />
+          </Button>
+
+          {pageNumbers.map(pageNumber => (
+            <Button
+              fontWeight='bold'
+              key={pageNumber}
+              onClick={() => handlePageChange(pageNumber)}
+              isDisabled={pageNumber === currentPage}
+            >
+              {pageNumber}
+            </Button>
+          ))}
+
+          <Button
+            colorScheme='orange'
+            variant='outline'
+            onClick={() => handlePageChange(currentPage + 1)}
+            isDisabled={currentPage === totalPages}
+          >
+            <ArrowRightIcon />
+          </Button>
         </div>
       </div>
     </>

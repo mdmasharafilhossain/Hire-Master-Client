@@ -21,6 +21,7 @@ const Navbar = () => {
     logOut()
       .then(() => {
         navigate("/signup2");
+        localStorage.removeItem("userEmail");
       })
       .catch(error => console.log(error));
   };
@@ -75,6 +76,7 @@ const Navbar = () => {
               <Link to='/'>Home</Link>
               <Link to='/about'>About</Link>
               <Link to='/jobs'>Jobs</Link>
+              <Link to='/job-fair'>Jobfair</Link>
               <Link to='/tech-news'>News</Link>
               <Link to='/contacts'>Contact</Link>
 
@@ -113,9 +115,10 @@ const Navbar = () => {
       </div>
       <div className='flex-none'>
         <div className='hidden md:flex  items-center space-x-4 mr-4 font-medium lg:text-lg mdmenu menu-horizontal px-1 md:text-base'>
-          <Link>Home</Link>
+          <Link to='/'>Home</Link>
           <Link to='/about'>About</Link>
           <Link to='/jobs'>Jobs</Link>
+          <Link to='/job-fair'>Jobfair</Link>
           <Link to='/tech-news'>News</Link>
           <Link to='/contacts'>Contact</Link>
           {user ? (
