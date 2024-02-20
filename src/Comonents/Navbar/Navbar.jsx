@@ -21,6 +21,7 @@ const Navbar = () => {
     logOut()
       .then(() => {
         navigate("/signup2");
+        localStorage.removeItem("userEmail");
       })
       .catch(error => console.log(error));
   };
