@@ -32,11 +32,11 @@ const NewsSubscription = () => {
         <div className='bg-gray-800 bg-opacity-80 md:my-16 lg:py-16 py-10 w-full md:mx-24 md:px-12 px-4 flex flex-col items-center justify-center relative z-40'>
           <h1 className='text-3xl md:text-5xl font-bold leading-9 text-white text-center'>
             Stay Updated with
-            <span className='text-[#FF3811]'> Tech Job News!</span>
+            <span className='text-[#FF3811]'> Tech News!</span>
           </h1>
           <p className='text-base leading-normal text-center text-white mt-6'>
-            Subscribe to our newsletter. Get the latest tech job opportunities
-            and industry insights.
+            Subscribe to our newsletter. Know the latest tech trends, newses,
+            opportunities and industry insights.
           </p>
 
           <form

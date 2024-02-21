@@ -15,8 +15,8 @@ import { CiCalendar } from "react-icons/ci";
 import { Link } from "react-router-dom";
 
 const NewsCard = ({ news }) => {
-  const { title, author, imageUrl, datePublished } = news;
-  console.log(news);
+  const { title, slug, author, imageUrl, datePublished } = news;
+  // console.log(news);
   return (
     <Card maxW='xs' height='md'>
       <CardBody>
@@ -43,7 +43,7 @@ const NewsCard = ({ news }) => {
       </CardBody>
       <Divider />
       <CardFooter>
-        <Link className='w-full' to={`/tech-news/${title}`}>
+        <Link className='w-full' to={`/tech-news/${slug}`}>
           <Button
             width='full'
             colorScheme='orange'

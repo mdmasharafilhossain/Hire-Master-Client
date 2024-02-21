@@ -20,7 +20,7 @@ const Appliedjobs = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await AxiosPublic.get(`http://localhost:5000/singleappliedjobs/${email}`);
+                const response = await AxiosPublic.get(`http://localhost:5000/singleappliedjobs/${email}`, {withCredentials:true});
                 setJobData(response.data);
                 setLoading(false);
             } catch (error) {
@@ -29,7 +29,7 @@ const Appliedjobs = () => {
             }
         };
         fetchData();
-    }, []);
+    }, [AxiosPublic, email]);
 
     if (loading) {
         return <p>Loading...</p>;

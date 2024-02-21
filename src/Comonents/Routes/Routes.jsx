@@ -31,8 +31,15 @@ import Skills from "../../Pages/Skills/Skills";
 import AdminDashboard from "../../AdminDashboard/AdminDashboard";
 import AllUsers from "../../AdminDashboard/allUsers/allUsers";
 import AllJobPost from "../../AdminDashboard/AllJobPost/AllJobPost";
-import JobNews from "../../Pages/JobNews/JobNews";
-import NewsDetails from "../JobNews/NewsDetails";
+import TechNews from "../../Pages/TechNews/TechNews";
+import AdminTechNews from "../../AdminDashboard/AllTechNews/AdminTechNews";
+import CreateNews from "../../AdminDashboard/CreateNews/CreateNews";
+import UpdateNews from "../../AdminDashboard/UpdateNews/UpdateNews";
+import NewsDetails from "../TechNews/NewsDetails";
+import JobFair from "../../Pages/JobFair/JobFair";
+import JobFairRegistrationForm from "../JobFair/JobFairRegistrationForm";
+import JobFairProfile from "../../Pages/JobFair/JobFairProfile";
+import FairProfileSettings from "../JobFair/FairProfileSettings";
 
 const router = createBrowserRouter([
   {
@@ -74,7 +81,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/appliedjobs/:email",
-        element: <Appliedjobs></Appliedjobs>,
+        element: (
+          <PrivateRoute>
+            <Appliedjobs></Appliedjobs>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myPostedJobs",
@@ -87,13 +98,39 @@ const router = createBrowserRouter([
 
       {
         path: "tech-news",
-        element: <JobNews />,
+        element: <TechNews />,
       },
       {
-        path: "tech-news/:title",
+        path: "tech-news/:slug",
         element: <NewsDetails />,
       },
+      {
+        path: "job-fair",
+        element: (
+          <PrivateRoute>
+            <JobFair />
+          </PrivateRoute>
+        ),
+      },
     ],
+  },
+  {
+    path: "job-fair/profile",
+    element: <JobFairProfile />,
+    children: [
+      // {
+      //   path: "profile",
+      //   element:,
+      // },
+      {
+        path: "settings",
+        element: <FairProfileSettings />,
+      },
+    ],
+  },
+  {
+    path: "job-fair/registration",
+    element: <JobFairRegistrationForm />,
   },
   { path: "/signup", element: <SignUp></SignUp> },
   {
@@ -168,7 +205,6 @@ const router = createBrowserRouter([
     path: "/skills",
     element: <Skills></Skills>,
   },
-
   // Admin Dashboard
 
   {
@@ -182,6 +218,18 @@ const router = createBrowserRouter([
       {
         path: "/AdminDashboard/AllJobPost",
         element: <AllJobPost></AllJobPost>,
+      },
+      {
+        path: "/AdminDashboard/create-news",
+        element: <CreateNews />,
+      },
+      {
+        path: "/AdminDashboard/all-news",
+        element: <AdminTechNews />,
+      },
+      {
+        path: "/AdminDashboard/all-news/:slug",
+        element: <UpdateNews />,
       },
     ],
   },
