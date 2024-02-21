@@ -17,7 +17,7 @@ const AdminDashboard = () => {
   };
   return (
     <div className='flex flex-1 max-w-7xl container mx-auto'>
-      <div>
+      <div className="max-h-full  bg-orange-600">
         <div className='drawer lg:drawer-open bg-slate-100'>
           <input id='my-drawer-2' type='checkbox' className='drawer-toggle' />
           <div className='drawer-content flex flex-col items-center justify-center'>
@@ -35,7 +35,7 @@ const AdminDashboard = () => {
               aria-label='close sidebar'
               className='drawer-overlay'
             ></label>
-            <ul className='menu p-4 w-60 min-h-screen z-50 bg-orange-600 text-base-content'>
+            <ul className='menu p-4 w-60 min-h-full z-50 bg-orange-600 text-base-content'>
               <div className='space-y-2 mb-10'>
                 <img
                   className='w-20 ml-16 mt-6 rounded-full'
