@@ -11,21 +11,22 @@ import Swal from "sweetalert2";
 import Loader from "../../Comonents/Loader/Loader";
 
 const JobDetails = () => {
+  
   const { id } = useParams();
   const { user } = useContext(AuthContext);
   const AxiosPublic = UseAxiosPublic();
 
   const email = user?.email;
-  // console.log('Current user is',user);
 
-  const { data: job, loading, refetch } = useFetchData(`/staticjobpost/${id}`, 'job');
+  const { data: job, loading, refetch } = useFetchData(
+    `/staticjobpost/${id}`,
+    "job"
+  );
 
   if (loading) {
     return <Loader />;
   }
-  // if (error) {
-  //   return <p>error</p>;
-  // }
+
   refetch();
   console.log(job);
   const {
@@ -63,6 +64,8 @@ const JobDetails = () => {
     qualification,
     job_location,
   };
+
+  
 
   // console.log(appliedJobs);
   const handleAppliedJobs = () => {

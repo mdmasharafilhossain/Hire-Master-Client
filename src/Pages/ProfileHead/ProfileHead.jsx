@@ -64,7 +64,7 @@ const ProfileHead = () => {
                     <form onSubmit={handleSubmit(onSubmit)} className=' '>
                    
                          <div>
-                         <h2 className='text-3xl font-bold text-blue-600'>Edit</h2>
+                         <h2 className='text-3xl font-bold text-[#FF444A]'>Edit</h2>
                         </div>  
                        <div>
                        <h3 className='text-slate-600 text-lg font-semibold'>Name</h3>
@@ -74,17 +74,17 @@ const ProfileHead = () => {
 
                         <h3 className='text-slate-600 text-lg font-semibold'>Institute</h3>
                         <input className='pl-2 rounded-md py-2 border-[0.0px] border-black    w-full text-lg font-medium'
-                            {...register("Institute", { required: true })} type="number" placeholder='Institute' id="" />
+                            {...register("Institute", { required: true })} type="text" placeholder='Institute' id="" />
                         {errors.Institute && <span className="mt-2 text-red-600 w-full">Institute is required </span>}
 
                         <h3 className='text-slate-600 text-lg font-semibold'>Headline</h3>
                         <input className='pl-2 rounded-md py-2 border-[0.0px] border-black    w-full text-lg font-medium'
-                            {...register("headline", { required: true })} type="number" placeholder='Ex: Fronted Developer' id="" />
+                            {...register("headline", { required: true })} type="text" placeholder='Ex: Fronted Developer' id="" />
                         {errors.headline && <span className="mt-2 text-red-600 w-full">Headline is required </span>}
 
                         <h3 className='text-slate-600 text-lg font-semibold'>Location</h3>
                         <input className='pl-2 rounded-md py-2 border-[0.0px] border-black    w-full text-lg font-medium'
-                            {...register("location", { required: true })} type="number" placeholder='Ex: Dhaka, Bangladesh' id="" />
+                            {...register("location", { required: true })} type="text" placeholder='Ex: Dhaka, Bangladesh' id="" />
                         {errors.location && <span className="mt-2 text-red-600 w-full">Location is required </span>}
 
 
@@ -105,12 +105,12 @@ const ProfileHead = () => {
                         {errors.github && <span className="mt-2 text-red-600 w-full">Github is required </span>}
 
                         <h3 className='text-slate-600 text-lg font-semibold'>Description</h3>
-                        <textarea  {...register("description", { required: true })} type="text" placeholder='Describe Your Self' className='pl-2 rounded-md py-2 border-[0.0px] border-black    w-full text-lg font-medium' cols="30" rows="2"></textarea>
+                        <textarea  {...register("description", { required: true })} type="text" placeholder='Describe Yourself' className='pl-2 rounded-md py-2 border-[0.0px] border-black    w-full text-lg font-medium' cols="30" rows="2"></textarea>
                         {errors.description && <span className="mt-2 text-red-600 w-full">description is required </span>}
 
                         <p className="border-[0.5px] border-slate-400 mt-2 mb-1 w-full"></p>
 
-                        <button onSubmit={handleSubmit(onSubmit)} className=" btn px-8  bg-blue-500 text-white rounded-md hover:text-black hover:bg-blue-200  text-lg font-semibold">Edit</button>
+                        <button onSubmit={handleSubmit(onSubmit)} className=" btn px-8  bg-[#FF444A] text-white rounded-md hover:text-black hover:bg-red-200 text-lg font-semibold">Edit</button>
                        </div>
                     </form>
                 </div>
