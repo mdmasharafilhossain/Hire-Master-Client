@@ -1,15 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {  useState } from "react";
 import SingleJobList from "../../Comonents/JobList/SingleJobList";
 import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
 import useFetchData from "../../Comonents/Hooks/UseFetchData/useFetchData";
 import JobFilter from "../../Comonents/JobFilter/JobFilter";
 import Loader from "../../Comonents/Loader/Loader";
 import Navbar2 from "../../Comonents/Navbar/Navbar2";
-import { io } from "socket.io-client";
-import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
+
 
 const Jobs = () => {
-  const {user} = useContext(AuthContext);
+  
   const axiosPublic = UseAxiosPublic();
   const [filterJobs, setFilterJobs] = useState([]);
   const [filterLoading, setFilterLoading] = useState(false);
@@ -21,7 +20,7 @@ const Jobs = () => {
     job_time: [],
     salaryRange: `${value[0]}-${value[1]}`,
   });
-  const email = user?.email;
+  
 
   // ------------- socket io functions ------------
 
