@@ -1,24 +1,39 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SingleJobList from "../../Comonents/JobList/SingleJobList";
 import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
 import useFetchData from "../../Comonents/Hooks/UseFetchData/useFetchData";
 import JobFilter from "../../Comonents/JobFilter/JobFilter";
 import Loader from "../../Comonents/Loader/Loader";
 import Navbar2 from "../../Comonents/Navbar/Navbar2";
+import { io } from "socket.io-client";
+import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 
 const Jobs = () => {
+  const {user} = useContext(AuthContext);
   const axiosPublic = UseAxiosPublic();
   const [filterJobs, setFilterJobs] = useState([]);
   const [filterLoading, setFilterLoading] = useState(false);
   const [value, setValue] = useState([0, 250000]);
   const [filterMessage, setFilterMessage] = useState("");
-
+  // const [socket, setSocket] = useState(null);
   const [filterParams, setFilterParams] = useState({
     job_title: "",
     job_time: [],
     salaryRange: `${value[0]}-${value[1]}`,
   });
+  const email = user?.email;
 
+  // ------------- socket io functions ------------
+
+  // useEffect(() => {
+  //   setSocket(io("http://localhost:5000"));
+  // }, []);
+
+  // useEffect(() => {
+  //   socket?.emit("newUser", email);
+  // }, [socket, email]);
+
+// ----------------server api ---------------
   const { data: jobs, loading, refetch } = useFetchData("/staticjobpost");
 
   React.useEffect(() => {
@@ -32,6 +47,8 @@ const Jobs = () => {
   }
 
   refetch();
+
+  
   const handleSubmit = e => {
     e.preventDefault();
     setFilterLoading(true);
@@ -51,7 +68,9 @@ const Jobs = () => {
   console.log(jobs);
   return (
     <>
-      <Navbar2 />
+      <Navbar2 
+      // socket={socket}
+      />
       <div className='mx-auto px-4'>
         <div className='mt-20'>
           <div className='flex gap-x-5 md:gap-x-10 justify-center items-center px-4 py-5 sm:px-6'>
@@ -89,7 +108,10 @@ const Jobs = () => {
               <Loader />
             ) : filterJobs.length > 0 ? (
               filterJobs.map(filteredJob => (
-                <SingleJobList key={filteredJob._id} job={filteredJob} />
+                <SingleJobList key={filteredJob._id} 
+                job={filteredJob} 
+                // socket = {socket} 
+                />
               ))
             ) : (
               <p className='text-center md:text-start text-red-500 text-xl md:text-2xl w-3/4 mx-auto'>

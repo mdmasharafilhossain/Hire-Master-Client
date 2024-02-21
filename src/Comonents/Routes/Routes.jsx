@@ -25,19 +25,21 @@ import ManagerProfile from "../../Pages/Profile/ManagerProfile";
 import ManagerForm from "../../Pages/ManagerProfileForm/ManagerForm";
 import MakePayment from "../MakePatment/MakePayment";
 
-
 import Projects from "../../Pages/Projects/Projects";
 import Experience from "../../Pages/Experience/Experience";
 import Skills from "../../Pages/Skills/Skills";
 import AdminDashboard from "../../AdminDashboard/AdminDashboard";
 import AllUsers from "../../AdminDashboard/allUsers/allUsers";
 import AllJobPost from "../../AdminDashboard/AllJobPost/AllJobPost";
-
-
-
-
-
-
+import TechNews from "../../Pages/TechNews/TechNews";
+import AdminTechNews from "../../AdminDashboard/AllTechNews/AdminTechNews";
+import CreateNews from "../../AdminDashboard/CreateNews/CreateNews";
+import UpdateNews from "../../AdminDashboard/UpdateNews/UpdateNews";
+import NewsDetails from "../TechNews/NewsDetails";
+import JobFair from "../../Pages/JobFair/JobFair";
+import JobFairRegistrationForm from "../JobFair/JobFairRegistrationForm";
+import JobFairProfile from "../../Pages/JobFair/JobFairProfile";
+import FairProfileSettings from "../JobFair/FairProfileSettings";
 
 const router = createBrowserRouter([
   {
@@ -79,7 +81,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/appliedjobs/:email",
-        element: <Appliedjobs></Appliedjobs>,
+        element: (
+          <PrivateRoute>
+            <Appliedjobs></Appliedjobs>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myPostedJobs",
@@ -89,7 +95,42 @@ const router = createBrowserRouter([
         path: "contacts",
         element: <ContactUs />,
       },
+
+      {
+        path: "tech-news",
+        element: <TechNews />,
+      },
+      {
+        path: "tech-news/:slug",
+        element: <NewsDetails />,
+      },
+      {
+        path: "job-fair",
+        element: (
+          <PrivateRoute>
+            <JobFair />
+          </PrivateRoute>
+        ),
+      },
     ],
+  },
+  {
+    path: "job-fair/profile",
+    element: <JobFairProfile />,
+    children: [
+      // {
+      //   path: "profile",
+      //   element:,
+      // },
+      {
+        path: "settings",
+        element: <FairProfileSettings />,
+      },
+    ],
+  },
+  {
+    path: "job-fair/registration",
+    element: <JobFairRegistrationForm />,
   },
   { path: "/signup", element: <SignUp></SignUp> },
   {
@@ -121,8 +162,8 @@ const router = createBrowserRouter([
     element: <Profile></Profile>,
   },
   {
-      path:"/MakePaymentRoute",
-      element:<MakePayment></MakePayment>
+    path: "/MakePaymentRoute",
+    element: <MakePayment></MakePayment>,
   },
   {
     path: "/managerProfile",
@@ -157,33 +198,41 @@ const router = createBrowserRouter([
     element: <Projects></Projects>,
   },
   {
-    path:"/experience",
-    element:<Experience></Experience>
+    path: "/experience",
+    element: <Experience></Experience>,
   },
   {
-    path:"/skills",
-    element:<Skills></Skills>
+    path: "/skills",
+    element: <Skills></Skills>,
   },
-
-  // Admin Dashboard 
+  // Admin Dashboard
 
   {
-     path:"/AdminDashboard",
-     element:<AdminDashboard></AdminDashboard>,
-     children:[
-      
+    path: "/AdminDashboard",
+    element: <AdminDashboard></AdminDashboard>,
+    children: [
       {
-        path:"/AdminDashboard/AllUsers",
-        element: <AllUsers></AllUsers>
+        path: "/AdminDashboard/AllUsers",
+        element: <AllUsers></AllUsers>,
       },
       {
-        path:"/AdminDashboard/AllJobPost",
-        element:<AllJobPost></AllJobPost>
-      }
-
-
-     ]
-  }
+        path: "/AdminDashboard/AllJobPost",
+        element: <AllJobPost></AllJobPost>,
+      },
+      {
+        path: "/AdminDashboard/create-news",
+        element: <CreateNews />,
+      },
+      {
+        path: "/AdminDashboard/all-news",
+        element: <AdminTechNews />,
+      },
+      {
+        path: "/AdminDashboard/all-news/:slug",
+        element: <UpdateNews />,
+      },
+    ],
+  },
 ]);
 
 export default router;
