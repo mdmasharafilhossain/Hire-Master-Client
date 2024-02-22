@@ -1,5 +1,11 @@
-import { CheckIcon, SettingsIcon, StarIcon } from "@chakra-ui/icons";
-import { Box } from "@chakra-ui/react";
+import {
+  CheckIcon,
+  HamburgerIcon,
+  PlusSquareIcon,
+  SettingsIcon,
+  StarIcon,
+} from "@chakra-ui/icons";
+import { Box, Divider } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import useAuth from "../Hooks/Auth/useAuth";
@@ -38,16 +44,16 @@ const FairProfileSidebar = () => {
   }
 
   return (
-    <Box className='flex md:flex-col font-bold md:space-y-5 mb-10 md:mb-0 sm:space-x-5 space-x-2 md:space-x-0'>
+    <Box className='w-full font-bold flex  md:flex-col  items-start justify-start  md:space-y-3 mb-20 md:mb-0 '>
       {registeredType === "job-seeker" && (
-        <>
+        <div className='flex flex-wrap md:space-y-3 md:flex-col'>
           <NavLink
             to='/job-fair/profile/bookings'
             className={({ isActive }) =>
               `${
                 isActive
-                  ? "text-red-500 flex items-center  text-lg  "
-                  : "  text-lg  flex items-center  "
+                  ? "text-red-400 px-3 py-1 flex items-center  text-xl  md:text-2xl xl:text-3xl"
+                  : " text-xl  md:text-2xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
               }`
             }
           >
@@ -59,8 +65,8 @@ const FairProfileSidebar = () => {
             className={({ isActive }) =>
               `${
                 isActive
-                  ? "text-red-500 flex items-center  text-lg  "
-                  : "  text-lg  flex items-center"
+                  ? "text-red-400 px-3 py-1 flex items-center  text-xl  md:text-2xl xl:text-3xl"
+                  : "    text-xl  md:text-2xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
               }`
             }
           >
@@ -72,34 +78,43 @@ const FairProfileSidebar = () => {
             className={({ isActive }) =>
               `${
                 isActive
-                  ? "text-red-500 flex items-center  text-lg  "
-                  : "  text-lg  flex items-center"
+                  ? "text-red-400 px-3 py-1 flex items-center  text-xl  md:text-2xl xl:text-3xl"
+                  : "    text-xl  md:text-2xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
               }`
             }
           >
             <SettingsIcon marginRight={1} />
             Settings
           </NavLink>
-        </>
+        </div>
       )}
 
       {registeredType === "sponsor" && (
-        <>
+        <div className='flex flex-wrap md:space-y-3 md:flex-col'>
+          <NavLink
+            to='/job-fair/profile/sponsor-create-event'
+            className={({ isActive }) =>
+              `${
+                isActive
+                  ? "text-red-400 px-3 py-1 flex items-center  text-xl  md:text-2xl xl:text-3xl"
+                  : "    text-xl  md:text-2xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
+              }`
+            }
+          >
+            <PlusSquareIcon marginRight={1} />
+            Create Events
+          </NavLink>
           <NavLink
             to='/job-fair/profile/sponsor-event'
             className={({ isActive }) =>
               `${
                 isActive
-                  ? "text-red-500 flex items-center  text-lg  "
-                  : "  text-lg  flex items-center  "
+                  ? "text-red-400 px-3 py-1 flex items-center  text-xl  md:text-2xl xl:text-3xl"
+                  : "    text-xl  md:text-2xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
               }`
             }
-            isActive={(match, location) => {
-              // Check if the current URL matches the 'to' prop of this NavLink
-              return location.pathname === "/job-fair/profile/sponsor-event";
-            }}
           >
-            <CheckIcon marginRight={1} />
+            <HamburgerIcon marginRight={1} />
             My Events
           </NavLink>
           <NavLink
@@ -107,17 +122,12 @@ const FairProfileSidebar = () => {
             className={({ isActive }) =>
               `${
                 isActive
-                  ? "text-red-500 flex items-center  text-lg  "
-                  : "  text-lg  flex items-center"
+                  ? "text-red-400 px-3 py-1 flex items-center  text-xl  md:text-2xl xl:text-3xl"
+                  : "    text-xl  md:text-2xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
               }`
             }
-            isActive={(match, location) => {
-              return (
-                location.pathname === "/job-fair/profile/sponsor-event/bookings"
-              );
-            }}
           >
-            <StarIcon marginRight={1} />
+            <CheckIcon marginRight={1} />
             Booked Events
           </NavLink>
           <NavLink
@@ -125,15 +135,15 @@ const FairProfileSidebar = () => {
             className={({ isActive }) =>
               `${
                 isActive
-                  ? "text-red-500 flex items-center  text-lg  "
-                  : "  text-lg  flex items-center"
+                  ? "text-red-400 px-3 py-1 flex items-center  text-xl  md:text-2xl xl:text-3xl"
+                  : "    text-xl  md:text-2xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
               }`
             }
           >
             <SettingsIcon marginRight={1} />
             Settings
           </NavLink>
-        </>
+        </div>
       )}
     </Box>
   );

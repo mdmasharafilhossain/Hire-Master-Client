@@ -49,7 +49,7 @@ const FairProfileSettings = () => {
         <Loader />
       ) : (
         <div className='max-w-xl'>
-          <h2 className='font-bold text-2xl md:text-2xl text-center mb-10'>
+          <h2 className='font-bold text-2xl md:text-3xl xl:text-4xl text-center mb-10'>
             Update Profile
           </h2>
           <div className='space-y-5'>

@@ -92,7 +92,7 @@ const FileUpload = ({ uploadedImage, setUploadedImage }) => {
             isLoading={loading}
           >
             <label htmlFor='image' className='cursor-pointer'>
-              Profile Picture
+              Upload Image
               <input
                 type='file'
                 required
@@ -107,7 +107,12 @@ const FileUpload = ({ uploadedImage, setUploadedImage }) => {
         {uploadedImage?.length > 0 &&
           uploadedImage.map(image => (
             <div className='relative' key={image?.public_id}>
-              <Image boxSize='120px' src={image?.url} alt='Product Image' />
+              <Image
+                boxSize='200px'
+                w={350}
+                src={image?.url}
+                alt='Product Image'
+              />
 
               <Tooltip label='Remove Picture' placement='bottom'>
                 <SmallCloseIcon
