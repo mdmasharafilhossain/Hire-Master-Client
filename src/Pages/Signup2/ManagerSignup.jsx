@@ -20,8 +20,9 @@ const ManagerSignup = () => {
     const email = form.email.value;
     const name = form.name.value;
     const password = form.password.value;
+    const photo = form.photo.value;
     // console.log(email, password, selectedRole);
-    const hirer = { email,name, password, role: selectedRole };
+    const hirer = { email,name,photo, password, role: selectedRole };
 
     createUser(email, password)
       .then(result => {
@@ -113,6 +114,20 @@ const ManagerSignup = () => {
                   type='password'
                   name='password'
                   placeholder='password'
+                  className='input input-bordered'
+                  required
+                />
+              </div>
+              <div className='form-control'>
+                <label className='label'>
+                  <span className='label-text text-base font-medium'>
+                    Photo
+                  </span>
+                </label>
+                <input
+                  type='photo'
+                  name='photo'
+                  placeholder='Your Photo Link'
                   className='input input-bordered'
                   required
                 />
