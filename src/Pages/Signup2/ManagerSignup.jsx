@@ -18,9 +18,10 @@ const ManagerSignup = () => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
+    const name = form.name.value;
     const password = form.password.value;
     // console.log(email, password, selectedRole);
-    const hirer = { email, password, role: selectedRole };
+    const hirer = { email,name, password, role: selectedRole };
 
     createUser(email, password)
       .then(result => {
@@ -73,6 +74,20 @@ const ManagerSignup = () => {
                 <option value='hiring-manager'>Hiring Manager</option>
               </select>
 
+              <div className='form-control'>
+                <label className='label'>
+                  <span className='label-text text-base font-medium'>
+                    Name{" "}
+                  </span>
+                </label>
+                <input
+                  type='name'
+                  name='name'
+                  placeholder='Your Name'
+                  className='input input-bordered'
+                  required
+                />
+              </div>
               <div className='form-control'>
                 <label className='label'>
                   <span className='label-text text-base font-medium'>
