@@ -4,6 +4,7 @@ import {
   CheckIcon,
   ChevronDownIcon,
   DragHandleIcon,
+  HamburgerIcon,
   SearchIcon,
   SettingsIcon,
   StarIcon,
@@ -17,6 +18,7 @@ import {
   MenuItem,
   MenuGroup,
   MenuDivider,
+  Text,
 } from "@chakra-ui/react";
 import { BsFillPersonVcardFill } from "react-icons/bs";
 import { useEffect, useState } from "react";
@@ -175,7 +177,7 @@ const FairHeader = () => {
                     color: "white",
                   }}
                 >
-                  <StarIcon marginRight={1} />
+                  <HamburgerIcon marginRight={1} />
                   My Events
                 </MenuItem>
                 <MenuItem

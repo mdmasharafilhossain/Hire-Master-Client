@@ -5,8 +5,6 @@ import FairSponsors from "../../Comonents/JobFair/FairSponsors";
 import FairAccordion from "../../Comonents/JobFair/FairAccordion";
 
 const JobFair = () => {
-  // https://www.linkedin.com/in/m-arafat61/
-
   return (
     <>
       <FairHeader />
