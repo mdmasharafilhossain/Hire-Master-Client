@@ -93,7 +93,7 @@ const AllUsers = () => {
                 <h2 className="text-4xl font-bold">All Job Seeker List</h2>
                
             </div>
-            <div className="overflow-x-auto ml-10">
+            <div className=" ml-10">
                 <table className="table">
                     {/* head */}
                     <thead>
