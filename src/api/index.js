@@ -59,3 +59,11 @@ export const getFairRegisteredUser = async email => {
 export const updateFairRegisteredUserInDb = async (id, userInfo) => {
   return await axiosPublic.patch(`/fair-registration/update/${id}`, userInfo);
 };
+
+export const saveFairEventDataInDb = async event => {
+  return await axiosPublic.post(`/job-fair/events`, event);
+};
+
+export const getFairSponsorEventsFromDb = async email => {
+  return await axiosPublic.get(`job-fair/profile/sponsor-event/${email}`);
+};
