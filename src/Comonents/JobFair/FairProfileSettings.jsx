@@ -24,6 +24,7 @@ const FairProfileSettings = () => {
       const res = await getFairRegisteredUser(user?.email);
       return res.data;
     },
+    enabled: !!user,
   });
 
   const onSubmit = async (data, reset) => {
@@ -31,6 +32,7 @@ const FairProfileSettings = () => {
       const res = await updateFairRegisteredUserInDb(fairUser._id, data);
       if (res.data.modifiedCount > 0) {
         refetch();
+        setUploadedImage([]);
         toast.success("Profile updated");
       }
     } catch (error) {
