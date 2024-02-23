@@ -67,6 +67,21 @@ const AdminDashboard = () => {
                 </li>
                 <li
                   onClick={handleRouteClick}
+                  className='font-bold text-sm  text-white '
+                >
+                  <NavLink
+                    to="/AdminDashboard/AllHiringManagers"
+                    className={({ isActive }) =>
+                      `{ ${isActive ? " text-white border " : " "}}`
+                    }
+                  >
+                    {" "}
+                    <FaUsers />
+                    All Hiring Managers
+                  </NavLink>
+                </li>
+                <li
+                  onClick={handleRouteClick}
                   className='font-bold text-sm text-white'
                 >
                   <NavLink

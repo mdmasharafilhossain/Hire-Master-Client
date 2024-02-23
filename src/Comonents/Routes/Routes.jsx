@@ -47,6 +47,7 @@ import FairInterestedEvents from "../JobFair/FairInterestedEvents";
 import FairSponsorEvents from "../JobFairSponsor/FairSponsorEvents";
 import FairSponsorEventBookings from "../JobFairSponsor/FairSponsorEventBookings";
 import FairSponsorCreateEvent from "../JobFairSponsor/FairSponsorCreateEvent";
+import HiringManagerList from "../../AdminDashboard/HiringManagerList/HiringManagerList";
 
 const router = createBrowserRouter([
   {
@@ -242,6 +243,10 @@ const router = createBrowserRouter([
       {
         path: "/AdminDashboard/AllUsers",
         element: <AllUsers></AllUsers>,
+      },
+      {
+       path:"/AdminDashboard/AllHiringManagers",
+       element:<HiringManagerList></HiringManagerList>
       },
       {
         path: "/AdminDashboard/AllJobPost",
