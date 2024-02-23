@@ -69,7 +69,7 @@ const Experience = () => {
 
                                 <h3 className='text-slate-600 text-lg font-semibold'>Location</h3>
                                 <input defaultValue={data.jobLocation} className='pl-2 rounded-md py-2 border-[0.0px] border-black    w-full text-lg font-medium '
-                                    {...register("jobLocation", { required: true })} type="text" placeholder='Ex: Dhaka, Bangladesh' id="" />
+                                    {...register("jobLocation", { required: true })} type="text" placeholder='Ex: Dhaka, Bangladesh'  />
                                 {errors.jobLocation && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
 
                                 {/* Start Date */}
