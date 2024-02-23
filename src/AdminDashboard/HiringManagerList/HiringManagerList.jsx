@@ -109,7 +109,7 @@ const HiringManagerList = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            HiringManagers.map((user,index) => <tr key={user._id}  className={index % 2 === 0 ? 'bg-slate-200' : 'bg-orange-200'}>
+                            HiringManagers.map((user,index) => <tr key={user._id}  className={index % 2 === 0 ? 'bg-[#F2F2F2]' : 'bg-orange-100'}>
                                 
                                 <td>
                                     <div className="flex items-center gap-3">
