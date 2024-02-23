@@ -11,8 +11,8 @@ const HiringManagerList = () => {
     const axiosSecure = UseAxiosSecure();
     const AxiosPublic = UseAxiosPublic();
     const {loading} = useContext(AuthContext);
-    const { refetch, data: {result : users = [], UsersCount = 0} = {} } = useQuery({
-        queryKey: ['users',page],
+    const { refetch, data: {result : HiringManagers = [], UsersCount = 0} = {} } = useQuery({
+        queryKey: ['HiringManagers',page],
         enabled:!loading,
         queryFn: async () => {
             const res = await axiosSecure.get(`/hiring-talents/pagination?page=${page}`);
@@ -109,7 +109,7 @@ const HiringManagerList = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            users.map((user,index) => <tr key={user._id}  className={index % 2 === 0 ? 'bg-slate-200' : 'bg-orange-200'}>
+                            HiringManagers.map((user,index) => <tr key={user._id}  className={index % 2 === 0 ? 'bg-slate-200' : 'bg-orange-200'}>
                                 
                                 <td>
                                     <div className="flex items-center gap-3">
