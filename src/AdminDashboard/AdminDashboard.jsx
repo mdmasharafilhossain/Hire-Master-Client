@@ -7,6 +7,7 @@ import { FaUsers } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { useState } from "react";
 import { TiNews } from "react-icons/ti";
+import { FaPeopleGroup } from "react-icons/fa6";
 
 const AdminDashboard = () => {
   const { user } = useContext(AuthContext);
@@ -76,7 +77,7 @@ const AdminDashboard = () => {
                     }
                   >
                     {" "}
-                    <FaUsers />
+                    <FaPeopleGroup />
                     All Hiring Managers
                   </NavLink>
                 </li>
