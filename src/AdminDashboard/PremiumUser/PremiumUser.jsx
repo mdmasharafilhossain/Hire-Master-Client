@@ -24,6 +24,11 @@ const PremiumUser = () => {
     })
     const totalPages = Math.ceil(UsersCount / 4);
     const pages = [...new Array(totalPages).fill(0)]
+    const formatDate = (dateString) => {
+        const options = { year: 'numeric', month: 'long', day: '2-digit', hour: '2-digit', minute: '2-digit' };
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-US', options).replace(/(\d+)\/(\d+)\/(\d+), (\d+):(\d+)/, '$2 $1 $3 $4:$5');
+    };
     const handleDelete = (user) =>{
         
         Swal.fire({
@@ -51,14 +56,7 @@ const PremiumUser = () => {
             }
           });
     }
-    const formatDate = (dateString) => {
-        const options = { year: 'numeric', month: 'long', day: '2-digit', hour: '2-digit', minute: '2-digit' };
-        const date = new Date(dateString);
-        return date.toLocaleDateString('en-US', options).replace(/(\d+)\/(\d+)\/(\d+), (\d+):(\d+)/, '$2 $1 $3 $4:$5');
-      };
-      
-      const formattedDate = formatDate("2024-02-10T17:33:02.662Z");
-      console.log(formattedDate); // Output: "10 February 2024 05:33 PM"
+    
     return (
         <div>
           <div>
@@ -112,7 +110,7 @@ const PremiumUser = () => {
                                     
                                 </td>
                                 <td>
-                                   <button> <h1 className='font-bold'>{user.date}</h1></button>
+                                   <button> <h1 className='font-bold'>{formatDate(user.date)}</h1></button>
                                     <br />
                                     
                                 </td>
