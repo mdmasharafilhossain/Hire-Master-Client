@@ -9,6 +9,9 @@ export const saveHiringTalentInDb = async hirer => {
 export const saveUsersInDb = async users => {
   return await axiosPublic.post("/users", users);
 };
+export const saveHiringManagerInfoDB = async HiringManager => {
+  return await axiosPublic.post("/hiring-talents", HiringManager);
+};
 
 export const getUserInfo = async email => {
   return await axiosPublic.get(`/userProfile/${email}`);
