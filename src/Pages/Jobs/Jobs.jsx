@@ -67,9 +67,7 @@ const Jobs = () => {
   console.log(jobs);
   return (
     <>
-      <Navbar2 
-      // socket={socket}
-      />
+      <Navbar2 />
       <div className='mx-auto px-4'>
         <div className='mt-20'>
           <div className='flex gap-x-5 md:gap-x-10 justify-center items-center px-4 py-5 sm:px-6'>

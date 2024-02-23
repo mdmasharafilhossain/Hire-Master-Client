@@ -6,38 +6,42 @@ import { getManagerInfo, getUserInfo } from "../../api";
 import { RiLoginCircleLine, RiLogoutCircleLine } from "react-icons/ri";
 import { FaRegBell } from "react-icons/fa";
 import useFetchData from "../Hooks/UseFetchData/useFetchData";
+import useNotifications from "../Hooks/Notifications/getNotifications";
 
 const Navbar2 = () => {
-  const [open, setOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
-
-  // user profile with context email
-  const { data: userProfile = {} } = useQuery({
-    queryKey: ["user"],
-    queryFn: async () => {
-      const res = await getUserInfo(user?.email);
-      return res.data;
-    },
-  });
-
-  // manager profile with context email
-  const { data: managerProfile = {} } = useQuery({
-    queryKey: ["manager"],
-    queryFn: async () => {
-      const res = await getManagerInfo(user?.email);
-      return res.data;
-    },
-  });
+  const [open, setOpen] = useState(false);
+  const email = user?.email;
 
   const handleSignOut = () => {
     logOut()
       .then(() => {})
       .catch();
   };
+
+  // user profile with context email
+  const { data: userProfile = {} } = useQuery({
+    queryKey: ["user"],
+    queryFn: async () => {
+      const res = await getUserInfo(user?.email);
+      console.log(res);
+      return res.data;
+    },
+  });
+
+  // // manager profile with context email
+  const { data: managerProfile = {} } = useQuery({
+    queryKey: ["manager"],
+    queryFn: async () => {
+      const res = await getManagerInfo(user?.email);
+      console.log(res);
+      return res.data;
+    },
+  });
   console.log(userProfile);
   console.log(managerProfile);
 
-  const email = user?.email;
+  // -----------detecting the route for user/manager------------
   const { data: profile, loading, refetch } = useFetchData(
     `/managerProfile/${email}`,
     "profile"
@@ -50,43 +54,31 @@ const Navbar2 = () => {
   if (user?.email === profile?.email) {
     profileRoute = "managerProfile";
   }
-  console.log(profileRoute);
+  // -------------end--------------------------
 
-  const { data: applications, isLoading: applicationsLoading } = useQuery({
-    queryKey: ["appliedJobs", email],
-    queryFn: async () => {
-      const res = await fetch(`/applied-jobs-from-manager/${email}`);
-      const data = await res.json();
-      return data.applications;
-    },
-    enabled: !!email,
-  });
+  // ----------Notifications--------------------
+  const api = `/notifications/${email}`;
+  const key = "applications";
 
-  const [notifications, setNotifications] = useState([]);
+  const [notifications, temp, display, setNotifications, setTemp, setDisplay, applicationRefetch] = useNotifications(
+    api,
+    key
+  );
 
-  const addNotification = (notification) => {
-    setNotifications((prevNotifications) => [
-      ...prevNotifications,
-      notification,
-    ]);
+  const handleRead = async () => {
+    try {
+      setTemp(notifications);
+      setDisplay([]);
+      // applicationRefetch();
+      setOpen(false);
+    } catch (error) {
+      console.error("Error marking notifications as read:", error);
+    }
   };
 
-  const displayNotification = (email) => {
-    return (
-      <span className="notification">{`${email} applied to your job.`}</span>
-    );
-  };
-
-  const handleRead = () => {
-    setNotifications([]);
-    setOpen(false);
-  };
-
-  if (!applicationsLoading && applications) {
-    applications.forEach((application) => {
-      addNotification(application.email);
-    });
-  }
+  console.log(notifications);
+  console.log(temp);
+  console.log(display);
 
   return (
     <div className="navbar shadow-lg sticky top-0 z-50 shadow-base-200  bg-base-100 mb-5">
@@ -160,9 +152,9 @@ const Navbar2 = () => {
             <div className="flex items-center cursor-pointer">
               <div className="relative mr-3" onClick={() => setOpen(!open)}>
                 <FaRegBell className="w-7 h-7 " />
-                {notifications.length > 0 && (
+                {display.length > 0 && (
                   <div className="bg-[#FF3811] font-semibold w-4 h-4 rounded-full flex items-center justify-center text-xs absolute top-0 right-0">
-                    {notifications.length}
+                    {display.length}
                   </div>
                 )}
               </div>
@@ -170,8 +162,10 @@ const Navbar2 = () => {
             {/* Dropdown box of bell icon */}
             {open && (
               <div className="absolute top-16 right-5 bg-white outline text-black font-light flex flex-col p-2 rounded-lg">
-                {notifications.map((notification, index) => (
-                  <div key={index}>{displayNotification(notification)}</div>
+                {display.map((notification, index) => (
+                  <div key={index}>
+                    {notification.email} has applied to your job
+                  </div>
                 ))}
                 <button
                   className="text-[#FF3811] font-semibold text-xs underline"
@@ -231,32 +225,3 @@ const Navbar2 = () => {
 };
 
 export default Navbar2;
-
-// <>
-// {user && (
-//           <>
-//             <div className="flex items-center cursor-pointer">
-//               <div className="relative mr-3" onClick={() => setOpen(!open)}>
-//                 <FaRegBell className="w-7 h-7 " />
-//                 {/* {notifications.length > 0 && ( */}
-//                   <div className="bg-[#FF3811] font-semibold w-4 h-4 rounded-full flex items-center justify-center text-xs absolute top-0 right-0">
-//                     {/* {notifications.length} */}4
-//                   </div>
-//                 {/* )} */}
-//               </div>
-//             </div>
-//             {/* --------------dropdown box of bell icon-------------- */}
-//             {open && (
-//               <div className="absolute top-16 right-5 bg-white outline text-black font-light flex flex-col p-2 rounded-lg">
-//                 {/* {notifications.map((n) => displayNotification(n))} */}
-//                 <button
-//                   className="text-[#FF3811] font-semibold text-xs underline"
-//                   onClick={handleRead}
-//                 >
-//                   Mark as read
-//                 </button>
-//               </div>
-//             )}
-//           </>
-//         )}
-// </>

@@ -17,7 +17,7 @@ const SingleAppliedJobs = ({ job, refetch }) => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Yes, cancel application!",
     }).then(async (result) => {
       if (result.isConfirmed) {
         const res = await axiosPublic.delete(
@@ -27,8 +27,8 @@ const SingleAppliedJobs = ({ job, refetch }) => {
         if (res.data.deletedCount > 0) {
           console.log("kjnfs");
           Swal.fire({
-            title: "Deleted!",
-            text: "Your file has been deleted.",
+            title: "Canceled!",
+            text: "Your application has been canceled.",
             icon: "success",
           });
           refetch();
