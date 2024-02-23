@@ -5,17 +5,29 @@ import { useContext } from "react";
 import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 import swal from "sweetalert";
 import Navbar2 from "../../Comonents/Navbar/Navbar2";
+import { saveHiringManagerInfoDB } from "../../api";
 
 const ManagerLogin = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   // const from = location.state?.from?.pathname || "/";
-
+  const saveHiringManagerInfo = async user => {
+    const response = await saveHiringManagerInfoDB(user);
+    console.log(response.data);
+  };
   // google sign in
   const handleGoogleSignIn = () => {
     googleSignIn().then(result => {
       console.log(result);
+      if (result) {
+        const user = {
+          name: result.user.displayName,
+          email: result.user.email,
+          photo: result?.user?.photoURL
+        };
+        saveHiringManagerInfo(user);
+      }
       // navigate(from, { replace: true });
       navigate(location?.state ? location.state : "/managerProfile");
     });
