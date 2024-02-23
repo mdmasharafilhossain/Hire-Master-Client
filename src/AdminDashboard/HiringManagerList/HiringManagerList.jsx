@@ -24,7 +24,7 @@ const HiringManagerList = () => {
     })
     
     const handleMakeAdmin = user =>{
-        axiosSecure.patch(`/users/admin/${user._id}`)
+        axiosSecure.patch(`/hiring-talents/admin/${user._id}`)
         .then(res=>{
            console.log(res.data);
            if(res.data.modifiedCount > 0){
