@@ -20,6 +20,14 @@ const ManagerLogin = () => {
   const handleGoogleSignIn = () => {
     googleSignIn().then(result => {
       console.log(result);
+      if (result) {
+        const user = {
+          name: result.user.displayName,
+          email: result.user.email,
+          photo: result?.user?.photoURL
+        };
+        saveHiringManagerInfo(user);
+      }
       // navigate(from, { replace: true });
       navigate(location?.state ? location.state : "/managerProfile");
     });
