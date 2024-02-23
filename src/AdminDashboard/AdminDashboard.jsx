@@ -8,7 +8,7 @@ import { FaHome } from "react-icons/fa";
 import { useState } from "react";
 import { TiNews } from "react-icons/ti";
 import { FaPeopleGroup } from "react-icons/fa6";
-
+import { MdPeopleAlt } from "react-icons/md";
 const AdminDashboard = () => {
   const { user } = useContext(AuthContext);
   console.log(user);
@@ -122,6 +122,20 @@ const AdminDashboard = () => {
                   >
                     <TiNews />
                     All News
+                  </NavLink>
+                </li>
+                <li
+                  onClick={handleRouteClick}
+                  className='font-bold text-sm text-white'
+                >
+                  <NavLink
+                    to='/AdminDashboard/PremiumUser'
+                    className={({ isActive }) =>
+                      `{ ${isActive ? " border  " : " "}}`
+                    }
+                  >
+                    <MdPeopleAlt />
+                    Premium Users
                   </NavLink>
                 </li>
                 <li
