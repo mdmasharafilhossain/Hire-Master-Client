@@ -15,7 +15,7 @@ const PremiumUser = () => {
         queryKey: ['PremiumUsers',page],
         enabled:!loading,
         queryFn: async () => {
-            const res = await axiosSecure.get(`/users/pagination?page=${page}`);
+            const res = await axiosSecure.get(`/payments/pagination?page=${page}`);
             console.log(res.data)
             return res.data;
 
@@ -51,11 +51,19 @@ const PremiumUser = () => {
             }
           });
     }
+    const formatDate = (dateString) => {
+        const options = { year: 'numeric', month: 'long', day: '2-digit', hour: '2-digit', minute: '2-digit' };
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-US', options).replace(/(\d+)\/(\d+)\/(\d+), (\d+):(\d+)/, '$2 $1 $3 $4:$5');
+      };
+      
+      const formattedDate = formatDate("2024-02-10T17:33:02.662Z");
+      console.log(formattedDate); // Output: "10 February 2024 05:33 PM"
     return (
         <div>
           <div>
             <div className="flex justify-evenly my-6 mb-10">
-                <h2 className="text-4xl font-bold">All <span className='text-[#FF3811]'>Job Seeker List</span></h2>
+                <h2 className="text-4xl font-bold">All <span className='text-[#FF3811]'>Premium User List</span></h2>
                
             </div>
             <div className="overflow-x-auto ml-10">
@@ -63,11 +71,14 @@ const PremiumUser = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th className='text-xl text-orange-600'>Image</th>
+                            
                             <th className='text-xl text-orange-600'>Name</th>
                             <th className='text-xl text-orange-600'>Email</th>
+                            <th className='text-xl text-orange-600'>Payed</th>
+                            <th className='text-xl text-orange-600'>Transaction ID</th>
+                            <th className='text-xl text-orange-600'>Date</th>
                             <th className='text-xl text-orange-600'>Role</th>
-                            <th className='text-xl text-orange-600'>Action</th>
+                            
                             
                         </tr>
                     </thead>
@@ -76,16 +87,6 @@ const PremiumUser = () => {
                         {
                             PremiumUsers.map((user,index) => <tr key={user._id}  className={index % 2 === 0 ? 'bg-slate-200' : 'bg-orange-200'}>
                                 
-                                <td>
-                                    <div className="flex items-center gap-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle w-12 h-12">
-                                                <img src={user.photo} />
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </td>
                                 <td>
                                    <button> <h1 className='font-bold'>{user.name}</h1></button>
                                     <br />
@@ -100,10 +101,24 @@ const PremiumUser = () => {
                                     className="btn btn-ghost btn-xs font-bold">Make Admin</button>
                                    }
                                 </th> */}
-                                
+                                <td>
+                                   <button> <h1 className='font-bold'>${user.price}</h1></button>
+                                    <br />
+                                    
+                                </td>
+                                <td>
+                                   <button> <h1 className='font-bold'>{user.transaction_ID}</h1></button>
+                                    <br />
+                                    
+                                </td>
+                                <td>
+                                   <button> <h1 className='font-bold'>{user.date}</h1></button>
+                                    <br />
+                                    
+                                </td>
                                 <td>
                               
-                                    <button onClick={()=>handleDelete(user)} className='btn btn-xs bg-red-600 text-xs text-white font-bold'>Remove User</button></td>
+                                    <button onClick={()=>handleDelete(user)} className='btn btn-sm bg-red-600 text-xs text-white font-bold'>Remove User</button></td>
                             </tr>)
                         }
                         
