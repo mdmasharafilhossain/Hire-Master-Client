@@ -41,7 +41,7 @@ const PremiumUser = () => {
             confirmButtonText: `Yes, delete ${user?.name}`
           }).then(async (result) => {
             if (result.isConfirmed) {
-                const res = await AxiosPublic.delete(`/users/JobSeeker/${user._id}`);
+                const res = await AxiosPublic.delete(`/payments/PremiumUser/${user._id}`);
                 console.log(res.data);
             if(res.data.deletedCount){
                 refetch();
