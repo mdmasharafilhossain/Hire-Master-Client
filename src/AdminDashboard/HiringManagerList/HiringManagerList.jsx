@@ -71,7 +71,7 @@ const HiringManagerList = () => {
             confirmButtonText: `Yes, delete ${user?.name}`
           }).then(async (result) => {
             if (result.isConfirmed) {
-                const res = await AxiosPublic.delete(`/users/JobSeeker/${user._id}`);
+                const res = await AxiosPublic.delete(`/hiring-talents/HR/${user._id}`);
                 console.log(res.data);
             if(res.data.deletedCount){
                 refetch();
@@ -138,7 +138,7 @@ const HiringManagerList = () => {
                                 
                                 <td>
                               
-                                    <button onClick={()=>handleDelete(user)} className='btn btn-xs bg-red-600 text-xs text-white font-bold'>Remove User</button></td>
+                                    <button onClick={()=>handleDelete(user)} className='btn btn-xs bg-red-600 text-xs text-white font-bold'>Remove</button></td>
                             </tr>)
                         }
                         
