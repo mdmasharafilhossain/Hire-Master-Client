@@ -47,6 +47,7 @@ import FairInterestedEvents from "../JobFair/FairInterestedEvents";
 import FairSponsorEvents from "../JobFairSponsor/FairSponsorEvents";
 import FairSponsorEventBookings from "../JobFairSponsor/FairSponsorEventBookings";
 import FairSponsorCreateEvent from "../JobFairSponsor/FairSponsorCreateEvent";
+import FairSponsorUpdateEvent from "../JobFairSponsor/FairSponsorUpdateEvent";
 
 const router = createBrowserRouter([
   {
@@ -152,6 +153,10 @@ const router = createBrowserRouter([
       {
         path: "sponsor-create-event",
         element: <FairSponsorCreateEvent />,
+      },
+      {
+        path: "sponsor-event/update/:slug",
+        element: <FairSponsorUpdateEvent />,
       },
     ],
   },
