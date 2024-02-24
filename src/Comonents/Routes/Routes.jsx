@@ -51,6 +51,7 @@ import FairSponsorUpdateEvent from "../JobFairSponsor/FairSponsorUpdateEvent";
 import HiringManagerList from "../../AdminDashboard/HiringManagerList/HiringManagerList";
 import PremiumUser from "../../AdminDashboard/PremiumUser/PremiumUser";
 import SingleCourse from "../PremiumUserCourse/SingleCourse";
+import JobPostReport from "../../Pages/JobPostReport/JobPostReport";
 
 const router = createBrowserRouter([
   {
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
             <JobDetails />
           </PrivateRoute>
         ),
+      },
+      {
+        path:"/jobpostreport",
+        element:<JobPostReport></JobPostReport>
       },
       {
         path: "/jobpost",

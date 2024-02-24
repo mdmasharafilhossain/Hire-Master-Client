@@ -92,7 +92,7 @@ console.log( premiumUser)
                     {
                       premiumUser? <div>
                         <div className="tooltip" data-tip="Premium">
-                        <img className="w-7 h-7 rounded-full ring " src="https://i.ibb.co/cTxs13b/free-premium-1891072-1597985.webp" alt="" />
+                        <img className="w-10 h-10 rounded-full " src="https://i.ibb.co/cTxs13b/free-premium-1891072-1597985.webp" alt="" />
 </div>
                         </div>:<div></div>
                     }
