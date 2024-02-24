@@ -1,77 +1,88 @@
- [
-      {
-        "courseId": 1,
-        "courseName": "Introduction to Programming",
-        "instructor": "John Doe",
-        "duration": "8 weeks",
-        "topics": ["Basic Concepts", "Variables", "Control Flow", "Functions"],
-        "level": "Beginner",
-        "price": 49.99,
-        "photoUrl": " https://i.ibb.co/XFbykGG/EDL221-Intro-to-Programming-1a.jpg",
-        "description": "This course is designed for beginners who want to learn the fundamentals of programming. Starting with basic concepts, students will progress through topics such as variables, control flow, and functions. By the end of the course, students will have a solid foundation in programming.",
-        "dailyBreakdown": [
-          "Day 1-2: Introduction to Programming Concepts",
-          "Day 3-4: Understanding Variables and Data Types",
-          "Day 5-6: Control Flow and Decision Making",
-          "Day 7-8: Functions and Modular Programming"
-        ]
-      },
-      {
-        "courseId": 2,
-        "courseName": "Web Development Bootcamp",
-        "instructor": "Jane Smith",
-        "duration": "12 weeks",
-        "topics": ["HTML", "CSS", "JavaScript", "Node.js", "React"],
-        "level": "Intermediate",
-        "price": 99.99,
-        "photoUrl": "https://i.ibb.co/Pz42TR2/Teachable-Thumbnails-1.png",
-        "description": "This intensive bootcamp covers the essentials of web development. From building static web pages with HTML and styling them using CSS to dynamic client-side interactions with JavaScript, and server-side development with Node.js. The course concludes with a deep dive into React for building modern, interactive web applications.",
-        "dailyBreakdown": [
-          "Week 1-2: HTML and CSS Fundamentals",
-          "Week 3-4: Introduction to JavaScript and DOM Manipulation",
-          "Week 5-6: Server-side Development with Node.js",
-          "Week 7-8: React Basics and Component-Based Architecture",
-          "Week 9-10: Advanced React Concepts and Project Work"
-        ]
-      },
-      {
-        "courseId": 3,
-        "courseName": "Data Science Fundamentals",
-        "instructor": "Michael Johnson",
-        "duration": "10 weeks",
-        "topics": ["Statistics", "Python", "Data Analysis", "Machine Learning"],
-        "level": "Intermediate",
-        "price": 79.99,
-        "photoUrl": "https://i.ibb.co/Z8x0QzQ/course-12930-image.jpg",
-        "description": "Explore the world of data science with this comprehensive course. Starting with statistical concepts, participants will learn to use Python for data analysis and manipulation. The course delves into machine learning, covering algorithms and techniques for extracting meaningful insights from data.",
-        "dailyBreakdown": [
-          "Week 1-2: Statistical Concepts and Data Exploration",
-          "Week 3-4: Introduction to Python for Data Science",
-          "Week 5-6: Data Analysis Techniques and Visualization",
-          "Week 7-8: Fundamentals of Machine Learning",
-          "Week 9-10: Advanced Machine Learning Concepts and Practical Applications"
-        ]
-      },
-      {
-        "courseId": 4,
-        "courseName": "Advanced JavaScript Concepts",
-        "instructor": "Emily Brown",
-        "duration": "6 weeks",
-        "topics": ["ES6+", "Asynchronous JavaScript", "Closures", "Promises"],
-        "level": "Advanced",
-        "price": 69.99,
-        "photoUrl": "   https://i.ibb.co/R6FSGs5/1-t-UPYEFBd-LN0d-DT6-Dzd-Is-OA.png",
-        "description": "Take your JavaScript skills to the next level with this advanced course. Explore the latest features of ECMAScript 6 (ES6+), understand asynchronous programming, master the concept of closures, and dive deep into working with promises. By the end, participants will have a strong grasp of advanced JavaScript concepts.",
-        "dailyBreakdown": [
-          "Week 1-2: Exploring ES6+ Features and Enhancements",
-          "Week 3-4: Asynchronous JavaScript and Event Loop",
-          "Week 5-6: Understanding Closures and Scope",
-          "Week 7-8: Deep Dive into Promises and Asynchronous Patterns"
-        ]
-      }
+[
+  {
+    "courseId": 1,
+    "courseName": "Introduction to Programming",
+    "instructor": "John Doe",
+    "duration": "8 weeks",
+    "topics": ["Basic Concepts", "Variables", "Control Flow", "Functions"],
+    "level": "Beginner",
+    "price": 49.99,
+    "photoUrl": " https://i.ibb.co/XFbykGG/EDL221-Intro-to-Programming-1a.jpg",
+    "shortDescription": "Designed for beginners, this course covers the fundamentals of programming. Students will have a solid foundation in programming by the end.",
+    "description": "Designed for beginners, this course covers the fundamentals of programming. Starting with basic concepts, students will progress through topics such as variables, control flow, and functions. By the end, they'll have a solid foundation in programming.",
+    "dailyBreakdown": [
+      "Day 1: Introduction to Programming Concepts",
+      "Day 2: Understanding Variables and Data Types",
+      "Day 3: Control Flow and Decision Making",
+      "Day 4: Functions and Modular Programming",
+      "Day 5: Hands-on Coding Exercise",
+      "Day 6: Project Showcase and Q&A Session",
+      "Day 7: Review and Recap",
+      "Day 8: Final Assessment"
     ]
-  
- 
-    
-    
-   
+  },
+  {
+    "courseId": 2,
+    "courseName": "Web Development Bootcamp",
+    "instructor": "Jane Smith",
+    "duration": "12 weeks",
+    "topics": ["HTML", "CSS", "JavaScript", "Node.js", "React"],
+    "level": "Intermediate",
+    "price": 99.99,
+    "photoUrl": "https://i.ibb.co/Pz42TR2/Teachable-Thumbnails-1.png",
+    "shortDescription": "An intensive bootcamp covering the essentials of web development. The course concludes with a deep dive into React for building modern, interactive web applications.",
+    "description": "An intensive bootcamp covering the essentials of web development. From building static web pages with HTML and styling them using CSS to dynamic client-side interactions with JavaScript, and server-side development with Node.js. The course concludes with a deep dive into React for building modern, interactive web applications.",
+    "dailyBreakdown": [
+      "Week 1: HTML Fundamentals",
+      "Week 2: CSS Styling Techniques",
+      "Week 3: Introduction to JavaScript and DOM Manipulation",
+      "Week 4: Server-side Development with Node.js",
+      "Week 5: React Basics and Component-Based Architecture",
+      "Week 6: Advanced React Concepts",
+      "Week 7: Project Development Phase",
+      "Week 8: Project Showcase and Feedback Session",
+      "Week 9: Optimization Techniques in Web Development",
+      "Week 10: Final Project Presentation and Graduation Ceremony"
+    ]
+  },
+  {
+    "courseId": 3,
+    "courseName": "Data Science Fundamentals",
+    "instructor": "Michael Johnson",
+    "duration": "10 weeks",
+    "topics": ["Statistics", "Python", "Data Analysis", "Machine Learning"],
+    "level": "Intermediate",
+    "price": 79.99,
+    "photoUrl": "https://i.ibb.co/Z8x0QzQ/course-12930-image.jpg",
+    "shortDescription": "Explore the world of data science with this comprehensive course. The course delves into machine learning, covering algorithms and techniques for extracting meaningful insights from data.",
+    "description": "Explore the world of data science with this comprehensive course. Starting with statistical concepts, participants will learn to use Python for data analysis and manipulation. The course delves into machine learning, covering algorithms and techniques for extracting meaningful insights from data.",
+    "dailyBreakdown": [
+      "Week 1-2: Statistical Concepts and Data Exploration",
+      "Week 3-4: Introduction to Python for Data Science",
+      "Week 5-6: Data Analysis Techniques and Visualization",
+      "Week 7-8: Fundamentals of Machine Learning",
+      "Week 9-10: Advanced Machine Learning Concepts",
+      "Week 11-12: Practical Applications and Real-world Projects"
+    ]
+  },
+  {
+    "courseId": 4,
+    "courseName": "Advanced JavaScript Concepts",
+    "instructor": "Emily Brown",
+    "duration": "6 weeks",
+    "topics": ["ES6+", "Asynchronous JavaScript", "Closures", "Promises"],
+    "level": "Advanced",
+    "price": 69.99,
+    "photoUrl": "   https://i.ibb.co/R6FSGs5/1-t-UPYEFBd-LN0d-DT6-Dzd-Is-OA.png",
+    "shortDescription": "Take your JavaScript skills to the next level with this advanced course. Participants will have a strong grasp of advanced JavaScript concepts by the end.",
+    "description": "Take your JavaScript skills to the next level with this advanced course. Explore the latest features of ECMAScript 6 (ES6+), understand asynchronous programming, master the concept of closures, and dive deep into working with promises. By the end, participants will have a strong grasp of advanced JavaScript concepts.",
+    "dailyBreakdown": [
+      "Week 1: Exploring ES6+ Features and Enhancements",
+      "Week 2: Deep Dive into Asynchronous JavaScript and Event Loop",
+      "Week 3: Understanding Closures and Scope",
+      "Week 4: Promises and Asynchronous Patterns",
+      "Week 5: Advanced Coding Challenges",
+      "Week 6: Final Project Development and Presentation"
+    ]
+  }
+]

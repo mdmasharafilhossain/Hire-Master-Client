@@ -293,12 +293,7 @@ console.log( premiumUser)
             {/* premium User Section */}
            <div>
            <div className='mt-4  border-[0.5px] border-slate-300 hover:bg-blue-50 bg-white p-8 rounded-lg hover:drop-shadow-lg'>
-              <div className='flex justify-end gap-4'>
-                
-               
-                 
-               
-              </div>
+              
               <div className='flex items-center gap-2'>
                 <h3 className='text-xl font-bold'>Learn Free Courses</h3>
                 <p className='text-2xl'>
@@ -306,13 +301,14 @@ console.log( premiumUser)
 
                 </p>
               </div>
-             
-            </div>
-           {premiumUser ? (
-           <div className='ml-4 mb-10'>
+              {premiumUser ? (
+           <div className='ml-4 mb-10 mt-5'>
           <PremiumUserCourse></PremiumUserCourse>
+        
          </div>
         ) : <div><h1>Sorry You Are Not a Premium user</h1></div>}
+            </div>
+        
            </div>
           </div>
          
