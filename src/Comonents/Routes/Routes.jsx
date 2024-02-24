@@ -84,7 +84,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path:"/jobpostreport",
+        path:"/jobpostreport/:id",
         element:<JobPostReport></JobPostReport>
       },
       {
@@ -248,7 +248,8 @@ const router = createBrowserRouter([
   },
   {
     path:"/courseDetails/:id",
-  element:<SingleCourse></SingleCourse>,
+    element:<SingleCourse></SingleCourse>,
+   
     },
  
   // Admin Dashboard

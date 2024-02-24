@@ -184,7 +184,7 @@ const JobDetails = () => {
           </button>
         </div>
         <div className="mt-5"><h1 className="text-base font-bold">NOTE: Please be aware that if you suspect this post is fraudulent or a scam, we encourage you to report it. Your vigilance helps maintain the integrity of our platform and ensures a safer community for everyone.</h1>
-       <Link to="/jobpostreport">
+       <Link to={`/jobpostreport/${id}`}>
        <button type="button" className="mt-2 btn-sm focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm  me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Report</button>
        
        </Link>

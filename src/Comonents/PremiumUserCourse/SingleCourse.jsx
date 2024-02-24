@@ -1,19 +1,17 @@
-import { useParams } from "react-router-dom";
-import useFetchData from "../Hooks/UseFetchData/useFetchData";
+import { useLoaderData, useParams } from "react-router-dom";
+import useCourses from "../Hooks/Courses/UseCourses";
 
 const SingleCourse = () => {
 
     const { id } = useParams();
-const { data: job, loading, refetch } = useFetchData(
-    `/public/course.json/${id}`, 
-    "job"
-);
-console.log(job);
-
+ const [courses]=useCourses()
+ console.log(courses)
+const course=courses.find(courseData=>courseData.courseId==id)
+console.log(course)
 
     return (
         <div>
-           <h1>hello this is me single course</h1> 
+      
         </div>
     );
 };
