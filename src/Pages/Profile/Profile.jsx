@@ -89,7 +89,11 @@ console.log( premiumUser)
                     <div className="flex ">
                     <h2 className='text-xl font-bold'>{myData?.name}</h2>  
                     {
-                      premiumUser? <div><img className="w-10 h-10 " src="https://i.ibb.co/cTxs13b/free-premium-1891072-1597985.webp" alt="" /></div>:<div></div>
+                      premiumUser? <div>
+                        <div className="tooltip" data-tip="Premium">
+                        <img className="w-10 h-10 " src="https://i.ibb.co/cTxs13b/free-premium-1891072-1597985.webp" alt="" />
+</div>
+                        </div>:<div></div>
                     }
                     
                     </div>
