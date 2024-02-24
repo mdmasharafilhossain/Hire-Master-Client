@@ -24,8 +24,37 @@ console.log(course?.photoUrl)
   </div>
 </div>
 </div>
-<div className="h-40 w-40">
-    <CourseVideo></CourseVideo>
+
+<div className="flex justify-between">
+    <div>
+        <div className="border-[0.5px] m-6 border-slate-300  hover:bg-blue-50  hover:drop-shadow-lg  bg-white p-8 rounded-lg">
+            <h1 className="text-start font-serif font-bold text-2xl"> Description</h1>
+            <p>{course?.description}</p>
+        </div>
+        <div>
+        <div className="border-[0.5px] m-6 border-slate-300  hover:bg-blue-50  hover:drop-shadow-lg  bg-white p-8 rounded-lg">
+            <h1 className="text-start font-serif font-bold text-2xl"> What You Will Learn?</h1>
+           <div className="mt-5">
+           {course?.topics.map((topic,index)=><li className="mt-5" key={index}>{topic}</li>)}
+           </div>
+        </div>
+        </div>
+    </div>
+<div className="  pr-20">
+    <div className="w-full  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <a href="#">
+      <CourseVideo></CourseVideo>
+      </a>
+      <div className="px-5 pb-5">
+        <a href="#">
+          <h4 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{course?.courseName}</h4>
+          <h6 className="text-base mt-2 font-semibold tracking-tight text-gray-900 dark:text-white">By {course?.instructor}</h6>
+        </a>
+       
+      </div>
+    </div>
+   
+</div>
 </div>
         </div>
     );
