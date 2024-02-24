@@ -9,6 +9,7 @@ import { useState } from "react";
 import { TiNews } from "react-icons/ti";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { MdPeopleAlt } from "react-icons/md";
+import { FcStatistics } from "react-icons/fc";
 const AdminDashboard = () => {
   const { user } = useContext(AuthContext);
   console.log(user);
@@ -136,6 +137,20 @@ const AdminDashboard = () => {
                   >
                     <MdPeopleAlt />
                     Premium Users
+                  </NavLink>
+                </li>
+                <li
+                  onClick={handleRouteClick}
+                  className='font-bold text-sm text-white'
+                >
+                  <NavLink
+                    to='/AdminDashboard/Statistics'
+                    className={({ isActive }) =>
+                      `{ ${isActive ? " border  " : " "}}`
+                    }
+                  >
+                    <FcStatistics />
+                    Statistics
                   </NavLink>
                 </li>
                 <li
