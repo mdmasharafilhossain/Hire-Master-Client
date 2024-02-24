@@ -1,12 +1,11 @@
 
 
 import { Chart } from "react-google-charts";
-import UseAxiosSecure from "../../../Comonents/Hooks/UseAxiosSecure/UseAxiosSecure";
 
-import { AuthContext } from "../../../Comonents/AuthProvider/AuthProvider";
-import { useQuery } from "@tanstack/react-query";
+
+
 import UseAxiosPublic from "../../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
-import { useContext, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 
 
 
@@ -20,10 +19,12 @@ export const options = {
 
 
 const PieChart = () => {
-    const axiosSecure = UseAxiosSecure();
+    
 const AxiosPublic = UseAxiosPublic();
-const {loading} = useContext(AuthContext);
+// const {loading} = useContext(AuthContext);
 const [HiringManagers,setHiringManagers] = useState('');
+const [JobSeekers,setJobSeekers]= useState('');
+const [PremiumUsers, setPremiumUsers] = useState('');
 // const {data: HiringManagers = []} = useQuery({
 //         queryKey: ['HiringManagers'],
 //         enabled:!loading,
@@ -35,7 +36,7 @@ const [HiringManagers,setHiringManagers] = useState('');
 //         }
     
 //     })
-
+// for Hiring Manager 
 useEffect(()=>{
   const fetchData = async () => {
     try {
@@ -50,19 +51,49 @@ useEffect(()=>{
 fetchData();
 
 },[])
+// for  Job Seekers 
+useEffect(()=>{
+  const fetchData = async () => {
+    try {
+        const response = await AxiosPublic.get('/users');
+        const data = response.data;
+        setJobSeekers(data);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+};
 
-    console.log(HiringManagers)
+fetchData();
+
+},[])
+// for  Premium User
+useEffect(()=>{
+  const fetchData = async () => {
+    try {
+        const response = await AxiosPublic.get('/payments');
+        const data = response.data;
+        setPremiumUsers(data);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+};
+
+fetchData();
+
+},[])
+
+    
     // const JobSeekers = HiringManagers.filter(jobSeeker => jobSeeker.length);
     // console.log(JobSeekers)
     // const TotalJobseeker = JobSeekers.length;
     // console.log(TotalJobseeker)
      const data = [
         ["Task", "Hours per Day"],
-        ["Work", 11],
-        ["Eat", HiringManagers.length],
-        ["Commute", 2],
-        ["Watch TV", 2],
-        ["Sleep", 7],
+        ["Premium Users", PremiumUsers.length],
+        ["Job Seekers", JobSeekers.length],
+        ["Hiring Managers", HiringManagers.length],
+        
+        
       ];
     return (
         <Chart
