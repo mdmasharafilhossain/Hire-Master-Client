@@ -1,0 +1,48 @@
+ [
+      {
+        "courseId": 1,
+        "courseName": "Introduction to Programming",
+        "instructor": "John Doe",
+        "duration": "8 weeks",
+        "topics": ["Basic Concepts", "Variables", "Control Flow", "Functions"],
+        "level": "Beginner",
+        "price": 49.99,
+        "photoUrl": "https://example.com/intro-to-programming.jpg",
+        "description": "This course is designed for beginners who want to learn the fundamentals of programming. Starting with basic concepts, students will progress through topics such as variables, control flow, and functions. By the end of the course, students will have a solid foundation in programming."
+      },
+      {
+        "courseId": 2,
+        "courseName": "Web Development Bootcamp",
+        "instructor": "Jane Smith",
+        "duration": "12 weeks",
+        "topics": ["HTML", "CSS", "JavaScript", "Node.js", "React"],
+        "level": "Intermediate",
+        "price": 99.99,
+        "photoUrl": "https://example.com/web-development-bootcamp.jpg",
+        "description": "This intensive bootcamp covers the essentials of web development. From building static web pages with HTML and styling them using CSS to dynamic client-side interactions with JavaScript, and server-side development with Node.js. The course concludes with a deep dive into React for building modern, interactive web applications."
+      },
+      {
+        "courseId": 3,
+        "courseName": "Data Science Fundamentals",
+        "instructor": "Michael Johnson",
+        "duration": "10 weeks",
+        "topics": ["Statistics", "Python", "Data Analysis", "Machine Learning"],
+        "level": "Intermediate",
+        "price": 79.99,
+        "photoUrl": "https://example.com/data-science-fundamentals.jpg",
+        "description": "Explore the world of data science with this comprehensive course. Starting with statistical concepts, participants will learn to use Python for data analysis and manipulation. The course delves into machine learning, covering algorithms and techniques for extracting meaningful insights from data."
+      },
+      {
+        "courseId": 4,
+        "courseName": "Advanced JavaScript Concepts",
+        "instructor": "Emily Brown",
+        "duration": "6 weeks",
+        "topics": ["ES6+", "Asynchronous JavaScript", "Closures", "Promises"],
+        "level": "Advanced",
+        "price": 69.99,
+        "photoUrl": "https://example.com/advanced-javascript-concepts.jpg",
+        "description": "Take your JavaScript skills to the next level with this advanced course. Explore the latest features of ECMAScript 6 (ES6+), understand asynchronous programming, master the concept of closures, and dive deep into working with promises. By the end, participants will have a strong grasp of advanced JavaScript concepts."
+      }
+    ]
+  
+  
