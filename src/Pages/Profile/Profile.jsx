@@ -31,7 +31,7 @@ const Profile = () => {
       .then((data) => setPremium(data))
       .catch((error) => console.error("Error fetching premium data:", error));
   }, []);
-  const premiumUser=premium.map((userPremium)=>userPremium?.email == user?.email)
+  const premiumUser = premium.map((userPremium) => userPremium?.email).includes(user?.email);
 console.log( premiumUser)
   return (
     <div >
@@ -275,9 +275,17 @@ console.log( premiumUser)
                 </h3>
               </div>
             </div>
+            {/* premium User Section */}
+            {premiumUser ? (
+          <div>
+            <h1>hello, this is me premium user</h1>
           </div>
+        ) : <div><h1>Sorry You Are Not a Premium user</h1></div>}
+          </div>
+         
         </div>
-      </div> : <div><Link to="/">go back</Link></div>
+      </div> 
+      : <div><Link to="/">go back</Link></div>
       }
     </div>
   );
