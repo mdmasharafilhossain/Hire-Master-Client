@@ -1,3 +1,4 @@
+import BarChart from "./BarChart/BarChart";
 import PieChart from "./PieChart/PieChart";
 
 
@@ -10,6 +11,7 @@ const Statistics = () => {
             </div> 
             <div>
                 <PieChart></PieChart>
+                <BarChart></BarChart>
             </div>
         </div>
     );
