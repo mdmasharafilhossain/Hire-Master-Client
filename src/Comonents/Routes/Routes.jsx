@@ -47,6 +47,9 @@ import FairInterestedEvents from "../JobFair/FairInterestedEvents";
 import FairSponsorEvents from "../JobFairSponsor/FairSponsorEvents";
 import FairSponsorEventBookings from "../JobFairSponsor/FairSponsorEventBookings";
 import FairSponsorCreateEvent from "../JobFairSponsor/FairSponsorCreateEvent";
+import FairSponsorUpdateEvent from "../JobFairSponsor/FairSponsorUpdateEvent";
+import HiringManagerList from "../../AdminDashboard/HiringManagerList/HiringManagerList";
+import PremiumUser from "../../AdminDashboard/PremiumUser/PremiumUser";
 
 const router = createBrowserRouter([
   {
@@ -153,6 +156,10 @@ const router = createBrowserRouter([
         path: "sponsor-create-event",
         element: <FairSponsorCreateEvent />,
       },
+      {
+        path: "sponsor-event/update/:slug",
+        element: <FairSponsorUpdateEvent />,
+      },
     ],
   },
   {
@@ -244,6 +251,10 @@ const router = createBrowserRouter([
         element: <AllUsers></AllUsers>,
       },
       {
+        path: "/AdminDashboard/AllHiringManagers",
+        element: <HiringManagerList></HiringManagerList>,
+      },
+      {
         path: "/AdminDashboard/AllJobPost",
         element: <AllJobPost></AllJobPost>,
       },
@@ -258,6 +269,10 @@ const router = createBrowserRouter([
       {
         path: "/AdminDashboard/all-news/:slug",
         element: <UpdateNews />,
+      },
+      {
+        path: "/AdminDashboard/PremiumUser",
+        element: <PremiumUser></PremiumUser>,
       },
     ],
   },
