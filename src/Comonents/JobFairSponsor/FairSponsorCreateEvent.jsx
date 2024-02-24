@@ -1,6 +1,6 @@
 import FileUpload from "../JobFair/FileUpload";
 import { useState } from "react";
-import FairSponsorEventCreateCard from "./FairSponsorEventCreateCard";
+import FairSponsorEventCreateForm from "./FairSponsorEventCreateForm";
 import { getFairRegisteredUser, saveFairEventDataInDb } from "../../api";
 import useAuth from "../Hooks/Auth/useAuth";
 import { useQuery } from "@tanstack/react-query";
@@ -21,7 +21,8 @@ const FairSponsorCreateEvent = () => {
   });
   console.log(fairuser.userType);
 
-  const bannerImage = uploadedImage.length > 0 ? uploadedImage[0].url : "";
+  // const bannerImage = uploadedImage.length > 0 ? uploadedImage[0].url : "";
+  console.log(uploadedImage);
 
   const onSubmit = async (data, reset) => {
     console.log(data);
@@ -29,7 +30,7 @@ const FairSponsorCreateEvent = () => {
     const modifiedData = {
       ...data,
       tags: tagsArr,
-      bannerImage,
+      bannerImage: uploadedImage,
     };
     console.log(modifiedData);
     try {
@@ -58,7 +59,7 @@ const FairSponsorCreateEvent = () => {
             setUploadedImage={setUploadedImage}
           />
         </div>
-        <FairSponsorEventCreateCard
+        <FairSponsorEventCreateForm
           onSubmit={onSubmit}
           user={user}
           isFetching={isFetching}

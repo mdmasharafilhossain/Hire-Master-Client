@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 
-const FairSponsorEventCreateCard = ({ onSubmit, user, isFetching }) => {
+const FairSponsorEventCreateForm = ({ onSubmit, user, isFetching }) => {
   const {
     register,
     handleSubmit,
@@ -104,4 +104,4 @@ const FairSponsorEventCreateCard = ({ onSubmit, user, isFetching }) => {
   );
 };
 
-export default FairSponsorEventCreateCard;
+export default FairSponsorEventCreateForm;
