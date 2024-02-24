@@ -1,5 +1,7 @@
 import { FaGithub, FaPenToSquare } from "react-icons/fa6";
 import { FaExternalLinkAlt, FaBriefcase, FaLinkedin } from "react-icons/fa";
+import { FaBookAtlas } from "react-icons/fa6";
+
 import { PiBookBookmarkFill } from "react-icons/pi";
 import { RiAddBoxFill } from "react-icons/ri";
 import { AiFillProject } from "react-icons/ai";
@@ -276,11 +278,46 @@ console.log( premiumUser)
               </div>
             </div>
             {/* premium User Section */}
-            {premiumUser ? (
-          <div>
-            <h1>hello, this is me premium user</h1>
-          </div>
+           <div>
+           <div className='mt-4  border-[0.5px] border-slate-300 hover:bg-blue-50 bg-white p-8 rounded-lg hover:drop-shadow-lg'>
+              <div className='flex justify-end gap-4'>
+                
+               
+                 
+               
+              </div>
+              <div className='flex items-center gap-2'>
+                <h3 className='text-xl font-bold'>Learn Free Courses</h3>
+                <p className='text-2xl'>
+                <FaBookAtlas />
+
+                </p>
+              </div>
+             
+            </div>
+           {premiumUser ? (
+           <div className='ml-4 mb-10'>
+           <h3 className='text-slate-600 font-semibold'>
+            
+           </h3>
+           <h3 className='text-slate-600 font-semibold'>
+         
+           </h3>
+           <h3 className='text-slate-600 font-semibold'>
+          
+           </h3>
+           <h3 className='text-slate-600 font-semibold'>
+       
+           </h3>
+           <h3 className='text-slate-600 font-semibold'>
+            
+           </h3>
+           <h3 className='text-slate-600 font-semibold'>
+           
+           </h3>
+         </div>
         ) : <div><h1>Sorry You Are Not a Premium user</h1></div>}
+           </div>
           </div>
          
         </div>
