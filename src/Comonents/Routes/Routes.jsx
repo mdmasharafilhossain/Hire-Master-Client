@@ -50,6 +50,7 @@ import FairSponsorCreateEvent from "../JobFairSponsor/FairSponsorCreateEvent";
 import FairSponsorUpdateEvent from "../JobFairSponsor/FairSponsorUpdateEvent";
 import HiringManagerList from "../../AdminDashboard/HiringManagerList/HiringManagerList";
 import PremiumUser from "../../AdminDashboard/PremiumUser/PremiumUser";
+import SingleCourse from "../PremiumUserCourse/SingleCourse";
 
 const router = createBrowserRouter([
   {
@@ -240,7 +241,10 @@ const router = createBrowserRouter([
     path: "/skills",
     element: <Skills></Skills>,
   },
- 
+  {
+    path:"/courseDetails/:id",
+  element:<SingleCourse></SingleCourse>,
+    },
  
   // Admin Dashboard
 
