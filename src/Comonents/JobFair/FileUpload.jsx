@@ -56,7 +56,7 @@ const FileUpload = ({ uploadedImage, setUploadedImage }) => {
 
       Promise.all(uploadPromises).then(() => {
         setLoading(false);
-        setUploadedImage(image);
+        setUploadedImage(prevImage => [...prevImage, ...image]);
       });
     }
   };
@@ -68,11 +68,12 @@ const FileUpload = ({ uploadedImage, setUploadedImage }) => {
       .then(res => {
         if (res) {
           setLoading(false);
-          console.log(res);
-          const filteredImages = uploadedImage.filter(image => {
-            return image.public_id !== public_id;
+          // console.log(res.data);
+          const filteredImage = uploadedImage.filter(image => {
+            return image.public_id !== res.data.removed.public_id;
           });
-          setUploadedImage(filteredImages);
+          setUploadedImage(filteredImage);
+          console.log(filteredImage);
         }
       })
       .catch(err => {
@@ -80,7 +81,7 @@ const FileUpload = ({ uploadedImage, setUploadedImage }) => {
         setLoading(false);
       });
   };
-  // console.log(uploadedImages);
+  console.log(uploadedImage);
   return (
     <div className=''>
       <div className='flex  items-center gap-y-5 md:gap-y-0 gap-x-0 md:gap-x-5'>
@@ -104,6 +105,29 @@ const FileUpload = ({ uploadedImage, setUploadedImage }) => {
             </label>
           </Button>
         </WrapItem>
+
+        {/* {previousBanner?.length > 0 &&
+          previousBanner.map(image => (
+            <div className='relative' key={image?.public_id}>
+              <Image
+                boxSize='200px'
+                w={350}
+                src={image?.url}
+                alt='Product Image'
+              />
+
+              <Tooltip label='Remove Picture' placement='right'>
+                <SmallCloseIcon
+                  color='red.500'
+                  w={6}
+                  h={6}
+                  className='absolute right-0 top-0 cursor-pointer rounded-full bg-black'
+                  onClick={() => handleImageRemove(image?.public_id)}
+                />
+              </Tooltip>
+            </div>
+          ))} */}
+
         {uploadedImage?.length > 0 &&
           uploadedImage.map(image => (
             <div className='relative' key={image?.public_id}>
@@ -114,7 +138,7 @@ const FileUpload = ({ uploadedImage, setUploadedImage }) => {
                 alt='Product Image'
               />
 
-              <Tooltip label='Remove Picture' placement='bottom'>
+              <Tooltip label='Remove Picture' placement='right'>
                 <SmallCloseIcon
                   color='red.500'
                   w={6}
@@ -122,11 +146,6 @@ const FileUpload = ({ uploadedImage, setUploadedImage }) => {
                   className='absolute right-0 top-0 cursor-pointer rounded-full bg-black'
                   onClick={() => handleImageRemove(image?.public_id)}
                 />
-                {/* <CiCircleRemove
-                  size={26}
-                  className='absolute -right-5 -top-5 text-red-600 cursor-pointer'
-                  onClick={() => handleImageRemove(image?.public_id)}
-                /> */}
               </Tooltip>
             </div>
           ))}

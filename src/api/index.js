@@ -70,3 +70,17 @@ export const saveFairEventDataInDb = async event => {
 export const getFairSponsorEventsFromDb = async email => {
   return await axiosPublic.get(`job-fair/profile/sponsor-event/${email}`);
 };
+export const deleteFairSponsorEventFromDb = async slug => {
+  return await axiosPublic.delete(`/job-fair/profile/sponsor-event/${slug}`);
+};
+
+export const getSingleFairSponsorEventFromDb = async slug => {
+  return await axiosPublic.get(`/job-fair/events/${slug}`);
+};
+
+export const updateFairSponsorEventInDb = async (slug, event) => {
+  return await axiosPublic.patch(
+    `/job-fair/profile/sponsor-event/update/${slug}`,
+    event
+  );
+};
