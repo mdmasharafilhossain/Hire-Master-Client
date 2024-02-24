@@ -17,6 +17,7 @@ import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic"
 import { TbWorld } from "react-icons/tb";
 import ProfileImage from "./ProfileImage";
 import useProfile from "../../Comonents/Hooks/useProfile/useProfile";
+import Navbar from "../../Comonents/Navbar/Navbar";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
@@ -39,8 +40,9 @@ console.log( premiumUser)
     <div >
       {
         myData ? <div   className='max-w-6xl mx-4 mb-4 md:mx-auto '>
-        <ProfileNav profile={"profile"} setProfile={"profileForm"}></ProfileNav>
-        <div className='md:flex '>
+          <Navbar></Navbar>
+        {/* <ProfileNav profile={"profile"} setProfile={"profileForm"}></ProfileNav> */}
+        <div className='md:flex mt-5'>
           <div className='flex md:flex-col ml-2 mt-10 mb-2  gap-2'>
             <Link to='/'>
               <div className='p-2 hover:bg-slate-200 rounded-xl '>
