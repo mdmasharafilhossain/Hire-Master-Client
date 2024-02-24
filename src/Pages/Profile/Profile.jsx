@@ -7,7 +7,7 @@ import { BsTools } from "react-icons/bs";
 import { IoHome } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { MdPostAdd } from "react-icons/md";
-import { useContext} from "react";
+import { useContext, useEffect, useState} from "react";
 import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 import ProfileNav from "../../Comonents/ProfileNav/ProfileNav";
 import { useQuery } from "@tanstack/react-query";
@@ -23,7 +23,15 @@ const Profile = () => {
   const [profileData] = useProfile()
   const [myData] = profileData
   console.log(profileData);
+  const [premium, setPremium] = useState([]);
 
+  useEffect(() => {
+    fetch("http://localhost:5000/payments")
+      .then((res) => res.json())
+      .then((data) => setPremium(data))
+      .catch((error) => console.error("Error fetching premium data:", error));
+  }, []);
+  
   return (
     <div >
       {
