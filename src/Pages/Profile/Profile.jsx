@@ -86,7 +86,13 @@ console.log( premiumUser)
                 
                 <div className=''>
                   <div className='flex md:justify-between items-center'>
-                    <h2 className='text-xl font-bold'>{myData?.name}</h2>
+                    <div className="flex ">
+                    <h2 className='text-xl font-bold'>{myData?.name}</h2>  
+                    {
+                      premiumUser? <div><img className="w-10 h-10 " src="https://i.ibb.co/cTxs13b/free-premium-1891072-1597985.webp" alt="" /></div>:<div></div>
+                    }
+                    
+                    </div>
                     <h3 className='text-slate-600 font-semibold'>
                       {myData?.UniversityName}
                     </h3>
