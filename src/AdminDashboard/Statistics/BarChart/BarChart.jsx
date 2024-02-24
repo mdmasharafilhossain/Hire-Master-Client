@@ -1,15 +1,52 @@
 
 import { Chart } from "react-google-charts";
+import UseAxiosPublic from "../../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
+import { useEffect, useState } from "react";
+import UseAxiosSecure from "../../../Comonents/Hooks/UseAxiosSecure/UseAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 export const options = {
-    title: "Density of Precious Metals, in g/cm^3",
+    title: "Types of Job Number",
     width: 600,
     height: 400,
     bar: { groupWidth: "95%" },
     legend: { position: "none" },
   };
 const BarChart = () => {
+    const AxiosPublic = UseAxiosPublic();
+    // const [jobs,setJob]= useState('')
+    // useEffect(()=>{
+    //     const fetchData = async () => {
+    //       try {
+    //           const response = await AxiosPublic.get('/staticjobpost');
+    //           const data = response.data;
+    //           setJob(data);
+    //       } catch (error) {
+    //           console.error('Error fetching data:', error);
+    //       }
+    //   };
+      
+    //   fetchData();
+      
+    //   },[])
+    const axiosSecure = UseAxiosSecure();
+    const {data: jobs = []} = useQuery({
+        
+        queryKey: ['jobs'],
+        
+        queryFn: async () => {
+            const res = await axiosSecure.get('/staticjobpost');
+            console.log(res.data)
+            return res.data;
+            
 
+        }
+        
 
+    });
+
+      console.log(jobs)
+      const Full_Time_Job = jobs.filter(job=>job.job_time === "Full-time");
+      console.log(Full_Time_Job.length)
 
 
 

@@ -9,9 +9,13 @@ const Statistics = () => {
                 <h2 className="text-4xl font-bold"><span className='text-[#FF3811]'>Statistics</span></h2>
                
             </div> 
-            <div>
+            <div className>
+                
                 <PieChart></PieChart>
-                <BarChart></BarChart>
+                
+              
+               <BarChart></BarChart>
+               
             </div>
         </div>
     );
