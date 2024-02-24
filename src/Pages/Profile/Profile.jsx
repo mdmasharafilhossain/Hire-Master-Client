@@ -18,6 +18,7 @@ import { TbWorld } from "react-icons/tb";
 import ProfileImage from "./ProfileImage";
 import useProfile from "../../Comonents/Hooks/useProfile/useProfile";
 import Navbar from "../../Comonents/Navbar/Navbar";
+import PremiumUserCourse from "../../Comonents/PremiumUserCourse/PremiumUserCourse";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
@@ -309,24 +310,7 @@ console.log( premiumUser)
             </div>
            {premiumUser ? (
            <div className='ml-4 mb-10'>
-           <h3 className='text-slate-600 font-semibold'>
-            
-           </h3>
-           <h3 className='text-slate-600 font-semibold'>
-         
-           </h3>
-           <h3 className='text-slate-600 font-semibold'>
-          
-           </h3>
-           <h3 className='text-slate-600 font-semibold'>
-       
-           </h3>
-           <h3 className='text-slate-600 font-semibold'>
-            
-           </h3>
-           <h3 className='text-slate-600 font-semibold'>
-           
-           </h3>
+          <PremiumUserCourse></PremiumUserCourse>
          </div>
         ) : <div><h1>Sorry You Are Not a Premium user</h1></div>}
            </div>
