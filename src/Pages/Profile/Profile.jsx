@@ -86,12 +86,12 @@ console.log( premiumUser)
                 
                 <div className=''>
                   <div className='flex md:justify-between items-center'>
-                    <div className="flex ">
-                    <h2 className='text-xl font-bold'>{myData?.name}</h2>  
+                    <div className="flex gap-5">
+                    <h2 className='text-2xl font-bold'>{myData?.name}</h2>  
                     {
                       premiumUser? <div>
                         <div className="tooltip" data-tip="Premium">
-                        <img className="w-10 h-10 " src="https://i.ibb.co/cTxs13b/free-premium-1891072-1597985.webp" alt="" />
+                        <img className="w-7 h-7 rounded-full ring " src="https://i.ibb.co/cTxs13b/free-premium-1891072-1597985.webp" alt="" />
 </div>
                         </div>:<div></div>
                     }
