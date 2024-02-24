@@ -1,5 +1,6 @@
 import {  useParams } from "react-router-dom";
 import useCourses from "../Hooks/Courses/UseCourses";
+import CourseVideo from "./CourseVideo";
 
 const SingleCourse = () => {
 
@@ -23,8 +24,8 @@ console.log(course?.photoUrl)
   </div>
 </div>
 </div>
-<div>
-    
+<div className="h-40 w-40">
+    <CourseVideo></CourseVideo>
 </div>
         </div>
     );
