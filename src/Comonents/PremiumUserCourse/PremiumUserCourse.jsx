@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import AllCourse from "./AllCourse";
 
 
 const PremiumUserCourse = () => {
@@ -14,7 +15,7 @@ console.log(courses)
     return (
         <div>
             {
-                courses.map(course=>)
+                courses.map(course=><AllCourse key={course.id} course={course}></AllCourse>)
             }
         </div>
     );

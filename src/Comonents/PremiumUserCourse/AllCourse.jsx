@@ -1,5 +1,6 @@
 
-const AllCourse = () => {
+const AllCourse = ({course}) => {
+    console.log(course)
     return (
         <div>
             
