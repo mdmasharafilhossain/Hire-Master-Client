@@ -1,17 +1,12 @@
-import { useEffect, useState } from "react";
+
 import AllCourse from "./AllCourse";
+import useCourses from "../Hooks/Courses/UseCourses";
 
 
 const PremiumUserCourse = () => {
-
-const [courses,setCourses]=useState([])
-useEffect(()=>{
-    fetch("../../../public/course.json")
-    .then(res=>res.json())
-    .then(data=>setCourses(data))
-},[])
-
+const [courses,loading]=useCourses([])
 console.log(courses)
+
     return (
         <div>
 <div className="grid grid-cols-3 gap-5 ">
