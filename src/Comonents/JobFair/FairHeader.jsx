@@ -1,5 +1,14 @@
 import { Link } from "react-router-dom";
-import { AddIcon, ChevronDownIcon, SearchIcon } from "@chakra-ui/icons";
+import {
+  AddIcon,
+  CheckIcon,
+  ChevronDownIcon,
+  DragHandleIcon,
+  HamburgerIcon,
+  SearchIcon,
+  SettingsIcon,
+  StarIcon,
+} from "@chakra-ui/icons";
 import {
   Avatar,
   Box,
@@ -9,6 +18,7 @@ import {
   MenuItem,
   MenuGroup,
   MenuDivider,
+  Text,
 } from "@chakra-ui/react";
 import { BsFillPersonVcardFill } from "react-icons/bs";
 import { useEffect, useState } from "react";
@@ -16,6 +26,7 @@ import { getFairRegisteredUser } from "../../api";
 import useAuth from "../Hooks/Auth/useAuth";
 
 const FairHeader = () => {
+  const [fairUser, setFairUser] = useState({});
   const [registeredType, setRegisteredType] = useState("");
 
   const { user } = useAuth();
@@ -23,8 +34,9 @@ const FairHeader = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await getFairRegisteredUser(user?.email);
       try {
+        const res = await getFairRegisteredUser(user?.email);
+        setFairUser(res.data);
         if (res.data.userType) {
           setRegisteredType(res.data.userType);
         }
@@ -35,6 +47,7 @@ const FairHeader = () => {
     fetchUser();
   }, [user]);
   console.log(registeredType);
+  console.log(fairUser);
 
   return (
     <div className='flex items-center justify-between bg-gray-400 px-5 py-3'>
@@ -70,25 +83,128 @@ const FairHeader = () => {
         <Menu>
           <MenuButton>
             <div className=' flex items-center border rounded-xl  px-2'>
-              <Avatar as={BsFillPersonVcardFill} size='md' />
+              <Avatar
+                src={fairUser?.profilePicture || undefined}
+                icon={
+                  !fairUser?.profilePicture ? (
+                    <BsFillPersonVcardFill />
+                  ) : (
+                    undefined
+                  )
+                }
+                size='md'
+              />
               <Box ml='1'>
                 <ChevronDownIcon color={"white"} />
               </Box>
             </div>
           </MenuButton>
           <MenuList>
-            <MenuGroup title='Profile'>
-              <MenuItem as={Link} to='/job-fair/profile'>
-                My Account
-              </MenuItem>
-            </MenuGroup>
-            <MenuDivider />
-            <MenuGroup title='Help'>
-              <MenuItem>Docs</MenuItem>
-              <MenuItem as={Link} id='#faq-section'>
-                FAQ
-              </MenuItem>
-            </MenuGroup>
+            {registeredType === "job-seeker" && (
+              <MenuGroup title='Profile' marginBottom={5}>
+                <MenuDivider />
+                <MenuItem
+                  as={Link}
+                  to='/job-fair/profile'
+                  marginBottom={3}
+                  _hover={{
+                    bg: "red.500",
+                    color: "white",
+                  }}
+                >
+                  <DragHandleIcon marginRight={1} />
+                  My Profile
+                </MenuItem>
+                <MenuItem
+                  as={Link}
+                  to='/job-fair/profile/bookings'
+                  marginBottom={3}
+                  _hover={{
+                    bg: "red.500",
+                    color: "white",
+                  }}
+                >
+                  <CheckIcon marginRight={1} />
+                  Bookings
+                </MenuItem>
+                <MenuItem
+                  as={Link}
+                  to='/job-fair/profile/interested-events'
+                  marginBottom={3}
+                  _hover={{
+                    bg: "red.500",
+                    color: "white",
+                  }}
+                >
+                  <StarIcon marginRight={1} />
+                  Events
+                </MenuItem>
+                <MenuItem
+                  as={Link}
+                  to='/job-fair/profile/settings'
+                  _hover={{
+                    bg: "red.500",
+                    color: "white",
+                  }}
+                >
+                  <SettingsIcon marginRight={1} />
+                  Settings
+                </MenuItem>
+              </MenuGroup>
+            )}
+            {registeredType === "sponsor" && (
+              <MenuGroup title='Profile' marginBottom={5}>
+                <MenuDivider />
+                <MenuItem
+                  as={Link}
+                  to='/job-fair/profile'
+                  marginBottom={3}
+                  _hover={{
+                    bg: "red.500",
+                    color: "white",
+                  }}
+                >
+                  <DragHandleIcon marginRight={1} />
+                  My Profile
+                </MenuItem>
+
+                <MenuItem
+                  as={Link}
+                  to='/job-fair/profile/sponsor-event'
+                  marginBottom={3}
+                  _hover={{
+                    bg: "red.500",
+                    color: "white",
+                  }}
+                >
+                  <HamburgerIcon marginRight={1} />
+                  My Events
+                </MenuItem>
+                <MenuItem
+                  as={Link}
+                  to='/job-fair/profile/sponsor-event-bookings'
+                  marginBottom={3}
+                  _hover={{
+                    bg: "red.500",
+                    color: "white",
+                  }}
+                >
+                  <CheckIcon marginRight={1} />
+                  Booked Events
+                </MenuItem>
+                <MenuItem
+                  as={Link}
+                  to='/job-fair/profile/settings'
+                  _hover={{
+                    bg: "red.500",
+                    color: "white",
+                  }}
+                >
+                  <SettingsIcon marginRight={1} />
+                  Settings
+                </MenuItem>
+              </MenuGroup>
+            )}
           </MenuList>
         </Menu>
       </div>

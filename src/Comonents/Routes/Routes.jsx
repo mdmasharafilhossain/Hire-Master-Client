@@ -38,8 +38,18 @@ import UpdateNews from "../../AdminDashboard/UpdateNews/UpdateNews";
 import NewsDetails from "../TechNews/NewsDetails";
 import JobFair from "../../Pages/JobFair/JobFair";
 import JobFairRegistrationForm from "../JobFair/JobFairRegistrationForm";
-import JobFairProfile from "../../Pages/JobFair/JobFairProfile";
+
 import FairProfileSettings from "../JobFair/FairProfileSettings";
+import JobFairLayout from "../../LayOut/JobFairLayout";
+import JobFairProfile from "../../Pages/JobFair/JobFairProfile";
+import JobFairBookingHistory from "../JobFair/JobFairBookingHistory";
+import FairInterestedEvents from "../JobFair/FairInterestedEvents";
+import FairSponsorEvents from "../JobFairSponsor/FairSponsorEvents";
+import FairSponsorEventBookings from "../JobFairSponsor/FairSponsorEventBookings";
+import FairSponsorCreateEvent from "../JobFairSponsor/FairSponsorCreateEvent";
+import FairSponsorUpdateEvent from "../JobFairSponsor/FairSponsorUpdateEvent";
+import HiringManagerList from "../../AdminDashboard/HiringManagerList/HiringManagerList";
+import PremiumUser from "../../AdminDashboard/PremiumUser/PremiumUser";
 
 const router = createBrowserRouter([
   
@@ -117,15 +127,39 @@ const router = createBrowserRouter([
   },
   {
     path: "job-fair/profile",
-    element: <JobFairProfile />,
+    element: <JobFairLayout />,
     children: [
-      // {
-      //   path: "profile",
-      //   element:,
-      // },
+      {
+        path: "",
+        element: <JobFairProfile />,
+      },
+      {
+        path: "bookings",
+        element: <JobFairBookingHistory />,
+      },
+      {
+        path: "interested-events",
+        element: <FairInterestedEvents />,
+      },
       {
         path: "settings",
         element: <FairProfileSettings />,
+      },
+      {
+        path: "sponsor-event",
+        element: <FairSponsorEvents />,
+      },
+      {
+        path: "sponsor-event-bookings",
+        element: <FairSponsorEventBookings />,
+      },
+      {
+        path: "sponsor-create-event",
+        element: <FairSponsorCreateEvent />,
+      },
+      {
+        path: "sponsor-event/update/:slug",
+        element: <FairSponsorUpdateEvent />,
       },
     ],
   },
@@ -133,6 +167,7 @@ const router = createBrowserRouter([
     path: "job-fair/registration",
     element: <JobFairRegistrationForm />,
   },
+
   { path: "/signup", element: <SignUp></SignUp> },
   {
     path: "/login",
@@ -217,6 +252,10 @@ const router = createBrowserRouter([
         element: <AllUsers></AllUsers>,
       },
       {
+        path: "/AdminDashboard/AllHiringManagers",
+        element: <HiringManagerList></HiringManagerList>,
+      },
+      {
         path: "/AdminDashboard/AllJobPost",
         element: <AllJobPost></AllJobPost>,
       },
@@ -231,6 +270,10 @@ const router = createBrowserRouter([
       {
         path: "/AdminDashboard/all-news/:slug",
         element: <UpdateNews />,
+      },
+      {
+        path: "/AdminDashboard/PremiumUser",
+        element: <PremiumUser></PremiumUser>,
       },
     ],
   },

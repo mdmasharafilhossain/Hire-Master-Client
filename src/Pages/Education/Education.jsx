@@ -22,11 +22,17 @@ const Education = () => {
         console.log(data)
 
         const userInfo = {
-            UniversityName: data.institute
-
+            educationInstitute: data.educationInstitute,
+            degree: data.degree,
+            studyField: data.studyField,
+            educationStartMonth: data.educationStartMonth,
+            educationStartYear: data.educationStartYear,
+            educationEndMonth: data.educationEndMonth,
+            educationEndYear: data.educationEndYear,
+            educationDescription: data.educationDescription
 
         }
-        const userRes = await axiosPublic.patch(`/UsersProfile/${myProfileData._id}`, userInfo)
+        const userRes = await axiosPublic.patch(`/UsersProfile/education/${myProfileData._id}`, userInfo)
         console.log(userRes.data)
         if (userRes.data.modifiedCount > 0) {
             Swal.fire("Successfully Edited");
@@ -47,29 +53,30 @@ const Education = () => {
 
 
                                 <h3 className='text-slate-600 text-lg font-semibold'>Institute</h3>
-                                <input defaultValue={myProfileData.UniversityName} className='pl-2 rounded-md py-2   w-full text-lg font-medium '
-                                    {...register("institute", { required: true })} type="text" placeholder='Institute Name' id="" />
-                                {errors.name && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
+                                <input defaultValue={data.educationInstitute} className='pl-2 rounded-md py-2   w-full text-lg font-medium '
+                                    {...register("educationInstitute", { required: true })} type="text" placeholder='Institute Name' id="" />
+                                {errors.institute && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
 
                                 <h3 className='text-slate-600 text-lg font-semibold'>Degree</h3>
-                                <input defaultValue={data.Degree} className='pl-2 rounded-md py-2    w-full text-lg font-medium '
-                                    {...register("age", { required: true })} type="text" placeholder='e.g Bachelor' id="" />
-                                {errors.age && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
+                                <input defaultValue={data.degree} className='pl-2 rounded-md py-2    w-full text-lg font-medium '
+                                    {...register("degree", { required: true })} type="text" placeholder='e.g Bachelor' id="" />
+                                {errors.degree && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
 
                                 <h3 className='text-slate-600 text-lg font-semibold'>Field Of Study</h3>
-                                <input className='pl-2 rounded-md py-2 border-[0.0px] border-black    w-full text-lg font-medium '
-                                    {...register("location", { required: true })} type="text" placeholder='e.g CSE' id="" />
-                                {errors.location && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
+                                <input defaultValue={data.studyField} className='pl-2 rounded-md py-2 border-[0.0px] border-black    w-full text-lg font-medium '
+                                    {...register("studyField", { required: true })} type="text" placeholder='e.g CSE' id="" />
+                                {errors.studyField && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
 
                                 {/* Start Date */}
                                 <div className="">
                                     <label className="text-slate-600 text-lg font-semibold">Start Date </label>
+          
                                     <div className=" grid grid-cols-2 gap-6">
                                         <div>
 
-                                            <select  {...register("start-month", { required: true })} className="text-lg font-medium rounded-md py-2 w-full" id="">
+                                            <select defaultValue={data.educationStartMonth}  {...register("educationStartMonth", { required: true })} className="text-lg font-medium rounded-md py-2 w-full" id="">
 
-                                                <option selected disabled className="text-lg font-medium" value="Jan">Month</option>
+                                                <option disabled className="text-lg font-medium">Month</option>
                                                 <option className="text-lg font-medium" value="Jan">January</option>
                                                 <option className="text-lg font-medium" value="Feb">February</option>
                                                 <option className="text-lg font-medium" value="Mar">March</option>
@@ -85,9 +92,9 @@ const Education = () => {
                                             </select>
                                         </div>
                                         <div>
-                                            <select  {...register("start-year", { required: true })} className="text-lg font-medium rounded-md py-2  w-full" id="">
+                                            <select defaultValue={data.educationStartYear}  {...register("educationStartYear", { required: true })} className="text-lg font-medium rounded-md py-2  w-full" id="">
 
-                                                <option selected disabled className="text-lg font-medium ">Year</option>
+                                                <option disabled className="text-lg font-medium ">Year</option>
                                                 <option className="text-lg font-medium " value="2024">2024</option>
                                                 <option className="text-lg font-medium" value="2023">2023</option>
                                                 <option className="text-lg font-medium" value="2022">2022</option>
@@ -124,9 +131,9 @@ const Education = () => {
 
                                         <div>
 
-                                            <select  {...register("end-month", { required: true })} className="text-lg font-medium rounded-md py-2  w-full" id="">
+                                            <select defaultValue={data.educationEndMonth}  {...register("educationEndMonth", { required: true })} className="text-lg font-medium rounded-md py-2  w-full" id="">
 
-                                                <option selected disabled className="text-lg font-medium" value="Jan">Month</option>
+                                                <option disabled className="text-lg font-medium" >Month</option>
                                                 <option className="text-lg font-medium" value="Jan">January</option>
                                                 <option className="text-lg font-medium" value="Feb">February</option>
                                                 <option className="text-lg font-medium" value="Mar">March</option>
@@ -142,9 +149,9 @@ const Education = () => {
                                             </select>
                                         </div>
                                         <div>
-                                            <select  {...register("end-year", { required: true })} className="text-lg font-medium rounded-md py-2 w-full" id="">
+                                            <select defaultValue={data.educationEndYear}  {...register("educationEndYear", { required: true })} className="text-lg font-medium rounded-md py-2 w-full" id="">
 
-                                                <option selected disabled className="text-lg font-medium ">Year</option>
+                                                <option disabled className="text-lg font-medium ">Year</option>
                                                 <option className="text-lg font-medium " value="2024">2024</option>
                                                 <option className="text-lg font-medium" value="2023">2023</option>
                                                 <option className="text-lg font-medium" value="2022">2022</option>
@@ -173,11 +180,11 @@ const Education = () => {
                                 {errors.category && <span className="mt-2 text-red-600 ">Select A Category</span>}
 
                                 <h3 className='text-slate-600 text-lg font-semibold'>Description</h3>
-                                <textarea  {...register("description", { required: true })} type="text" placeholder='Add Your Description' className='pl-2 rounded-md py-2    w-full text-lg font-medium ' cols="30" rows="2"></textarea>
-                                {errors.description && <span className="mt-2 text-red-600 w-full">description is required </span>}
+                                <textarea defaultValue={data.educationDescription}  {...register("educationDescription", { required: true })} type="text" placeholder='Add Your Description' className='pl-2 rounded-md py-2    w-full text-lg font-medium ' cols="30" rows="2"></textarea>
+                                {errors.educationDescription && <span className="mt-2 text-red-600 w-full">description is required </span>}
                                 <p className="border-[0.5px] border-slate-400 mt-2 mb-1 w-full"></p>
 
-                                <button onSubmit={handleSubmit(onSubmit)} className=" btn px-8  bg-[#FF444A] text-white rounded-md hover:text-black hover:bg-red-300  text-lg font-semibold">Edit</button>
+                                <button onSubmit={handleSubmit(onSubmit)} className=" from-[#FF444A] transition-colors ease-in duration-500 to-blue-500 py-1 px-8  bg-[#FF444A] text-white rounded-[4px]    border-2 border-white  text-lg font-semibold">Edit</button>
                             </form>
                         </div>
                     </div>
