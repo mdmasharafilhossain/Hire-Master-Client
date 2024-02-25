@@ -1,3 +1,4 @@
+// import { useState } from "react";
 import { useState } from "react";
 import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
 import useProfile from "../../Comonents/Hooks/useProfile/useProfile";
@@ -10,7 +11,7 @@ const ProfileImage = () => {
 
     const axiosPublic = UseAxiosPublic();
   const [upload, setUpload] = useState(false)
-  const [profileData] = useProfile()
+  const [profileData, refetch] = useProfile()
   const myProfileData = profileData[0]
 
 
@@ -19,29 +20,31 @@ const ProfileImage = () => {
     handleSubmit,
 } = useForm()
 
-const onSubmit = async (data) => {
-    console.log(data)
+const onSubmit = async data => {
+  console.log(data);
+  const ImageFile = { image: data.image[0] };
+  const res = await axiosPublic.post(Profile_Hosting, ImageFile, {
+    headers: {
+      "content-type": "multipart/form-data",
+    },
+  });
+  console.log(res.data.data.display_url)
+  const photo = res.data.data.display_url
+ 
 
-    const ImageFile = { image: data.image[0] };
-    const res = await axiosPublic.post(Profile_Hosting, ImageFile, {
-      headers: {
-        "content-type": "multipart/form-data",
-      },
-    });
-    
-    console.log(res.data);
-    if (res.data.success) {
-      const UserProfileInfo = {
-        image: res.data.data.display_url,
-        
-      };
-      // console.log(articleInfo);
-      const userRes = await axiosPublic.patch(`/userProfile/${myProfileData._id}`,UserProfileInfo);
-      if(userRes.data.modifiedCount > 0){
-        Swal.fire("Successfully Edited");
-    }
-    }
+  if(res.data.success){
+      const userInfo = {
+          photo:photo,    
+          
+      }
+      const menuRes = await axiosPublic.patch(`/UsersProfile/photo/${myProfileData._id}`, userInfo)
+      console.log(menuRes.data)
+      if(menuRes.data.modifiedCount > 0){
+        refetch()
+          Swal.fire("Pet Updated successfully");
+      }
 
+  }
 }
 
     return (
@@ -50,16 +53,18 @@ const onSubmit = async (data) => {
                 profileData.map(data =><form onSubmit={handleSubmit(onSubmit)} key={data._id}>
                     <div className=' avatar'>
                             <div className='w-48 rounded-md border-2 border-white '>
-                              <img onClick={()=> setUpload(!upload)} src={data.image} />
-                              {
-                                upload && <div className="absolute -bottom-10">
-                                  <p className="bg-[#FF3811] text-lg font-medium text-white p-2 text-center">Choose Profile</p> 
-                                  <input  {...register("image")} className="relative bottom-10 w-full h-10 opacity-0 " type="file" />
-                               
-
-                                 <button className="bg-[#FF3811] text-lg font-medium text-white p-2 text-center w-full relative bottom-8">Upload</button>
-                                  </div> 
-                              }
+                              <img onClick={()=> setUpload(!upload)}  src={data.photo || "https://i.ibb.co/Xzrrddv/Screenshot-123.png"} />
+                              
+                                 {
+                                    upload && <div className="absolute -bottom-10">
+                                    <p className="bg-[#FF3811] text-lg font-medium text-white p-2 text-center">Choose Profile</p> 
+                                    <input  {...register("image")} className="relative bottom-10 w-full h-10 opacity-0 " type="file" />
+                                 
+  
+                                   <button className="bg-[#FF3811] text-lg font-medium text-white p-2 text-center w-full relative bottom-8">Upload</button>
+                                    </div> 
+                                 }
+                              
                             </div>
                           </div>
                     </form>)

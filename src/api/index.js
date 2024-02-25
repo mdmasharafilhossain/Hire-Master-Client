@@ -9,6 +9,9 @@ export const saveHiringTalentInDb = async hirer => {
 export const saveUsersInDb = async users => {
   return await axiosPublic.post("/users", users);
 };
+export const saveHiringManagerInfoDB = async HiringManager => {
+  return await axiosPublic.post("/hiring-talents", HiringManager);
+};
 
 export const getUserInfo = async email => {
   return await axiosPublic.get(`/userProfile/${email}`);
@@ -61,4 +64,26 @@ export const getFairRegisteredUser = async email => {
 
 export const updateFairRegisteredUserInDb = async (id, userInfo) => {
   return await axiosPublic.patch(`/fair-registration/update/${id}`, userInfo);
+};
+
+export const saveFairEventDataInDb = async event => {
+  return await axiosPublic.post(`/job-fair/events`, event);
+};
+
+export const getFairSponsorEventsFromDb = async email => {
+  return await axiosPublic.get(`job-fair/profile/sponsor-event/${email}`);
+};
+export const deleteFairSponsorEventFromDb = async slug => {
+  return await axiosPublic.delete(`/job-fair/profile/sponsor-event/${slug}`);
+};
+
+export const getSingleFairSponsorEventFromDb = async slug => {
+  return await axiosPublic.get(`/job-fair/events/${slug}`);
+};
+
+export const updateFairSponsorEventInDb = async (slug, event) => {
+  return await axiosPublic.patch(
+    `/job-fair/profile/sponsor-event/update/${slug}`,
+    event
+  );
 };

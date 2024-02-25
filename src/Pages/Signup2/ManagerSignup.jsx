@@ -20,9 +20,11 @@ const ManagerSignup = () => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
+    const name = form.name.value;
     const password = form.password.value;
+    const photo = form.photo.value;
     // console.log(email, password, selectedRole);
-    const hirer = { email, password, role: selectedRole };
+    const hirer = { email,name,photo, password, role: selectedRole };
 
     createUser(email, password)
       .then((result) => {
@@ -75,9 +77,24 @@ const ManagerSignup = () => {
                 <option value="hiring-manager">Hiring Manager</option>
               </select>
 
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text text-base font-medium">
+
+              <div className='form-control'>
+                <label className='label'>
+                  <span className='label-text text-base font-medium'>
+                    Name{" "}
+                  </span>
+                </label>
+                <input
+                  type='name'
+                  name='name'
+                  placeholder='Your Name'
+                  className='input input-bordered'
+                  required
+                />
+              </div>
+              <div className='form-control'>
+                <label className='label'>
+                  <span className='label-text text-base font-medium'>
                     Business Email{" "}
                   </span>
                 </label>
@@ -111,6 +128,20 @@ const ManagerSignup = () => {
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </span>
                 </div>
+              </div>
+              <div className='form-control'>
+                <label className='label'>
+                  <span className='label-text text-base font-medium'>
+                    Photo
+                  </span>
+                </label>
+                <input
+                  type='photo'
+                  name='photo'
+                  placeholder='Your Photo Link'
+                  className='input input-bordered'
+                  required
+                />
               </div>
 
               {/* <Link to='/login'> */}

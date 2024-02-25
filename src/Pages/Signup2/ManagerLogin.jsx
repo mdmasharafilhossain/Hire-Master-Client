@@ -5,10 +5,13 @@ import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 import swal from "sweetalert";
 import Navbar2 from "../../Comonents/Navbar/Navbar2";
+
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { sendPasswordResetEmail } from "firebase/auth";
 import auth from "../../Comonents/Firebase/firebase.config";
 import toast from "react-hot-toast";
+import { saveHiringManagerInfoDB } from "../../api";
+
 
 const ManagerLogin = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
@@ -17,11 +20,22 @@ const ManagerLogin = () => {
   const location = useLocation();
   const navigate = useNavigate();
   // const from = location.state?.from?.pathname || "/";
-
+  const saveHiringManagerInfo = async user => {
+    const response = await saveHiringManagerInfoDB(user);
+    console.log(response.data);
+  };
   // google sign in
   const handleGoogleSignIn = () => {
     googleSignIn().then((result) => {
       console.log(result);
+      if (result) {
+        const user = {
+          name: result.user.displayName,
+          email: result.user.email,
+          photo: result?.user?.photoURL
+        };
+        saveHiringManagerInfo(user);
+      }
       // navigate(from, { replace: true });
       navigate(location?.state ? location.state : "/managerProfile");
     });

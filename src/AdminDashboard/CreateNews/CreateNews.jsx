@@ -6,7 +6,7 @@ import useAuth from "../../Comonents/Hooks/Auth/useAuth";
 const CreateNews = () => {
   const onSubmit = async (data, reset) => {
     try {
-      const res = await saveNewsInDb(data);
+      const res = await (data);
       if (res.status === 200) {
         toast.success("News created successfully.");
       }
