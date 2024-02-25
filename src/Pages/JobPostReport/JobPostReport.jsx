@@ -13,7 +13,7 @@ const JobPostReport = () => {
     const {id}=useParams()
     const { user } = useContext(AuthContext);
    console.log(user)
-  const AxiosPublic = UseAxiosPublic();
+  const axiosPublic = UseAxiosPublic();
   const { register, handleSubmit, reset } = useForm();
   
     const { data: job, loading, refetch } = useFetchData(
@@ -45,6 +45,19 @@ const JobPostReport = () => {
      
     };
     console.log(formData);
+    const dataForm = await axiosPublic.post("/userreport", formData);
+    if (dataForm.data.insertedId) {
+              reset();
+              Swal.fire({
+                position: "top",
+                icon: "success",
+                title: "Thank you for sharing the report with us",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }
+
+
 
   };
 
