@@ -50,7 +50,7 @@ const ManagerProfile = () => {
         <div className="md:flex ">
           <div className="flex md:flex-col ml-2 mt-10 mb-2  gap-2">
             <Link to="/">
-              <div className="p-2 hover:bg-slate-200 rounded-xl ">
+              <div className="p-2 hover:bg-slate-200 hover:text-black rounded-xl ">
                 <p className=" text-2xl ml-1 ">
                   <IoHome></IoHome>
                 </p>
@@ -58,7 +58,7 @@ const ManagerProfile = () => {
               </div>
             </Link>
             <Link to="/jobs">
-              <div className="p-2 hover:bg-slate-200 rounded-xl ">
+              <div className="p-2 hover:bg-slate-200 hover:text-black rounded-xl ">
                 <p className=" text-2xl ">
                   <FaBriefcase></FaBriefcase>
                 </p>
@@ -66,7 +66,7 @@ const ManagerProfile = () => {
               </div>
             </Link>
             <Link to="/myPostedJobs">
-              <div className="p-2 hover:bg-slate-200 rounded-xl ">
+              <div className="p-2 hover:bg-slate-200 hover:text-black rounded-xl ">
                 <p className=" text-2xl ">
                   <GiNetworkBars />
                 </p>
@@ -74,7 +74,7 @@ const ManagerProfile = () => {
               </div>
             </Link>
             <Link to="/jobpost">
-              <div className="p-2 hover:bg-slate-200 rounded-xl ">
+              <div className="p-2 hover:bg-slate-200 hover:text-black rounded-xl ">
                 <p className=" text-2xl ">
                   <MdPostAdd></MdPostAdd>
                 </p>
@@ -84,7 +84,7 @@ const ManagerProfile = () => {
             <Link>
               <button
                 onClick={handleLogOut}
-                className="p-2 hover:bg-slate-200 rounded-xl "
+                className="p-2 hover:bg-slate-200 hover:text-black rounded-xl "
               >
                 <FaSignOutAlt></FaSignOutAlt>
                 LogOut
