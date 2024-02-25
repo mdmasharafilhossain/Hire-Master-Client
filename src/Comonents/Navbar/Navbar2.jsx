@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
@@ -60,15 +60,30 @@ const Navbar2 = () => {
   const api = `/notifications/${email}`;
   const key = "applications";
 
-  const [notifications, temp, display, setNotifications, setTemp, setDisplay, applicationRefetch] = useNotifications(
-    api,
-    key
+  const [
+    notifications,
+    temp,
+    display,
+    localTemp,
+    localDisplay,
+    setTemp,
+    setDisplay,
+  ] = useNotifications(api, key);
+  const [showNotifications, setShowNotifications] = useState(
+    notifications.slice(-localDisplay)
   );
 
+  useEffect(() => {
+    setShowNotifications(notifications.slice(-localDisplay));
+  }, [notifications, localDisplay]);
+  console.log(showNotifications);
   const handleRead = async () => {
     try {
-      setTemp(notifications);
-      setDisplay([]);
+      setDisplay(0);
+      localStorage.setItem("display", display);
+      setShowNotifications([]);
+      setTemp(notifications.length);
+      localStorage.setItem("temp", temp);
       // applicationRefetch();
       setOpen(false);
     } catch (error) {
@@ -79,6 +94,8 @@ const Navbar2 = () => {
   console.log(notifications);
   console.log(temp);
   console.log(display);
+  console.log(localTemp);
+  console.log(localDisplay);
 
   return (
     <div className="navbar shadow-lg sticky top-0 z-50 shadow-base-200  bg-base-100 mb-5">
@@ -152,9 +169,9 @@ const Navbar2 = () => {
             <div className="flex items-center cursor-pointer">
               <div className="relative mr-3" onClick={() => setOpen(!open)}>
                 <FaRegBell className="w-7 h-7 " />
-                {display.length > 0 && (
+                {localDisplay > 0 && (
                   <div className="bg-[#FF3811] font-semibold w-4 h-4 rounded-full flex items-center justify-center text-xs absolute top-0 right-0">
-                    {display.length}
+                    {localDisplay}
                   </div>
                 )}
               </div>
@@ -162,7 +179,7 @@ const Navbar2 = () => {
             {/* Dropdown box of bell icon */}
             {open && (
               <div className="absolute top-16 right-5 bg-white outline text-black font-light flex flex-col p-2 rounded-lg">
-                {display.map((notification, index) => (
+                {showNotifications.map((notification, index) => (
                   <div key={index}>
                     {notification.email} has applied to your job
                   </div>

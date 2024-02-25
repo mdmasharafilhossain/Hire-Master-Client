@@ -42,6 +42,7 @@ import JobFairProfile from "../../Pages/JobFair/JobFairProfile";
 import FairProfileSettings from "../JobFair/FairProfileSettings";
 
 const router = createBrowserRouter([
+  
   {
     path: "/",
     element: <MainLayOut />,

@@ -78,8 +78,8 @@ const SingleJobList = ({ job }) => {
   };
 
   return (
-    <div className="px-10 py-2 md:py-5 mb-3 flex flex-col md:flex-row justify-between gap-y-1 md:gap-y-0 md:gap-2 border text-center md:text-left hover:shadow-md hover:rounded-3xl hover:bg-orange-200">
-      <Toaster position="top-right" reverseOrder={false} />;
+    <div className="px-10 py-2 md:py-5 mb-3 flex flex-col md:flex-row justify-between gap-y-1 md:gap-y-0 md:gap-2 border text-center md:text-left hover:shadow-xl">
+      <Toaster position="top-right" reverseOrder={false} />
       {/* ----------Company logo------------ */}
       <figure className=" md:flex items-center justify-center ">
         <img

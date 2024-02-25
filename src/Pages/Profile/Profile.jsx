@@ -64,8 +64,8 @@ const Profile = () => {
             </div>
             {/* Profile section */}
 
-            <div className='bg-white w-full rounded-md border-[0.5px] border-slate-300 p-6 '>
-              <div className='  bg-white p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50 hover:drop-shadow-lg'>
+            <div className=' w-full rounded-md border-[0.5px] border-slate-300 p-6 '>
+              <div className='   p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50 hover:text-black hover:drop-shadow-lg'>
                 <Link to='/profileHead'>
                   <h3 className='flex justify-end text-xl mb-2'>
                     <FaPenToSquare></FaPenToSquare>
@@ -78,19 +78,19 @@ const Profile = () => {
                   <div className=''>
                     <div className='flex justify-between items-center'>
                       <h2 className='text-xl font-bold'>{data.name}</h2>
-                      <h3 className='text-slate-600 font-semibold'>
+                      <h3 className='font-semibold'>
                         {data.UniversityName}
                       </h3>
                     </div>
                     <div className='md:flex justify-between mb-2'>
-                      <h3 className='text-slate-600 font-semibold'>
+                      <h3 className='font-semibold'>
                         {data.role}
                       </h3>
-                      <h3 className='text-slate-600 font-semibold'>
+                      <h3 className='font-semibold'>
                         {data.location}
                       </h3>
                     </div>
-                    <h3 className='w-full text-slate-600 text-lg font-normal'>
+                    <h3 className='w-full text-lg font-normal'>
                       {data.bio}
                     </h3>
                     <div className='flex gap-4 mt-4'>
@@ -114,7 +114,7 @@ const Profile = () => {
                 </div>
               </div>
               {/* Education section */}
-              <div className='mt-4  border-[0.5px] border-slate-300  hover:bg-blue-50  hover:drop-shadow-lg  bg-white p-8 rounded-lg'>
+              <div className='mt-4  border-[0.5px] border-slate-300  hover:bg-blue-50 hover:text-black  hover:drop-shadow-lg   p-8 rounded-lg'>
                 <div className='flex justify-end gap-4'>
                   <p className='text-2xl mb-2'>
                     <RiAddBoxFill></RiAddBoxFill>
@@ -132,25 +132,25 @@ const Profile = () => {
                   </p>
                 </div>
                 <div className='ml-4'>
-                  <h3 className='text-slate-600 font-semibold'>
+                  <h3 className='font-semibold'>
                     {data.UniversityName}
                   </h3>
-                  <h3 className='text-slate-600 font-semibold'>
+                  <h3 className='font-semibold'>
                     {data.Degree}
                   </h3>
-                  <h3 className='text-slate-600 font-semibold'>
+                  <h3 className='font-semibold'>
                     Science
                   </h3>
-                  <h3 className='text-slate-600 font-semibold'>
+                  <h3 className='font-semibold'>
                     {data.GraduationDate}
                   </h3>
-                  <h3 className='text-slate-600 font-semibold'>
+                  <h3 className='font-semibold'>
                     I have passed hsc from national college
                   </h3>
                 </div>
               </div>
               {/*Project section */}
-              <div className='mt-4 container  border-[0.5px] border-slate-300 hover:bg-blue-50  hover:drop-shadow-lg  bg-white p-8 rounded-lg'>
+              <div className='mt-4 container  border-[0.5px] border-slate-300 hover:bg-blue-50 hover:text-black  hover:drop-shadow-lg   p-8 rounded-lg'>
                 <div className='flex justify-end gap-4'>
                   <p className='text-2xl mb-2'>
                     <RiAddBoxFill></RiAddBoxFill>
@@ -168,17 +168,17 @@ const Profile = () => {
                   </p>
                 </div>
                 <div className='ml-4'>
-                  <h3 className='text-slate-600 font-semibold'>
+                  <h3 className='font-semibold'>
                     {data.ProjectName}
                   </h3>
-                  <h3 className='text-slate-600 font-semibold mb-2'>
+                  <h3 className='font-semibold mb-2'>
                     {data.StartDate} | {data.EndDate}
                   </h3>
-                  <h3 className='text-slate-600 font-semibold mb-2'>
+                  <h3 className='font-semibold mb-2'>
                     {data.ProjectDescription}
                   </h3>
-                  <h3 className='text-slate-600 font-semibold mb-2'>
-                    <span className='text-xl font-semibold text-black'>
+                  <h3 className='font-semibold mb-2'>
+                    <span className='text-xl font-semibold'>
                       Technologies
                     </span>
                     : HTML, Css, Javascript, React, Node js, Express js, Mongodb
@@ -190,7 +190,7 @@ const Profile = () => {
               </div>
               {/*Skills section  */}
 
-              <div className='mt-4  border-[0.5px] border-slate-300 hover:bg-blue-50 hover:drop-shadow-lg  bg-white p-8 rounded-lg'>
+              <div className='mt-4  border-[0.5px] border-slate-300 hover:bg-blue-50 hover:text-black hover:drop-shadow-lg   p-8 rounded-lg'>
                 <div className='flex justify-end gap-4'>
                   <p className='text-2xl mb-2'>
                     <RiAddBoxFill></RiAddBoxFill>
@@ -209,29 +209,29 @@ const Profile = () => {
                 </div>
 
                 <div className='ml-4 grid grid-cols-1 md:grid-cols-3 gap-4 mt-2'>
-                  <h3 className='text-slate-600 font-semibold p-2 rounded-lg border-[0.5px] border-slate-500'>
+                  <h3 className='font-semibold p-2 rounded-lg border-[0.5px] border-slate-500'>
                     Tailwind
                   </h3>
-                  <h3 className='text-slate-600 font-semibold p-2 rounded-lg border-[0.5px] border-slate-500'>
+                  <h3 className='font-semibold p-2 rounded-lg border-[0.5px] border-slate-500'>
                     Javascript
                   </h3>
-                  <h3 className='text-slate-600 font-semibold p-2 rounded-lg border-[0.5px] border-slate-500'>
+                  <h3 className='font-semibold p-2 rounded-lg border-[0.5px] border-slate-500'>
                     React
                   </h3>
-                  <h3 className='text-slate-600 font-semibold p-2 rounded-lg border-[0.5px] border-slate-500'>
+                  <h3 className='font-semibold p-2 rounded-lg border-[0.5px] border-slate-500'>
                     Mongodb
                   </h3>
-                  <h3 className='text-slate-600 font-semibold p-2 rounded-lg border-[0.5px] border-slate-500'>
+                  <h3 className='font-semibold p-2 rounded-lg border-[0.5px] border-slate-500'>
                     Node Js
                   </h3>
-                  <h3 className='text-slate-600 font-semibold p-2 rounded-lg border-[0.5px] border-slate-500'>
+                  <h3 className='font-semibold p-2 rounded-lg border-[0.5px] border-slate-500'>
                     Express Js
                   </h3>
                 </div>
               </div>
 
               {/*work experience section  */}
-              <div className='mt-4  border-[0.5px] border-slate-300 hover:bg-blue-50 bg-white p-8 rounded-lg hover:drop-shadow-lg'>
+              <div className='mt-4  border-[0.5px] border-slate-300 hover:bg-blue-50 hover:text-black  p-8 rounded-lg hover:drop-shadow-lg'>
                 <div className='flex justify-end gap-4'>
                   <p className='text-2xl mb-2'>
                     <RiAddBoxFill></RiAddBoxFill>
@@ -249,22 +249,22 @@ const Profile = () => {
                   </p>
                 </div>
                 <div className='ml-4 mb-10'>
-                  <h3 className='text-slate-600 font-semibold'>
+                  <h3 className='font-semibold'>
                     {data.JobTitle}
                   </h3>
-                  <h3 className='text-slate-600 font-semibold'>
+                  <h3 className='font-semibold'>
                     {data.JobType}
                   </h3>
-                  <h3 className='text-slate-600 font-semibold'>
+                  <h3 className='font-semibold'>
                     {data.CompanyName}
                   </h3>
-                  <h3 className='text-slate-600 font-semibold'>
+                  <h3 className='font-semibold'>
                     {data.Location}
                   </h3>
-                  <h3 className='text-slate-600 font-semibold'>
+                  <h3 className='font-semibold'>
                     {data.WorkingStartDate} | {data.WorkingEndDate}
                   </h3>
-                  <h3 className='text-slate-600 font-semibold'>
+                  <h3 className='font-semibold'>
                     That was a it company and i work their for 2 years.
                   </h3>
                 </div>

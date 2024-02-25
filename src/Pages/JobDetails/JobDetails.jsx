@@ -213,7 +213,7 @@ const JobDetails = () => {
                   <img src={hiring_manager_photo} />
                 </div>
               </div>
-              <div className="text-center">
+              <div className="text-center text-black">
                 <p className="font-semibold"> {hiring_manager_name}</p>
                 <p className="font-semibold"> {hiring_manager_email}</p>
               </div>

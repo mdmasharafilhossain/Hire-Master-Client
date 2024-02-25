@@ -3,8 +3,12 @@ import useFetchData from "../UseFetchData/useFetchData";
 
 const useNotifications = (api, key) => {
   const [notifications, setNotifications] = useState([]);
-  const [temp, setTemp] = useState([]);
-  const [display, setDisplay] = useState([]);
+  const [temp, setTemp] = useState(0);
+  const [display, setDisplay] = useState(0);
+  localStorage.setItem("temp", temp);
+  localStorage.setItem("display", display);
+  const localTemp = localStorage.getItem("temp");
+  const localDisplay = localStorage.getItem("display");
   const {
     data: applications,
     loading: applicationLoading,
@@ -13,15 +17,30 @@ const useNotifications = (api, key) => {
 
   useEffect(() => {
     if (!applicationLoading && applications.length > 0) {
-      // applicationRefetch();
       setNotifications(applications);
-      setDisplay(applications.filter((item) => !temp.includes(item)));
+      setDisplay(notifications.length - temp);
+      localStorage.setItem("display", display);
     }
-  }, [applications, applicationLoading, temp, applicationRefetch]);
+  }, [
+    applications,
+    notifications.length,
+    display,
+    applicationLoading,
+    temp,
+    applicationRefetch,
+  ]);
 
-  return [notifications, temp, display, setNotifications, setTemp, setDisplay, applicationRefetch];
-
-  
+  return [
+    notifications,
+    temp,
+    display,
+    localTemp,
+    localDisplay,
+    setNotifications,
+    setTemp,
+    setDisplay,
+    applicationRefetch,
+  ];
 };
 
 export default useNotifications;
