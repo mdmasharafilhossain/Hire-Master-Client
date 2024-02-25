@@ -87,3 +87,11 @@ export const updateFairSponsorEventInDb = async (slug, event) => {
     event
   );
 };
+
+export const getFairEventsFromDb = async () => {
+  return await axiosPublic.get(`/job-fair/events`);
+};
+
+export const saveEventBookingsInDb = async (slug, email) => {
+  return await axiosPublic.post(`/job-fair/event-bookings`, { slug, email });
+};
