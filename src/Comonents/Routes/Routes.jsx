@@ -50,6 +50,10 @@ import FairSponsorCreateEvent from "../JobFairSponsor/FairSponsorCreateEvent";
 import FairSponsorUpdateEvent from "../JobFairSponsor/FairSponsorUpdateEvent";
 import HiringManagerList from "../../AdminDashboard/HiringManagerList/HiringManagerList";
 import PremiumUser from "../../AdminDashboard/PremiumUser/PremiumUser";
+import Stripe from "../MakePatment/Stripe";
+import SSL from "../MakePatment/SSL";
+import PaymentSuccess from "../MakePatment/PaymentSuccess";
+import PaymentFail from "../MakePatment/PaymentFail";
 
 const router = createBrowserRouter([
   
@@ -122,6 +126,26 @@ const router = createBrowserRouter([
             <JobFair />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/MakePaymentRoute",
+        element: <MakePayment></MakePayment>,
+      },
+      {
+        path: "/stripeGateway",
+        element: <Stripe></Stripe>,
+      },
+      {
+        path: "/payment-success/:tranId",
+        element: <PaymentSuccess/>,
+      },
+      {
+        path: "/payment-fail/:tranId",
+        element: <PaymentFail/>,
+      },
+      {
+        path: "/sslGateway",
+        element: <SSL/>,
       },
     ],
   },
@@ -196,10 +220,6 @@ const router = createBrowserRouter([
   {
     path: "profile",
     element: <Profile></Profile>,
-  },
-  {
-    path: "/MakePaymentRoute",
-    element: <MakePayment></MakePayment>,
   },
   {
     path: "/managerProfile",
