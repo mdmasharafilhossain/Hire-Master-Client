@@ -15,7 +15,7 @@ console.log(course?.photoUrl)
         <div>
 <div>
 <div className="hero h-96" style={{backgroundImage: `url(${course?.photoUrl})`}}>
-  <div className="hero-overlay bg-opacity-50"></div>
+  <div className="hero-overlay bg-opacity-90"></div>
   <div className=" text-center text-neutral-content">
     <div >
       <h1 className="mb-5 text-5xl font-bold">{course?.courseName}</h1>
@@ -46,7 +46,7 @@ console.log(course?.photoUrl)
         </div>
         </div>
     </div>
-<div className="  pr-20">
+<div className="sticky top-20  pr-10">
     <div className="w-full  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
       <CourseVideo></CourseVideo>
@@ -54,9 +54,9 @@ console.log(course?.photoUrl)
       <div className="px-5 pb-5">
         <a href="#">
           <h4 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{course?.courseName}</h4>
-          <h6 className="text-base mt-2 font-semibold tracking-tight text-gray-900 dark:text-white">By {course?.instructor}</h6>
-          <h6 className="text-base mt-2 font-semibold tracking-tight text-gray-900 dark:text-white">By {course?.level}</h6>
-          <h6 className="text-base mt-2 font-semibold tracking-tight text-gray-900 dark:text-white">By {course?.duration}</h6>
+          <h6 className="text-base mt-2 font-semibold tracking-tight text-gray-900 dark:text-white">Instructor: {course?.instructor}</h6>
+          <h6 className="text-base mt-2 font-semibold tracking-tight text-gray-900 dark:text-white">Level: {course?.level}</h6>
+          <h6 className="text-base mt-2 font-semibold tracking-tight text-gray-900 dark:text-white">Duration: {course?.duration}</h6>
         </a>
        
       </div>

@@ -11,7 +11,7 @@ console.log(courses)
         <div>
 <div className="grid grid-cols-3 gap-5 ">
             {
-                courses.slice(1).map(course=><AllCourse key={course.id} course={course}></AllCourse>)
+                courses.slice(1).map(course=><AllCourse key={course.courseId} course={course}></AllCourse>)
             }
          
         </div>

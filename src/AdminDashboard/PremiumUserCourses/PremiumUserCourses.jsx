@@ -29,6 +29,19 @@ const PremiumUserCourses = () => {
      dailyBreakdown: selectedRoutine,
       };
       console.log(formData);
+      const dataForm = await axiosPublic.post("/premiumusercourse", formData);
+      
+      if (dataForm.data.insertedId) {
+        // show success popup
+        reset();
+        Swal.fire({
+          position: "top",
+          icon: "success",
+          title: "Course Added",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
     };
   
     return (

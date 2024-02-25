@@ -3,8 +3,8 @@ import YouTube from "react-youtube";
 
 const CourseVideo = () => {
     const opts = {
-        height: '200',
-        width: '400',
+        height: '400',
+        width: '500',
         playerVars: {
           autoplay: 1,
         },
