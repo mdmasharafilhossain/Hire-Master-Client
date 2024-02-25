@@ -18,18 +18,13 @@ const AllJobReport = () => {
     })
 
 console.log(reports)
-// job_title: data.name,
-//       company_name: data.companyname,
-//       hiring_manager_email: data.manageremail,
-//       user_email: data.useremail,
-//       user_name:data.username,
-//       user_comments:data.comments
+
 
     return (
         <div>
            <div>
             <div className="flex justify-evenly my-6 mb-10">
-                <h2 className="text-4xl font-bold">All <span className='text-[#FF3811]'>Job Seeker List</span></h2>
+                <h2 className="text-4xl font-bold">All <span className='text-[#FF3811]'>Job Report</span></h2>
                
             </div>
             <div className="overflow-x-auto ml-10">

@@ -1,6 +1,7 @@
 import {  useParams } from "react-router-dom";
 import useCourses from "../Hooks/Courses/UseCourses";
 import CourseVideo from "./CourseVideo";
+import Navbar2 from "../Navbar/Navbar2";
 
 const SingleCourse = () => {
 
@@ -13,6 +14,7 @@ console.log(course)
 console.log(course?.photoUrl)
     return (
         <div>
+          <Navbar2></Navbar2>
 <div>
 <div className="hero h-96" style={{backgroundImage: `url(${course?.photoUrl})`}}>
   <div className="hero-overlay bg-opacity-90"></div>

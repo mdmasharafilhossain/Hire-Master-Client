@@ -6,6 +6,7 @@ import { useContext } from "react";
 import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import Navbar2 from "../../Comonents/Navbar/Navbar2";
 
 
 const JobPostReport = () => {
@@ -63,6 +64,7 @@ const JobPostReport = () => {
 
     return (
         <div>
+          <Navbar2></Navbar2>
             <form className="p-10" onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control w-full my-6">
           <label className="label">
@@ -75,7 +77,8 @@ const JobPostReport = () => {
             placeholder="Job Title"
             {...register("name", { required: true })}
             required
-            className="input input-bordered w-full"
+            className="block py-2.5 px-0 w-full text-lg text-black   border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            // className="input input-bordered w-full"
             defaultValue={ job_title}
             readOnly
           />
@@ -92,7 +95,7 @@ const JobPostReport = () => {
               placeholder="Company Name"
               {...register("companyname", { required: true })}
               required
-              className="input input-bordered w-full"
+              className="block py-2.5 px-0 w-full text-lg text-black   border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               defaultValue={company_name}
               readOnly
             />
@@ -108,7 +111,7 @@ const JobPostReport = () => {
               type="text"
               placeholder="Hiring Manager Email"
               {...register("manageremail", { required: true })}
-              className="input input-bordered w-full"
+              className="block py-2.5 px-0 w-full text-lg text-black   border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               defaultValue={hiring_manager_email}
               readOnly
             />
@@ -126,7 +129,7 @@ const JobPostReport = () => {
               placeholder="User Name"
               {...register("username", { required: true })}
               required
-              className="input input-bordered w-full"
+              className="block py-2.5 px-0 w-full text-lg text-black   border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               
             />
           </div>
@@ -141,7 +144,7 @@ const JobPostReport = () => {
               type="text"
               placeholder="User Email"
               {...register("useremail", { required: true })}
-              className="input input-bordered w-full"
+              className="block py-2.5 px-0 w-full text-lg text-black   border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               defaultValue={user?.email}
               readOnly
             />
@@ -158,7 +161,7 @@ const JobPostReport = () => {
             placeholder="Your Comments"
             {...register("comments", { required: true })}
             required
-            className="input input-bordered w-full"
+            className="block py-2.5 px-0 w-full text-lg text-black   border-0 border-b-2 border-gray-300 appearance-none dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
           />
         </div>
         <button

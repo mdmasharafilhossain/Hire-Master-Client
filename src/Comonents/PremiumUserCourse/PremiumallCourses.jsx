@@ -1,11 +1,13 @@
 import useCourses from "../Hooks/Courses/UseCourses";
+import Navbar2 from "../Navbar/Navbar2";
 import CourseCard from "./CourseCard";
 
 const PremiumallCourses = () => {
     const [courses,loading]=useCourses([])
     return (
         <div>
-            <div className='mx-auto my-16 md:my-28 max-w-7xl '>
+            <Navbar2></Navbar2>
+            <div className='mx-auto my-6  max-w-7xl '>
         <div className='text-center space-y-1'>
           <p className='font-bold tracking-tighter text-[#FF3811]'>
           Explore, Educate, Evolve

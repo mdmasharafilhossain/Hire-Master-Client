@@ -19,6 +19,7 @@ import ProfileImage from "./ProfileImage";
 import useProfile from "../../Comonents/Hooks/useProfile/useProfile";
 import Navbar from "../../Comonents/Navbar/Navbar";
 import PremiumUserCourse from "../../Comonents/PremiumUserCourse/PremiumUserCourse";
+import Navbar2 from "../../Comonents/Navbar/Navbar2";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
@@ -41,7 +42,7 @@ console.log( premiumUser)
     <div >
       {
         myData ? <div   className='max-w-6xl mx-4 mb-4 md:mx-auto '>
-          <Navbar></Navbar>
+         <Navbar2></Navbar2>
         {/* <ProfileNav profile={"profile"} setProfile={"profileForm"}></ProfileNav> */}
         <div className='md:flex mt-5'>
           <div className='flex md:flex-col ml-2 mt-10 mb-2  gap-2'>
