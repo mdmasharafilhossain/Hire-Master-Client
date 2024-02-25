@@ -19,6 +19,9 @@ export const getUserInfo = async email => {
 export const getManagerInfo = async email => {
   return await axiosPublic.get(`/managerProfile/${email}`);
 };
+export const getNotifications = async email => {
+  return await axiosPublic.get(`/notifications/${email}`);
+};
 
 export const saveSubscriberInDb = async subscriber => {
   return await axiosPublic.post("/subscribers", subscriber);

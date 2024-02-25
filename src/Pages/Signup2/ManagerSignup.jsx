@@ -5,6 +5,7 @@ import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 import swal from "sweetalert";
 import { saveHiringTalentInDb } from "../../api";
 import Navbar2 from "../../Comonents/Navbar/Navbar2";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const ManagerSignup = () => {
   const { createUser } = useContext(AuthContext);
@@ -12,9 +13,10 @@ const ManagerSignup = () => {
   const navigate = useNavigate();
 
   const [selectedRole, setSelectedRole] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   // email sign up
-  const handleSignUp = e => {
+  const handleSignUp = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
@@ -25,7 +27,7 @@ const ManagerSignup = () => {
     const hirer = { email,name,photo, password, role: selectedRole };
 
     createUser(email, password)
-      .then(result => {
+      .then((result) => {
         if (result) {
           const databaseHiringTalent = async () => {
             try {
@@ -41,7 +43,7 @@ const ManagerSignup = () => {
         navigate(location?.state ? location.state : "/managerForm");
         return swal("Success!", "Registration Successful", "success");
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
         return swal("Error!", `${error.message}`, "error");
       });
@@ -49,31 +51,32 @@ const ManagerSignup = () => {
   };
 
   return (
-    <div className='mt-20 md:mt-32'>
+    <div className="mt-20 md:mt-32">
       <Navbar2 />
-      <div className='container mx-auto md:flex items-center justify-center'>
-        <div className='flex items-center justify-center'>
+      <div className="container mx-auto md:flex items-center justify-center">
+        <div className="flex items-center justify-center">
           <img
-            className='w-52 lg:w-[400px] md:w-[250px] md:h-[400px] md:mt-16 lg:h-[350px] '
+            className="w-52 lg:w-[400px] md:w-[250px] md:h-[400px] md:mt-16 lg:h-[350px] "
             src={svg}
-            alt=''
+            alt=""
           />
         </div>
-        <div className='border lg:w-[500px] md:w-[420px] rounded-lg p-12 h-[600px]'>
-          <h2 className='text-2xl lg:text-4xl text-center mb-5 text-[#444444] font-bold'>
+        <div className="border lg:w-[500px] md:w-[420px] rounded-lg p-12 h-[600px]">
+          <h2 className="text-2xl lg:text-4xl text-center mb-5 text-[#444444] font-bold">
             Set up your account to start hiring
           </h2>
           <div>
             <form onSubmit={handleSignUp}>
               <select
                 value={selectedRole}
-                onChange={e => setSelectedRole(e.target.value)}
+                onChange={(e) => setSelectedRole(e.target.value)}
                 required
-                className='outline-none border border-[#FF3811] px-2 py-1 font-medium'
+                className="outline-none border border-[#FF3811] px-2 py-1 font-medium text-black"
               >
-                <option value=''>Select Role</option>
-                <option value='hiring-manager'>Hiring Manager</option>
+                <option value="">Select Role</option>
+                <option value="hiring-manager">Hiring Manager</option>
               </select>
+
 
               <div className='form-control'>
                 <label className='label'>
@@ -96,27 +99,35 @@ const ManagerSignup = () => {
                   </span>
                 </label>
                 <input
-                  type='email'
-                  name='email'
-                  placeholder='email'
-                  className='input input-bordered'
+                  type="email"
+                  name="email"
+                  placeholder="email"
+                  className="input input-bordered"
                   required
                 />
               </div>
 
-              <div className='form-control'>
-                <label className='label'>
-                  <span className='label-text text-base font-medium'>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text text-base font-medium">
                     Confirm Password
                   </span>
                 </label>
-                <input
-                  type='password'
-                  name='password'
-                  placeholder='password'
-                  className='input input-bordered'
-                  required
-                />
+                <div className="relative">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    placeholder="password"
+                    className="input input-bordered w-full pr-10" // Added pr-10 for padding on the right
+                    required
+                  />
+                  <span
+                    className="absolute inset-y-0 right-3 flex items-center cursor-pointer" // Adjusted position to the right
+                    onClick={() => setShowPassword(!showPassword)} // Toggles the show/hide of password
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </span>
+                </div>
               </div>
               <div className='form-control'>
                 <label className='label'>
@@ -134,15 +145,15 @@ const ManagerSignup = () => {
               </div>
 
               {/* <Link to='/login'> */}
-              <div className='form-control mt-6'>
-                <button className='btn bg-[#FF3811] text-white'>signup</button>
+              <div className="form-control mt-6">
+                <button className="btn bg-[#FF3811] text-white">signup</button>
               </div>
 
-              <label className='label'>
-                <Link to='/managerlogin'>
+              <label className="label">
+                <Link to="/managerlogin">
                   <a
-                    href='#'
-                    className='label-text-alt link link-hover text-base ml-14 lg:ml-28 md:ml-[100px] text-center'
+                    href="#"
+                    className="label-text-alt link link-hover text-base ml-14 lg:ml-28 md:ml-[100px] text-center"
                   >
                     Have an Account? Login
                   </a>

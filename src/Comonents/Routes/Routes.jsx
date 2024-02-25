@@ -52,6 +52,7 @@ import HiringManagerList from "../../AdminDashboard/HiringManagerList/HiringMana
 import PremiumUser from "../../AdminDashboard/PremiumUser/PremiumUser";
 
 const router = createBrowserRouter([
+  
   {
     path: "/",
     element: <MainLayOut />,
