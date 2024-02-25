@@ -52,8 +52,8 @@ const FairProfileSidebar = () => {
             className={({ isActive }) =>
               `${
                 isActive
-                  ? "text-red-400 px-3 py-1 flex items-center  text-xl  md:text-2xl xl:text-3xl"
-                  : " text-xl  md:text-2xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
+                  ? "text-red-400 px-3 py-1 flex items-center  text-xl xl:text-3xl"
+                  : "    text-xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
               }`
             }
           >
@@ -65,8 +65,8 @@ const FairProfileSidebar = () => {
             className={({ isActive }) =>
               `${
                 isActive
-                  ? "text-red-400 px-3 py-1 flex items-center  text-xl  md:text-2xl xl:text-3xl"
-                  : "    text-xl  md:text-2xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
+                  ? "text-red-400 px-3 py-1 flex items-center  text-xl xl:text-3xl"
+                  : "    text-xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
               }`
             }
           >
@@ -78,8 +78,8 @@ const FairProfileSidebar = () => {
             className={({ isActive }) =>
               `${
                 isActive
-                  ? "text-red-400 px-3 py-1 flex items-center  text-xl  md:text-2xl xl:text-3xl"
-                  : "    text-xl  md:text-2xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
+                  ? "text-red-400 px-3 py-1 flex items-center  text-xl xl:text-3xl"
+                  : "    text-xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
               }`
             }
           >
@@ -96,8 +96,8 @@ const FairProfileSidebar = () => {
             className={({ isActive }) =>
               `${
                 isActive
-                  ? "text-red-400 px-3 py-1 flex items-center  text-xl  md:text-2xl xl:text-3xl"
-                  : "    text-xl  md:text-2xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
+                  ? "text-red-400 px-3 py-1 flex items-center  text-xl xl:text-3xl"
+                  : "    text-xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
               }`
             }
           >
@@ -109,8 +109,8 @@ const FairProfileSidebar = () => {
             className={({ isActive }) =>
               `${
                 isActive
-                  ? "text-red-400 px-3 py-1 flex items-center  text-xl  md:text-2xl xl:text-3xl"
-                  : "    text-xl  md:text-2xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
+                  ? "text-red-400 px-3 py-1 flex items-center  text-xl xl:text-3xl"
+                  : "    text-xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
               }`
             }
           >
@@ -122,8 +122,8 @@ const FairProfileSidebar = () => {
             className={({ isActive }) =>
               `${
                 isActive
-                  ? "text-red-400 px-3 py-1 flex items-center  text-xl  md:text-2xl xl:text-3xl"
-                  : "    text-xl  md:text-2xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
+                  ? "text-red-400 px-3 py-1 flex items-center  text-xl xl:text-3xl"
+                  : "    text-xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
               }`
             }
           >
@@ -135,8 +135,8 @@ const FairProfileSidebar = () => {
             className={({ isActive }) =>
               `${
                 isActive
-                  ? "text-red-400 px-3 py-1 flex items-center  text-xl  md:text-2xl xl:text-3xl"
-                  : "    text-xl  md:text-2xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
+                  ? "text-red-400 px-3 py-1 flex items-center  text-xl xl:text-3xl"
+                  : "    text-xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
               }`
             }
           >

@@ -7,7 +7,7 @@ import {
 import useAuth from "../Hooks/Auth/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import FairSponsorEventUpdateForm from "./FairSponsorEventUpdateForm";
 
 const FairSponsorUpdateEvent = () => {
@@ -15,7 +15,7 @@ const FairSponsorUpdateEvent = () => {
 
   const { user } = useAuth();
   const { slug } = useParams();
-  console.log(slug);
+  const navigate = useNavigate();
 
   //   const { data: fairUser = {}, isFetching } = useQuery({
   //     queryKey: ["fair-sponsor", user?.email],
@@ -52,11 +52,12 @@ const FairSponsorUpdateEvent = () => {
       tags: tagsArr,
       bannerImage: uploadedImage,
     };
-    console.log(modifiedData);
+    // console.log(modifiedData);
     try {
       const res = await updateFairSponsorEventInDb(slug, modifiedData);
       console.log(res.data);
       if (res.data) {
+        navigate("/job-fair/profile/sponsor-event");
         setUploadedImage([]);
         reset();
         toast.success(`Event ${modifiedData.title} updates successful.`);

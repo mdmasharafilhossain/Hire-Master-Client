@@ -18,12 +18,13 @@ import {
   MenuItem,
   MenuGroup,
   MenuDivider,
-  Text,
+  Icon,
 } from "@chakra-ui/react";
 import { BsFillPersonVcardFill } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import { getFairRegisteredUser } from "../../api";
 import useAuth from "../Hooks/Auth/useAuth";
+import { TbLogout2 } from "react-icons/tb";
 
 const FairHeader = () => {
   const [fairUser, setFairUser] = useState({});
@@ -60,10 +61,13 @@ const FairHeader = () => {
       </Link>
       <div className='flex items-center gap-x-5'>
         {registeredType === "sponsor" && (
-          <button className='flex items-center'>
+          <Link
+            to='/job-fair/profile/sponsor-create-event'
+            className='flex items-center'
+          >
             <AddIcon color='black' h={3} w={3} marginRight={1} />
             <p className='font-bold tracking-tight'>Create Event</p>
-          </button>
+          </Link>
         )}
 
         {!registeredType ? (
@@ -202,6 +206,16 @@ const FairHeader = () => {
                 >
                   <SettingsIcon marginRight={1} />
                   Settings
+                </MenuItem>
+                <MenuItem
+                  as={Link}
+                  _hover={{
+                    bg: "red.500",
+                    color: "white",
+                  }}
+                >
+                  <Icon as={TbLogout2} marginRight={1} />
+                  Logout
                 </MenuItem>
               </MenuGroup>
             )}

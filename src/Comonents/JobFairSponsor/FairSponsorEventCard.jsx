@@ -77,7 +77,7 @@ const FairSponsorEventCard = ({ event, refetch }) => {
               ? bannerImage[0].url
               : "https://i.ibb.co/fkw93z8/Hire-Master-Logo-2.png"
           }
-          alt='news image'
+          alt='event image'
         />
 
         <Stack>
