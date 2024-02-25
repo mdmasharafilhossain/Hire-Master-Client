@@ -94,7 +94,7 @@
     "topics": ["React Native Basics", "Navigation", "State Management", "API Integration", "Testing", "Deployment"],
     "level": "Intermediate",
     "price": 89.99,
-    "photoUrl": "https://i.ibb.co/ZY2b7F7/react-native-course.jpg",
+    "photoUrl": "https://i.ibb.co/HF43VhV/reactnative.png",
     "shortDescription": "Learn to build cross-platform mobile applications using React Native. The course covers essential concepts, from UI design to deployment.",
     "description": "Explore the world of mobile app development with React Native. This course covers the basics of React Native, including UI design, navigation, and state management. Participants learn to integrate APIs, implement testing strategies, and deploy cross-platform mobile applications. Through hands-on projects, learners gain practical experience and build a strong foundation in React Native development. By the end of the course, participants are equipped to create responsive and feature-rich mobile apps, ready for the ever-evolving mobile development landscape.",
     "dailyBreakdown": [
@@ -113,7 +113,7 @@
     "topics": ["NumPy", "Pandas", "Matplotlib", "Seaborn", "Data Cleaning", "Time Series Analysis"],
     "level": "Intermediate",
     "price": 59.99,
-    "photoUrl": "https://i.ibb.co/zbYFwYK/python-data-analysis.jpg",
+    "photoUrl": "https://i.ibb.co/0DcVVJj/DataV.png",
     "shortDescription": "Master Python for data analysis and visualization. The course covers essential libraries and techniques for extracting insights from datasets.",
     "description": "Master the art of data analysis and visualization using Python. This course dives into essential libraries such as NumPy, Pandas, Matplotlib, and Seaborn. Participants learn data cleaning techniques, time series analysis, and visualization best practices. Through practical exercises and real-world datasets, learners gain hands-on experience in extracting meaningful insights from data. By the end of the course, participants are equipped with the skills to tackle complex data analysis tasks and present findings visually.",
     "dailyBreakdown": [
@@ -133,7 +133,7 @@
     "topics": ["Network Security", "Ethical Hacking", "Encryption", "Incident Response", "Security Policies", "Cyber Threat Intelligence"],
     "level": "Intermediate",
     "price": 79.99,
-    "photoUrl": "https://i.ibb.co/z5X07y6/cybersecurity-fundamentals.jpg",
+    "photoUrl": "https://i.ibb.co/ysHmhKp/healthcare-cybersecurity-companies-security-padlock-1024x536.webp",
     "shortDescription": "Gain a foundational understanding of cybersecurity. The course covers key concepts, tools, and practices to secure digital environments.",
     "description": "Build a solid foundation in cybersecurity with this comprehensive course. Covering network security, ethical hacking, encryption, incident response, and more, participants learn key concepts and practices to secure digital environments. Hands-on labs and real-world scenarios provide practical experience, allowing learners to apply cybersecurity principles. By the end of the course, participants are equipped with the skills to assess and enhance the security of digital systems, making them valuable assets in the field of cybersecurity.",
     "dailyBreakdown": [
@@ -153,7 +153,7 @@
     "topics": ["User Research", "Wireframing", "Prototyping", "Visual Design", "Interaction Design", "Usability Testing"],
     "level": "Beginner",
     "price": 49.99,
-    "photoUrl": "https://i.ibb.co/YXHVgJX/ux-ui-design.jpg",
+    "photoUrl": "https://i.ibb.co/VYT7nKX/UI-design-principles.png",
     "shortDescription": "Learn the fundamentals of UX/UI design. The course covers user research, wireframing, prototyping, and usability testing for effective design solutions.",
     "description": "Discover the essentials of UX/UI design through this beginner-friendly course. Covering user research, wireframing, prototyping, visual design, and usability testing, participants learn to create effective and user-centered design solutions. Practical exercises and real-world projects enhance the learning experience, allowing participants to apply design principles in diverse contexts. By the end of the course, learners have a solid understanding of UX/UI design principles and the skills to create compelling and user-friendly interfaces.",
     "dailyBreakdown": [
@@ -173,7 +173,7 @@
     "topics": ["Blockchain Basics", "Smart Contracts", "Decentralized Applications (DApps)", "Cryptocurrencies", "Security", "Future Trends"],
     "level": "Intermediate",
     "price": 69.99,
-    "photoUrl": "https://i.ibb.co/Prb5hgL/blockchain-technology.jpg",
+    "photoUrl": "https://i.ibb.co/rv8QFvj/blockchain-examples-applications-1.png",
     "shortDescription": "Explore the world of blockchain technology. The course covers fundamental concepts, applications, and the future of blockchain in various industries.",
     "description": "Dive into the fascinating realm of blockchain technology with this intermediate-level course. Covering blockchain basics, smart contracts, decentralized applications (DApps), cryptocurrencies, and security, participants gain a comprehensive understanding of blockchain concepts and applications. Real-world case studies and hands-on projects provide practical insights into the potential of blockchain in various industries. By the end of the course, learners are equipped to explore the development and implementation of blockchain solutions.",
     "dailyBreakdown": [
@@ -194,7 +194,7 @@
     "topics": ["Cloud Service Models", "Virtualization", "Containerization", "Cloud Security", "Scalability", "Cost Management"],
     "level": "Intermediate",
     "price": 59.99,
-    "photoUrl": "https://i.ibb.co/6RxJ5CS/cloud-computing.jpg",
+    "photoUrl": "https://i.ibb.co/Xz640G6/1520081123071.jpg",
     "shortDescription": "Master the essentials of cloud computing. The course covers cloud service models, virtualization, containerization, and best practices for secure and scalable solutions.",
     "description": "Gain mastery over cloud computing essentials with this intermediate-level course. Covering cloud service models, virtualization, containerization, cloud security, scalability, and cost management, participants learn to design, implement, and manage scalable and secure cloud solutions. Real-world scenarios and hands-on labs provide practical experience in leveraging cloud technologies. By the end of the course, learners are equipped with the skills to navigate the dynamic landscape of cloud computing.",
     "dailyBreakdown": [
@@ -216,7 +216,7 @@
     "topics": ["SEO", "Social Media Marketing", "Email Marketing", "Content Strategy", "Analytics", "Campaign Optimization"],
     "level": "Intermediate",
     "price": 49.99,
-    "photoUrl": "https://i.ibb.co/DByFgGP/digital-marketing.jpg",
+    "photoUrl": " https://i.ibb.co/7Ctpxbz/topic-700-35975caee058403a1.jpg",
     "shortDescription": "Explore effective digital marketing strategies. The course covers SEO, social media marketing, email marketing, and analytics for successful online campaigns.",
     "description": "Unlock the power of digital marketing with this intermediate-level course. Covering SEO, social media marketing, email marketing, content strategy, analytics, and campaign optimization, participants gain insights into effective online marketing strategies. Practical exercises and case studies provide hands-on experience in planning and implementing successful digital campaigns. By the end of the course, learners are equipped with the skills to drive digital marketing success in various industries.",
     "dailyBreakdown": [
@@ -236,7 +236,7 @@
     "topics": ["Introduction to AI", "Supervised Learning", "Unsupervised Learning", "Neural Networks", "Natural Language Processing", "AI Ethics"],
     "level": "Intermediate",
     "price": 79.99,
-    "photoUrl": "https://i.ibb.co/30cVX0H/ai-and-ml.jpg",
+    "photoUrl": "https://i.ibb.co/262wDc5/download.png",
     "shortDescription": "Delve into the world of Artificial Intelligence and Machine Learning. The course covers fundamental concepts, algorithms, and ethical considerations in AI.",
     "description": "Embark on a journey into Artificial Intelligence and Machine Learning with this comprehensive course. Covering the introduction to AI, supervised and unsupervised learning, neural networks, natural language processing, and AI ethics, participants gain a deep understanding of AI and ML concepts. Hands-on projects and real-world applications provide practical experience, allowing learners to apply AI techniques. By the end of the course, participants are equipped to explore the limitless possibilities of AI in various domains.",
     "dailyBreakdown": [
@@ -256,7 +256,7 @@
     "topics": ["Unity Basics", "Game Design Principles", "3D Graphics", "Physics in Games", "User Interface (UI)", "Multiplatform Deployment"],
     "level": "Intermediate",
     "price": 69.99,
-    "photoUrl": "https://i.ibb.co/R9jT6xT/unity-game-development.jpg",
+    "photoUrl": " https://i.ibb.co/ftpvK99/2514486-c4e0.jpg",
     "shortDescription": "Learn game development with Unity. The course covers Unity basics, game design principles, 3D graphics, physics in games, and multiplatform deployment.",
     "description": "Immerse yourself in the world of game development using Unity. Covering Unity basics, game design principles, 3D graphics, physics in games, and user interface (UI) design, participants learn to create engaging and interactive games. Hands-on projects provide practical experience in designing and developing games using Unity. By the end of the course, learners are equipped with the skills to bring their game ideas to life and deploy them across multiple platforms.",
     "dailyBreakdown": [
@@ -277,7 +277,7 @@
     "topics": ["Continuous Integration", "Continuous Delivery", "Container Orchestration", "Infrastructure as Code", "Monitoring and Logging", "DevOps Culture"],
     "level": "Intermediate",
     "price": 59.99,
-    "photoUrl": "https://i.ibb.co/6tJDnsq/devops-practices-tools.jpg",
+    "photoUrl": "https://i.ibb.co/hfJ7PPd/comprehensive-list-of-devops-tools.png",
     "shortDescription": "Master DevOps practices and tools. The course covers continuous integration, delivery, container orchestration, infrastructure as code, and fostering a DevOps culture.",
     "description": "Master the art of DevOps with this intermediate-level course. Covering continuous integration, continuous delivery, container orchestration, infrastructure as code, monitoring and logging, and fostering a DevOps culture, participants gain a comprehensive understanding of DevOps practices and tools. Hands-on labs and real-world scenarios provide practical experience in implementing DevOps solutions. By the end of the course, learners are equipped to streamline development and operations processes, promoting collaboration and efficiency.",
     "dailyBreakdown": [
@@ -299,7 +299,7 @@
     "topics": ["Mobile UI Design", "Gesture Design", "User-Centered Design", "Mobile App Prototyping", "Accessibility in Mobile Design", "App Store Guidelines"],
     "level": "Intermediate",
     "price": 49.99,
-    "photoUrl": "https://i.ibb.co/G0kzX8J/ui-ux-mobile-apps.jpg",
+    "photoUrl": "https://i.ibb.co/9ZsZ2DN/fe5795af341f222b6b33ebce00659f188088821b-1456x816.webp",
     "shortDescription": "Enhance your mobile app design skills. The course covers mobile UI design, gesture design, user-centered design, prototyping, and adherence to app store guidelines.",
     "description": "Elevate your mobile app design skills with this intermediate-level course. Covering mobile UI design, gesture design, user-centered design principles, mobile app prototyping, accessibility in mobile design, and adherence to app store guidelines, participants learn to create compelling and user-friendly mobile applications. Practical exercises and real-world projects provide hands-on experience in designing for diverse mobile platforms. By the end of the course, learners are equipped to craft visually appealing and intuitive mobile app interfaces.",
     "dailyBreakdown": [
@@ -313,3 +313,5 @@
     ]
   }
 ]
+
+

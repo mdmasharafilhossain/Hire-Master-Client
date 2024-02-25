@@ -54,6 +54,7 @@ import SingleCourse from "../PremiumUserCourse/SingleCourse";
 import JobPostReport from "../../Pages/JobPostReport/JobPostReport";
 import AllJobReport from "../../AdminDashboard/AllJobReport/AllJobReport";
 import PremiumUserCourses from "../../AdminDashboard/PremiumUserCourses/PremiumUserCourses";
+import PremiumallCourses from "../PremiumUserCourse/PremiumallCourses";
 
 const router = createBrowserRouter([
   {
@@ -253,6 +254,11 @@ const router = createBrowserRouter([
     element:<SingleCourse></SingleCourse>,
    
     },
+    {
+      path:"/premiumallcourse",
+      element:<PremiumallCourses></PremiumallCourses>,
+     
+      },
  
   // Admin Dashboard
 
