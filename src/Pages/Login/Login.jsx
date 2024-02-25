@@ -1,15 +1,19 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import swal from "sweetalert";
 import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 import { saveUsersInDb } from "../../api";
 import Navbar2 from "../../Comonents/Navbar/Navbar2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { sendPasswordResetEmail } from "firebase/auth";
+import auth from "../../Comonents/Firebase/firebase.config";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+  const emailRef = useRef(null);
   const [invalidAuth, setInvalidAuth] = React.useState("");
   const location = useLocation();
   const navigate = useNavigate();
@@ -56,6 +60,28 @@ const Login = () => {
       });
   };
 
+  const handleForgotPassword = () => {
+    const email = emailRef.current.value;
+    if (!email) {
+      console.log("pelase provide an email", emailRef.current.value);
+      return;
+    } else if (
+      !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)
+    ) {
+      console.log("please write a valid email");
+      return;
+    }
+
+    // send validation email
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        toast.success("please check your email");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <>
       <Navbar2 />
@@ -76,69 +102,78 @@ const Login = () => {
                 </h1>
               </div>
               <div>
-                <form className="space-y-4" onSubmit={handleLogin}>
-                  <div className="form-control">
+              <form onSubmit={handleLogin}>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text text-base font-medium">
+                      Email{" "}
+                    </span>
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    ref={emailRef}
+                    placeholder="email"
+                    className="input input-bordered"
+                    required
+                  />
+                </div>
+                {/* -----------password------------ */}
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text text-base font-medium">
+                      Password
+                    </span>
+                  </label>
+                  <div className="relative">
                     <input
-                      type="email"
-                      name="email"
-                      placeholder="Your Email"
-                      className="input input-bordered w-full pr-10"
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      placeholder="password"
+                      className="input input-bordered w-full pr-10" // Added pr-10 for padding on the right
                       required
                     />
-                  </div>
-                  <div className="form-control">
-                    <div className="relative">
-                      <input
-                        type={showPassword ? "text" : "password"}
-                        name="password"
-                        placeholder="password"
-                        className="input input-bordered w-full pr-10" // Added pr-10 for padding on the right
-                        required
-                      />
-                      <span
-                        className="absolute inset-y-0 right-3 flex items-center cursor-pointer" // Adjusted position to the right
-                        onClick={() => setShowPassword(!showPassword)} // Toggles the show/hide of password
-                      >
-                        {showPassword ? <FaEyeSlash /> : <FaEye />}
-                      </span>
-                    </div>
-                  </div>
-                  <p className="text-red-500 px-3">{invalidAuth}</p>
-                  <div className="form-control">
-                    <button
-                      type="submit"
-                      className="group relative overflow-hidden py-2 rounded-2xl bg-[#FF3811] font-semibold text-white"
+                    <span
+                      className="absolute inset-y-0 right-3 flex items-center cursor-pointer" // Adjusted position to the right
+                      onClick={() => setShowPassword(!showPassword)} // Toggles the show/hide of password
                     >
-                      Login
-                      <div className="absolute inset-0 h-full w-full scale-0 rounded-2xl transition-all duration-300 group-hover:scale-100 group-hover:bg-white/30"></div>
-                    </button>
-                  </div>
-                  <div className="flex justify-center items-center">
-                    <span className="w-full border border-[#FF3811]"></span>
-                    <span className="px-4">Or</span>
-                    <span className="w-full border border-[#FF3811]"></span>
-                  </div>
-                  <button
-                    onClick={handleGoogleSignIn}
-                    className="btn btn-outline btn-warning w-full rounded-md overflow-hidden text-xs sm:text-xl  font-bold"
-                  >
-                    <FcGoogle className="text-xl" /> Continue with Google
-                  </button>
-                </form>
-                <div className="form-control mt-16 space-y-5">
-                  <div className="flex justify-between items-center">
-                    <span className="w-full border border-[#FF3811]"></span>
-                    <span className="text-xs sm:text-base w-full text-nowrap px-2">
-                      Do not have an account?
+                      {showPassword ? <FaEyeSlash /> : <FaEye />}
                     </span>
-                    <span className="w-full border border-[#FF3811]"></span>
                   </div>
-                  <Link to="/signup" className="w-full mx-auto">
-                    <button className="flex font-semibold mx-auto justify-center w-full sm:w-1/2 border px-5 py-2 rounded-full border-yellow-300">
-                      Sign up
-                    </button>
-                  </Link>
                 </div>
+
+                {/* Forgot password link */}
+                <div className="mt-2">
+                  <button
+                    onClick={handleForgotPassword}
+                    className="text-sm text-gray-400 hover:underline"
+                  >
+                    Forgot password?
+                  </button>
+                </div>
+
+                {/* <Link to='/login'> */}
+                <div className="form-control mt-6">
+                  <button className="btn bg-[#FF3811] text-white">Login</button>
+                </div>
+                <button
+                  onClick={handleGoogleSignIn}
+                  className="btn btn-outline mt-4 btn-warning w-full rounded-md overflow-hidden text-xs sm:text-lg font-bold"
+                >
+                  <FcGoogle className="text-xl" /> Continue with Google
+                </button>
+
+                <label className="label">
+                  <Link to="/managersignup">
+                    <a
+                      href="#"
+                      className="label-text-alt link link-hover text-base -ml-3 lg:ml-[88px] md:ml-[50px] text-center"
+                    >
+                      Do not Have an Account? SignUp
+                    </a>
+                  </Link>
+                </label>
+              </form>
               </div>
             </div>
           </div>

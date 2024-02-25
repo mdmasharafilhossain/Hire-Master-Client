@@ -1,15 +1,19 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import svg from "../../assets/login.svg";
 import { FcGoogle } from "react-icons/fc";
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 import swal from "sweetalert";
 import Navbar2 from "../../Comonents/Navbar/Navbar2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { sendPasswordResetEmail } from "firebase/auth";
+import auth from "../../Comonents/Firebase/firebase.config";
+import toast from "react-hot-toast";
 
 const ManagerLogin = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+  const emailRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
   // const from = location.state?.from?.pathname || "/";
@@ -37,6 +41,27 @@ const ManagerLogin = () => {
       })
       .catch((error) => console.log(error));
   };
+  const handleForgotPassword = () => {
+    const email = emailRef.current.value;
+    if (!email) {
+      console.log("pelase provide an email", emailRef.current.value);
+      return;
+    } else if (
+      !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)
+    ) {
+      console.log("please write a valid email");
+      return;
+    }
+
+    // send validation email
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        toast.success("please check your email");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <>
@@ -63,12 +88,13 @@ const ManagerLogin = () => {
                   <input
                     type="email"
                     name="email"
+                    ref={emailRef}
                     placeholder="email"
                     className="input input-bordered"
                     required
                   />
                 </div>
-
+                {/* -----------password------------ */}
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text text-base font-medium">
@@ -87,9 +113,19 @@ const ManagerLogin = () => {
                       className="absolute inset-y-0 right-3 flex items-center cursor-pointer" // Adjusted position to the right
                       onClick={() => setShowPassword(!showPassword)} // Toggles the show/hide of password
                     >
-                      {showPassword ? <FaEyeSlash/> : <FaEye/>}
+                      {showPassword ? <FaEyeSlash /> : <FaEye />}
                     </span>
                   </div>
+                </div>
+
+                {/* Forgot password link */}
+                <div className="mt-2">
+                  <button
+                    onClick={handleForgotPassword}
+                    className="text-sm text-gray-400 hover:underline"
+                  >
+                    Forgot password?
+                  </button>
                 </div>
 
                 {/* <Link to='/login'> */}
