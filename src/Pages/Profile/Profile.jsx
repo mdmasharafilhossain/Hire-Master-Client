@@ -31,7 +31,7 @@ const Profile = () => {
           <div className="md:flex ">
             <div className="flex md:flex-col ml-2 mt-10 mb-2  gap-2">
               <Link to="/">
-                <div className="p-2 hover:bg-slate-200 rounded-xl ">
+                <div className="p-2 hover:bg-slate-200 hover:text-black rounded-xl ">
                   <p className=" text-2xl ml-1 ">
                     {" "}
                     <IoHome></IoHome>
@@ -41,7 +41,7 @@ const Profile = () => {
               </Link>
 
               <Link to={`/appliedjobs/${user.email}`}>
-                <div className="p-2 hover:bg-slate-200 rounded-xl ">
+                <div className="p-2 hover:bg-slate-200 hover:text-black rounded-xl ">
                   <p className=" text-2xl ml-1 ">
                     {" "}
                     <FaBriefcase></FaBriefcase>
@@ -51,7 +51,7 @@ const Profile = () => {
               </Link>
 
               <Link to="/jobpost">
-                <div className="p-2 hover:bg-slate-200 rounded-xl ">
+                <div className="p-2 hover:bg-slate-200 hover:text-black rounded-xl ">
                   <p className=" text-2xl ml-1 ">
                     {" "}
                     <MdPostAdd></MdPostAdd>
