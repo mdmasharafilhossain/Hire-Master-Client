@@ -5,61 +5,97 @@ import { useQuery } from "@tanstack/react-query";
 import { getManagerInfo, getUserInfo } from "../../api";
 import { RiLoginCircleLine, RiLogoutCircleLine } from "react-icons/ri";
 import { FaRegBell } from "react-icons/fa";
+import useFetchData from "../Hooks/UseFetchData/useFetchData";
+import useNotifications from "../Hooks/Notifications/getNotifications";
 
-// const Navbar2 = ({ socket }) => {
-  const Navbar2 = () => {
-  const [open, setOpen] = useState(false);
-  // const [notifications, setNotifications] = useState([]);
+const Navbar2 = () => {
   const { user, logOut } = useContext(AuthContext);
-
-  // user profile with context email
-  const { data: userProfile = {} } = useQuery({
-    queryKey: ["user"],
-    queryFn: async () => {
-      const res = await getUserInfo(user?.email);
-      return res.data;
-    },
-  });
-
-  // manager profile with context email
-  const { data: managerProfile = {} } = useQuery({
-    queryKey: ["manager"],
-    queryFn: async () => {
-      const res = await getManagerInfo(user?.email);
-      return res.data;
-    },
-  });
+  const [open, setOpen] = useState(false);
+  const email = user?.email;
 
   const handleSignOut = () => {
     logOut()
       .then(() => {})
       .catch();
   };
+
+  // user profile with context email
+  const { data: userProfile = {} } = useQuery({
+    queryKey: ["user"],
+    queryFn: async () => {
+      const res = await getUserInfo(user?.email);
+      console.log(res);
+      return res.data;
+    },
+  });
+
+  // // manager profile with context email
+  const { data: managerProfile = {} } = useQuery({
+    queryKey: ["manager"],
+    queryFn: async () => {
+      const res = await getManagerInfo(user?.email);
+      console.log(res);
+      return res.data;
+    },
+  });
   console.log(userProfile);
   console.log(managerProfile);
 
-  //--------------------- notification using socket io-------------------------
-  // useEffect(() => {
-  //   socket.on("getNotification", (data) => {
-  //     setNotifications((prev) => [...prev, data]);
-  //   });
-  // }, [socket]);
+  // -----------detecting the route for user/manager------------
+  const { data: profile, loading, refetch } = useFetchData(
+    `/managerProfile/${email}`,
+    "profile"
+  );
+  if (!loading) {
+    refetch();
+  }
+  console.log(profile);
+  let profileRoute = "profile";
+  if (user?.email === profile?.email) {
+    profileRoute = "managerProfile";
+  }
+  // -------------end--------------------------
 
-  // const displayNotification = ({ senderEmail, type }) => {
-  //   let action;
+  // ----------Notifications--------------------
+  const api = `/notifications/${email}`;
+  const key = "applications";
 
-  //   if (type === 1) {
-  //     action = "applied";
-  //   } else {
-  //     action = "message";
-  //   }
-  //   return <p className="">{`${senderEmail} ${action} to your post.`}</p>;
-  // };
+  const [
+    notifications,
+    temp,
+    display,
+    localTemp,
+    localDisplay,
+    setTemp,
+    setDisplay,
+  ] = useNotifications(api, key);
+  const [showNotifications, setShowNotifications] = useState(
+    notifications.slice(-localDisplay)
+  );
 
-  // const handleRead = () => {
-  //   setNotifications([]);
-  //   setOpen(false);
-  // };
+  useEffect(() => {
+    setShowNotifications(notifications.slice(-localDisplay));
+  }, [notifications, localDisplay]);
+  console.log(showNotifications);
+  const handleRead = async () => {
+    try {
+      setDisplay(0);
+      localStorage.setItem("display", display);
+      setShowNotifications([]);
+      setTemp(notifications.length);
+      localStorage.setItem("temp", temp);
+      // applicationRefetch();
+      setOpen(false);
+    } catch (error) {
+      console.error("Error marking notifications as read:", error);
+    }
+  };
+
+  console.log(notifications);
+  console.log(temp);
+  console.log(display);
+  console.log(localTemp);
+  console.log(localDisplay);
 
   return (
     <div className="navbar shadow-lg sticky top-0 z-50 shadow-base-200  bg-base-100 mb-5">
@@ -84,7 +120,7 @@ import { FaRegBell } from "react-icons/fa";
           Jobs
         </NavLink>
         <NavLink
-          to='/tech-news'
+          to="/tech-news"
           className={({ isActive }) =>
             `{ ${isActive ? "text-[#FF3811] underline " : " "}}`
           }
@@ -93,7 +129,7 @@ import { FaRegBell } from "react-icons/fa";
         </NavLink>
 
         <NavLink
-          to='/about'
+          to="/about"
           className={({ isActive }) =>
             `{ ${isActive ? "text-[#FF3811] underline " : " "}}`
           }
@@ -112,7 +148,7 @@ import { FaRegBell } from "react-icons/fa";
         {user ? (
           <div className="space-x-4">
             <NavLink
-              to="/profile"
+              to={`/${profileRoute}`}
               className={({ isActive }) =>
                 `{ ${isActive ? "text-[#FF3811] underline " : " "}}`
               }
@@ -133,20 +169,24 @@ import { FaRegBell } from "react-icons/fa";
             <div className="flex items-center cursor-pointer">
               <div className="relative mr-3" onClick={() => setOpen(!open)}>
                 <FaRegBell className="w-7 h-7 " />
-                {/* {notifications.length > 0 && ( */}
+                {localDisplay > 0 && (
                   <div className="bg-[#FF3811] font-semibold w-4 h-4 rounded-full flex items-center justify-center text-xs absolute top-0 right-0">
-                    {/* {notifications.length} */}4
+                    {localDisplay}
                   </div>
-                {/* )} */}
+                )}
               </div>
             </div>
-            {/* --------------dropdown box of bell icon-------------- */}
+            {/* Dropdown box of bell icon */}
             {open && (
               <div className="absolute top-16 right-5 bg-white outline text-black font-light flex flex-col p-2 rounded-lg">
-                {/* {notifications.map((n) => displayNotification(n))} */}
+                {showNotifications.map((notification, index) => (
+                  <div key={index}>
+                    {notification.email} has applied to your job
+                  </div>
+                ))}
                 <button
                   className="text-[#FF3811] font-semibold text-xs underline"
-                  // onClick={handleRead}
+                  onClick={handleRead}
                 >
                   Mark as read
                 </button>
@@ -154,7 +194,6 @@ import { FaRegBell } from "react-icons/fa";
             )}
           </>
         )}
-
         <div className="dropdown dropdown-end">
           <div
             tabIndex={0}

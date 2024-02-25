@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
+import Loader from "../Loader/Loader";
 
 const FairSponsorEventUpdateForm = ({ onSubmit, isFetching, singleEvent }) => {
-  console.log(singleEvent);
+  // console.log(singleEvent);
 
   const {
     register,
@@ -9,6 +10,10 @@ const FairSponsorEventUpdateForm = ({ onSubmit, isFetching, singleEvent }) => {
     reset,
     formState: { errors },
   } = useForm();
+
+  if (isFetching) {
+    return <Loader />;
+  }
   return (
     <div>
       <form
