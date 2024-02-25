@@ -288,7 +288,7 @@ const router = createBrowserRouter([
         element: <PremiumUser></PremiumUser>,
       },
       {
-        path: "/AdminDashBoard/alljobreport",
+        path: "/AdminDashboard/alljobreport",
         element:<AllJobReport></AllJobReport> ,
       },
     ],

@@ -9,6 +9,7 @@ import { useState } from "react";
 import { TiNews } from "react-icons/ti";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { MdPeopleAlt } from "react-icons/md";
+import { MdReport } from "react-icons/md";
 const AdminDashboard = () => {
   const { user } = useContext(AuthContext);
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
@@ -142,12 +143,12 @@ const AdminDashboard = () => {
                   className='font-bold text-sm text-white'
                 >
                   <NavLink
-                    to='/AdminDashBoard/alljobreport'
+                    to='/AdminDashboard/alljobreport'
                     className={({ isActive }) =>
                       `{ ${isActive ? " border  " : " "}}`
                     }
                   >
-                    <FaHome />
+                   <MdReport />
                    Job Report
                   </NavLink>
                 </li>
