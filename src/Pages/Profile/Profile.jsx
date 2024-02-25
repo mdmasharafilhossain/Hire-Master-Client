@@ -295,12 +295,15 @@ console.log( premiumUser)
            <div>
            <div className='mt-4  border-[0.5px] border-slate-300 hover:bg-blue-50 bg-white p-8 rounded-lg hover:drop-shadow-lg'>
               
+              <div className="flex justify-between">
               <div className='flex items-center gap-2'>
                 <h3 className='text-xl font-bold'>Learn Free Courses</h3>
                 <p className='text-2xl'>
                 <FaBookAtlas />
 
                 </p>
+              </div>
+              <span className="0 text-[#FF3811] text-lg font-medium me-2 px-2.5 py-0.5 roundeddark:text-red-400 border border-red-400">Free For Premium</span>
               </div>
               {premiumUser ? (
            <div className='ml-4 mb-10 mt-5'>

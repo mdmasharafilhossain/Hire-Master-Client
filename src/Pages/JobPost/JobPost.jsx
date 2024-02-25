@@ -59,9 +59,9 @@ const JobPost = () => {
     <div className=" mx-auto h-100vh">
         <Navbar2/>
       <div>
-        <h1 className=" font-serif font-bold text-center p-12 text-3xl uppercase ">
-          Add Job
-        </h1>
+        
+        <h2 className="text-4xl font-serif  text-center uppercase font-bold">Add <span className='text-[#FF3811]'>Job </span></h2>
+    
       </div>
       <form className="p-10" onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control w-full my-6">
