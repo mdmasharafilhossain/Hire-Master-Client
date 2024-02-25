@@ -11,7 +11,6 @@ import { FaPeopleGroup } from "react-icons/fa6";
 import { MdPeopleAlt } from "react-icons/md";
 const AdminDashboard = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
   const handleRouteClick = () => {
     setShowWelcomeMessage(false);
@@ -136,6 +135,20 @@ const AdminDashboard = () => {
                   >
                     <MdPeopleAlt />
                     Premium Users
+                  </NavLink>
+                </li>
+                <li
+                  onClick={handleRouteClick}
+                  className='font-bold text-sm text-white'
+                >
+                  <NavLink
+                    to='/AdminDashBoard/alljobreport'
+                    className={({ isActive }) =>
+                      `{ ${isActive ? " border  " : " "}}`
+                    }
+                  >
+                    <FaHome />
+                   Job Report
                   </NavLink>
                 </li>
                 <li

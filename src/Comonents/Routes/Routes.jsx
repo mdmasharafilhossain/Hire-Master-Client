@@ -52,6 +52,7 @@ import HiringManagerList from "../../AdminDashboard/HiringManagerList/HiringMana
 import PremiumUser from "../../AdminDashboard/PremiumUser/PremiumUser";
 import SingleCourse from "../PremiumUserCourse/SingleCourse";
 import JobPostReport from "../../Pages/JobPostReport/JobPostReport";
+import AllJobReport from "../../AdminDashboard/AllJobReport/AllJobReport";
 
 const router = createBrowserRouter([
   {
@@ -285,6 +286,10 @@ const router = createBrowserRouter([
       {
         path: "/AdminDashboard/PremiumUser",
         element: <PremiumUser></PremiumUser>,
+      },
+      {
+        path: "/AdminDashBoard/alljobreport",
+        element:<AllJobReport></AllJobReport> ,
       },
     ],
   },
