@@ -53,6 +53,7 @@ import PremiumUser from "../../AdminDashboard/PremiumUser/PremiumUser";
 import SingleCourse from "../PremiumUserCourse/SingleCourse";
 import JobPostReport from "../../Pages/JobPostReport/JobPostReport";
 import AllJobReport from "../../AdminDashboard/AllJobReport/AllJobReport";
+import PremiumUserCourses from "../../AdminDashboard/PremiumUserCourses/PremiumUserCourses";
 
 const router = createBrowserRouter([
   {
@@ -290,6 +291,10 @@ const router = createBrowserRouter([
       {
         path: "/AdminDashboard/alljobreport",
         element:<AllJobReport></AllJobReport> ,
+      },
+      {
+        path: "/AdminDashboard/premiumusercourses",
+        element:<PremiumUserCourses></PremiumUserCourses> ,
       },
     ],
   },
