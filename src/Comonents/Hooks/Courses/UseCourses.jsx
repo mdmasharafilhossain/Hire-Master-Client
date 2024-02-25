@@ -5,7 +5,7 @@ const[courses,setCourses]=useState([])
 const [loading,setLoading]=useState(true)
 console.log(courses)
 useEffect(()=>{
-    fetch("../../../../public/course.json")
+    fetch("http://localhost:5000/premiumusercourse")
     .then(res=>res.json())
     .then(data=>{
        
