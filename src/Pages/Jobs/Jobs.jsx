@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import SingleJobList from "../../Comonents/JobList/SingleJobList";
 import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
 import useFetchData from "../../Comonents/Hooks/UseFetchData/useFetchData";
@@ -12,22 +12,11 @@ const Jobs = () => {
   const [filterLoading, setFilterLoading] = useState(false);
   const [value, setValue] = useState([0, 250000]);
   const [filterMessage, setFilterMessage] = useState("");
-  // const [socket, setSocket] = useState(null);
   const [filterParams, setFilterParams] = useState({
     job_title: "",
     job_time: [],
     salaryRange: `${value[0]}-${value[1]}`,
   });
-
-  // ------------- socket io functions ------------
-
-  // useEffect(() => {
-  //   setSocket(io("http://localhost:5000"));
-  // }, []);
-
-  // useEffect(() => {
-  //   socket?.emit("newUser", email);
-  // }, [socket, email]);
 
   // ----------------server api ---------------
   const { data: jobs, loading, refetch } = useFetchData("/staticjobpost");
