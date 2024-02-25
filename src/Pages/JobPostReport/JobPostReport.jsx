@@ -165,8 +165,7 @@ const JobPostReport = () => {
           />
         </div>
         <button
-          className="btn btn-warning w-full bg-white text-black text-xl font-semibold hover:bg-orange-500 hover:text-white"
-          // className="btn w-full bg-orange-600 text-white"
+          className="btn btn-warning w-full bg-white text-[#FF3811] text-xl font-semibold hover:bg-[#FF3811]   hover:text-white"
         >
          Submit
         </button>

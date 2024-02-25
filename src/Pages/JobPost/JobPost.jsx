@@ -14,7 +14,7 @@ const JobPost = () => {
 
   const [selectedQualification, setSelectedQualification] = useState([]);
 
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset ,formState: { errors },} = useForm();
 
   const onSubmit = async (data) => {
     console.log(data);
@@ -372,7 +372,7 @@ const JobPost = () => {
           </div>
         </div>
         <button
-          className="btn btn-warning w-full bg-white text-black text-xl font-semibold hover:bg-orange-500 hover:text-white"
+          className="btn btn-warning w-full bg-white text-[#FF3811] text-xl font-semibold hover:bg-[#FF3811]   hover:text-white"
           // className="btn w-full bg-orange-600 text-white"
         >
           ADD JOB
