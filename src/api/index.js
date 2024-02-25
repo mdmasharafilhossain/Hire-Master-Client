@@ -95,3 +95,20 @@ export const getFairEventsFromDb = async () => {
 export const saveEventBookingsInDb = async (slug, email) => {
   return await axiosPublic.post(`/job-fair/event-bookings`, { slug, email });
 };
+
+export const getJobSeekersEventBookings = async email => {
+  return await axiosPublic.get(`/job-fair/job-seeker/event-bookings`, {
+    params: {
+      email: email,
+    },
+  });
+};
+
+export const deleteJobSeekersEventBookingInDb = async (slug, email) => {
+  return await axiosPublic.delete(
+    `/job-fair/job-seeker/event-bookings/remove`,
+    {
+      data: { slug, email },
+    }
+  );
+};
