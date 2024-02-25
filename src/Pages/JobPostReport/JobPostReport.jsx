@@ -107,7 +107,7 @@ const JobPostReport = () => {
             <input
               type="text"
               placeholder="Hiring Manager Email"
-              {...register("logo", { required: true })}
+              {...register("manageremail", { required: true })}
               className="input input-bordered w-full"
               defaultValue={hiring_manager_email}
               readOnly
