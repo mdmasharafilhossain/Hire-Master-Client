@@ -62,10 +62,10 @@ const BarChart = () => {
             calc: "stringify",
           },
         ],
-        ["Copper", 8.94, "#b87333", null],
-        ["Silver", 10.49, "silver", null],
-        ["Gold", 19.3, "gold", null],
-        ["Platinum", 21.45, "color: #e5e4e2", null],
+        ["Full-time", 8.94, "#b87333", null],
+        ["Remote", 10.49, "silver", null],
+        ["Part-time", 19.3, "gold", null],
+        ["Hybrid", 21.45, "color: #e5e4e2", null],
       ];
     return (
         <Chart
