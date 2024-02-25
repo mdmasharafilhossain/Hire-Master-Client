@@ -50,6 +50,7 @@ import FairSponsorCreateEvent from "../JobFairSponsor/FairSponsorCreateEvent";
 import FairSponsorUpdateEvent from "../JobFairSponsor/FairSponsorUpdateEvent";
 import HiringManagerList from "../../AdminDashboard/HiringManagerList/HiringManagerList";
 import PremiumUser from "../../AdminDashboard/PremiumUser/PremiumUser";
+import Statistics from "../../AdminDashboard/Statistics/Statistics";
 
 const router = createBrowserRouter([
   
@@ -275,6 +276,10 @@ const router = createBrowserRouter([
         path: "/AdminDashboard/PremiumUser",
         element: <PremiumUser></PremiumUser>,
       },
+      {
+        path:"/AdminDashboard/Statistics",
+        element:<Statistics></Statistics>
+      }
     ],
   },
 ]);
