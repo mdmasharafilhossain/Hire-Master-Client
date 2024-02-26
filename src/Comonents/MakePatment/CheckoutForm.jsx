@@ -106,12 +106,12 @@ const CheckoutForm = () => {
   
 
   return (
-    <form className="container mx-auto border-2 rounded-lg border-orange-600 w-3/4 py-20 px-20" onSubmit={handleSubmit}>
+    <form className="container gap-10  mx-auto border-2 rounded-lg border-orange-600 md:w-full lg:w-3/4 md:py-10 lg:py-20 md:px-10 lg:px-20" onSubmit={handleSubmit}>
       <CardElement
         options={{
           style: {
             base: {
-              fontSize: '25px',
+              fontSize: '20px',
               color: '#FB8C00',
               '::placeholder': {
                 color: '#FB8C00',
@@ -122,8 +122,9 @@ const CheckoutForm = () => {
             },
           },
         }}
+        className="responsive-font-size"
       />
-      <button disabled={!stripe || !clientSecret || clicked} className={`border rounded-lg px-5 py-1 ${!stripe || !clientSecret || clicked ? 'bg-white text-black' : 'bg-orange-500 hover:bg-orange-600 text-white'}`} type="submit">
+      <button  disabled={!stripe || !clientSecret || clicked} className={`border rounded-lg px-5 py-1 ${!stripe || !clientSecret || clicked ? 'bg-white text-black' : 'bg-orange-500 hover:bg-orange-600 text-white mt-10'}`} type="submit">
       Pay
       </button>
       <p className="text-red-700 font-bold">{error}</p>
