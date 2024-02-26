@@ -49,6 +49,7 @@ const BarChart = () => {
       const Remote_Job = jobs.filter(job=>job.job_time === "Remote");
       const Part_time_job = jobs.filter(job=>job.job_time === "Part-time");
       const Hybrid_job = jobs.filter(job=>job.job_time === "Hybrid");
+      const On_site_job = jobs.filter(job=>job.job_time === "On-site");
       
 
 
@@ -66,9 +67,10 @@ const BarChart = () => {
           },
         ],
         ["Full-time", Full_Time_Job.length, "#b87333", null],
-        ["Remote", Remote_Job.length, "silver", null],
-        ["Part-time", Part_time_job.length, "gold", null],
-        ["Hybrid", Hybrid_job.length, "color: #e5e4e2", null],
+        ["Remote", Remote_Job.length, "#4169E1", null],
+        ["Part-time", Part_time_job.length, "color: #0000FF", null],
+        ["Hybrid", Hybrid_job.length, "color: #FFA500", null],
+        ["On-site", On_site_job.length, "color: #87CEEB", null],
       ];
     return (
         <div className="lg:ml-40">
