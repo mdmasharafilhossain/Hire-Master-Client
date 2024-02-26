@@ -5,47 +5,16 @@ import {
   SettingsIcon,
   StarIcon,
 } from "@chakra-ui/icons";
-import { Box, Divider } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { Box } from "@chakra-ui/react";
+
 import { NavLink } from "react-router-dom";
-import useAuth from "../Hooks/Auth/useAuth";
-import { getFairRegisteredUser } from "../../api";
-import Loader from "../Loader/Loader";
 
-const FairProfileSidebar = () => {
-  const [loading, setLoading] = useState(false);
-  const [fairUser, setFairUser] = useState({});
-  const [registeredType, setRegisteredType] = useState("");
-
-  const { user } = useAuth();
-  // const email = "abc@debugger.com";
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      setLoading(true);
-      try {
-        const res = await getFairRegisteredUser(user?.email);
-        setFairUser(res.data);
-        setLoading(false);
-        if (res.data.userType) {
-          setRegisteredType(res.data.userType);
-        }
-      } catch (error) {
-        setLoading(false);
-        console.log(error.message);
-      }
-    };
-    fetchUser();
-  }, [user]);
-  console.log(registeredType);
-  console.log(fairUser);
-  if (loading) {
-    return <Loader />;
-  }
+const FairProfileSidebar = ({ jobFair_register }) => {
+  console.log(jobFair_register);
 
   return (
     <Box className='w-full font-bold flex  md:flex-col  items-start justify-start  md:space-y-3 mb-20 md:mb-0 '>
-      {registeredType === "job-seeker" && (
+      {jobFair_register?.userType === "job-seeker" && (
         <div className='flex flex-wrap md:space-y-3 md:flex-col'>
           <NavLink
             to='/job-fair/profile/bookings'
@@ -89,7 +58,7 @@ const FairProfileSidebar = () => {
         </div>
       )}
 
-      {registeredType === "sponsor" && (
+      {jobFair_register?.userType === "sponsor" && (
         <div className='flex flex-wrap md:space-y-3 md:flex-col'>
           <NavLink
             to='/job-fair/profile/sponsor-create-event'

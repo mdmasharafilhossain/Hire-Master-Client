@@ -42,7 +42,6 @@ const FairEventCard = ({ event }) => {
     dateOfEvent,
     location,
     slug,
-    sponsor_email,
   } = event;
 
   console.log(event);
@@ -55,7 +54,7 @@ const FairEventCard = ({ event }) => {
   const formattedDate = formatDate(dateOfEvent);
   console.log(event);
 
-  const { data: fair_register = {}, isFetching, refetch } = useQuery({
+  const { data: fair_register = {} } = useQuery({
     queryKey: ["fair_register", user?.email],
     queryFn: async () => {
       const res = await getFairRegisteredUser(user?.email);

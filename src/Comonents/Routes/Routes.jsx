@@ -54,6 +54,12 @@ import Stripe from "../MakePatment/Stripe";
 import SSL from "../MakePatment/SSL";
 import PaymentSuccess from "../MakePatment/PaymentSuccess";
 import PaymentFail from "../MakePatment/PaymentFail";
+import SingleCourse from "../PremiumUserCourse/SingleCourse";
+import JobPostReport from "../../Pages/JobPostReport/JobPostReport";
+import AllJobReport from "../../AdminDashboard/AllJobReport/AllJobReport";
+import PremiumUserCourses from "../../AdminDashboard/PremiumUserCourses/PremiumUserCourses";
+import PremiumallCourses from "../PremiumUserCourse/PremiumallCourses";
+import Statistics from "../../AdminDashboard/Statistics/Statistics";
 
 const router = createBrowserRouter([
   
@@ -85,6 +91,10 @@ const router = createBrowserRouter([
             <JobDetails />
           </PrivateRoute>
         ),
+      },
+      {
+        path:"/jobpostreport/:id",
+        element:<JobPostReport></JobPostReport>
       },
       {
         path: "/jobpost",
@@ -261,6 +271,17 @@ const router = createBrowserRouter([
     path: "/skills",
     element: <Skills></Skills>,
   },
+  {
+    path:"/courseDetails/:id",
+    element:<SingleCourse></SingleCourse>,
+   
+    },
+    {
+      path:"/premiumallcourse",
+      element:<PremiumallCourses></PremiumallCourses>,
+     
+      },
+ 
   // Admin Dashboard
 
   {
@@ -295,6 +316,18 @@ const router = createBrowserRouter([
         path: "/AdminDashboard/PremiumUser",
         element: <PremiumUser></PremiumUser>,
       },
+      {
+        path: "/AdminDashboard/alljobreport",
+        element:<AllJobReport></AllJobReport> ,
+      },
+      {
+        path: "/AdminDashboard/premiumusercourses",
+        element:<PremiumUserCourses></PremiumUserCourses> ,
+      },
+        {
+          path:"/AdminDashboard/Statistics",
+        element:<Statistics></Statistics>
+      }
     ],
   },
 ]);

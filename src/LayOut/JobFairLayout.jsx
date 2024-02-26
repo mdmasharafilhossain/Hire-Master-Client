@@ -12,7 +12,7 @@ const JobFairLayout = () => {
   // const email = "abc@debugger.com";
 
   const { data, isFetching } = useQuery({
-    queryKey: ["fairRegister"],
+    queryKey: ["fairRegister", user?.email],
     queryFn: async () => {
       const res = await getFairRegisteredUser(user?.email);
       return res.data;
@@ -20,37 +20,36 @@ const JobFairLayout = () => {
     enabled: !!user,
   });
 
-  console.log(data);
+  if (isFetching) {
+    return <Loader />;
+  }
   return (
     <>
       <FairHeader />
-      {isFetching ? (
-        <Loader />
-      ) : (
-        <div className='max-w-7xl px-2  mx-auto md:flex items-start gap-x-5 md:gap-x-10 lg:gap-x-28 pt-10'>
-          <div className='w-full md:w-4/12 flex flex-col items-center space-y-5'>
-            <Box className='md:block hidden'>
-              <Image src={data?.profilePicture} alt='Dan Abramov' />
-              <div className='w-full px-5 py-5 shadow-md'>
-                <div className='flex justify-center  gap-x-5 md:gap-x-0 md:flex-col'>
-                  <Box fontSize={26} fontWeight={"medium"}>
-                    {data?.fullname}
-                  </Box>
 
-                  <Box fontSize={26} fontWeight={"medium"} color='red.500'>
-                    {data?.userType}
-                  </Box>
-                </div>
+      <div className='max-w-7xl px-2  mx-auto md:flex items-start gap-x-5 md:gap-x-10 lg:gap-x-28 pt-10'>
+        <div className='w-full md:w-4/12 flex flex-col items-center space-y-5'>
+          <Box className='md:block hidden'>
+            <Image src={data?.profilePicture} alt='Dan Abramov' />
+            <div className='w-full px-2 py-5 shadow-md'>
+              <div className='flex justify-center  gap-x-5 md:gap-x-0 md:flex-col'>
+                <Box fontSize={22} fontWeight={"medium"}>
+                  {data?.fullname}
+                </Box>
+
+                <Box fontSize={24} fontWeight={"medium"} color='red.500'>
+                  {data?.userType}
+                </Box>
               </div>
-            </Box>
+            </div>
+          </Box>
 
-            <FairProfileSidebar />
-          </div>
-          <div className='w-full mt-10'>
-            <Outlet />
-          </div>
+          <FairProfileSidebar jobFair_register={data} />
         </div>
-      )}
+        <div className='w-full mt-10'>
+          <Outlet />
+        </div>
+      </div>
     </>
   );
 };
