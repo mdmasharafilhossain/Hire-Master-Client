@@ -13,7 +13,7 @@ const FairProfileSidebar = ({ jobFair_register }) => {
   console.log(jobFair_register);
 
   return (
-    <Box className='w-full font-bold flex  md:flex-col  items-start justify-start  md:space-y-3 mb-20 md:mb-0 '>
+    <Box className='w-full font-bold flex  md:flex-col  md:items-start justify-center md:justify-start  md:space-y-3 mb-20 md:mb-0 '>
       {jobFair_register?.userType === "job-seeker" && (
         <div className='flex flex-wrap md:space-y-3 md:flex-col'>
           <NavLink
@@ -21,8 +21,8 @@ const FairProfileSidebar = ({ jobFair_register }) => {
             className={({ isActive }) =>
               `${
                 isActive
-                  ? "text-red-400 px-3 py-1 flex items-center  text-xl xl:text-3xl"
-                  : "    text-xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
+                  ? "text-red-400 px-1 py-1 flex items-center  text-xl xl:text-2xl"
+                  : "    text-xl xl:text-2xl flex items-center  rounded-full px-1 py-1 "
               }`
             }
           >
@@ -34,8 +34,8 @@ const FairProfileSidebar = ({ jobFair_register }) => {
             className={({ isActive }) =>
               `${
                 isActive
-                  ? "text-red-400 px-3 py-1 flex items-center  text-xl xl:text-3xl"
-                  : "    text-xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
+                  ? "text-red-400 px-1 py-1 flex items-center  text-xl xl:text-2xl"
+                  : "    text-xl xl:text-2xl flex items-center  rounded-full px-1 py-1 "
               }`
             }
           >
@@ -47,8 +47,8 @@ const FairProfileSidebar = ({ jobFair_register }) => {
             className={({ isActive }) =>
               `${
                 isActive
-                  ? "text-red-400 px-3 py-1 flex items-center  text-xl xl:text-3xl"
-                  : "    text-xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
+                  ? "text-red-400 px-1 py-1 flex items-center  text-xl xl:text-2xl"
+                  : "    text-xl xl:text-2xl flex items-center  rounded-full px-1 py-1 "
               }`
             }
           >
@@ -65,8 +65,8 @@ const FairProfileSidebar = ({ jobFair_register }) => {
             className={({ isActive }) =>
               `${
                 isActive
-                  ? "text-red-400 px-3 py-1 flex items-center  text-xl xl:text-3xl"
-                  : "    text-xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
+                  ? "text-red-400 px-1 py-1 flex items-center  text-xl xl:text-2xl"
+                  : "    text-xl xl:text-2xl flex items-center  rounded-full px-1 py-1 "
               }`
             }
           >
@@ -78,8 +78,8 @@ const FairProfileSidebar = ({ jobFair_register }) => {
             className={({ isActive }) =>
               `${
                 isActive
-                  ? "text-red-400 px-3 py-1 flex items-center  text-xl xl:text-3xl"
-                  : "    text-xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
+                  ? "text-red-400 px-1 py-1 flex items-center  text-xl xl:text-2xl"
+                  : "    text-xl xl:text-2xl flex items-center  rounded-full px-1 py-1 "
               }`
             }
           >
@@ -91,8 +91,8 @@ const FairProfileSidebar = ({ jobFair_register }) => {
             className={({ isActive }) =>
               `${
                 isActive
-                  ? "text-red-400 px-3 py-1 flex items-center  text-xl xl:text-3xl"
-                  : "    text-xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
+                  ? "text-red-400 px-1 py-1 flex items-center  text-xl xl:text-2xl"
+                  : "    text-xl xl:text-2xl flex items-center  rounded-full px-1 py-1 "
               }`
             }
           >
@@ -104,8 +104,8 @@ const FairProfileSidebar = ({ jobFair_register }) => {
             className={({ isActive }) =>
               `${
                 isActive
-                  ? "text-red-400 px-3 py-1 flex items-center  text-xl xl:text-3xl"
-                  : "    text-xl xl:text-3xl flex items-center  rounded-full px-3 py-1 "
+                  ? "text-red-400 px-1 py-1 flex items-center  text-xl xl:text-2xl"
+                  : "    text-xl xl:text-2xl flex items-center  rounded-full px-1 py-1 "
               }`
             }
           >
