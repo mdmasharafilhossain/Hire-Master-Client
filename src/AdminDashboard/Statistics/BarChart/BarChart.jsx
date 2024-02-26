@@ -44,9 +44,12 @@ const BarChart = () => {
 
     });
 
-      console.log(jobs)
+      
       const Full_Time_Job = jobs.filter(job=>job.job_time === "Full-time");
-      console.log(Full_Time_Job.length)
+      const Remote_Job = jobs.filter(job=>job.job_time === "Remote");
+      const Part_time_job = jobs.filter(job=>job.job_time === "Part-time");
+      const Hybrid_job = jobs.filter(job=>job.job_time === "Hybrid");
+      
 
 
 
@@ -62,19 +65,21 @@ const BarChart = () => {
             calc: "stringify",
           },
         ],
-        ["Full-time", 8.94, "#b87333", null],
-        ["Remote", 10.49, "silver", null],
-        ["Part-time", 19.3, "gold", null],
-        ["Hybrid", 21.45, "color: #e5e4e2", null],
+        ["Full-time", Full_Time_Job.length, "#b87333", null],
+        ["Remote", Remote_Job.length, "silver", null],
+        ["Part-time", Part_time_job.length, "gold", null],
+        ["Hybrid", Hybrid_job.length, "color: #e5e4e2", null],
       ];
     return (
-        <Chart
+        <div className="lg:ml-40">
+          <Chart
           chartType="BarChart"
           width="100%"
           height="400px"
           data={data}
           options={options}
         />
+        </div>
       );
 };
 
