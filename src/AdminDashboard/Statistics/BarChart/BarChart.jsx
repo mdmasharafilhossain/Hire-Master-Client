@@ -73,7 +73,7 @@ const BarChart = () => {
         ["On-site", On_site_job.length, "color: #87CEEB", null],
       ];
     return (
-        <div className="lg:ml-40">
+        <div className="lg:ml-60">
           <Chart
           chartType="BarChart"
           width="100%"

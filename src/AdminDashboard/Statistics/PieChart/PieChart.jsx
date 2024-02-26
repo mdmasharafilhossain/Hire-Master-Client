@@ -96,13 +96,15 @@ fetchData();
         
       ];
     return (
-        <Chart
+        <div className="lg:ml-40">
+          <Chart
           chartType="PieChart"
           data={data}
           options={options}
           width={"100%"}
           height={"400px"}
         />
+        </div>
       );
 };
 
