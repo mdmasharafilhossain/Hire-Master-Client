@@ -19,6 +19,9 @@ export const getUserInfo = async email => {
 export const getManagerInfo = async email => {
   return await axiosPublic.get(`/managerProfile/${email}`);
 };
+export const getNotifications = async email => {
+  return await axiosPublic.get(`/notifications/${email}`);
+};
 
 export const saveSubscriberInDb = async subscriber => {
   return await axiosPublic.post("/subscribers", subscriber);
@@ -82,5 +85,30 @@ export const updateFairSponsorEventInDb = async (slug, event) => {
   return await axiosPublic.patch(
     `/job-fair/profile/sponsor-event/update/${slug}`,
     event
+  );
+};
+
+export const getFairEventsFromDb = async () => {
+  return await axiosPublic.get(`/job-fair/events`);
+};
+
+export const saveEventBookingsInDb = async (slug, email) => {
+  return await axiosPublic.post(`/job-fair/event-bookings`, { slug, email });
+};
+
+export const getJobSeekersEventBookings = async email => {
+  return await axiosPublic.get(`/job-fair/job-seeker/event-bookings`, {
+    params: {
+      email: email,
+    },
+  });
+};
+
+export const deleteJobSeekersEventBookingInDb = async (slug, email) => {
+  return await axiosPublic.delete(
+    `/job-fair/job-seeker/event-bookings/remove`,
+    {
+      data: { slug, email },
+    }
   );
 };

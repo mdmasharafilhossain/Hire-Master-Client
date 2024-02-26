@@ -4,7 +4,11 @@ import { useForm } from "react-hook-form";
 import UseAxiosPublic from "../Hooks/UseAxiosPublic/UseAxiosPublic";
 import Swal from "sweetalert2";
 import ProfileNav from "../ProfileNav/ProfileNav";
+
+import { useNavigate } from "react-router-dom";
+
 import useProfile from "../Hooks/useProfile/useProfile";
+
 
 // image added key from imgbb
 const Image_Hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -12,6 +16,9 @@ const Profile_Hosting = `https://api.imgbb.com/1/upload?key=${Image_Hosting_key}
 
 const UserProfileForm = () => {
   const { user } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
   const [profileData] = useProfile()
   const [disabled, setDisabled] = useState(false)
   console.log(user);
@@ -86,6 +93,7 @@ const UserProfileForm = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate('/profile');
       }
           setDisabled(true)
     }

@@ -11,6 +11,7 @@ import { FaPeopleGroup } from "react-icons/fa6";
 import { MdPeopleAlt } from "react-icons/md";
 import { MdReport } from "react-icons/md";
 import { FaBook } from "react-icons/fa";
+import { FcStatistics } from "react-icons/fc";
 const AdminDashboard = () => {
   const { user } = useContext(AuthContext);
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
@@ -19,7 +20,7 @@ const AdminDashboard = () => {
   };
   return (
     <div className='flex flex-1 max-w-7xl container mx-auto'>
-      <div className="max-h-full  bg-orange-600">
+      <div className="max-h-[400px] sticky top-0 lg:bg-orange-600">
         <div className='drawer lg:drawer-open bg-slate-100'>
           <input id='my-drawer-2' type='checkbox' className='drawer-toggle' />
           <div className='drawer-content flex flex-col items-center justify-center'>
@@ -165,6 +166,20 @@ const AdminDashboard = () => {
                   >
                    <MdReport />
                    Job Report
+                  </NavLink>
+                </li>
+                <li
+                  onClick={handleRouteClick}
+                  className='font-bold text-sm text-white'
+                >
+                  <NavLink
+                    to='/AdminDashboard/Statistics'
+                    className={({ isActive }) =>
+                      `{ ${isActive ? " border  " : " "}}`
+                    }
+                  >
+                    <FcStatistics />
+                    Statistics
                   </NavLink>
                 </li>
                 <li
