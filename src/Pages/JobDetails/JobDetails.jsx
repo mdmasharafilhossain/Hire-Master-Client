@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useFetchData from "../../Comonents/Hooks/UseFetchData/useFetchData";
 import { CiLocationOn } from "react-icons/ci";
 import { CiDollar } from "react-icons/ci";
@@ -11,21 +11,26 @@ import Swal from "sweetalert2";
 import Loader from "../../Comonents/Loader/Loader";
 import Navbar2 from "../../Comonents/Navbar/Navbar2";
 
+
 const JobDetails = () => {
   const { id } = useParams();
   const { user } = useContext(AuthContext);
   const AxiosPublic = UseAxiosPublic();
 
+
   const email = user?.email;
+
 
   const { data: job, loading, refetch } = useFetchData(
     `/staticjobpost/${id}`,
     "job"
   );
 
+
   if (loading) {
     return <Loader />;
   }
+
 
   refetch();
   console.log(job);
@@ -46,6 +51,7 @@ const JobDetails = () => {
     job_location,
   } = job;
 
+
   const appliedJobs = {
     id,
     email,
@@ -65,6 +71,7 @@ const JobDetails = () => {
     job_location,
   };
 
+
   // console.log(appliedJobs);
   const handleAppliedJobs = () => {
     AxiosPublic.post("/users-appliedjobs", appliedJobs)
@@ -83,6 +90,7 @@ const JobDetails = () => {
         console.log(error);
       });
   };
+
 
   return (
     <>
@@ -185,6 +193,19 @@ const JobDetails = () => {
               Apply For this Job
             </button>
           </div>
+
+
+          <div className="mt-5"><h1 className="text-base font-bold">NOTE: Please be aware that if you suspect this post is fraudulent or a scam, we encourage you to report it. Your vigilance helps maintain the integrity of our platform and ensures a safer community for everyone.</h1>
+       <Link to={`/jobpostreport/${id}`}>
+       <button type="button" className="mt-2 btn-sm focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm  me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Report</button>
+       
+       </Link>
+         </div>
+
+
+
+
+
         </div>
         {/* right div */}
         <div className=" col-span-4 flex justify-center">
@@ -227,4 +248,8 @@ const JobDetails = () => {
   );
 };
 
+
 export default JobDetails;
+
+
+

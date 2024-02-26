@@ -9,10 +9,11 @@ import { useState } from "react";
 import { TiNews } from "react-icons/ti";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { MdPeopleAlt } from "react-icons/md";
+import { MdReport } from "react-icons/md";
+import { FaBook } from "react-icons/fa";
 import { FcStatistics } from "react-icons/fc";
 const AdminDashboard = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
   const handleRouteClick = () => {
     setShowWelcomeMessage(false);
@@ -137,6 +138,34 @@ const AdminDashboard = () => {
                   >
                     <MdPeopleAlt />
                     Premium Users
+                  </NavLink>
+                </li>
+                <li
+                  onClick={handleRouteClick}
+                  className='font-bold text-sm text-white'
+                >
+                  <NavLink
+                    to='/AdminDashboard/premiumusercourses'
+                    className={({ isActive }) =>
+                      `{ ${isActive ? " border  " : " "}}`
+                    }
+                  >
+                   <FaBook />
+                    Premium User Courses
+                  </NavLink>
+                </li>
+                <li
+                  onClick={handleRouteClick}
+                  className='font-bold text-sm text-white'
+                >
+                  <NavLink
+                    to='/AdminDashboard/alljobreport'
+                    className={({ isActive }) =>
+                      `{ ${isActive ? " border  " : " "}}`
+                    }
+                  >
+                   <MdReport />
+                   Job Report
                   </NavLink>
                 </li>
                 <li
