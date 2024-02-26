@@ -17,6 +17,8 @@ const AuthProvider = ({ children }) => {
   const axiosPublic = UseAxiosPublic();
   const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
+  const [stateProfilePicture, setStateProfilePicture] = useState([]);
+  const [stateFairRegisterName, setStateFairRegisterName] = useState("");
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -28,7 +30,7 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, currentUser => {
       const userEmail = currentUser?.email || user?.email;
       const loggedUser = { email: userEmail };
       setUser(currentUser);
@@ -37,7 +39,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         axiosPublic
           .post("/jwt", loggedUser, { withCredentials: true })
-          .then((res) => {
+          .then(res => {
             console.log("token response", res.data);
           });
       } else {
@@ -45,7 +47,7 @@ const AuthProvider = ({ children }) => {
           .post("/logout", loggedUser, {
             withCredentials: true,
           })
-          .then((res) => {
+          .then(res => {
             console.log(res.data);
           });
       }
@@ -70,6 +72,10 @@ const AuthProvider = ({ children }) => {
     signIn,
     logOut,
     googleSignIn,
+    stateProfilePicture,
+    setStateProfilePicture,
+    stateFairRegisterName,
+    setStateFairRegisterName,
   };
 
   return (

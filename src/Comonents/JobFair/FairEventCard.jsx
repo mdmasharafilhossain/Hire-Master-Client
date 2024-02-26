@@ -4,6 +4,7 @@ import {
   Card,
   CardBody,
   Divider,
+  Flex,
   Heading,
   Icon,
   Image,
@@ -26,11 +27,14 @@ import {
 } from "@chakra-ui/react";
 import { FaHashtag } from "react-icons/fa";
 import useAuth from "../Hooks/Auth/useAuth";
-import { getFairRegisteredUser, saveEventBookingsInDb } from "../../api";
-import toast from "react-hot-toast";
+import { getFairRegisteredUser } from "../../api";
 import { useQuery } from "@tanstack/react-query";
 
-const FairEventCard = ({ event }) => {
+const FairEventCard = ({
+  event,
+  handleInterestedEvent,
+  handleEventJoining,
+}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { user } = useAuth();
 
@@ -44,7 +48,7 @@ const FairEventCard = ({ event }) => {
     slug,
   } = event;
 
-  console.log(event);
+  // console.log(event);
 
   const formatDate = dateString => {
     const dateObj = new Date(dateString);
@@ -52,7 +56,7 @@ const FairEventCard = ({ event }) => {
     return dateObj.toLocaleDateString("en-US", options);
   };
   const formattedDate = formatDate(dateOfEvent);
-  console.log(event);
+  // console.log(event);
 
   const { data: fair_register = {} } = useQuery({
     queryKey: ["fair_register", user?.email],
@@ -65,23 +69,11 @@ const FairEventCard = ({ event }) => {
 
   console.log(fair_register);
 
-  const handleEventJoining = async slug => {
-    try {
-      const res = await saveEventBookingsInDb(slug, user?.email);
-      if (res.data.result.insertedId) {
-        toast.success(`Event ${title} booked successfully.`);
-      }
-    } catch (error) {
-      console.log(error.response.data.message);
-      toast.error(error.response.data.message);
-    }
-  };
-
   return (
     <>
       <Card maxW='xs' height='sm'>
-        <CardBody>
-          <div className='relative flex'>
+        <CardBody className='flex flex-col h-full justify-between'>
+          <Flex position='relative'>
             <Image
               src={
                 bannerImage.length > 0
@@ -90,19 +82,32 @@ const FairEventCard = ({ event }) => {
               }
               alt=''
               borderRadius='lg'
+              width='100%'
             />
-            <Tooltip label="I'm interested" placement='left'>
-              <button className='bg-white '>
-                <MdStars
-                  size={25}
-                  className='rounded-full absolute right-0 -bottom-2  text-black bg-inherit '
-                />
-              </button>
+            <Tooltip
+              isDisabled={fair_register.userType === "sponsor"}
+              label='Add as interested!'
+              hasArrow
+              placement='left'
+              fontSize='lg'
+            >
+              <Button
+                disabled={fair_register.userType === "sponsor"}
+                onClick={() => handleInterestedEvent(slug)}
+                position='absolute'
+                bottom='0'
+                right='0'
+                zIndex={1}
+                variant='solid'
+                colorScheme='orange'
+                size='sm'
+              >
+                <MdStars size={25} />
+              </Button>
             </Tooltip>
-          </div>
-
-          <Stack mt='5' spacing='3'>
-            <Heading size='md'>{title}</Heading>
+          </Flex>
+          <Stack>
+            <Heading size='sm'>{title}</Heading>
             <Box className=''>
               <Text
                 fontSize='sm'
@@ -125,7 +130,7 @@ const FairEventCard = ({ event }) => {
             width='full'
             colorScheme='orange'
             variant='outline'
-            className='uppercase'
+            className='uppercase flex justify-end'
             onClick={onOpen}
           >
             Read More
