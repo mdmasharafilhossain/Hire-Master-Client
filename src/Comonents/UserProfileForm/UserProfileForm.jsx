@@ -5,16 +5,26 @@ import UseAxiosPublic from "../Hooks/UseAxiosPublic/UseAxiosPublic";
 import Swal from "sweetalert2";
 import ProfileNav from "../ProfileNav/ProfileNav";
 
+import { useNavigate } from "react-router-dom";
+
+import useProfile from "../Hooks/useProfile/useProfile";
+
+
 // image added key from imgbb
 const Image_Hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const Profile_Hosting = `https://api.imgbb.com/1/upload?key=${Image_Hosting_key}`;
 
 const UserProfileForm = () => {
   const { user } = useContext(AuthContext);
-  const [disabled, setDisabled] = useState(true)
+
+  const navigate = useNavigate();
+
+  const [profileData] = useProfile()
+  const [disabled, setDisabled] = useState(false)
   console.log(user);
   const { register, handleSubmit, formState: { errors } } = useForm();
   const AxiosPublic = UseAxiosPublic();
+  
   const onSubmit = async data => {
     console.log(data);
     const ImageFile = { image: data.image[0] };
@@ -37,6 +47,7 @@ const UserProfileForm = () => {
         portfolio: data.portfolio,
         github: data.github,
         aboutDescription: data.aboutDescription,
+
         educationInstitute: data.educationInstitute,
         degree: data.degree,
         studyField: data.studyField,
@@ -45,6 +56,7 @@ const UserProfileForm = () => {
         educationEndMonth: data.educationEndMonth,
         educationEndYear: data.educationEndYear,
         educationDescription: data.educationDescription,
+
         projectName: data.projectName,
         projectLink: data.projectLink,
         technologies: data.technologies,
@@ -53,9 +65,10 @@ const UserProfileForm = () => {
         projectEndMonth: data.projectEndMonth,
         projectEndYear: data.projectEndYear,
         projectDescription: data.projectDescription,
+
         skills: data.skills,
+
         jobTitle: data.jobTitle,
-       
         jobType: data.jobType,
         JobType: data.JobType,
         companyName: data.companyName,
@@ -80,10 +93,15 @@ const UserProfileForm = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate('/profile');
       }
-          setDisabled(false)
+          setDisabled(true)
     }
   };
+
+ 
+    
+  
   return (
     <div className="mb-8">
       <div className="max-w-6xl mx-auto">
@@ -108,7 +126,7 @@ const UserProfileForm = () => {
                 </div>
                 <div className="w-full">
                   <h3 className='text-slate-600 text-lg font-semibold'>Name</h3>
-                  <input className='pl-2 rounded-md py-2 border-[0.0px] border-black    w-full text-lg font-medium'
+                  <input  className='pl-2 rounded-md py-2 border-[0.0px] border-black    w-full text-lg font-medium'
                     {...register("name", { required: true })} type="text" placeholder='Enter Your Name' id="" />
                   {errors.name && <span className="mt-2 text-red-600 w-full">Name is required </span>}
 
@@ -491,7 +509,7 @@ const UserProfileForm = () => {
 
                         <select  {...register("jobStartMonth", { required: true })} className="text-lg font-medium rounded-md py-2 w-full" id="">
 
-                          <option selected disabled className="text-lg font-medium" value="Jan">Month</option>
+                          <option selected disabled className="text-lg font-medium">Month</option>
                           <option className="text-lg font-medium" value="Jan">January</option>
                           <option className="text-lg font-medium" value="Feb">February</option>
                           <option className="text-lg font-medium" value="Mar">March</option>
@@ -600,10 +618,10 @@ const UserProfileForm = () => {
                 </div>
               </div>
               <p className="border-[0.5px] border-slate-400 mt-2 mb-1 w-full"></p>
-             {
-              disabled ? <button  className=" mt-2 btn px-8  bg-[#FF444A] text-white rounded-md hover:text-black hover:bg-red-300  text-lg font-semibold">Create</button>:
-              <button disabled className="  mt-2 btn px-8  bg-[#FF444A] text-white rounded-md hover:text-black hover:bg-red-300  text-lg font-semibold">Create</button>
-             }
+              {
+                (disabled || profileData.length) ? <button disabled  className="  mt-2 btn px-8  bg-[#FF444A] text-white rounded-md hover:text-black hover:bg-red-300  text-lg font-semibold">Create</button>:
+                <button   className="  mt-2 btn px-8  bg-[#FF444A] text-white rounded-md hover:text-black hover:bg-red-300  text-lg font-semibold">Create</button>
+              }
             </form>
           </div>
         </div>

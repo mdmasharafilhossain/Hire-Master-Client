@@ -1,7 +1,7 @@
 import Marquee from "react-fast-marquee";
+
 import bhLogo from "../../assets/sponsors/bh_logo_2015.png";
 import codeRexLogo from "../../assets/sponsors/CodeRex-Logo.png";
-
 import hubspotLogo from "../../assets/sponsors/hubspotlogo-web-color.png";
 import jetpackLogo from "../../assets/sponsors/Jetpack_Horizontal_RGB_500.png";
 import wooCommerceLogo from "../../assets/sponsors/logo-woocommerce-black.png";

@@ -5,7 +5,7 @@ import Testimonials from "../../Comonents/Testimonial/Testimonials";
 import Navbar from "../../Comonents/Navbar/Navbar";
 import PaymentHomeCard from "../../Comonents/Payment/PaymentHomeCard/PaymentHomeCard";
 import Sponsors from "../../Comonents/Sponsors/Sponsors";
-import NewsSubscription from "../../Comonents/JobNews/NewsSubscription";
+import NewsSubscription from "../../Comonents/TechNews/NewsSubscription";
 
 const Home = () => {
   return (
