@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 
-const FairSponsorEventCreateCard = ({ onSubmit, user, isFetching }) => {
+const FairSponsorEventCreateForm = ({ onSubmit, user, isFetching }) => {
   const {
     register,
     handleSubmit,
@@ -62,6 +62,18 @@ const FairSponsorEventCreateCard = ({ onSubmit, user, isFetching }) => {
           <span className='text-red-500'>Location is required!</span>
         )}
       </div>
+      <div className='flex flex-col w-full my-2'>
+        <label className='text-sm md:text-lg'>Sponsor Company</label>
+        <input
+          type='text'
+          placeholder='Company'
+          className='text-lg outline-none border px-2 py-1 '
+          {...register("company", { required: true })}
+        />
+        {errors.company && (
+          <span className='text-red-500'>Company is required!</span>
+        )}
+      </div>
       <div className='flex flex-col sm:flex-row items-center gap-x-10'>
         <div className='flex flex-col w-full my-2'>
           {isFetching ? (
@@ -104,4 +116,4 @@ const FairSponsorEventCreateCard = ({ onSubmit, user, isFetching }) => {
   );
 };
 
-export default FairSponsorEventCreateCard;
+export default FairSponsorEventCreateForm;

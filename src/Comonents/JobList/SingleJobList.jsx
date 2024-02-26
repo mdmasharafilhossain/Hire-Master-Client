@@ -2,18 +2,15 @@ import PropTypes from "prop-types";
 import { LuMapPin } from "react-icons/lu";
 import { IoMdTime } from "react-icons/io";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
-// import { CiHeart } from "react-icons/ci";
 import { FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import UseAxiosPublic from "../Hooks/UseAxiosPublic/UseAxiosPublic";
 import Swal from "sweetalert2";
+import toast, { Toaster } from "react-hot-toast";
 
-const SingleJobList = ({ job
-  // , socket 
-}) => {
-  // const [applied, setApplied] = useState(false);
+const SingleJobList = ({ job }) => {
   const { user } = useContext(AuthContext);
   const email = user?.email;
   let hiring_manager = false;
@@ -40,7 +37,7 @@ const SingleJobList = ({ job
   } = job;
 
   const appliedJobs = {
-    _id,
+    job_id: _id,
     email,
     job_title,
     company_name,
@@ -63,6 +60,7 @@ const SingleJobList = ({ job
     AxiosPublic.post("/users-appliedjobs", appliedJobs)
       .then((res) => {
         console.log("add to database");
+        console.log(res);
         if (res.data.insertedId) {
           Swal.fire({
             title: "Success!",
@@ -70,6 +68,8 @@ const SingleJobList = ({ job
             icon: "success",
             confirmButtonText: "Cool",
           });
+        } else {
+          toast.error(`${res.data.message}`);
         }
       })
       .catch((error) => {
@@ -77,17 +77,9 @@ const SingleJobList = ({ job
       });
   };
 
-  // const handleNotification = (type) => {
-  //   type === 1 && setApplied(true);
-  //   socket.emit("sendNotification", {
-  //     senderEmail: user.email,
-  //     receiverEmail: job.hiring_manager_email,
-  //     type,
-  //   });
-  // };
-
   return (
-    <div className="px-10 py-2 md:py-5 mb-3 flex flex-col md:flex-row justify-between gap-y-1 md:gap-y-0 md:gap-2 border text-center md:text-left hover:shadow-md hover:rounded-3xl hover:bg-orange-200">
+    <div className="px-10 py-2 md:py-5 mb-3 flex flex-col md:flex-row justify-between gap-y-1 md:gap-y-0 md:gap-2 border text-center md:text-left hover:shadow-xl">
+      <Toaster position="top-right" reverseOrder={false} />
       {/* ----------Company logo------------ */}
       <figure className=" md:flex items-center justify-center ">
         <img
@@ -133,21 +125,14 @@ const SingleJobList = ({ job
           </Link>
           {!hiring_manager && (
             <>
-              {/* {!applied ? ( */}
-                <button
-                  onClick={() => {
-                    handleAppliedJobs();
-                    // handleNotification(1);
-                  }}
-                  className="btn btn-sm  bg-[#FF3811] text-white"
-                >
-                  Apply Now
-                </button>
-              {/* ) : (
-                <button className="btn btn-sm  bg-[#FF3811] text-white disabled">
-                  Applied
-                </button>
-              )} */}
+              <button
+                onClick={() => {
+                  handleAppliedJobs();
+                }}
+                className="btn btn-sm  bg-[#FF3811] text-white"
+              >
+                Apply Now
+              </button>
             </>
           )}
         </div>

@@ -7,7 +7,9 @@ import { FaUsers } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { useState } from "react";
 import { TiNews } from "react-icons/ti";
-
+import { FaPeopleGroup } from "react-icons/fa6";
+import { MdPeopleAlt } from "react-icons/md";
+import { FcStatistics } from "react-icons/fc";
 const AdminDashboard = () => {
   const { user } = useContext(AuthContext);
   console.log(user);
@@ -39,11 +41,11 @@ const AdminDashboard = () => {
               <div className='space-y-2 mb-10'>
                 <img
                   className='w-20 ml-16 mt-6 rounded-full'
-                  src={user?.photoURL}
+                  src={user?.photoURL || user?.photo}
                   alt=''
                 />
                 <h1 className='text-sm text-white text-center font-bold'>
-                  {user?.displayName}
+                  {user?.displayName || user?.name}
                 </h1>
               </div>
 
@@ -63,6 +65,21 @@ const AdminDashboard = () => {
                     {" "}
                     <FaUsers />
                     All Job Seekers
+                  </NavLink>
+                </li>
+                <li
+                  onClick={handleRouteClick}
+                  className='font-bold text-sm  text-white '
+                >
+                  <NavLink
+                    to="/AdminDashboard/AllHiringManagers"
+                    className={({ isActive }) =>
+                      `{ ${isActive ? " text-white border " : " "}}`
+                    }
+                  >
+                    {" "}
+                    <FaPeopleGroup />
+                    All Hiring Managers
                   </NavLink>
                 </li>
                 <li
@@ -106,6 +123,34 @@ const AdminDashboard = () => {
                   >
                     <TiNews />
                     All News
+                  </NavLink>
+                </li>
+                <li
+                  onClick={handleRouteClick}
+                  className='font-bold text-sm text-white'
+                >
+                  <NavLink
+                    to='/AdminDashboard/PremiumUser'
+                    className={({ isActive }) =>
+                      `{ ${isActive ? " border  " : " "}}`
+                    }
+                  >
+                    <MdPeopleAlt />
+                    Premium Users
+                  </NavLink>
+                </li>
+                <li
+                  onClick={handleRouteClick}
+                  className='font-bold text-sm text-white'
+                >
+                  <NavLink
+                    to='/AdminDashboard/Statistics'
+                    className={({ isActive }) =>
+                      `{ ${isActive ? " border  " : " "}}`
+                    }
+                  >
+                    <FcStatistics />
+                    Statistics
                   </NavLink>
                 </li>
                 <li
