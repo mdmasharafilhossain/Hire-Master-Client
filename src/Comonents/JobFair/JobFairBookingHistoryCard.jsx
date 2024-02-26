@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 
 const JobFairBookingHistoryCard = ({ event, handleEventBookingRemove }) => {
-  console.log(event);
+  // console.log(event);
 
   const formatDate = dateString => {
     const dateObj = new Date(dateString);
@@ -62,6 +62,7 @@ const JobFairBookingHistoryCard = ({ event, handleEventBookingRemove }) => {
             variant='solid'
             fontWeight='medium'
             textTransform='uppercase'
+            size='sm'
             onClick={() => handleEventBookingRemove(event?.slug)}
           >
             Cancel Event

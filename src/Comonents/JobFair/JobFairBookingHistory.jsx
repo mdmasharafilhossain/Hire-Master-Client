@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import {
   deleteJobSeekersEventBookingInDb,
-  getJobSeekersEventBookings,
+  getJobSeekersEventBookingsFromDb,
 } from "../../api";
 import useAuth from "../Hooks/Auth/useAuth";
 
@@ -9,13 +9,15 @@ import JobFairBookingHistoryCard from "./JobFairBookingHistoryCard";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import Loader from "../Loader/Loader";
+import { InfoOutlineIcon } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
 
 const JobFairBookingHistory = () => {
   const { user } = useAuth();
   const { data: event_bookings = [], isFetching, refetch } = useQuery({
     queryKey: ["job_seekers_bookings"],
     queryFn: async () => {
-      const res = await getJobSeekersEventBookings(user?.email);
+      const res = await getJobSeekersEventBookingsFromDb(user?.email);
       return res.data;
     },
     enabled: !!user,
@@ -54,20 +56,35 @@ const JobFairBookingHistory = () => {
     });
   };
 
-  if (isFetching) {
+  if (!user || isFetching) {
     return <Loader />;
   }
 
   return (
     <div className='space-y-5'>
-      {event_bookings.map(event => (
-        <div key={event._id}>
-          <JobFairBookingHistoryCard
-            event={event}
-            handleEventBookingRemove={handleEventBookingRemove}
-          />
+      {event_bookings.length > 0 &&
+        event_bookings.map(event => (
+          <div key={event._id}>
+            <JobFairBookingHistoryCard
+              event={event}
+              handleEventBookingRemove={handleEventBookingRemove}
+            />
+          </div>
+        ))}
+      {event_bookings.length === 0 && (
+        <div className='flex items-center flex-col gap-y-5 justify-center'>
+          <InfoOutlineIcon color='red' w={10} h={8} />
+          <div className='text-center text-2xl font-semibold'>
+            <span className=' text-red-500'>No event booked! </span>
+            <br />
+            <Link to='/job-fair'>
+              <span className='text-emerald-500 underline'>
+                Please Book any event you want to join.
+              </span>
+            </Link>
+          </div>
         </div>
-      ))}
+      )}
     </div>
   );
 };
