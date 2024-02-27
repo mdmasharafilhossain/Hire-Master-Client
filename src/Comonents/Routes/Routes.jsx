@@ -93,15 +93,14 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path:"/jobpostreport/:id",
-        element:<JobPostReport></JobPostReport>
+        path: "/jobpostreport/:id",
+        element: <JobPostReport></JobPostReport>,
       },
       {
-        path:"/jobpostreport/:id",
-        element:<JobPostReport></JobPostReport>
+        path: "/jobpostreport/:id",
+        element: <JobPostReport></JobPostReport>,
       },
       {
-
         path: "/jobpostreport/:id",
         element: <JobPostReport></JobPostReport>,
       },
@@ -156,18 +155,16 @@ const router = createBrowserRouter([
       },
       {
         path: "/payment-success/:tranId",
-        element: <PaymentSuccess/>,
+        element: <PaymentSuccess />,
       },
       {
         path: "/payment-fail/:tranId",
-        element: <PaymentFail/>,
+        element: <PaymentFail />,
       },
       {
         path: "/sslGateway",
-        element: <SSL/>,
+        element: <SSL />,
       },
-<<<<<<< Updated upstream
-=======
       {
         path: "job-fair/all-events",
         element: <JobFairAllEvents />,
@@ -192,7 +189,6 @@ const router = createBrowserRouter([
         path: "/sslGateway",
         element: <SSL />,
       },
->>>>>>> Stashed changes
     ],
   },
   {
@@ -308,18 +304,14 @@ const router = createBrowserRouter([
     element: <Skills></Skills>,
   },
   {
-    path:"/courseDetails/:id",
-    element:<SingleCourse></SingleCourse>,
-   
-    },
-    {
-      path:"/premiumallcourse",
-      element:<PremiumallCourses></PremiumallCourses>,
-     
-      },
- 
-<<<<<<< Updated upstream
-=======
+    path: "/courseDetails/:id",
+    element: <SingleCourse></SingleCourse>,
+  },
+  {
+    path: "/premiumallcourse",
+    element: <PremiumallCourses></PremiumallCourses>,
+  },
+
   {
     path: "/courseDetails/:id",
     element: <SingleCourse></SingleCourse>,
@@ -329,7 +321,6 @@ const router = createBrowserRouter([
     element: <PremiumallCourses></PremiumallCourses>,
   },
 
->>>>>>> Stashed changes
   // Admin Dashboard
 
   {
@@ -366,19 +357,6 @@ const router = createBrowserRouter([
       },
       {
         path: "/AdminDashboard/alljobreport",
-        element:<AllJobReport></AllJobReport> ,
-      },
-      {
-        path: "/AdminDashboard/premiumusercourses",
-        element:<PremiumUserCourses></PremiumUserCourses> ,
-      },
-        {
-<<<<<<< Updated upstream
-          path:"/AdminDashboard/Statistics",
-        element:<Statistics></Statistics>
-      }
-=======
-        path: "/AdminDashboard/alljobreport",
         element: <AllJobReport></AllJobReport>,
       },
       {
@@ -389,7 +367,6 @@ const router = createBrowserRouter([
         path: "/AdminDashboard/Statistics",
         element: <Statistics></Statistics>,
       },
->>>>>>> Stashed changes
     ],
   },
 ]);
