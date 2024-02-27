@@ -1,0 +1,317 @@
+
+[
+  {
+    "courseId": 1,
+    "courseName": "Introduction to Programming",
+    "instructor": "John Doe",
+    "duration": "8 weeks",
+    "topics": ["Basic Concepts", "Variables", "Control Flow", "Functions", "Data Structures", "Algorithm Design"],
+    "level": "Beginner",
+    "price": 49.99,
+    "photoUrl": " https://i.ibb.co/XFbykGG/EDL221-Intro-to-Programming-1a.jpg",
+    "shortDescription": "Designed for beginners, this course covers the fundamentals of programming. Students will have a solid foundation in programming by the end.",
+    "description": "Designed for beginners, this course covers the fundamentals of programming. Starting with basic concepts, students progress through topics like variables, control flow, and functions. By the end, they'll have a solid foundation in programming. Emphasizing hands-on coding exercises and projects, learners reinforce their understanding. This interactive approach ensures practical application of theoretical knowledge. With engaging projects, participants develop problem-solving skills crucial for success. This course equips students with both theoretical knowledge and practical skills, preparing them for further exploration in programming.",
+    "dailyBreakdown": [
+      "Day 1: Introduction to Programming Concepts",
+      "Day 2: Understanding Variables and Data Types",
+      "Day 3: Control Flow and Decision Making",
+      "Day 4: Functions and Modular Programming",
+      "Day 5: Hands-on Coding Exercise",
+      "Day 6: Project Showcase and Q&A Session",
+      "Day 7: Review and Recap",
+      "Day 8: Final Assessment"
+    ]
+  },
+  {
+    "courseId": 2,
+    "courseName": "Web Development Bootcamp",
+    "instructor": "Jane Smith",
+    "duration": "12 weeks",
+    "topics": ["HTML", "CSS", "JavaScript", "Node.js", "React", "Responsive Design"],
+    "level": "Intermediate",
+    "price": 99.99,
+    "photoUrl": "https://i.ibb.co/Pz42TR2/Teachable-Thumbnails-1.png",
+    "shortDescription": "An intensive bootcamp covering the essentials of web development. The course concludes with a deep dive into React for building modern, interactive web applications.",
+    "description": "This intensive bootcamp covers web development essentials, starting with HTML for building static web pages, CSS for styling, and JavaScript for dynamic client-side interactions. It progresses to server-side development with Node.js and concludes with an in-depth exploration of React for building modern, interactive web applications. Participants engage in real-world projects to apply their skills and gain practical experience, ensuring they're equipped with hands-on expertise. Through this comprehensive curriculum, learners develop a strong foundation in web development, preparing them for success in the dynamic field of modern web application development.",
+    "dailyBreakdown": [
+      "Week 1: HTML Fundamentals",
+      "Week 2: CSS Styling Techniques",
+      "Week 3: Introduction to JavaScript and DOM Manipulation",
+      "Week 4: Server-side Development with Node.js",
+      "Week 5: React Basics and Component-Based Architecture",
+      "Week 6: Advanced React Concepts",
+      "Week 7: Project Development Phase",
+      "Week 8: Project Showcase and Feedback Session",
+      "Week 9: Optimization Techniques in Web Development",
+      "Week 10: Final Project Presentation and Graduation Ceremony"
+    ]
+  },
+  {
+    "courseId": 3,
+    "courseName": "Data Science Fundamentals",
+    "instructor": "Michael Johnson",
+    "duration": "10 weeks",
+    "topics": ["Statistics", "Python", "Data Analysis", "Machine Learning", "Data Visualization", "Predictive Modeling"],
+    "level": "Intermediate",
+    "price": 79.99,
+    "photoUrl": "https://i.ibb.co/Z8x0QzQ/course-12930-image.jpg",
+    "shortDescription": "Explore the world of data science with this comprehensive course. The course delves into machine learning, covering algorithms and techniques for extracting meaningful insights from data.",
+    "description": "Delve into data science with this comprehensive course, beginning with statistical concepts and mastering Python for data analysis and manipulation. Explore machine learning algorithms for extracting valuable insights from data. Engage in hands-on projects with real-world datasets to gain practical experience. Through this immersive curriculum, participants develop a strong foundation in data science, equipping them with the skills to tackle complex analytical challenges and derive meaningful insights from vast datasets. With a focus on practical application and real-world projects, learners emerge prepared to excel in the dynamic field of data science, ready to address industry demands and drive innovation.",
+    "dailyBreakdown": [
+      "Week 1-2: Statistical Concepts and Data Exploration",
+      "Week 3-4: Introduction to Python for Data Science",
+      "Week 5-6: Data Analysis Techniques and Visualization",
+      "Week 7-8: Fundamentals of Machine Learning",
+      "Week 9-10: Advanced Machine Learning Concepts",
+      "Week 11-12: Practical Applications and Real-world Projects"
+    ]
+  },
+  {
+    "courseId": 4,
+    "courseName": "Advanced JavaScript Concepts",
+    "instructor": "Emily Brown",
+    "duration": "6 weeks",
+    "topics": ["ES6+", "Asynchronous JavaScript", "Closures", "Promises", "Functional Programming", "Error Handling"],
+    "level": "Advanced",
+    "price": 69.99,
+    "photoUrl": "   https://i.ibb.co/R6FSGs5/1-t-UPYEFBd-LN0d-DT6-Dzd-Is-OA.png",
+    "shortDescription": "Take your JavaScript skills to the next level with this advanced course. Participants will have a strong grasp of advanced JavaScript concepts by the end.",
+    "description": "Elevate your JavaScript expertise with this advanced course, delving into ECMAScript 6 (ES6+) features, asynchronous programming, closures, and promises. Participants gain a comprehensive understanding of advanced JavaScript concepts, equipped to tackle intricate coding challenges. Through practical exercises and a final project, learners apply newfound knowledge in real-world scenarios, solidifying their skills. By course completion, participants possess a robust grasp of advanced JavaScript principles, prepared to navigate complex programming tasks with confidence. This immersive learning experience empowers individuals to harness the full potential of JavaScript and excel in dynamic software development environments.",
+    "dailyBreakdown": [
+      "Week 1: Exploring ES6+ Features and Enhancements",
+      "Week 2: Deep Dive into Asynchronous JavaScript and Event Loop",
+      "Week 3: Understanding Closures and Scope",
+      "Week 4: Promises and Asynchronous Patterns",
+      "Week 5: Advanced CodingChallenges",
+      "Week 6: Final Project Development and Presentation"
+    ]
+  },
+  {
+    "courseId": 5,
+    "courseName": "Mobile App Development with React Native",
+    "instructor": "Alex Rodriguez",
+    "duration": "10 weeks",
+    "topics": ["React Native Basics", "Navigation", "State Management", "API Integration", "Testing", "Deployment"],
+    "level": "Intermediate",
+    "price": 89.99,
+    "photoUrl": "https://i.ibb.co/HF43VhV/reactnative.png",
+    "shortDescription": "Learn to build cross-platform mobile applications using React Native. The course covers essential concepts, from UI design to deployment.",
+    "description": "Explore the world of mobile app development with React Native. This course covers the basics of React Native, including UI design, navigation, and state management. Participants learn to integrate APIs, implement testing strategies, and deploy cross-platform mobile applications. Through hands-on projects, learners gain practical experience and build a strong foundation in React Native development. By the end of the course, participants are equipped to create responsive and feature-rich mobile apps, ready for the ever-evolving mobile development landscape.",
+    "dailyBreakdown": [
+      "Week 1-2: Introduction to React Native Basics",
+      "Week 3-4: Navigation and UI Design",
+      "Week 5-6: State Management in React Native",
+      "Week 7-8: API Integration and Testing",
+      "Week 9-10: Deployment and Final Project Showcase"
+    ]
+  },
+  {
+    "courseId": 6,
+    "courseName": "Python for Data Analysis and Visualization",
+    "instructor": "Maria Hernandez",
+    "duration": "8 weeks",
+    "topics": ["NumPy", "Pandas", "Matplotlib", "Seaborn", "Data Cleaning", "Time Series Analysis"],
+    "level": "Intermediate",
+    "price": 59.99,
+    "photoUrl": "https://i.ibb.co/0DcVVJj/DataV.png",
+    "shortDescription": "Master Python for data analysis and visualization. The course covers essential libraries and techniques for extracting insights from datasets.",
+    "description": "Master the art of data analysis and visualization using Python. This course dives into essential libraries such as NumPy, Pandas, Matplotlib, and Seaborn. Participants learn data cleaning techniques, time series analysis, and visualization best practices. Through practical exercises and real-world datasets, learners gain hands-on experience in extracting meaningful insights from data. By the end of the course, participants are equipped with the skills to tackle complex data analysis tasks and present findings visually.",
+    "dailyBreakdown": [
+      "Week 1-2: Introduction to NumPy and Pandas",
+      "Week 3-4: Data Cleaning and Transformation",
+      "Week 5-6: Exploratory Data Analysis with Matplotlib",
+      "Week 7-8: Advanced Visualization with Seaborn",
+      "Week 9: Time Series Analysis and Applications",
+      "Week 10: Final Project and Presentation"
+    ]
+  },
+  {
+    "courseId": 7,
+    "courseName": "Cybersecurity Fundamentals",
+    "instructor": "Robert Williams",
+    "duration": "12 weeks",
+    "topics": ["Network Security", "Ethical Hacking", "Encryption", "Incident Response", "Security Policies", "Cyber Threat Intelligence"],
+    "level": "Intermediate",
+    "price": 79.99,
+    "photoUrl": "https://i.ibb.co/ysHmhKp/healthcare-cybersecurity-companies-security-padlock-1024x536.webp",
+    "shortDescription": "Gain a foundational understanding of cybersecurity. The course covers key concepts, tools, and practices to secure digital environments.",
+    "description": "Build a solid foundation in cybersecurity with this comprehensive course. Covering network security, ethical hacking, encryption, incident response, and more, participants learn key concepts and practices to secure digital environments. Hands-on labs and real-world scenarios provide practical experience, allowing learners to apply cybersecurity principles. By the end of the course, participants are equipped with the skills to assess and enhance the security of digital systems, making them valuable assets in the field of cybersecurity.",
+    "dailyBreakdown": [
+      "Week 1-2: Introduction to Cybersecurity Fundamentals",
+      "Week 3-4: Network Security and Protocols",
+      "Week 5-6: Ethical Hacking and Penetration Testing",
+      "Week 7-8: Encryption and Secure Communication",
+      "Week 9-10: Incident Response and Handling",
+      "Week 11-12: Security Policies and Cyber Threat Intelligence"
+    ]
+  },
+  {
+    "courseId": 8,
+    "courseName": "UX/UI Design Principles",
+    "instructor": "Sophie Anderson",
+    "duration": "8 weeks",
+    "topics": ["User Research", "Wireframing", "Prototyping", "Visual Design", "Interaction Design", "Usability Testing"],
+    "level": "Beginner",
+    "price": 49.99,
+    "photoUrl": "https://i.ibb.co/VYT7nKX/UI-design-principles.png",
+    "shortDescription": "Learn the fundamentals of UX/UI design. The course covers user research, wireframing, prototyping, and usability testing for effective design solutions.",
+    "description": "Discover the essentials of UX/UI design through this beginner-friendly course. Covering user research, wireframing, prototyping, visual design, and usability testing, participants learn to create effective and user-centered design solutions. Practical exercises and real-world projects enhance the learning experience, allowing participants to apply design principles in diverse contexts. By the end of the course, learners have a solid understanding of UX/UI design principles and the skills to create compelling and user-friendly interfaces.",
+    "dailyBreakdown": [
+      "Week 1-2: Introduction to UX/UI Design",
+      "Week 3-4: User Research and Personas",
+      "Week 5-6: Wireframing and Prototyping",
+      "Week 7-8: Visual Design and Interaction Design",
+      "Week 9: Usability Testing and Feedback",
+      "Week 10: Final Project Showcase and Q&A Session"
+    ]
+  },
+  {
+    "courseId": 9,
+    "courseName": "Blockchain Technology: Concepts and Applications",
+    "instructor": "David Chang",
+    "duration": "10 weeks",
+    "topics": ["Blockchain Basics", "Smart Contracts", "Decentralized Applications (DApps)", "Cryptocurrencies", "Security", "Future Trends"],
+    "level": "Intermediate",
+    "price": 69.99,
+    "photoUrl": "https://i.ibb.co/rv8QFvj/blockchain-examples-applications-1.png",
+    "shortDescription": "Explore the world of blockchain technology. The course covers fundamental concepts, applications, and the future of blockchain in various industries.",
+    "description": "Dive into the fascinating realm of blockchain technology with this intermediate-level course. Covering blockchain basics, smart contracts, decentralized applications (DApps), cryptocurrencies, and security, participants gain a comprehensive understanding of blockchain concepts and applications. Real-world case studies and hands-on projects provide practical insights into the potential of blockchain in various industries. By the end of the course, learners are equipped to explore the development and implementation of blockchain solutions.",
+    "dailyBreakdown": [
+      "Week 1-2: Introduction to Blockchain Basics",
+      "Week 3-4: Smart Contracts and Ethereum",
+      "Week 5-6: Decentralized Applications (DApps)",
+      "Week 7-8: Cryptocurrencies and Tokenization",
+      "Week 9-10: Security Considerations and Future Trends",
+      "Week 11: Real-world Applications and Case Studies",
+      "Week 12: Final Project Presentation and Graduation Ceremony"
+    ]
+  },
+  {
+    "courseId": 10,
+    "courseName": "Cloud Computing Essentials",
+    "instructor": "Lisa Martinez",
+    "duration": "8 weeks",
+    "topics": ["Cloud Service Models", "Virtualization", "Containerization", "Cloud Security", "Scalability", "Cost Management"],
+    "level": "Intermediate",
+    "price": 59.99,
+    "photoUrl": "https://i.ibb.co/Xz640G6/1520081123071.jpg",
+    "shortDescription": "Master the essentials of cloud computing. The course covers cloud service models, virtualization, containerization, and best practices for secure and scalable solutions.",
+    "description": "Gain mastery over cloud computing essentials with this intermediate-level course. Covering cloud service models, virtualization, containerization, cloud security, scalability, and cost management, participants learn to design, implement, and manage scalable and secure cloud solutions. Real-world scenarios and hands-on labs provide practical experience in leveraging cloud technologies. By the end of the course, learners are equipped with the skills to navigate the dynamic landscape of cloud computing.",
+    "dailyBreakdown": [
+      "Week 1-2: Introduction to Cloud Computing",
+      "Week 3-4: Cloud Service Models and Deployment Models",
+      "Week 5-6: Virtualization and Containerization",
+      "Week 7-8: Cloud Security Best Practices",
+      "Week 9: Scalability and Performance Optimization",
+      "Week 10: Cost Management Strategies",
+      "Week 11: Real-world Cloud Solutions",
+      "Week 12: Final Project and Showcase"
+    ]
+  },
+  {
+    "courseId": 11,
+    "courseName": "Digital Marketing Strategies",
+    "instructor": "Karen Taylor",
+    "duration": "6 weeks",
+    "topics": ["SEO", "Social Media Marketing", "Email Marketing", "Content Strategy", "Analytics", "Campaign Optimization"],
+    "level": "Intermediate",
+    "price": 49.99,
+    "photoUrl": " https://i.ibb.co/7Ctpxbz/topic-700-35975caee058403a1.jpg",
+    "shortDescription": "Explore effective digital marketing strategies. The course covers SEO, social media marketing, email marketing, and analytics for successful online campaigns.",
+    "description": "Unlock the power of digital marketing with this intermediate-level course. Covering SEO, social media marketing, email marketing, content strategy, analytics, and campaign optimization, participants gain insights into effective online marketing strategies. Practical exercises and case studies provide hands-on experience in planning and implementing successful digital campaigns. By the end of the course, learners are equipped with the skills to drive digital marketing success in various industries.",
+    "dailyBreakdown": [
+      "Week 1: Introduction to Digital Marketing",
+      "Week 2: Search Engine Optimization (SEO)",
+      "Week 3: Social Media Marketing Strategies",
+      "Week 4: Email Marketing Best Practices",
+      "Week 5: Content Strategy and Creation",
+      "Week 6: Analytics and Campaign Optimization"
+    ]
+  },
+  {
+    "courseId": 12,
+    "courseName": "Artificial Intelligence and Machine Learning",
+    "instructor": "Daniel Kim",
+    "duration": "12 weeks",
+    "topics": ["Introduction to AI", "Supervised Learning", "Unsupervised Learning", "Neural Networks", "Natural Language Processing", "AI Ethics"],
+    "level": "Intermediate",
+    "price": 79.99,
+    "photoUrl": "https://i.ibb.co/262wDc5/download.png",
+    "shortDescription": "Delve into the world of Artificial Intelligence and Machine Learning. The course covers fundamental concepts, algorithms, and ethical considerations in AI.",
+    "description": "Embark on a journey into Artificial Intelligence and Machine Learning with this comprehensive course. Covering the introduction to AI, supervised and unsupervised learning, neural networks, natural language processing, and AI ethics, participants gain a deep understanding of AI and ML concepts. Hands-on projects and real-world applications provide practical experience, allowing learners to apply AI techniques. By the end of the course, participants are equipped to explore the limitless possibilities of AI in various domains.",
+    "dailyBreakdown": [
+      "Week 1-2: Introduction to Artificial Intelligence",
+      "Week 3-4: Supervised and Unsupervised Learning",
+      "Week 5-6: Neural Networks and Deep Learning",
+      "Week 7-8: Natural Language Processing",
+      "Week 9-10: AI Ethics and Responsible AI",
+      "Week 11-12: Real-world Applications and Projects"
+    ]
+  },
+  {
+    "courseId": 13,
+    "courseName": "Game Development with Unity",
+    "instructor": "Christopher Lee",
+    "duration": "10 weeks",
+    "topics": ["Unity Basics", "Game Design Principles", "3D Graphics", "Physics in Games", "User Interface (UI)", "Multiplatform Deployment"],
+    "level": "Intermediate",
+    "price": 69.99,
+    "photoUrl": " https://i.ibb.co/ftpvK99/2514486-c4e0.jpg",
+    "shortDescription": "Learn game development with Unity. The course covers Unity basics, game design principles, 3D graphics, physics in games, and multiplatform deployment.",
+    "description": "Immerse yourself in the world of game development using Unity. Covering Unity basics, game design principles, 3D graphics, physics in games, and user interface (UI) design, participants learn to create engaging and interactive games. Hands-on projects provide practical experience in designing and developing games using Unity. By the end of the course, learners are equipped with the skills to bring their game ideas to life and deploy them across multiple platforms.",
+    "dailyBreakdown": [
+      "Week 1-2: Introduction to Unity Basics",
+      "Week 3-4: Game Design Principles and Concepts",
+      "Week 5-6: 3D Graphics and Animation in Unity",
+      "Week 7-8: Physics in Games and Game Mechanics",
+      "Week 9-10: User Interface (UI) Design",
+      "Week 11: Multiplatform Deployment and Testing",
+      "Week 12: Final Game Project Showcase"
+    ]
+  },
+  {
+    "courseId": 14,
+    "courseName": "DevOps Practices and Tools",
+    "instructor": "Samuel Miller",
+    "duration": "8 weeks",
+    "topics": ["Continuous Integration", "Continuous Delivery", "Container Orchestration", "Infrastructure as Code", "Monitoring and Logging", "DevOps Culture"],
+    "level": "Intermediate",
+    "price": 59.99,
+    "photoUrl": "https://i.ibb.co/hfJ7PPd/comprehensive-list-of-devops-tools.png",
+    "shortDescription": "Master DevOps practices and tools. The course covers continuous integration, delivery, container orchestration, infrastructure as code, and fostering a DevOps culture.",
+    "description": "Master the art of DevOps with this intermediate-level course. Covering continuous integration, continuous delivery, container orchestration, infrastructure as code, monitoring and logging, and fostering a DevOps culture, participants gain a comprehensive understanding of DevOps practices and tools. Hands-on labs and real-world scenarios provide practical experience in implementing DevOps solutions. By the end of the course, learners are equipped to streamline development and operations processes, promoting collaboration and efficiency.",
+    "dailyBreakdown": [
+      "Week 1-2: Introduction to DevOps Principles",
+      "Week 3-4: Continuous Integration and Delivery",
+      "Week 5-6: Container Orchestration with Kubernetes",
+      "Week 7-8: Infrastructure as Code and Automation",
+      "Week 9: Monitoring and Logging Best Practices",
+      "Week 10: Fostering a DevOps Culture",
+      "Week 11: Real-world DevOps Implementations",
+      "Week 12: Final Project and Showcase"
+    ]
+  },
+  {
+    "courseId": 15,
+    "courseName": "UI/UX for Mobile Applications",
+    "instructor": "Olivia Garcia",
+    "duration": "6 weeks",
+    "topics": ["Mobile UI Design", "Gesture Design", "User-Centered Design", "Mobile App Prototyping", "Accessibility in Mobile Design", "App Store Guidelines"],
+    "level": "Intermediate",
+    "price": 49.99,
+    "photoUrl": "https://i.ibb.co/9ZsZ2DN/fe5795af341f222b6b33ebce00659f188088821b-1456x816.webp",
+    "shortDescription": "Enhance your mobile app design skills. The course covers mobile UI design, gesture design, user-centered design, prototyping, and adherence to app store guidelines.",
+    "description": "Elevate your mobile app design skills with this intermediate-level course. Covering mobile UI design, gesture design, user-centered design principles, mobile app prototyping, accessibility in mobile design, and adherence to app store guidelines, participants learn to create compelling and user-friendly mobile applications. Practical exercises and real-world projects provide hands-on experience in designing for diverse mobile platforms. By the end of the course, learners are equipped to craft visually appealing and intuitive mobile app interfaces.",
+    "dailyBreakdown": [
+      "Week 1-2: Mobile UI Design Principles",
+      "Week 3-4: Gesture Design and User Interaction",
+      "Week 5-6: User-Centered Design and Prototyping",
+      "Week 7: Accessibility Considerations in Mobile Design",
+      "Week 8: Adhering to App Store Guidelines",
+      "Week 9: Final Project Showcase and Feedback",
+      "Week 10: Q&A Session and Graduation"
+    ]
+  }
+]
+
+

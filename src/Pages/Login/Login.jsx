@@ -16,7 +16,7 @@ const Login = () => {
   const emailRef = useRef(null);
   const [invalidAuth, setInvalidAuth] = React.useState("");
   const location = useLocation();
-  const navigate = useNavigate();
+   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
 
   const saveUser = async (user) => {
@@ -35,7 +35,7 @@ const Login = () => {
           };
           saveUser(user);
         }
-        navigate(from, { replace: true });
+        navigate("/profile");
         return swal("Success!", "Login Successful", "success");
       })
       .catch((error) => {
@@ -164,7 +164,7 @@ const Login = () => {
                 </button>
 
                 <label className="label">
-                  <Link to="/managersignup">
+                  <Link to="/signup">
                     <a
                       href="#"
                       className="label-text-alt link link-hover text-base -ml-3 lg:ml-[88px] md:ml-[50px] text-center"
