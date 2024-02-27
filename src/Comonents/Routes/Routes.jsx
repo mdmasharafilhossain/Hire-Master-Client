@@ -51,9 +51,9 @@ import FairSponsorUpdateEvent from "../JobFairSponsor/FairSponsorUpdateEvent";
 import HiringManagerList from "../../AdminDashboard/HiringManagerList/HiringManagerList";
 import PremiumUser from "../../AdminDashboard/PremiumUser/PremiumUser";
 import Statistics from "../../AdminDashboard/Statistics/Statistics";
+import JobFairAllEvents from "../../Pages/JobFair/JobFairAllEvents";
 
 const router = createBrowserRouter([
-  
   {
     path: "/",
     element: <MainLayOut />,
@@ -84,6 +84,13 @@ const router = createBrowserRouter([
         ),
       },
       {
+<<<<<<< Updated upstream
+=======
+        path: "/jobpostreport/:id",
+        element: <JobPostReport></JobPostReport>,
+      },
+      {
+>>>>>>> Stashed changes
         path: "/jobpost",
         element: (
           <PrivateRoute>
@@ -124,6 +131,33 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+<<<<<<< Updated upstream
+=======
+      {
+        path: "job-fair/all-events",
+        element: <JobFairAllEvents />,
+      },
+      {
+        path: "/MakePaymentRoute",
+        element: <MakePayment></MakePayment>,
+      },
+      {
+        path: "/stripeGateway",
+        element: <Stripe></Stripe>,
+      },
+      {
+        path: "/payment-success/:tranId",
+        element: <PaymentSuccess />,
+      },
+      {
+        path: "/payment-fail/:tranId",
+        element: <PaymentFail />,
+      },
+      {
+        path: "/sslGateway",
+        element: <SSL />,
+      },
+>>>>>>> Stashed changes
     ],
   },
   {
@@ -242,6 +276,18 @@ const router = createBrowserRouter([
     path: "/skills",
     element: <Skills></Skills>,
   },
+<<<<<<< Updated upstream
+=======
+  {
+    path: "/courseDetails/:id",
+    element: <SingleCourse></SingleCourse>,
+  },
+  {
+    path: "/premiumallcourse",
+    element: <PremiumallCourses></PremiumallCourses>,
+  },
+
+>>>>>>> Stashed changes
   // Admin Dashboard
 
   {
@@ -277,9 +323,23 @@ const router = createBrowserRouter([
         element: <PremiumUser></PremiumUser>,
       },
       {
+<<<<<<< Updated upstream
         path:"/AdminDashboard/Statistics",
         element:<Statistics></Statistics>
       }
+=======
+        path: "/AdminDashboard/alljobreport",
+        element: <AllJobReport></AllJobReport>,
+      },
+      {
+        path: "/AdminDashboard/premiumusercourses",
+        element: <PremiumUserCourses></PremiumUserCourses>,
+      },
+      {
+        path: "/AdminDashboard/Statistics",
+        element: <Statistics></Statistics>,
+      },
+>>>>>>> Stashed changes
     ],
   },
 ]);
