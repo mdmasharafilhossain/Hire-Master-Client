@@ -13,16 +13,16 @@ const FairAccordion = () => {
       <div className='mt-10 md:mt-24 mb-10 text-3xl font-bold text-center'>
         FAQ
       </div>
-      <div className='mx-auto flex flex-col-reverse md:flex-row justify-between max-w-7xl gap-x-10 items-center px-2 md:px-5'>
-        <div className='w-1/2 hidden lg:flex rounded-3xl overflow-hidden'>
+      <div className='mx-auto flex flex-col-reverse md:flex-row justify-between max-w-7xl items-center px-2 md:px-5'>
+        <div className='w-1/2 hidden lg:flex'>
           <img
-            className=''
+            className='w-3/4 mx-auto rounded-2xl overflow-hidden'
             src='https://i.ibb.co/6XJz9hd/question-mark-1872665-640.jpg'
             alt=''
           />
         </div>
         <div className='w-full lg:w-1/2 flex text-center justify-center items-center'>
-          <Accordion allowToggle>
+          <Accordion allowToggle w='full'>
             <AccordionItem>
               <h2>
                 <AccordionButton>
