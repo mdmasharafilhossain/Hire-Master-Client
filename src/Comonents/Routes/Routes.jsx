@@ -38,10 +38,31 @@ import UpdateNews from "../../AdminDashboard/UpdateNews/UpdateNews";
 import NewsDetails from "../TechNews/NewsDetails";
 import JobFair from "../../Pages/JobFair/JobFair";
 import JobFairRegistrationForm from "../JobFair/JobFairRegistrationForm";
-import JobFairProfile from "../../Pages/JobFair/JobFairProfile";
+
 import FairProfileSettings from "../JobFair/FairProfileSettings";
+import JobFairLayout from "../../LayOut/JobFairLayout";
+import JobFairProfile from "../../Pages/JobFair/JobFairProfile";
+import JobFairBookingHistory from "../JobFair/JobFairBookingHistory";
+import FairInterestedEvents from "../JobFair/FairInterestedEvents";
+import FairSponsorEvents from "../JobFairSponsor/FairSponsorEvents";
+import FairSponsorEventBookings from "../JobFairSponsor/FairSponsorEventBookings";
+import FairSponsorCreateEvent from "../JobFairSponsor/FairSponsorCreateEvent";
+import FairSponsorUpdateEvent from "../JobFairSponsor/FairSponsorUpdateEvent";
+import HiringManagerList from "../../AdminDashboard/HiringManagerList/HiringManagerList";
+import PremiumUser from "../../AdminDashboard/PremiumUser/PremiumUser";
+import Stripe from "../MakePatment/Stripe";
+import SSL from "../MakePatment/SSL";
+import PaymentSuccess from "../MakePatment/PaymentSuccess";
+import PaymentFail from "../MakePatment/PaymentFail";
+import SingleCourse from "../PremiumUserCourse/SingleCourse";
+import JobPostReport from "../../Pages/JobPostReport/JobPostReport";
+import AllJobReport from "../../AdminDashboard/AllJobReport/AllJobReport";
+import PremiumUserCourses from "../../AdminDashboard/PremiumUserCourses/PremiumUserCourses";
+import PremiumallCourses from "../PremiumUserCourse/PremiumallCourses";
+import Statistics from "../../AdminDashboard/Statistics/Statistics";
 
 const router = createBrowserRouter([
+  
   {
     path: "/",
     element: <MainLayOut />,
@@ -70,6 +91,10 @@ const router = createBrowserRouter([
             <JobDetails />
           </PrivateRoute>
         ),
+      },
+      {
+        path:"/jobpostreport/:id",
+        element:<JobPostReport></JobPostReport>
       },
       {
         path: "/jobpost",
@@ -112,19 +137,63 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "/MakePaymentRoute",
+        element: <MakePayment></MakePayment>,
+      },
+      {
+        path: "/stripeGateway",
+        element: <Stripe></Stripe>,
+      },
+      {
+        path: "/payment-success/:tranId",
+        element: <PaymentSuccess/>,
+      },
+      {
+        path: "/payment-fail/:tranId",
+        element: <PaymentFail/>,
+      },
+      {
+        path: "/sslGateway",
+        element: <SSL/>,
+      },
     ],
   },
   {
     path: "job-fair/profile",
-    element: <JobFairProfile />,
+    element: <JobFairLayout />,
     children: [
-      // {
-      //   path: "profile",
-      //   element:,
-      // },
+      {
+        path: "",
+        element: <JobFairProfile />,
+      },
+      {
+        path: "bookings",
+        element: <JobFairBookingHistory />,
+      },
+      {
+        path: "interested-events",
+        element: <FairInterestedEvents />,
+      },
       {
         path: "settings",
         element: <FairProfileSettings />,
+      },
+      {
+        path: "sponsor-event",
+        element: <FairSponsorEvents />,
+      },
+      {
+        path: "sponsor-event-bookings",
+        element: <FairSponsorEventBookings />,
+      },
+      {
+        path: "sponsor-create-event",
+        element: <FairSponsorCreateEvent />,
+      },
+      {
+        path: "sponsor-event/update/:slug",
+        element: <FairSponsorUpdateEvent />,
       },
     ],
   },
@@ -132,6 +201,7 @@ const router = createBrowserRouter([
     path: "job-fair/registration",
     element: <JobFairRegistrationForm />,
   },
+
   { path: "/signup", element: <SignUp></SignUp> },
   {
     path: "/login",
@@ -160,10 +230,6 @@ const router = createBrowserRouter([
   {
     path: "profile",
     element: <Profile></Profile>,
-  },
-  {
-    path: "/MakePaymentRoute",
-    element: <MakePayment></MakePayment>,
   },
   {
     path: "/managerProfile",
@@ -205,6 +271,17 @@ const router = createBrowserRouter([
     path: "/skills",
     element: <Skills></Skills>,
   },
+  {
+    path:"/courseDetails/:id",
+    element:<SingleCourse></SingleCourse>,
+   
+    },
+    {
+      path:"/premiumallcourse",
+      element:<PremiumallCourses></PremiumallCourses>,
+     
+      },
+ 
   // Admin Dashboard
 
   {
@@ -214,6 +291,10 @@ const router = createBrowserRouter([
       {
         path: "/AdminDashboard/AllUsers",
         element: <AllUsers></AllUsers>,
+      },
+      {
+        path: "/AdminDashboard/AllHiringManagers",
+        element: <HiringManagerList></HiringManagerList>,
       },
       {
         path: "/AdminDashboard/AllJobPost",
@@ -231,6 +312,22 @@ const router = createBrowserRouter([
         path: "/AdminDashboard/all-news/:slug",
         element: <UpdateNews />,
       },
+      {
+        path: "/AdminDashboard/PremiumUser",
+        element: <PremiumUser></PremiumUser>,
+      },
+      {
+        path: "/AdminDashboard/alljobreport",
+        element:<AllJobReport></AllJobReport> ,
+      },
+      {
+        path: "/AdminDashboard/premiumusercourses",
+        element:<PremiumUserCourses></PremiumUserCourses> ,
+      },
+        {
+          path:"/AdminDashboard/Statistics",
+        element:<Statistics></Statistics>
+      }
     ],
   },
 ]);
