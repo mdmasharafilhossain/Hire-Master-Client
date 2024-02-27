@@ -62,19 +62,19 @@ const FairSponsorEventCreateForm = ({ onSubmit, user, isFetching }) => {
           <span className='text-red-500'>Location is required!</span>
         )}
       </div>
-      <div className='flex flex-col w-full my-2'>
-        <label className='text-sm md:text-lg'>Sponsor Company</label>
-        <input
-          type='text'
-          placeholder='Company'
-          className='text-lg outline-none border px-2 py-1 '
-          {...register("company", { required: true })}
-        />
-        {errors.company && (
-          <span className='text-red-500'>Company is required!</span>
-        )}
-      </div>
       <div className='flex flex-col sm:flex-row items-center gap-x-10'>
+        <div className='flex flex-col w-full my-2'>
+          <label className='text-sm md:text-lg'>Sponsor Company</label>
+          <input
+            type='text'
+            placeholder='Company'
+            className='text-lg outline-none border px-2 py-1 '
+            {...register("company", { required: true })}
+          />
+          {errors.company && (
+            <span className='text-red-500'>Company is required!</span>
+          )}
+        </div>
         <div className='flex flex-col w-full my-2'>
           {isFetching ? (
             "loading..."
@@ -90,6 +90,8 @@ const FairSponsorEventCreateForm = ({ onSubmit, user, isFetching }) => {
             {...register("sponsor_email", { required: true })}
           />
         </div>
+      </div>
+      <div className='flex flex-col sm:flex-row items-center gap-x-10'>
         <div className='flex flex-col w-full my-2'>
           <label className='text-sm md:text-lg'>Event Date</label>
           <input
@@ -101,7 +103,30 @@ const FairSponsorEventCreateForm = ({ onSubmit, user, isFetching }) => {
             <span className='text-red-500'>Date is required!</span>
           )}
         </div>
+        <div className='flex flex-col w-full my-2'>
+          <label className='text-sm md:text-lg'>Event Start Time</label>
+          <input
+            type='time'
+            className='text-lg w-full outline-none border px-2 py-1 '
+            {...register("startTime", { required: true })}
+          />
+          {errors.startTime && (
+            <span className='text-red-500'>Start time is required!</span>
+          )}
+        </div>
+        <div className='flex flex-col w-full my-2'>
+          <label className='text-sm md:text-lg'>Event End Time</label>
+          <input
+            type='time'
+            className='text-lg w-full outline-none border px-2 py-1 '
+            {...register("endTime", { required: true })}
+          />
+          {errors.endTime && (
+            <span className='text-red-500'>End time is required!</span>
+          )}
+        </div>
       </div>
+      {/*    */}
 
       <button
         type='submit'

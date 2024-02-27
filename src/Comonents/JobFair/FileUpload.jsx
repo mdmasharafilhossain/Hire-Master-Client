@@ -107,7 +107,7 @@ const FileUpload = ({ uploadedImage, setUploadedImage }) => {
         </WrapItem>
 
         {uploadedImage?.length > 0 &&
-          uploadedImage.map(image => (
+          uploadedImage?.map(image => (
             <div className='relative' key={image?.public_id}>
               <Image
                 boxSize='200px'
