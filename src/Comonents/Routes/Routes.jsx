@@ -60,9 +60,9 @@ import AllJobReport from "../../AdminDashboard/AllJobReport/AllJobReport";
 import PremiumUserCourses from "../../AdminDashboard/PremiumUserCourses/PremiumUserCourses";
 import PremiumallCourses from "../PremiumUserCourse/PremiumallCourses";
 import Statistics from "../../AdminDashboard/Statistics/Statistics";
+import JobFairAllEvents from "../../Pages/JobFair/JobFairAllEvents";
 
 const router = createBrowserRouter([
-  
   {
     path: "/",
     element: <MainLayOut />,
@@ -93,8 +93,16 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path:"/jobpostreport/:id",
-        element:<JobPostReport></JobPostReport>
+        path: "/jobpostreport/:id",
+        element: <JobPostReport></JobPostReport>,
+      },
+      {
+        path: "/jobpostreport/:id",
+        element: <JobPostReport></JobPostReport>,
+      },
+      {
+        path: "/jobpostreport/:id",
+        element: <JobPostReport></JobPostReport>,
       },
       {
         path: "/jobpost",
@@ -147,15 +155,39 @@ const router = createBrowserRouter([
       },
       {
         path: "/payment-success/:tranId",
-        element: <PaymentSuccess/>,
+        element: <PaymentSuccess />,
       },
       {
         path: "/payment-fail/:tranId",
-        element: <PaymentFail/>,
+        element: <PaymentFail />,
       },
       {
         path: "/sslGateway",
-        element: <SSL/>,
+        element: <SSL />,
+      },
+      {
+        path: "job-fair/all-events",
+        element: <JobFairAllEvents />,
+      },
+      {
+        path: "/MakePaymentRoute",
+        element: <MakePayment></MakePayment>,
+      },
+      {
+        path: "/stripeGateway",
+        element: <Stripe></Stripe>,
+      },
+      {
+        path: "/payment-success/:tranId",
+        element: <PaymentSuccess />,
+      },
+      {
+        path: "/payment-fail/:tranId",
+        element: <PaymentFail />,
+      },
+      {
+        path: "/sslGateway",
+        element: <SSL />,
       },
     ],
   },
@@ -272,16 +304,23 @@ const router = createBrowserRouter([
     element: <Skills></Skills>,
   },
   {
-    path:"/courseDetails/:id",
-    element:<SingleCourse></SingleCourse>,
-   
-    },
-    {
-      path:"/premiumallcourse",
-      element:<PremiumallCourses></PremiumallCourses>,
-     
-      },
- 
+    path: "/courseDetails/:id",
+    element: <SingleCourse></SingleCourse>,
+  },
+  {
+    path: "/premiumallcourse",
+    element: <PremiumallCourses></PremiumallCourses>,
+  },
+
+  {
+    path: "/courseDetails/:id",
+    element: <SingleCourse></SingleCourse>,
+  },
+  {
+    path: "/premiumallcourse",
+    element: <PremiumallCourses></PremiumallCourses>,
+  },
+
   // Admin Dashboard
 
   {
@@ -318,16 +357,16 @@ const router = createBrowserRouter([
       },
       {
         path: "/AdminDashboard/alljobreport",
-        element:<AllJobReport></AllJobReport> ,
+        element: <AllJobReport></AllJobReport>,
       },
       {
         path: "/AdminDashboard/premiumusercourses",
-        element:<PremiumUserCourses></PremiumUserCourses> ,
+        element: <PremiumUserCourses></PremiumUserCourses>,
       },
-        {
-          path:"/AdminDashboard/Statistics",
-        element:<Statistics></Statistics>
-      }
+      {
+        path: "/AdminDashboard/Statistics",
+        element: <Statistics></Statistics>,
+      },
     ],
   },
 ]);
