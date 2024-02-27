@@ -8,6 +8,10 @@ import {
 import toast from "react-hot-toast";
 import useAuth from "../Hooks/Auth/useAuth";
 import Loader from "../Loader/Loader";
+import { Button, Flex } from "@chakra-ui/react";
+import { Link as ReactRouterLink } from "react-router-dom";
+import { Link as ChakraLink } from "@chakra-ui/react";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 const FairEvent = () => {
   const { user } = useAuth();
@@ -66,6 +70,19 @@ const FairEvent = () => {
             </div>
           ))}
       </div>
+      <Flex justify='center' marginTop={5} marginBottom={5}>
+        <ChakraLink as={ReactRouterLink} to='/job-fair/all-events'>
+          <Button
+            colorScheme='orange'
+            variant='solid'
+            size='md'
+            fontWeight='semibold'
+            fontSize='xl'
+          >
+            All Events <ExternalLinkIcon ml='4px' />
+          </Button>
+        </ChakraLink>
+      </Flex>
     </>
   );
 };

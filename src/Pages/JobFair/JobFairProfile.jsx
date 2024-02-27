@@ -1,21 +1,34 @@
-import { useQuery } from "@tanstack/react-query";
-import useAuth from "../../Comonents/Hooks/Auth/useAuth";
-import { getFairRegisteredUser } from "../../api";
+import { Divider } from "@chakra-ui/react";
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
+import useFairRegister from "../../Comonents/Hooks/FairRegister/useFairRegister";
+import Loader from "../../Comonents/Loader/Loader";
 
 const JobFairProfile = () => {
-  const { user } = useAuth();
+  const { fairUser, isFetching, refetch } = useFairRegister();
 
-  const { data, isFetching } = useQuery({
-    queryKey: ["fairRegister"],
-    queryFn: async () => {
-      const res = await getFairRegisteredUser(user?.email);
-      return res.data;
-    },
-  });
-  console.log(data);
+  if (isFetching) {
+    return <Loader />;
+  }
+
+  console.log(fairUser);
   return (
     <>
-      <h2>Job fair profile</h2>
+      <h2 className=' text-center text-2xl lg:text-3xl font-semibold'>
+        Hello, <span>{fairUser.fullname}</span> ✋.
+      </h2>
+      <Divider marginTop={5} marginBottom={5} />
+      <Tabs variant='soft-rounded' colorScheme='red' isFitted='true'>
+        <TabList>
+          <Tab fontSize={24} fontWeight='semibold'>
+            Upcoming Events
+          </Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            <div>Some content</div>
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
     </>
   );
 };
