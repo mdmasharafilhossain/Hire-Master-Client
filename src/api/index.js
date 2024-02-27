@@ -133,3 +133,11 @@ export const deleteInterestedEventInDb = async (slug, email) => {
     }
   );
 };
+
+export const getFairSponsorBookedEventFromDb = async email => {
+  return await axiosPublic.get(`/job-fair/sponsor-event-bookings`, {
+    params: {
+      email: email,
+    },
+  });
+};
