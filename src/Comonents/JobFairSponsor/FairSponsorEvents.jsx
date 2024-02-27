@@ -22,7 +22,7 @@ const FairSponsorEvents = () => {
     return <Loader />;
   }
 
-  console.log(events);
+  // console.log(events);
   return (
     <>
       {events.length > 0 && (
@@ -35,7 +35,7 @@ const FairSponsorEvents = () => {
         </div>
       )}
       {events.length === 0 && (
-        <div className='flex items-center gap-x-5 min-h-[30vh] justify-center'>
+        <div className='flex items-center gap-x-5 justify-center mx-auto'>
           <InfoOutlineIcon color='red' w={6} h={6} />
           <div className='text-start text-2xl font-medium'>
             <span className=' text-red-500'>No events created by you! </span>
