@@ -27,7 +27,7 @@ const Profile = () => {
   console.log(profileData);
 
   const axiosSecure = UseAxiosSecure();
-  const { loading } = useContext(AuthContext);
+  // const { loading } = useContext(AuthContext);
   const { data: premium = [] } = useQuery({
     queryKey: ["premium"],
     queryFn: async () => {
