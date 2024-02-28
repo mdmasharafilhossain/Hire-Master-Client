@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import { getManagerInfo, getUserInfo } from "../../api";
@@ -10,13 +10,17 @@ import useNotifications from "../Hooks/Notifications/getNotifications";
 
 const Navbar2 = () => {
   const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const email = user?.email;
 
   const handleSignOut = () => {
     logOut()
-      .then(() => {})
-      .catch();
+      .then(() => {
+        navigate("/signup2");
+        localStorage.removeItem("userEmail");
+      })
+      .catch(error => console.log(error));
   };
 
   // user profile with context email

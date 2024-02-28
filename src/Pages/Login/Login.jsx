@@ -17,7 +17,7 @@ const Login = () => {
   const [invalidAuth, setInvalidAuth] = React.useState("");
   const location = useLocation();
   const navigate = useNavigate();
-  const from = location.state?.from?.pathname || "/";
+  // const from = location.state?.from?.pathname || "/";
 
   const saveUser = async (user) => {
     const response = await saveUsersInDb(user);
@@ -155,6 +155,9 @@ const Login = () => {
 
                   {/* <Link to='/login'> */}
                   <div className="form-control mt-6">
+                    <p className="text-red-500">
+                      {invalidAuth}
+                    </p>
                     <button className="btn bg-[#FF3811] text-white">
                       Login
                     </button>
