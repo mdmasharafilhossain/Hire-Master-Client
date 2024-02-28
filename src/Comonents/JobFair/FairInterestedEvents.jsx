@@ -1,26 +1,20 @@
-import { useQuery } from "@tanstack/react-query";
 import useAuth from "../Hooks/Auth/useAuth";
-import {
-  deleteInterestedEventInDb,
-  getInterestedEventsFromDb,
-} from "../../api";
+import { deleteInterestedEventInDb } from "../../api";
 import Loader from "../Loader/Loader";
 import FairInterestedEventCard from "./FairInterestedEventCard";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { InfoOutlineIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
+import useJobSeekersInterestedEvents from "../Hooks/FairJobSeekersInterestedEvents/useJobSeekersInterestedEvents";
 
 const FairInterestedEvents = () => {
   const { user } = useAuth();
-  const { data: interested_events = [], isFetching, refetch } = useQuery({
-    queryKey: ["job_seekers_bookings"],
-    queryFn: async () => {
-      const res = await getInterestedEventsFromDb(user?.email);
-      return res.data;
-    },
-    enabled: !!user,
-  });
+  const {
+    interestedEvents,
+    isFetching,
+    refetch,
+  } = useJobSeekersInterestedEvents();
 
   const handleInterestedEventRemove = async slug => {
     Swal.fire({
@@ -56,11 +50,13 @@ const FairInterestedEvents = () => {
     return <Loader />;
   }
 
+  console.log(interestedEvents);
+
   return (
     <>
-      {interested_events.length > 0 && (
+      {interestedEvents.length > 0 && (
         <div className='grid grid-cols-1 md:grid-cols-2 gap-y-5 md:gap-y-0 md:gap-x-5 mx-auto'>
-          {interested_events.map(event => (
+          {interestedEvents.map(event => (
             <FairInterestedEventCard
               key={event._id}
               event={event}
@@ -70,7 +66,7 @@ const FairInterestedEvents = () => {
         </div>
       )}
 
-      {interested_events.length === 0 && (
+      {interestedEvents.length === 0 && (
         <div className='flex items-center flex-col gap-y-5 justify-center'>
           <InfoOutlineIcon color='red' w={10} h={8} />
           <div className='text-center text-2xl font-semibold'>
