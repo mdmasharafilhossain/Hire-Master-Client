@@ -155,7 +155,7 @@ const Login = () => {
 
                   {/* <Link to='/login'> */}
                   <div className="form-control mt-6">
-                    <p>
+                    <p className="text-red-500">
                       {invalidAuth}
                     </p>
                     <button className="btn bg-[#FF3811] text-white">
