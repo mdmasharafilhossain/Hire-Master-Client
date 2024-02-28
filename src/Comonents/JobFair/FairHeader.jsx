@@ -9,6 +9,7 @@ import {
   SearchIcon,
   SettingsIcon,
   StarIcon,
+  TriangleUpIcon,
 } from "@chakra-ui/icons";
 import {
   Avatar,
@@ -110,6 +111,18 @@ const FairHeader = () => {
                 <MenuDivider />
                 <MenuItem
                   as={Link}
+                  to='/job-fair'
+                  marginBottom={3}
+                  _hover={{
+                    bg: "red.500",
+                    color: "white",
+                  }}
+                >
+                  <TriangleUpIcon marginRight={1} />
+                  Job Fair
+                </MenuItem>
+                <MenuItem
+                  as={Link}
                   to='/job-fair/profile'
                   marginBottom={3}
                   _hover={{
@@ -160,6 +173,18 @@ const FairHeader = () => {
             {fairRegister?.userType === "sponsor" && (
               <MenuGroup title='Profile' marginBottom={5}>
                 <MenuDivider />
+                <MenuItem
+                  as={Link}
+                  to='/job-fair'
+                  marginBottom={3}
+                  _hover={{
+                    bg: "red.500",
+                    color: "white",
+                  }}
+                >
+                  <TriangleUpIcon marginRight={1} />
+                  Job Fair
+                </MenuItem>
                 <MenuItem
                   as={Link}
                   to='/job-fair/profile'

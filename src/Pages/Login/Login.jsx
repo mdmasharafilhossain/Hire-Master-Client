@@ -16,7 +16,7 @@ const Login = () => {
   const emailRef = useRef(null);
   const [invalidAuth, setInvalidAuth] = React.useState("");
   const location = useLocation();
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
 
   const saveUser = async (user) => {
@@ -51,7 +51,12 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         if (result) {
+<<<<<<< HEAD
           navigate(location?.state ? location.state : "/profile");
+=======
+          form.email.value = "";
+          navigate(location?.state ? location.state : "/");
+>>>>>>> a26aa07cf62edcf3c7ff91395b991dbff05802af
           return swal("Success!", "Login Successful", "success");
         }
       })
@@ -63,7 +68,7 @@ const Login = () => {
   const handleForgotPassword = () => {
     const email = emailRef.current.value;
     if (!email) {
-      console.log("pelase provide an email", emailRef.current.value);
+      console.log("please provide an email", emailRef.current.value);
       return;
     } else if (
       !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)
@@ -102,78 +107,81 @@ const Login = () => {
                 </h1>
               </div>
               <div>
-              <form onSubmit={handleLogin}>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text text-base font-medium">
-                      Email{" "}
-                    </span>
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    ref={emailRef}
-                    placeholder="email"
-                    className="input input-bordered"
-                    required
-                  />
-                </div>
-                {/* -----------password------------ */}
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text text-base font-medium">
-                      Password
-                    </span>
-                  </label>
-                  <div className="relative">
+                <form onSubmit={handleLogin}>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text text-base font-medium">
+                        Email{" "}
+                      </span>
+                    </label>
                     <input
-                      type={showPassword ? "text" : "password"}
-                      name="password"
-                      placeholder="password"
-                      className="input input-bordered w-full pr-10" // Added pr-10 for padding on the right
+                      type="email"
+                      name="email"
+                      ref={emailRef}
+                      placeholder="email"
+                      className="input input-bordered"
                       required
                     />
-                    <span
-                      className="absolute inset-y-0 right-3 flex items-center cursor-pointer" // Adjusted position to the right
-                      onClick={() => setShowPassword(!showPassword)} // Toggles the show/hide of password
-                    >
-                      {showPassword ? <FaEyeSlash /> : <FaEye />}
-                    </span>
                   </div>
-                </div>
+                  {/* -----------password------------ */}
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text text-base font-medium">
+                        Password
+                      </span>
+                    </label>
+                    <div className="relative">
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        name="password"
+                        placeholder="password"
+                        className="input input-bordered w-full pr-10" // Added pr-10 for padding on the right
+                        required
+                      />
+                      <span
+                        className="absolute inset-y-0 right-3 flex items-center cursor-pointer" // Adjusted position to the right
+                        onClick={() => setShowPassword(!showPassword)} // Toggles the show/hide of password
+                      >
+                        {showPassword ? <FaEyeSlash /> : <FaEye />}
+                      </span>
+                    </div>
+                  </div>
 
-                {/* Forgot password link */}
-                <div className="mt-2">
-                  <button
-                    onClick={handleForgotPassword}
-                    className="text-sm text-gray-400 hover:underline"
-                  >
-                    Forgot password?
-                  </button>
-                </div>
-
-                {/* <Link to='/login'> */}
-                <div className="form-control mt-6">
-                  <button className="btn bg-[#FF3811] text-white">Login</button>
-                </div>
-                <button
-                  onClick={handleGoogleSignIn}
-                  className="btn btn-outline mt-4 btn-warning w-full rounded-md overflow-hidden text-xs sm:text-lg font-bold"
-                >
-                  <FcGoogle className="text-xl" /> Continue with Google
-                </button>
-
-                <label className="label">
-                  <Link to="/signup">
-                    <a
-                      href="#"
-                      className="label-text-alt link link-hover text-base -ml-3 lg:ml-[88px] md:ml-[50px] text-center"
+                  {/* Forgot password link */}
+                  <div className="mt-2">
+                    <button
+                      type="button"
+                      onClick={handleForgotPassword}
+                      className="text-sm text-gray-400 hover:underline"
                     >
-                      Do not Have an Account? SignUp
-                    </a>
-                  </Link>
-                </label>
-              </form>
+                      Forgot password?
+                    </button>
+                  </div>
+
+                  {/* <Link to='/login'> */}
+                  <div className="form-control mt-6">
+                    <button className="btn bg-[#FF3811] text-white">
+                      Login
+                    </button>
+                  </div>
+                  <button
+                    onClick={handleGoogleSignIn}
+                    className="btn btn-outline mt-4 btn-warning w-full rounded-md overflow-hidden text-xs sm:text-lg font-bold"
+                  >
+                    <FcGoogle className="text-xl" /> Continue with Google
+                  </button>
+
+                  <label className="label">
+                    <Link to="/managersignup">
+                      <a
+                        href="#"
+                        className="label-text-alt link link-hover text-base -ml-3 lg:ml-[88px] md:ml-[50px] text-center"
+                      >
+                        Do not Have an Account? SignUp
+                      </a>
+                    </Link>
+                  </label>
+                </form>
               </div>
             </div>
           </div>

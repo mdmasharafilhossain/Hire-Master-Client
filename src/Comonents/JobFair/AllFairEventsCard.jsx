@@ -28,7 +28,7 @@ import {
 import { FaHashtag } from "react-icons/fa";
 import useFairRegister from "../Hooks/FairRegister/useFairRegister";
 
-const FairEventCard = ({
+const AllFairEventsCard = ({
   event,
   handleInterestedEvent,
   handleEventJoining,
@@ -181,4 +181,4 @@ const FairEventCard = ({
   );
 };
 
-export default FairEventCard;
+export default AllFairEventsCard;
