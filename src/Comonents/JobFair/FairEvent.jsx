@@ -8,12 +8,15 @@ import { Link as ReactRouterLink } from "react-router-dom";
 import { Link as ChakraLink } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import useAllFairEvents from "../Hooks/FairEvents/useAllFairEvents";
+import useFairRegister from "../Hooks/FairRegister/useFairRegister";
 
 const FairEvent = () => {
   const { user } = useAuth();
 
   const { jobFairData, isFetching } = useAllFairEvents();
-  // console.log(jobFairData);
+  const { fairUser } = useFairRegister();
+  console.log(fairUser);
+  console.log(jobFairData);
 
   const handleInterestedEvent = async slug => {
     try {
@@ -29,7 +32,7 @@ const FairEvent = () => {
 
   const handleEventJoining = async slug => {
     try {
-      const res = await saveEventBookingsInDb(slug, user?.email);
+      const res = await saveEventBookingsInDb(slug, fairUser);
       if (res.data.result.insertedId) {
         toast.success(`Event ${slug} booked successfully.`);
       }
@@ -39,7 +42,7 @@ const FairEvent = () => {
     }
   };
 
-  if (!user || isFetching) {
+  if (isFetching) {
     return <Loader />;
   }
   return (

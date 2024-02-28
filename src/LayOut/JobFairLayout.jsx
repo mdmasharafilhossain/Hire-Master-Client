@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Box, Image } from "@chakra-ui/react";
+import { Badge, Box, Image } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../Comonents/Hooks/Auth/useAuth";
 import { getFairRegisteredUser } from "../api";
@@ -56,9 +56,9 @@ const JobFairLayout = () => {
                   {stateFairRegisterName}
                 </Box>
 
-                <Box fontSize={24} fontWeight={"medium"} color='red.500'>
+                <Badge variant='solid' colorScheme='orange'>
                   {data?.userType}
-                </Box>
+                </Badge>
               </div>
             </div>
           </Box>

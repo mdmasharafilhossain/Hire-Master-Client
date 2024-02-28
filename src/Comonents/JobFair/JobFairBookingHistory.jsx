@@ -1,8 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
-import {
-  deleteJobSeekersEventBookingInDb,
-  getJobSeekersEventBookingsFromDb,
-} from "../../api";
+import { deleteJobSeekersEventBookingInDb } from "../../api";
 import useAuth from "../Hooks/Auth/useAuth";
 
 import JobFairBookingHistoryCard from "./JobFairBookingHistoryCard";
@@ -11,17 +7,11 @@ import toast from "react-hot-toast";
 import Loader from "../Loader/Loader";
 import { InfoOutlineIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
+import useJobSeekersEventBookings from "../Hooks/FairJobSeekersEventBookings/useJobSeekersEventBookings";
 
 const JobFairBookingHistory = () => {
   const { user } = useAuth();
-  const { data: event_bookings = [], isFetching, refetch } = useQuery({
-    queryKey: ["job_seekers_bookings"],
-    queryFn: async () => {
-      const res = await getJobSeekersEventBookingsFromDb(user?.email);
-      return res.data;
-    },
-    enabled: !!user,
-  });
+  const { eventBookings, isFetching, refetch } = useJobSeekersEventBookings();
   // console.log(event_bookings);
 
   const handleEventBookingRemove = async slug => {
@@ -62,8 +52,8 @@ const JobFairBookingHistory = () => {
 
   return (
     <div className='space-y-5'>
-      {event_bookings.length > 0 &&
-        event_bookings.map(event => (
+      {eventBookings.length > 0 &&
+        eventBookings.map(event => (
           <div key={event._id}>
             <JobFairBookingHistoryCard
               event={event}
@@ -71,7 +61,7 @@ const JobFairBookingHistory = () => {
             />
           </div>
         ))}
-      {event_bookings.length === 0 && (
+      {eventBookings.length === 0 && (
         <div className='flex items-center flex-col gap-y-5 justify-center'>
           <InfoOutlineIcon color='red' w={10} h={8} />
           <div className='text-center text-2xl font-semibold'>
