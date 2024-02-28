@@ -99,31 +99,6 @@ const CheckoutForm = () => {
   };
 
   return (
-    // <form className="container mx-auto border-2 rounded-lg border-orange-600 w-3/4 py-20 px-20" onSubmit={handleSubmit}>
-    //   <CardElement
-    //     options={{
-    //       style: {
-    //         base: {
-    //           fontSize: '25px',
-    //           color: '#FB8C00',
-    //           '::placeholder': {
-    //             color: '#FB8C00',
-    //           },
-    //         },
-    //         invalid: {
-    //           color: '#9e2146',
-    //         },
-    //       },
-    //     }}
-    //   />
-    //   <button disabled={!stripe || !clientSecret || clicked} className={`border rounded-lg px-5 py-1 ${!stripe || !clientSecret || clicked ? 'bg-white text-black' : 'bg-orange-500 hover:bg-orange-600 text-white'}`} type="submit">
-    //   Pay
-    //   </button>
-    //   <p className="text-red-700 font-bold">{error}</p>
-    //   {
-    //     transitionId && <p className="text-green-600 font-bold mt-10">Your Transition ID : {transitionId}</p>
-    //   }
-    // </form>
     <form
       className="container mx-auto border-2 rounded-lg border-orange-600 sm:w-full md:w-3/4 lg:w-1/2 py-10 px-5 sm:px-10 md:px-20"
       onSubmit={handleSubmit}

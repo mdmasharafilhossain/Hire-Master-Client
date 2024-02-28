@@ -87,3 +87,57 @@ export const updateFairSponsorEventInDb = async (slug, event) => {
     event
   );
 };
+
+export const getFairEventsFromDb = async () => {
+  return await axiosPublic.get(`/job-fair/events`);
+};
+
+export const saveEventBookingsInDb = async (slug, email) => {
+  return await axiosPublic.post(`/job-fair/event-bookings`, { slug, email });
+};
+
+export const getJobSeekersEventBookingsFromDb = async email => {
+  return await axiosPublic.get(`/job-fair/job-seeker/event-bookings`, {
+    params: {
+      email: email,
+    },
+  });
+};
+
+export const deleteJobSeekersEventBookingInDb = async (slug, email) => {
+  return await axiosPublic.delete(
+    `/job-fair/job-seeker/event-bookings/remove`,
+    {
+      data: { slug, email },
+    }
+  );
+};
+
+export const saveInterestedEventInDb = async (slug, email) => {
+  return await axiosPublic.post(`/job-fair/interested-events`, { slug, email });
+};
+
+export const getInterestedEventsFromDb = async email => {
+  return await axiosPublic.get(`/job-fair/job-seeker/interested-events`, {
+    params: {
+      email: email,
+    },
+  });
+};
+
+export const deleteInterestedEventInDb = async (slug, email) => {
+  return await axiosPublic.delete(
+    `/job-fair/job-seeker/interested-events/remove`,
+    {
+      data: { slug, email },
+    }
+  );
+};
+
+export const getFairSponsorBookedEventFromDb = async email => {
+  return await axiosPublic.get(`/job-fair/sponsor-event-bookings`, {
+    params: {
+      email: email,
+    },
+  });
+};

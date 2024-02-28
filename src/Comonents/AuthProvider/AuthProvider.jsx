@@ -17,6 +17,8 @@ const AuthProvider = ({ children }) => {
   const axiosPublic = UseAxiosPublic();
   const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
+  const [stateProfilePicture, setStateProfilePicture] = useState([]);
+  const [stateFairRegisterName, setStateFairRegisterName] = useState("");
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -34,6 +36,7 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       //   console.log("current user", currentUser);
       setLoading(false);
+      // -----------------JWT ------------------
       if (currentUser) {
         axiosPublic
           .post("/jwt", loggedUser, { withCredentials: true })
@@ -70,6 +73,10 @@ const AuthProvider = ({ children }) => {
     signIn,
     logOut,
     googleSignIn,
+    stateProfilePicture,
+    setStateProfilePicture,
+    stateFairRegisterName,
+    setStateFairRegisterName,
   };
 
   return (

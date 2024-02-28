@@ -1,28 +1,18 @@
 import FileUpload from "../JobFair/FileUpload";
 import { useState } from "react";
 import FairSponsorEventCreateForm from "./FairSponsorEventCreateForm";
-import { getFairRegisteredUser, saveFairEventDataInDb } from "../../api";
+import { saveFairEventDataInDb } from "../../api";
 import useAuth from "../Hooks/Auth/useAuth";
-import { useQuery } from "@tanstack/react-query";
+
 import toast from "react-hot-toast";
+import useFairRegister from "../Hooks/FairRegister/useFairRegister";
 
 const FairSponsorCreateEvent = () => {
   const [uploadedImage, setUploadedImage] = useState([]);
 
   const { user } = useAuth();
 
-  const { data: fairuser = {}, isFetching } = useQuery({
-    queryKey: ["fair-sponsor", user?.email],
-    queryFn: async () => {
-      const res = await getFairRegisteredUser(user?.email);
-      return res.data;
-    },
-    enabled: !!user,
-  });
-  console.log(fairuser.userType);
-
-  // const bannerImage = uploadedImage.length > 0 ? uploadedImage[0].url : "";
-  console.log(uploadedImage);
+  const { isFetching } = useFairRegister();
 
   const onSubmit = async (data, reset) => {
     console.log(data);

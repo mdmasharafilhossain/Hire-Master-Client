@@ -24,7 +24,7 @@ const MakePayment = () => {
                 <button className="btn bg-[#FF3811] text-white hover:text-black">
                   <Link to="/stripeGateway">Pay with Stripe</Link>
                 </button>
-              </div>
+              </div> 
             </div>
           </div>
 

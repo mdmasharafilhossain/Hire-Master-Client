@@ -17,7 +17,7 @@ const Login = () => {
   const [invalidAuth, setInvalidAuth] = React.useState("");
   const location = useLocation();
   const navigate = useNavigate();
-  const from = location.state?.from?.pathname || "/";
+  // const from = location.state?.from?.pathname || "/";
 
   const saveUser = async (user) => {
     const response = await saveUsersInDb(user);
@@ -35,7 +35,7 @@ const Login = () => {
           };
           saveUser(user);
         }
-        navigate(from, { replace: true });
+        navigate("/profile");
         return swal("Success!", "Login Successful", "success");
       })
       .catch((error) => {
@@ -51,8 +51,7 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         if (result) {
-          form.email.value = "";
-          navigate(location?.state ? location.state : "/");
+          navigate(location?.state ? location.state : "/profile");
           return swal("Success!", "Login Successful", "success");
         }
       })

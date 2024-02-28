@@ -10,7 +10,7 @@ const AxiosSecure = axios.create({
 // })
 
 const UseAxiosSecure = () => {
-    return AxiosSecure;
+  return AxiosSecure;
 };
 
 export default UseAxiosSecure;
