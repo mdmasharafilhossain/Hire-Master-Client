@@ -56,7 +56,7 @@ const FileUpload = ({ uploadedImage, setUploadedImage }) => {
 
       Promise.all(uploadPromises).then(() => {
         setLoading(false);
-        setUploadedImage(prevImage => [...prevImage, ...image]);
+        setUploadedImage(image);
       });
     }
   };
@@ -106,39 +106,22 @@ const FileUpload = ({ uploadedImage, setUploadedImage }) => {
           </Button>
         </WrapItem>
 
-        {/* {previousBanner?.length > 0 &&
-          previousBanner.map(image => (
-            <div className='relative' key={image?.public_id}>
-              <Image
-                boxSize='200px'
-                w={350}
-                src={image?.url}
-                alt='Product Image'
-              />
-
-              <Tooltip label='Remove Picture' placement='right'>
-                <SmallCloseIcon
-                  color='red.500'
-                  w={6}
-                  h={6}
-                  className='absolute right-0 top-0 cursor-pointer rounded-full bg-black'
-                  onClick={() => handleImageRemove(image?.public_id)}
-                />
-              </Tooltip>
-            </div>
-          ))} */}
-
         {uploadedImage?.length > 0 &&
-          uploadedImage.map(image => (
+          uploadedImage?.map(image => (
             <div className='relative' key={image?.public_id}>
               <Image
                 boxSize='200px'
-                w={350}
+                w={320}
                 src={image?.url}
                 alt='Product Image'
               />
 
-              <Tooltip label='Remove Picture' placement='right'>
+              <Tooltip
+                hasArrow
+                label='Remove Picture!'
+                placement='left'
+                bg='red.500'
+              >
                 <SmallCloseIcon
                   color='red.500'
                   w={6}

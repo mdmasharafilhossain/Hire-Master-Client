@@ -308,6 +308,8 @@ const Profile = () => {
   ) : (
     <div>
       <Link to="/">go back</Link>
+      <p className="text-xl text-red-600">Profile Not found!!!!! </p>
+      <button className="btn bg-orange-600"><Link to="/profileForm">Set Your Profile</Link></button>
     </div>
   )}
 </div>

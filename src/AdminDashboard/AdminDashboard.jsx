@@ -60,7 +60,7 @@ const AdminDashboard = () => {
                   <NavLink
                     to='/AdminDashboard/AllUsers'
                     className={({ isActive }) =>
-                      `{ ${isActive ? " text-white border " : " "}}`
+                      `{ ${isActive ? " text-white border hover:bg-none " : " "}}`
                     }
                   >
                     {" "}
@@ -212,7 +212,7 @@ const AdminDashboard = () => {
       )}
 
       {/* Outlet */}
-      <div className='w-full md:w-full lg:w-full  pr-10'>
+      <div className='w-full md:w-full lg:w-full   pr-10'>
         <Outlet></Outlet>
       </div>
     </div>

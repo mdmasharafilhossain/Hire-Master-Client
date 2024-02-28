@@ -17,6 +17,8 @@ const AuthProvider = ({ children }) => {
   const axiosPublic = UseAxiosPublic();
   const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
+  const [stateProfilePicture, setStateProfilePicture] = useState([]);
+  const [stateFairRegisterName, setStateFairRegisterName] = useState("");
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -28,30 +30,38 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
+
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      const userEmail = currentUser?.email || user?.email;
-      const loggedUser = { email: userEmail };
+      // const userEmail = currentUser?.email || user?.email;
+      // const loggedUser = { email: userEmail };
+
       setUser(currentUser);
       //   console.log("current user", currentUser);
       setLoading(false);
-      if (currentUser) {
-        axiosPublic
-          .post("/jwt", loggedUser, { withCredentials: true })
-          .then((res) => {
-            console.log("token response", res.data);
-          });
-      } else {
-        axiosPublic
-          .post("/logout", loggedUser, {
-            withCredentials: true,
-          })
-          .then((res) => {
-            console.log(res.data);
-          });
-      }
+
+      // -----------JWT--------------------
+      // if (currentUser) {
+      //   axiosPublic
+      //     .post("/jwt", loggedUser, { withCredentials: true })
+      //     .then((res) => {
+      //       console.log("token response", res.data);
+      //     });
+      // } else {
+      //   axiosPublic
+      //     .post("/logout", loggedUser, {
+      //       withCredentials: true,
+      //     })
+      //     .then((res) => {
+      //       console.log(res.data);
+      //     });
+      // }
+
+
+
     });
     return () => unsubscribe();
-  }, [axiosPublic, user?.email]);
+    // }, [axiosPublic, user?.email]);
+  }, []);
 
   const logOut = () => {
     setLoading(true);
@@ -70,6 +80,10 @@ const AuthProvider = ({ children }) => {
     signIn,
     logOut,
     googleSignIn,
+    stateProfilePicture,
+    setStateProfilePicture,
+    stateFairRegisterName,
+    setStateFairRegisterName,
   };
 
   return (
