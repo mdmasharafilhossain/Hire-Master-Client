@@ -54,6 +54,10 @@ export const updateNewsInDb = async (slug, news) => {
   return await axiosPublic.patch(`/tech-news/${slug}`, news);
 };
 
+/* 
+  Job Fair db utilities
+*/
+
 export const saveFairRegistrationInDb = async user => {
   return await axiosPublic.post(`/fair-registration`, user);
 };
@@ -92,8 +96,8 @@ export const getFairEventsFromDb = async () => {
   return await axiosPublic.get(`/job-fair/events`);
 };
 
-export const saveEventBookingsInDb = async (slug, email) => {
-  return await axiosPublic.post(`/job-fair/event-bookings`, { slug, email });
+export const saveEventBookingsInDb = async (slug, fairUser) => {
+  return await axiosPublic.post(`/job-fair/event-bookings`, { slug, fairUser });
 };
 
 export const getJobSeekersEventBookingsFromDb = async email => {
@@ -135,9 +139,5 @@ export const deleteInterestedEventInDb = async (slug, email) => {
 };
 
 export const getFairSponsorBookedEventFromDb = async email => {
-  return await axiosPublic.get(`/job-fair/sponsor-event-bookings`, {
-    params: {
-      email: email,
-    },
-  });
+  return await axiosPublic.get(`/job-fair/sponsor-event-bookings/${email}`);
 };

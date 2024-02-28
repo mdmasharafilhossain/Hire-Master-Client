@@ -11,7 +11,7 @@ const FairAccordion = () => {
   return (
     <>
       <div className='mt-10 md:mt-24 mb-10 text-3xl font-bold text-center'>
-        FAQ
+        FAQs
       </div>
       <div className='mx-auto flex flex-col-reverse md:flex-row justify-between max-w-7xl items-center px-2 md:px-5'>
         <div className='w-1/2 hidden lg:flex'>
@@ -38,7 +38,7 @@ const FairAccordion = () => {
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel pb={4}>
+              <AccordionPanel pb={4} bg='gray.200'>
                 To participate in an event, click the event you are interested.
                 You can register for the event through the registration link
                 provided on the event details page.
@@ -60,7 +60,7 @@ const FairAccordion = () => {
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel pb={4}>
+              <AccordionPanel pb={4} bg='gray.200'>
                 To add an event to your interested list, click the icon bottom
                 to event image. Also you can add an event to your interested
                 list by clicking the button Add to Interested List from event
@@ -82,7 +82,7 @@ const FairAccordion = () => {
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel pb={4}>
+              <AccordionPanel pb={4} bg='gray.200'>
                 As a sponsor, you can add an event by clicking on the `Add
                 Event` button from the job-fair homepage also from on the
                 sponsor dashboard. You will need to provide all the necessary
@@ -104,7 +104,7 @@ const FairAccordion = () => {
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel pb={4}>
+              <AccordionPanel pb={4} bg='gray.200'>
                 You can manage your event by going to the `My Events` section on
                 the sponsor dashboard. Here, you can edit event details, view
                 registrations, and manage event.
@@ -125,7 +125,7 @@ const FairAccordion = () => {
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel pb={4}>
+              <AccordionPanel pb={4} bg='gray.200'>
                 To see the job seekers interested in your event, navigate to the
                 `Interested List` section on the event details page. This will
                 show you a list of job seekers who have added your event to
