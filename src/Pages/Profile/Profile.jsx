@@ -1,5 +1,5 @@
-import { FaGithub, FaPenToSquare } from "react-icons/fa6";
-import { FaExternalLinkAlt, FaBriefcase, FaLinkedin } from "react-icons/fa";
+import {  FaPenToSquare } from "react-icons/fa6";
+import { FaExternalLinkAlt, FaBriefcase } from "react-icons/fa";
 import { FaBookAtlas } from "react-icons/fa6";
 
 import { PiBookBookmarkFill } from "react-icons/pi";
@@ -9,29 +9,39 @@ import { BsTools } from "react-icons/bs";
 import { IoHome } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { MdPostAdd } from "react-icons/md";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 import ProfileNav from "../../Comonents/ProfileNav/ProfileNav";
-import { TbWorld } from "react-icons/tb";
 import ProfileImage from "./ProfileImage";
 import useProfile from "../../Comonents/Hooks/useProfile/useProfile";
 
 import PremiumUserCourse from "../../Comonents/PremiumUserCourse/PremiumUserCourse";
 import Navbar2 from "../../Comonents/Navbar/Navbar2";
+import UseAxiosSecure from "../../Comonents/Hooks/UseAxiosSecure/UseAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
   const [profileData] = useProfile();
   const [myData] = profileData;
   console.log(profileData);
-  const [premium, setPremium] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/payments")
-      .then((res) => res.json())
-      .then((data) => setPremium(data))
-      .catch((error) => console.error("Error fetching premium data:", error));
-  }, []);
+ 
+  const axiosSecure = UseAxiosSecure();
+  const {loading} = useContext(AuthContext);
+  const {data:premium=[]}=useQuery({
+      queryKey:["premium"],
+      queryFn:async()=>{
+          const res =await axiosSecure.get("/payments")
+          return res.data
+  
+      }
+  })
+ 
+  //   fetch("http://localhost:5000/payments")
+  //     .then((res) => res.json())
+  //     .then((data) => setPremium(data))
+  //     .catch((error) => console.error("Error fetching premium data:", error));
+  // }, []);
   const premiumUser = premium.map((userPremium) => userPremium?.email).includes(user?.email);
   console.log(premiumUser)
   return (
@@ -113,47 +123,7 @@ const Profile = () => {
                 </h3>
               </div>
 
-              <div className="md:flex  gap-8">
-                <ProfileImage></ProfileImage>
-
-                <div className="">
-                  <div className="flex md:justify-between items-center">
-                    <h2 className="text-xl font-bold">{myData?.name}</h2>
-                    <h3 className=" font-semibold">
-                      {myData?.UniversityName}
-                    </h3>
-                  </div>
-                  <div className="md:flex justify-between mb-2">
-                    <h3 className=" font-semibold">
-                      {myData?.headline}
-                    </h3>
-                    <h3 className=" font-semibold">
-                      {myData?.location}
-                    </h3>
-                  </div>
-                  <h3 className="w-full  text-lg font-normal">
-                    {myData?.aboutDescription}
-                    <p className="opacity-0 border-[0.5px] w-[150px] md:w-[400px] lg:w-[700px]"></p>
-                  </h3>
-                  <div className="flex gap-4 mt-4">
-                    <Link to={myData?.linkedin}>
-                      <h3 className=" text-xl ">
-                        <FaLinkedin></FaLinkedin>
-                      </h3>
-                    </Link>
-                    <Link to={myData?.portfolio}>
-                      <h3 className=" text-2xl ">
-                        <TbWorld></TbWorld>
-                      </h3>
-                    </Link>
-                    <Link to={myData?.Github}>
-                      <h3 className=" text-xl ">
-                        <FaGithub></FaGithub>
-                      </h3>
-                    </Link>
-                  </div>
-                </div>
-              </div>
+              
             </div>
             {/* Education section */}
             <div className="p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50 hover:text-black hover:drop-shadow-lg">
