@@ -51,12 +51,7 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         if (result) {
-<<<<<<< HEAD
           navigate(location?.state ? location.state : "/profile");
-=======
-          form.email.value = "";
-          navigate(location?.state ? location.state : "/");
->>>>>>> a26aa07cf62edcf3c7ff91395b991dbff05802af
           return swal("Success!", "Login Successful", "success");
         }
       })
