@@ -17,6 +17,8 @@ const AuthProvider = ({ children }) => {
   const axiosPublic = UseAxiosPublic();
   const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
+  const [stateProfilePicture, setStateProfilePicture] = useState([]);
+  const [stateFairRegisterName, setStateFairRegisterName] = useState("");
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -28,6 +30,7 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
+
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       // const userEmail = currentUser?.email || user?.email;
       // const loggedUser = { email: userEmail };
@@ -52,6 +55,9 @@ const AuthProvider = ({ children }) => {
       //       console.log(res.data);
       //     });
       // }
+
+
+
     });
     return () => unsubscribe();
     // }, [axiosPublic, user?.email]);
@@ -74,6 +80,10 @@ const AuthProvider = ({ children }) => {
     signIn,
     logOut,
     googleSignIn,
+    stateProfilePicture,
+    setStateProfilePicture,
+    stateFairRegisterName,
+    setStateFairRegisterName,
   };
 
   return (

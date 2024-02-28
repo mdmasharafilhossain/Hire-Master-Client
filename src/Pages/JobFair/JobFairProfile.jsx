@@ -1,41 +1,34 @@
-
-import { Outlet } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import useAuth from "../../Comonents/Hooks/Auth/useAuth";
-import { getFairRegisteredUser } from "../../api";
-import FairHeader from "../../Comonents/JobFair/FairHeader";
+import { Divider } from "@chakra-ui/react";
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
+import useFairRegister from "../../Comonents/Hooks/FairRegister/useFairRegister";
 import Loader from "../../Comonents/Loader/Loader";
-import FairProfileSidebar from "../../Comonents/JobFair/FairProfileSidebar";
 
 const JobFairProfile = () => {
-  // const { user } = useAuth();
+  const { fairUser, isFetching, refetch } = useFairRegister();
 
-  // const { data, isFetching } = useQuery({
-  //   queryKey: ["fairRegister"],
-  //   queryFn: async () => {
-  //     const res = await getFairRegisteredUser(user?.email);
-  //     return res.data;
-  //   },
-  // });
+  if (isFetching) {
+    return <Loader />;
+  }
 
+  console.log(fairUser);
   return (
     <>
-
-      
-      <FairHeader />
-      {isFetching ? (
-        <Loader />
-      ) : (
-        <div className="max-w-7xl  mx-auto flex items-start w-full gap-x-5 md:gap-x-10 lg:gap-x-28 pt-10 md:pt-24">
-          <div className="w-1/4 flex flex-col space-y-5">
-            <FairProfileSidebar />
-          </div>
-          <div className="w-full">
-            <Outlet />
-          </div>
-        </div>
-      )}
-
+      <h2 className=' text-center text-2xl lg:text-3xl font-semibold'>
+        Hello, <span>{fairUser.fullname}</span> ✋.
+      </h2>
+      <Divider marginTop={5} marginBottom={5} />
+      <Tabs variant='soft-rounded' colorScheme='red' isFitted='true'>
+        <TabList>
+          <Tab fontSize={24} fontWeight='semibold'>
+            Upcoming Events
+          </Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            <div>Some content</div>
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
     </>
   );
 };

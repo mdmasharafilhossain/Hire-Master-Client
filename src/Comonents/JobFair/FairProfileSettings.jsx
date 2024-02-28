@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FileUpload from "./FileUpload";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import useAuth from "../Hooks/Auth/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import { getFairRegisteredUser, updateFairRegisteredUserInDb } from "../../api";
-import Loader from "../Loader/Loader";
 
 const FairProfileSettings = () => {
   const [uploadedImage, setUploadedImage] = useState([]);
@@ -13,19 +12,27 @@ const FairProfileSettings = () => {
     register,
     handleSubmit,
     reset,
+    setValue, // Destructure setValue from useForm
     formState: { errors },
   } = useForm();
 
-  const { user } = useAuth();
+  const { user, setStateProfilePicture, setStateFairRegisterName } = useAuth();
 
   const { data: fairUser = {}, isFetching, refetch } = useQuery({
-    queryKey: ["fairRegister", user?.email],
+    queryKey: ["fairRegister"],
     queryFn: async () => {
       const res = await getFairRegisteredUser(user?.email);
       return res.data;
     },
     enabled: !!user,
   });
+
+  // Use useEffect to set the initial value of the fullname input
+  useEffect(() => {
+    if (fairUser?.fullname) {
+      setValue("fullname", fairUser.fullname);
+    }
+  }, [fairUser, setValue]);
 
   const onSubmit = async (data, reset) => {
     try {
@@ -41,55 +48,67 @@ const FairProfileSettings = () => {
     reset();
   };
 
-  const profilePicture = uploadedImage.length > 0 ? uploadedImage[0].url : "";
-  console.log(fairUser);
+  useEffect(() => {
+    if (user && !isFetching) {
+      setUploadedImage(fairUser.profilePicture);
+      setStateProfilePicture(fairUser.profilePicture);
+      setStateFairRegisterName(fairUser.fullname);
+    }
+  }, [
+    user,
+    isFetching,
+    fairUser.profilePicture,
+    setStateProfilePicture,
+    setStateFairRegisterName,
+    fairUser.fullname,
+  ]);
+
+  const profilePicture = uploadedImage.length > 0 ? uploadedImage : [];
+
+  console.log(profilePicture);
+
   return (
     <>
-      {isFetching ? (
-        <Loader />
-      ) : (
-        <div className='max-w-xl'>
-          <h2 className='font-bold text-2xl md:text-3xl xl:text-4xl text-center mb-10'>
-            Update Profile
-          </h2>
-          <div className='space-y-5'>
-            <FileUpload
-              uploadedImage={uploadedImage}
-              setUploadedImage={setUploadedImage}
-            />
-            <form
-              onSubmit={handleSubmit(data =>
-                onSubmit({ ...data, profilePicture }, reset)
+      <div className='max-w-xl'>
+        <h2 className='font-bold text-2xl md:text-3xl xl:text-4xl text-center mb-10'>
+          Update Profile
+        </h2>
+        <div className='space-y-5'>
+          <FileUpload
+            uploadedImage={uploadedImage}
+            setUploadedImage={setUploadedImage}
+          />
+          <form
+            onSubmit={handleSubmit(data =>
+              onSubmit({ ...data, profilePicture }, reset)
+            )}
+          >
+            <div className='form-group '>
+              <label htmlFor='fullname' className='text-lg font-medium'>
+                Profile Name
+              </label>
+              <input
+                id='fullname'
+                type='text'
+                {...register("fullname", {
+                  required: "Full name is required",
+                })}
+                className='outline-none text-lg'
+              />
+              {errors.fullname && (
+                <p className='error'>{errors.fullname.message}</p>
               )}
-            >
-              <div className='form-group '>
-                <label htmlFor='fullname' className='text-lg font-medium'>
-                  Profile Name
-                </label>
-                <input
-                  id='fullname'
-                  type='text'
-                  defaultValue={fairUser?.fullname}
-                  className='outline-none text-lg'
-                  {...register("fullname", {
-                    required: "Full name is required",
-                  })}
-                />
-                {errors.fullname && (
-                  <p className='error'>{errors.fullname.message}</p>
-                )}
-              </div>
+            </div>
 
-              <button
-                className='bg-[#FF3811] py-2 px-5 text-white font-bold uppercase rounded-lg'
-                type='submit'
-              >
-                Save Profile
-              </button>
-            </form>
-          </div>
+            <button
+              className='bg-[#FF3811] py-2 px-5 text-white font-bold uppercase rounded-lg'
+              type='submit'
+            >
+              Save Profile
+            </button>
+          </form>
         </div>
-      )}
+      </div>
     </>
   );
 };

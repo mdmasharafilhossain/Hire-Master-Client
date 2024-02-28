@@ -1,0 +1,11 @@
+.responsive-font-size {
+    @media (max-width: 640px) {
+      font-size: 2px; /* Adjust as needed */
+    }
+    @media (min-width: 641px) and (max-width: 1024px) {
+      font-size: 18px; /* Adjust as needed */
+    }
+    @media (min-width: 1025px) {
+      font-size: 20px; /* Adjust as needed */
+    }
+  }

@@ -1,3 +1,4 @@
+import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import {
   AddIcon,
@@ -8,6 +9,7 @@ import {
   SearchIcon,
   SettingsIcon,
   StarIcon,
+  TriangleUpIcon,
 } from "@chakra-ui/icons";
 import {
   Avatar,
@@ -18,37 +20,34 @@ import {
   MenuItem,
   MenuGroup,
   MenuDivider,
-  Text,
+  Icon,
 } from "@chakra-ui/react";
 import { BsFillPersonVcardFill } from "react-icons/bs";
-import { useEffect, useState } from "react";
 import { getFairRegisteredUser } from "../../api";
 import useAuth from "../Hooks/Auth/useAuth";
+import { TbLogout2 } from "react-icons/tb";
+import { useEffect } from "react";
 
 const FairHeader = () => {
-  const [fairUser, setFairUser] = useState({});
-  const [registeredType, setRegisteredType] = useState("");
+  const { user, stateProfilePicture, setStateProfilePicture } = useAuth();
 
-  const { user } = useAuth();
-  // const email = "abc@debugger.com";
+  const { data: fairRegister = {}, isFetching } = useQuery({
+    queryKey: ["fairUser"],
+    queryFn: async () => {
+      const res = await getFairRegisteredUser(user?.email);
+      console.log(res);
+      return res.data;
+    },
+    enabled: !!user,
+  });
 
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const res = await getFairRegisteredUser(user?.email);
-        setFairUser(res.data);
-        if (res.data.userType) {
-          setRegisteredType(res.data.userType);
-        }
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-    fetchUser();
-  }, [user]);
-  console.log(registeredType);
-  console.log(fairUser);
+    if (user && !isFetching) {
+      setStateProfilePicture(fairRegister.profilePicture);
+    }
+  }, [fairRegister.profilePicture, isFetching, setStateProfilePicture, user]);
 
+  // console.log(stateProfilePicture);
   return (
     <div className='flex items-center justify-between bg-gray-400 px-5 py-3'>
       <Link to='/' className='w-32'>
@@ -59,14 +58,17 @@ const FairHeader = () => {
         />
       </Link>
       <div className='flex items-center gap-x-5'>
-        {registeredType === "sponsor" && (
-          <button className='flex items-center'>
+        {fairRegister?.userType === "sponsor" && (
+          <Link
+            to='/job-fair/profile/sponsor-create-event'
+            className='flex items-center'
+          >
             <AddIcon color='black' h={3} w={3} marginRight={1} />
             <p className='font-bold tracking-tight'>Create Event</p>
-          </button>
+          </Link>
         )}
 
-        {!registeredType ? (
+        {!fairRegister?.userType ? (
           <Link to='/job-fair/registration'>
             <button className='font-bold'>Sign in</button>
           </Link>
@@ -81,28 +83,44 @@ const FairHeader = () => {
           />
         </div>
         <Menu>
-          <MenuButton>
-            <div className=' flex items-center border rounded-xl  px-2'>
-              <Avatar
-                src={fairUser?.profilePicture || undefined}
-                icon={
-                  !fairUser?.profilePicture ? (
-                    <BsFillPersonVcardFill />
-                  ) : (
-                    undefined
-                  )
-                }
-                size='md'
-              />
-              <Box ml='1'>
-                <ChevronDownIcon color={"white"} />
-              </Box>
-            </div>
-          </MenuButton>
+          {isFetching ? (
+            ""
+          ) : (
+            <MenuButton>
+              <div className=' flex items-center border rounded-xl  px-2'>
+                <Avatar
+                  src={stateProfilePicture[0]?.url || undefined}
+                  icon={
+                    !stateProfilePicture[0]?.url ? (
+                      <BsFillPersonVcardFill />
+                    ) : (
+                      undefined
+                    )
+                  }
+                  size='md'
+                />
+                <Box ml='1'>
+                  <ChevronDownIcon color={"white"} />
+                </Box>
+              </div>
+            </MenuButton>
+          )}
           <MenuList>
-            {registeredType === "job-seeker" && (
+            {fairRegister?.userType === "job-seeker" && (
               <MenuGroup title='Profile' marginBottom={5}>
                 <MenuDivider />
+                <MenuItem
+                  as={Link}
+                  to='/job-fair'
+                  marginBottom={3}
+                  _hover={{
+                    bg: "red.500",
+                    color: "white",
+                  }}
+                >
+                  <TriangleUpIcon marginRight={1} />
+                  Job Fair
+                </MenuItem>
                 <MenuItem
                   as={Link}
                   to='/job-fair/profile'
@@ -152,9 +170,21 @@ const FairHeader = () => {
                 </MenuItem>
               </MenuGroup>
             )}
-            {registeredType === "sponsor" && (
+            {fairRegister?.userType === "sponsor" && (
               <MenuGroup title='Profile' marginBottom={5}>
                 <MenuDivider />
+                <MenuItem
+                  as={Link}
+                  to='/job-fair'
+                  marginBottom={3}
+                  _hover={{
+                    bg: "red.500",
+                    color: "white",
+                  }}
+                >
+                  <TriangleUpIcon marginRight={1} />
+                  Job Fair
+                </MenuItem>
                 <MenuItem
                   as={Link}
                   to='/job-fair/profile'
@@ -202,6 +232,16 @@ const FairHeader = () => {
                 >
                   <SettingsIcon marginRight={1} />
                   Settings
+                </MenuItem>
+                <MenuItem
+                  as={Link}
+                  _hover={{
+                    bg: "red.500",
+                    color: "white",
+                  }}
+                >
+                  <Icon as={TbLogout2} marginRight={1} />
+                  Logout
                 </MenuItem>
               </MenuGroup>
             )}

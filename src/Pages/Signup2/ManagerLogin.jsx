@@ -20,8 +20,8 @@ const ManagerLogin = () => {
   const location = useLocation();
   const navigate = useNavigate();
   // const from = location.state?.from?.pathname || "/";
-  const saveHiringManagerInfo = async user => {
-    const response = await saveHiringManagerInfoDB(user);
+  const saveHiringManagerInfo = async HiringManager => {
+    const response = await saveHiringManagerInfoDB(HiringManager);
     console.log(response.data);
   };
   // google sign in
