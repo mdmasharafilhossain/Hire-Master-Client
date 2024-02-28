@@ -37,11 +37,6 @@ const Profile = () => {
       }
   })
  
-  //   fetch("http://localhost:5000/payments")
-  //     .then((res) => res.json())
-  //     .then((data) => setPremium(data))
-  //     .catch((error) => console.error("Error fetching premium data:", error));
-  // }, []);
   const premiumUser = premium.map((userPremium) => userPremium?.email).includes(user?.email);
   console.log(premiumUser)
   return (
