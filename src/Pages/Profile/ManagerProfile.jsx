@@ -22,11 +22,10 @@ const ManagerProfile = () => {
   const navigate = useNavigate();
   const email = user?.email;
 
-  const {
-    data: profile,
-    loading,
-    refetch,
-  } = useFetchData(`/managerProfile/${email}`, "profile");
+  const { data: profile, loading, refetch } = useFetchData(
+    `/managerProfile/${email}`,
+    "profile"
+  );
   if (loading) return <Loader />;
 
   refetch();
@@ -92,7 +91,12 @@ const ManagerProfile = () => {
             </Link>
           </div>
           {!profile ? (
-            <h2 className="text-4xl text-center m-auto">Profile have not set yet</h2>
+            <div className="text-center m-auto">
+              <h2 className="text-4xl ">
+                Profile have not set yet
+              </h2>
+              <Link to='/managerForm' className="my-5 text-sm hover:underline">click here to set your profile</Link>
+            </div>
           ) : (
             <>
               {/* Profile section */}

@@ -3,12 +3,14 @@ import svg from "../../assets/login.svg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 import swal from "sweetalert";
-import { saveHiringTalentInDb } from "../../api";
+// import { saveHiringManagerInfoDB, saveHiringTalentInDb } from "../../api";
 import Navbar2 from "../../Comonents/Navbar/Navbar2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
 
 const ManagerSignup = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -16,6 +18,7 @@ const ManagerSignup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [show, setShow] = useState(false);
+  const axiosPublic = UseAxiosPublic();
 
   const handleConfirmPasswordChange = (e) => {
     const confirmPassword = e.target.value;
@@ -27,6 +30,27 @@ const ManagerSignup = () => {
       setErrorMessage("");
     }
   };
+
+  
+  const handleGoogleSignIn = () => {
+    googleSignIn().then((result) => {
+      console.log(result);
+      if (result) {
+        const manager = {
+          name: result.user.displayName,
+          email: result.user.email,
+          photo: result?.user?.photoURL,
+        };
+        axiosPublic.post("/managerProfile", manager).then((res) => {
+          console.log(res.data);
+        });
+      }
+      // navigate(from, { replace: true });
+      navigate(location?.state ? location.state : "/managerProfile");
+      return swal("Success!", "Login Successful", "success");
+    });
+  };
+
   // email sign up
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -49,15 +73,18 @@ const ManagerSignup = () => {
     createUser(email, password)
       .then((result) => {
         if (result) {
-          const databaseHiringTalent = async () => {
-            try {
-              const response = await saveHiringTalentInDb(hirer);
-              console.log(response);
-            } catch (error) {
-              console.log(error);
-            }
-          };
-          databaseHiringTalent();
+          // const databaseHiringTalent = async () => {
+          //   try {
+          //     const response = await saveHiringTalentInDb(hirer);
+          //     console.log(response);
+          //   } catch (error) {
+          //     console.log(error);
+          //   }
+          // };
+          // databaseHiringTalent();
+          axiosPublic.post("/managerProfile", hirer).then((res) => {
+            console.log(res.data);
+          });
         }
         console.log(result);
         navigate(location?.state ? location.state : "/managerForm");
@@ -175,8 +202,14 @@ const ManagerSignup = () => {
                 </div>
               </div>
               <p className="text-red-500">{errorMessage}</p>
-              <div className="flex justify-center">
+              <div className="flex flex-col justify-center">
                 <button className="btn bg-[#FF3811] text-white">Signup</button>
+                <button
+                  onClick={handleGoogleSignIn}
+                  className="btn btn-outline mt-4 btn-warning w-full rounded-md overflow-hidden text-xs sm:text-lg font-bold"
+                >
+                  <FcGoogle className="text-xl" /> Continue with Google
+                </button>
               </div>
               <div className="flex justify-center">
                 <label className="label">

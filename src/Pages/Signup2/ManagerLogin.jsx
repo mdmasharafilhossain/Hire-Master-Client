@@ -10,7 +10,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { sendPasswordResetEmail } from "firebase/auth";
 import auth from "../../Comonents/Firebase/firebase.config";
 import toast from "react-hot-toast";
-import { saveHiringManagerInfoDB } from "../../api";
+import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
 
 const ManagerLogin = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
@@ -20,21 +20,20 @@ const ManagerLogin = () => {
   const location = useLocation();
   const navigate = useNavigate();
   // const from = location.state?.from?.pathname || "/";
-  const saveHiringManagerInfo = async (HiringManager) => {
-    const response = await saveHiringManagerInfoDB(HiringManager);
-    console.log(response.data);
-  };
   // google sign in
+  const axiosPublic = UseAxiosPublic();
   const handleGoogleSignIn = () => {
     googleSignIn().then((result) => {
       console.log(result);
       if (result) {
-        const user = {
+        const manager = {
           name: result.user.displayName,
           email: result.user.email,
           photo: result?.user?.photoURL,
         };
-        saveHiringManagerInfo(user);
+        axiosPublic.post("/managerProfile", manager).then((res) => {
+          console.log(res.data);
+        });
       }
       // navigate(from, { replace: true });
       navigate(location?.state ? location.state : "/managerProfile");
@@ -150,16 +149,15 @@ const ManagerLogin = () => {
                   <FcGoogle className="text-xl" /> Continue with Google
                 </button>
 
-                <label className="label">
-                  <Link to="/managersignup">
-                    <a
-                      href="#"
-                      className="label-text-alt link link-hover text-base -ml-3 lg:ml-[88px] md:ml-[50px] text-center"
-                    >
-                      Do not Have an Account? SignUp
-                    </a>
-                  </Link>
-                </label>
+                <div className="flex justify-center">
+                  <label className="label">
+                    <Link to="/managersignup">
+                      <span className="label-text-alt link link-hover text-base">
+                        Dont have any account? register.
+                      </span>
+                    </Link>
+                  </label>
+                </div>
               </form>
             </div>
           </div>
