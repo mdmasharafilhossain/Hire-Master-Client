@@ -15,6 +15,7 @@ import { saveHiringManagerInfoDB } from "../../api";
 const ManagerLogin = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+  const [invalidAuth, setInvalidAuth] = useState("");
   const emailRef = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
@@ -37,6 +38,7 @@ const ManagerLogin = () => {
       }
       // navigate(from, { replace: true });
       navigate(location?.state ? location.state : "/managerProfile");
+      return swal("Success!", "Login Successful", "success");
     });
   };
   const handleLogin = (e) => {
@@ -52,7 +54,10 @@ const ManagerLogin = () => {
           return swal("Success!", "Login Successful", "success");
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        setInvalidAuth(error?.code);
+      });
   };
   const handleForgotPassword = () => {
     const email = emailRef.current.value;
@@ -89,42 +94,34 @@ const ManagerLogin = () => {
             />
           </div>
           <div className="border lg:w-[500px] md:w-[420px] rounded-lg px-10">
-            <h2 className="text-4xl text-center my-4 font-bold">Login</h2>
+            <h2 className="text-4xl text-center my-5 font-bold">Login</h2>
             <div>
-              <form onSubmit={handleLogin}>
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text text-base font-medium">
-                      Email{" "}
-                    </span>
-                  </label>
+              <form onSubmit={handleLogin} className="flex flex-col gap-4">
+                {/* ---------email--------------- */}
+                <div className="flex flex-col">
                   <input
                     type="email"
+                    id="email"
                     name="email"
-                    ref={emailRef}
-                    placeholder="email"
+                    placeholder="Email"
                     className="input input-bordered"
                     required
                   />
                 </div>
-                {/* -----------password------------ */}
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text text-base font-medium">
-                      Password
-                    </span>
-                  </label>
+                {/* --------------password---------- */}
+                <div className="flex flex-col">
                   <div className="relative">
                     <input
                       type={showPassword ? "text" : "password"}
+                      id="password"
                       name="password"
-                      placeholder="password"
-                      className="input input-bordered w-full pr-10" // Added pr-10 for padding on the right
+                      placeholder="Password"
+                      className="input input-bordered w-full"
                       required
                     />
                     <span
-                      className="absolute inset-y-0 right-3 flex items-center cursor-pointer" // Adjusted position to the right
-                      onClick={() => setShowPassword(!showPassword)} // Toggles the show/hide of password
+                      className="absolute inset-y-0 right-3 flex items-center cursor-pointer"
+                      onClick={() => setShowPassword(!showPassword)}
                     >
                       {showPassword ? <FaEyeSlash /> : <FaEye />}
                     </span>
@@ -132,7 +129,7 @@ const ManagerLogin = () => {
                 </div>
 
                 {/* Forgot password link */}
-                <div className="mt-2">
+                <div className="">
                   <button
                     onClick={handleForgotPassword}
                     className="text-sm text-gray-400 hover:underline"
@@ -142,7 +139,8 @@ const ManagerLogin = () => {
                 </div>
 
                 {/* <Link to='/login'> */}
-                <div className="form-control mt-6">
+                <div className="form-control ">
+                  <p className="text-red-500">{invalidAuth}</p>
                   <button className="btn bg-[#FF3811] text-white">Login</button>
                 </div>
                 <button
