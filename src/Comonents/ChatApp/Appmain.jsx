@@ -20,10 +20,11 @@ const Appmain = () => {
     const { user } = useContext(AuthContext);
     console.log(user);
     const email = user?.email;
+    const picture = user?.photoURL;
 
     const sendChat = (e) => {
         e.preventDefault();
-        socket.emit("chat", { email, message });
+        socket.emit("chat", { email, picture, message });
         setMessage('');
     }
 
@@ -44,16 +45,16 @@ const Appmain = () => {
         <div className=''>
             <Navbar></Navbar>
 
-            <div className='flex m-10 lg:ml-20 lg:h-96 '>
-                <div className='lg:w-96 border-r'>
-                    <h1 className='font-bold text-[#ff6445] mb-8 text-2xl'>Managers Profile</h1>
+            <div className='lg:flex m-10  lg:ml-20 lg:h-96 '>
+                <div className='lg:w-96 lg:ml-0 md:ml-52'>
+                    <h1 className='font-bold text-[#ff6445]  mb-8 text-2xl'>Managers Profile</h1>
                     <div>
                         <div className=''>
                             {managerInfo.map(profileinfo => <SingleProfile key={profileinfo._id} profileinfo={profileinfo}></SingleProfile>)}
                         </div>
                     </div>
                 </div>
-                <div className='lg:w-96 border relative'>
+                <div className='w-72 -ml-6 h-96 lg:w-96 md:w-[700px] lg:h-96 md:h-64 border rounded-t-none relative'>
                     <h1 className=' bg-[#ff6445]  text-2xl pt-2 text-white font-bold h-12 text-center rounded-md mb-2'>Chat Here</h1>
                     <div className="overflow-y-auto" style={{ height: "calc(100% - 110px)" }} ref={chatContainerRef}>
                         {chat.map((payload, index) => {
@@ -61,7 +62,7 @@ const Appmain = () => {
                                 <div key={index} className="ml-7 mb-1">
                                     <div className="avatar">
                                         <div className="w-10 rounded-full">
-                                            <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                            <img src={payload.picture} />
                                         </div>
                                         <p className="text-sm font-bold ml-3 mt-3 text-red-500">{payload.email}</p>
                                     </div>
@@ -71,21 +72,21 @@ const Appmain = () => {
                         })}
                     </div>
                     <form onSubmit={sendChat} className="absolute bottom-0 left-0 w-full p-2 flex items-center">
-                        <input type="text" className="border lg:pl-2 rounded-md border-orange-500 flex-grow" name="chat" placeholder="send text" value={message}
+                        <input type="text" className="border lg:pl-2 rounded-md border-[#ff6445] flex-grow" name="chat" placeholder="send text" value={message}
                             onChange={(e) => setMessage(e.target.value)} />
                         <button className="btn btn-outline border-orange-500  btn-xs ml-2" type="submit">Send</button>
                     </form>
                 </div>
-                <div className='lg:w-96 border-l '>
+                <div className='lg:w-96  md:mt-5  mt-8'>
                     <h1 className=' text-center text-2xl font-bold text-[#ff6445]'>Your Profile</h1>
-                    <p className="text-sm font-bold lg:ml-32 lg:pt-6 text-red-500">{user?.displayName}</p>
-                    <div className="avatar lg:ml-20 lg:-mt-4">
+                    <p className=" font-bold  lg:text-xl lg:ml-32 lg:pt-6 md:ml-64 md:mt-4 text-black md:text-xl ml-14 ">{user?.displayName}</p>
+                    <div className="avatar lg:ml-20 -mt-5 lg:-mt-6 md:-mt-4 md:ml-52">
                         <div className="w-10 rounded-full">
                             <img src={user?.photoURL} />
                             {/* <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" /> */}
                             
                         </div>
-                        <p className="text-sm font-bold ml-3 mt-3 text-red-500">{user?.email}</p>
+                        <p className="text-sm font-bold ml-3 mt-6 text-red-500">{user?.email}</p>
                         
                     </div>
                     
