@@ -13,74 +13,100 @@ const Footer = () => {
       <hr />
       <footer className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 py-10 place-items-start'>
         <div className='md:col-span-2 lg:col-span-1'>
-          <nav className='text-start mb-4'>
+          <nav className='text-start mb-4 flex flex-col'>
             <img
-              className='w-52 mx-auto'
+              className='w-52 '
               src='https://i.ibb.co/BcFWdqk/Hire-Master-Logo-2.png'
               alt='logo'
             />
+            <p className='text-gray-500 mt-4 font-medium text-justify text-wrap w-full'>
+              Your go-to platform for job searching and career opportunities.
+              Find the perfect job for your skills and interests. Let HireMaster
+              guide you to your next career move!
+            </p>
           </nav>
         </div>
+
         <div className='md:col-span-1 space-y-2'>
-          <header className='font-semibold text-lg'>Job Seekers</header>
-          <div className='space-y-1'>
+          <header className='font-bold text-xl md:text-2xl'>About Us</header>
+          <div className='space-y-1 text-lg'>
             <Link className='flex items-center text-gray-700 hover:text-gray-900'>
               <FaCaretRight />
-              Create Account
+              About Hire Master
             </Link>
             <Link className='flex items-center text-gray-700 hover:text-gray-900'>
               <FaCaretRight />
-              List of Features
+              Terms and conditions
             </Link>
             <Link className='flex items-center text-gray-700 hover:text-gray-900'>
               <FaCaretRight />
-              Video CV
-              <span className='px-[4px] border border-[#ff3811] rounded-lg ml-1'>
-                new
-              </span>
+              Accessibility Statement
             </Link>
             <Link className='flex items-center text-gray-700 hover:text-gray-900'>
               <FaCaretRight />
-              FAQ
+              Community Standards
+            </Link>
+            <Link className='flex items-center text-gray-700 hover:text-gray-900'>
+              <FaCaretRight />
+              Feedback
             </Link>
           </div>
         </div>
 
         <div className='md:col-span-1 space-y-2'>
-          <header className='font-semibold text-lg'>Employers</header>
-          <div className='space-y-1'>
-            <Link className='flex items-center text-gray-700 hover:text-gray-900'>
+          <header className='font-bold text-xl md:text-2xl'>Job Seekers</header>
+          <div className='space-y-1 text-lg'>
+            <Link
+              to='/jobs'
+              className='flex items-center text-gray-700 hover:text-gray-900'
+            >
               <FaCaretRight />
-              Create Account
+              All Jobs
             </Link>
-            <Link className='flex items-center text-gray-700 hover:text-gray-900'>
+            <Link
+              to='/job-fair'
+              className='flex items-center text-gray-700 hover:text-gray-900'
+            >
               <FaCaretRight />
-              Products/Service
+              Job Fair
+              <span className='px-[4px] border border-[#ff3811] rounded-lg ml-1'>
+                new
+              </span>
             </Link>
-            <Link className='flex items-center text-gray-700 hover:text-gray-900'>
+            <Link
+              to='/contacts'
+              className='flex items-center text-gray-700 hover:text-gray-900'
+            >
               <FaCaretRight />
-              Post a Job
-            </Link>
-            <Link className='flex items-center text-gray-700 hover:text-gray-900'>
-              <FaCaretRight />
-              FAQ
+              Contact us
             </Link>
           </div>
         </div>
+
         <div className='md:col-span-1 space-y-2'>
-          <header className='font-semibold text-lg'>Community</header>
-          <div className='space-y-1'>
-            <Link className='flex items-center text-gray-700 hover:text-gray-900'>
+          <header className='font-bold text-xl md:text-2xl'>Employers</header>
+          <div className='space-y-1 text-lg'>
+            <Link
+              to='/signup2'
+              className='flex items-center text-gray-700 hover:text-gray-900'
+            >
               <FaCaretRight />
-              Events
+              Create Account
             </Link>
-            <Link className='flex items-center text-gray-700 hover:text-gray-900'>
+
+            <Link
+              to='/jobpost'
+              className='flex items-center text-gray-700 hover:text-gray-900'
+            >
               <FaCaretRight />
-              Community Hub
+              Post a Job
             </Link>
-            <Link className='flex items-center text-gray-700 hover:text-gray-900'>
+            <Link
+              to='/about'
+              className='flex items-center text-gray-700 hover:text-gray-900'
+            >
               <FaCaretRight />
-              Community Standards
+              FAQ
             </Link>
           </div>
         </div>
