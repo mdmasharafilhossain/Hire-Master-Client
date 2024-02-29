@@ -12,7 +12,6 @@ import auth from "../../Comonents/Firebase/firebase.config";
 import toast from "react-hot-toast";
 import { saveHiringManagerInfoDB } from "../../api";
 
-
 const ManagerLogin = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
@@ -20,7 +19,7 @@ const ManagerLogin = () => {
   const location = useLocation();
   const navigate = useNavigate();
   // const from = location.state?.from?.pathname || "/";
-  const saveHiringManagerInfo = async HiringManager => {
+  const saveHiringManagerInfo = async (HiringManager) => {
     const response = await saveHiringManagerInfoDB(HiringManager);
     console.log(response.data);
   };
@@ -32,7 +31,7 @@ const ManagerLogin = () => {
         const user = {
           name: result.user.displayName,
           email: result.user.email,
-          photo: result?.user?.photoURL
+          photo: result?.user?.photoURL,
         };
         saveHiringManagerInfo(user);
       }
@@ -80,7 +79,7 @@ const ManagerLogin = () => {
   return (
     <>
       <Navbar2 />
-      <div className="my-20 md:my-32">
+      <div className="px-5">
         <div className="lg:flex md:flex lg:ml-52 lg:gap-8 md:gap-5  mb-20">
           <div className="">
             <img
@@ -89,7 +88,7 @@ const ManagerLogin = () => {
               alt=""
             />
           </div>
-          <div className="border lg:w-[500px] md:w-[420px] rounded-lg p-12 h-[500px]">
+          <div className="border lg:w-[500px] md:w-[420px] rounded-lg px-10">
             <h2 className="text-4xl text-center my-4 font-bold">Login</h2>
             <div>
               <form onSubmit={handleLogin}>

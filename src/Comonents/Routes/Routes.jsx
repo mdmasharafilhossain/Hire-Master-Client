@@ -137,6 +137,53 @@ const router = createBrowserRouter([
         path: "tech-news/:slug",
         element: <NewsDetails />,
       },
+
+      // -----------payments----------------
+      {
+        path: "/MakePaymentRoute",
+        element: (
+          <PrivateRoute>
+            <MakePayment></MakePayment>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/stripeGateway",
+        element: (
+          <PrivateRoute>
+            <Stripe></Stripe>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/payment-success/:tranId",
+        element: (
+          <PrivateRoute>
+            <PaymentSuccess />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/payment-fail/:tranId",
+        element: (
+          <PrivateRoute>
+            <PaymentFail />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/sslGateway",
+        element: (
+          <PrivateRoute>
+            <SSL />
+          </PrivateRoute>
+        ),
+      },
+      // -------------job fair-----------------
+      {
+        path: "job-fair/all-events",
+        element: <JobFairAllEvents />,
+      },
       {
         path: "job-fair",
         element: (
@@ -144,50 +191,6 @@ const router = createBrowserRouter([
             <JobFair />
           </PrivateRoute>
         ),
-      },
-      {
-        path: "/MakePaymentRoute",
-        element: <MakePayment></MakePayment>,
-      },
-      {
-        path: "/stripeGateway",
-        element: <Stripe></Stripe>,
-      },
-      {
-        path: "/payment-success/:tranId",
-        element: <PaymentSuccess />,
-      },
-      {
-        path: "/payment-fail/:tranId",
-        element: <PaymentFail />,
-      },
-      {
-        path: "/sslGateway",
-        element: <SSL />,
-      },
-      {
-        path: "job-fair/all-events",
-        element: <JobFairAllEvents />,
-      },
-      {
-        path: "/MakePaymentRoute",
-        element: <MakePayment></MakePayment>,
-      },
-      {
-        path: "/stripeGateway",
-        element: <Stripe></Stripe>,
-      },
-      {
-        path: "/payment-success/:tranId",
-        element: <PaymentSuccess />,
-      },
-      {
-        path: "/payment-fail/:tranId",
-        element: <PaymentFail />,
-      },
-      {
-        path: "/sslGateway",
-        element: <SSL />,
       },
     ],
   },
