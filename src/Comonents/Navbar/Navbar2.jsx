@@ -113,7 +113,7 @@ const Navbar2 = () => {
         </Link>
       </div>
 
-      <div className="hidden md:flex flex-1 items-center space-x-4 mr-4 font-medium lg:text-lg menu-horizontal px-1 md:text-base">
+      <div className="hidden md:flex flex-1 items-center -ml-64 space-x-4 mr-4 font-medium lg:text-lg menu-horizontal px-1 md:text-base">
         <Link to="/">Home</Link>
         <NavLink
           to="/jobs"
@@ -207,9 +207,7 @@ const Navbar2 = () => {
             <div className="w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
-                src={
-                  "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                }
+                src={ user?.photoURL }
               />
             </div>
           </div>
