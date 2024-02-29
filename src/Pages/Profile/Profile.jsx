@@ -90,18 +90,18 @@ const Profile = () => {
                     {myData?.aboutDescription}
                     <p className="opacity-0 border-[0.5px] w-[150px]   md:w-[400px] lg:w-[700px]"></p>
                   </h3>
-                  <div className='flex gap-4 mt-4'>
-                    <Link to={myData?.linkedin}>
+                  <div  className='flex gap-4 mt-4'>
+                    <Link target="_blank" to={myData?.linkedin}>
                       <h3 className=' text-xl '>
                         <FaLinkedin></FaLinkedin>
                       </h3>
                     </Link>
-                    <Link to={myData?.portfolio}>
+                    <Link target="_blank" to={myData?.portfolio}>
                       <h3 className=' text-2xl '>
                         <TbWorld></TbWorld>
                       </h3>
                     </Link>
-                    <Link to={myData?.Github}>
+                    <Link target="_blank" to={myData?.github}>
                       <h3 className=' text-xl '>
                         <FaGithub></FaGithub>
                       </h3>

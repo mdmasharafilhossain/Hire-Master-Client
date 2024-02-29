@@ -17,7 +17,7 @@ const UserProfileForm = () => {
   console.log(user);
   const { register, handleSubmit, formState: { errors } } = useForm();
   const AxiosPublic = UseAxiosPublic();
-  
+
   const onSubmit = async data => {
     console.log(data);
     const ImageFile = { image: data.image[0] };
@@ -110,9 +110,9 @@ const UserProfileForm = () => {
               <div className="md:flex gap-16 mb-10">
                 {/* About section */}
                 <div className="">
-                  <div className="flex flex-col items-center">
-                    <h2 className='text-3xl font-bold text-[#FF444A] '>About</h2>
-                    <p className="text-lg font-medium">Tell us about Yourself</p>
+                  <div className="">
+                    <h2 className='text-xl font-semibold text-[#FF444A] '>About</h2>
+                    <p className=" font-medium">Tell us about Yourself</p>
                     <p className="opacity-0 border-[0.5px]  border-slate-400 mt-2 mb-1 w-[300px]"></p>
                   </div>
                 </div>
@@ -169,14 +169,14 @@ const UserProfileForm = () => {
               {/* Education section */}
               <div className="md:flex gap-16 mb-10 mt-10">
                 <div className="">
-                  <div className="flex flex-col items-center">
-                    <h2 className='text-3xl font-bold text-[#FF444A] '>Education</h2>
-                    <p className="text-lg font-medium">Your educational qualification</p>
+                  <div className="">
+                    <h2 className='text-xl font-semibold text-[#FF444A] '>Education</h2>
+                    <p className=" font-medium">Your educational qualification</p>
                     <p className="opacity-0 border-[0.5px]  border-slate-400 mt-2 mb-1 w-[300px]"></p>
                   </div>
                 </div>
                 <div className="w-full">
-                  <h3 className='text-slate-600 text-lg font-semibold'>Institute</h3>
+                  <h3 className='text-slate-600 text-lg font-semibold '>Institute</h3>
                   <input className='pl-2 rounded-md py-2   w-full text-lg font-medium '
                     {...register("educationInstitute", { required: true })} type="text" placeholder='Institute Name' id="" />
                   {errors.educationInstitute && <span className="mt-2 text-red-600 w-full">This Field is required </span>}
@@ -311,9 +311,9 @@ const UserProfileForm = () => {
               {/* Project section */}
               <div className="md:flex gap-16 mb-10 mt-10">
 
-                <div className="flex flex-col items-center">
-                  <h2 className='text-3xl font-bold text-[#FF444A] '>Project</h2>
-                  <p className="text-lg font-medium">Add your best project</p>
+                <div className="">
+                  <h2 className='text-xl font-semibold text-[#FF444A] '>Project</h2>
+                  <p className=" font-medium">Add your best project</p>
                   <p className="opacity-0 border-[0.5px]  border-slate-400 mt-2 mb-1 w-[300px]"></p>
                 </div>
                 <div className="w-full">
@@ -452,9 +452,9 @@ const UserProfileForm = () => {
 
               {/* Skills section */}
               <div className="md:flex gap-16 mb-10 mt-10">
-                <div className="flex flex-col items-center">
-                  <h2 className='text-3xl font-bold text-[#FF444A] '>Skills</h2>
-                  <p className="text-lg font-medium">Add your skills</p>
+                <div className="">
+                  <h2 className='text-xl font-semibold text-[#FF444A] '>Skills</h2>
+                  <p className=" font-medium">Add your skills</p>
                   <p className="opacity-0 border-[0.5px]  border-slate-400 mt-2 mb-1 w-[300px]"></p>
                 </div>
                 <div className="w-full">
@@ -467,9 +467,9 @@ const UserProfileForm = () => {
 
               {/* experience section */}
               <div className="md:flex gap-16 mb-10 mt-10">
-                <div className="flex flex-col items-center">
-                  <h2 className='text-3xl font-bold text-[#FF444A] '>Experience</h2>
-                  <p className="text-lg font-medium">Share your Experience</p>
+                <div className="">
+                  <h2 className='text-xl font-semibold text-[#FF444A] '>Experience</h2>
+                  <p className=" font-medium">Share your Experience</p>
                   <p className="opacity-0 border-[0.5px]  border-slate-400 mt-2 mb-1 w-[300px]"></p>
                 </div>
                 <div className="w-full">
