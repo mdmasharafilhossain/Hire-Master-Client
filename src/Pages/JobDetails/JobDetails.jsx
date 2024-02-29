@@ -94,7 +94,7 @@ const JobDetails = () => {
 
   return (
     <>
-    <Navbar2/>
+      <Navbar2 />
       {/* Main Div */}
       <div className="md:grid grid-cols-12 max-w-screen-xl mx-auto px-4 py-10">
         {/* Left div */}
@@ -195,12 +195,14 @@ const JobDetails = () => {
           </div>
 
 
+
+
           <div className="mt-5"><h1 className="text-base font-bold">NOTE: Please be aware that if you suspect this post is fraudulent or a scam, we encourage you to report it. Your vigilance helps maintain the integrity of our platform and ensures a safer community for everyone.</h1>
-       <Link to={`/jobpostreport/${id}`}>
-       <button type="button" className="mt-2 btn-sm focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm  me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Report</button>
-       
-       </Link>
-         </div>
+            <Link to={`/jobpostreport/${id}`}>
+              <button type="button" className="mt-2 btn-sm focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm  me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Report</button>
+
+            </Link>
+          </div>
 
 
 
@@ -217,6 +219,8 @@ const JobDetails = () => {
             >
               Apply For this Job
             </button>
+
+
             <div className="md:hidden fixed bottom-0 left-0 right-0">
               <button
                 onClick={handleAppliedJobs}
@@ -239,7 +243,19 @@ const JobDetails = () => {
                 <p className="font-semibold"> {hiring_manager_email}</p>
               </div>
             </div>
+            <Link to='/manager-chat'>
+              <button
+                className="btn bg-[#ff6445] mt-2 text-white mx-auto w-full font-semibold text-lg sm:hidden md:block"
+              >
+                Talk to Manager
+              </button>
+            </Link>
+
+
           </div>
+
+
+
           {/* sharing link div */}
           <div></div>
         </div>
