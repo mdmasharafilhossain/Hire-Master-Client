@@ -7,7 +7,7 @@ import { RiLoginCircleLine, RiLogoutCircleLine } from "react-icons/ri";
 import { FaRegBell } from "react-icons/fa";
 import useFetchData from "../Hooks/UseFetchData/useFetchData";
 import useNotifications from "../Hooks/Notifications/getNotifications";
-
+import userImage from "./usericon2.png";
 const Navbar2 = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const Navbar2 = () => {
         navigate("/signup2");
         localStorage.removeItem("userEmail");
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
   };
 
   // user profile with context email
@@ -204,10 +204,16 @@ const Navbar2 = () => {
             role="button"
             className="btn btn-ghost btn-circle avatar"
           >
-            <div className="w-10 rounded-full">
+            <div className=" w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
-                src={ user?.photoURL }
+
+                src={
+                  user?.photoURL ||
+                  managerProfile.image ||
+                  userProfile.image ||
+                  userImage
+                }
               />
             </div>
           </div>

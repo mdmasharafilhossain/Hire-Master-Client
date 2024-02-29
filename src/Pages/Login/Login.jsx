@@ -93,7 +93,7 @@ const Login = () => {
             alt=""
           />
         </div>
-        <div className="w-full mx-auto lg:w-3/4 border rounded-2xl overflow-hidden px-10 md:px-16 lg:px-24 py-10 md:py-14 lg:py-20">
+        <div className="w-full mx-auto lg:w-3/4 border rounded-2xl overflow-hidden px-10 md:px-16 lg:px-24 py-10 md:py-10">
           <div className="card ">
             <div className="flex flex-col w-full">
               <div className="text-center">
@@ -102,29 +102,20 @@ const Login = () => {
                 </h1>
               </div>
               <div>
-                <form onSubmit={handleLogin}>
-                  <div className="form-control">
-                    <label className="label">
-                      <span className="label-text text-base font-medium">
-                        Email{" "}
-                      </span>
-                    </label>
+                <form onSubmit={handleLogin} className="flex flex-col gap-5">
+                  {/* ---------email--------------- */}
+                  <div className="flex flex-col">
                     <input
                       type="email"
+                      id="email"
                       name="email"
-                      ref={emailRef}
-                      placeholder="email"
+                      placeholder="Email"
                       className="input input-bordered"
                       required
                     />
                   </div>
                   {/* -----------password------------ */}
                   <div className="form-control">
-                    <label className="label">
-                      <span className="label-text text-base font-medium">
-                        Password
-                      </span>
-                    </label>
                     <div className="relative">
                       <input
                         type={showPassword ? "text" : "password"}
@@ -143,7 +134,7 @@ const Login = () => {
                   </div>
 
                   {/* Forgot password link */}
-                  <div className="mt-2">
+                  <div className="">
                     <button
                       type="button"
                       onClick={handleForgotPassword}
@@ -154,10 +145,8 @@ const Login = () => {
                   </div>
 
                   {/* <Link to='/login'> */}
-                  <div className="form-control mt-6">
-                    <p className="text-red-500">
-                      {invalidAuth}
-                    </p>
+                  <div className="form-control">
+                    <p className="text-red-500">{invalidAuth}</p>
                     <button className="btn bg-[#FF3811] text-white">
                       Login
                     </button>
@@ -170,7 +159,7 @@ const Login = () => {
                   </button>
 
                   <label className="label">
-                    <Link to="/managersignup">
+                    <Link to="/signup">
                       <a
                         href="#"
                         className="label-text-alt link link-hover text-base -ml-3 lg:ml-[88px] md:ml-[50px] text-center"
