@@ -1,13 +1,15 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 import swal from "sweetalert";
 import { saveUsersInDb } from "../../api";
 import Navbar2 from "../../Comonents/Navbar/Navbar2";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
   const [userExists, setUserExists] = React.useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const { createUser, googleSignIn } = useContext(AuthContext);
 
   const location = useLocation();
@@ -27,6 +29,7 @@ const SignUp = () => {
           const user = {
             name: result.user.displayName,
             email: result.user.email,
+            photo: result?.user?.photoURL
           };
           saveUser(user);
         }
@@ -45,11 +48,12 @@ const SignUp = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-
+    const photo = form.photo.value;
     createUser(email, password)
       .then(result => {
+        
         if (result) {
-          const user = { name, email };
+          const user = { name, email, photo };
           saveUser(user);
         }
         navigate(location?.state ? location.state : "/profileForm");
@@ -88,7 +92,7 @@ const SignUp = () => {
                       type='text'
                       name='name'
                       placeholder='Full name'
-                      className='text-xs sm:text-base border border-gray-300 px-3 py-2 outline-none'
+                      className="input input-bordered w-full pr-10"
                       required
                     />
                   </div>
@@ -97,16 +101,33 @@ const SignUp = () => {
                       type='email'
                       name='email'
                       placeholder='Email address'
-                      className='text-xs sm:text-base border border-gray-300 px-3 py-2 outline-none'
+                      className="input input-bordered w-full pr-10"
                       required
                     />
                   </div>
                   <div className='form-control'>
+                  <div className="relative">
                     <input
-                      type='password'
-                      name='password'
-                      placeholder='Password (6 or more characters)'
-                      className='text-xs sm:text-base border border-gray-300 px-3 py-2 outline-none'
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      placeholder="password"
+                      className="input input-bordered w-full pr-10" // Added pr-10 for padding on the right
+                      required
+                    />
+                    <span
+                      className="absolute inset-y-0 right-3 flex items-center cursor-pointer" // Adjusted position to the right
+                      onClick={() => setShowPassword(!showPassword)} // Toggles the show/hide of password
+                    >
+                      {showPassword ? <FaEyeSlash/> : <FaEye/>}
+                    </span>
+                  </div>
+                  </div>
+                  <div className='form-control'>
+                    <input
+                      type='photo'
+                      name='photo'
+                      placeholder='Upload your photo'
+                      className="input input-bordered w-full pr-10"
                       required
                     />
                   </div>

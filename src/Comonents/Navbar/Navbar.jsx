@@ -1,9 +1,8 @@
 import { Button, useDisclosure } from "@chakra-ui/react";
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdPostAdd } from "react-icons/md";
 import { MdOutlineDashboard } from "react-icons/md";
-// import logo from "../../assets/hire_master-logo.png";
 
 import {
   Drawer,
@@ -13,19 +12,40 @@ import {
   DrawerCloseButton,
 } from "@chakra-ui/react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import useFetchData from "../Hooks/UseFetchData/useFetchData";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleSignOut = () => {
-    logOut().then().catch();
+    logOut()
+      .then(() => {
+        navigate("/signup2");
+        localStorage.removeItem("userEmail");
+      })
+      .catch(error => console.log(error));
   };
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
-  // absolute mt-[450px]
-  // sticky  border-4  top-0 z-50
+
+  const email = user?.email;
+  const { data: profile, loading, refetch } = useFetchData(
+    `/managerProfile/${email}`,
+    "profile"
+  );
+  if (!loading) {
+    refetch();
+  }
+  console.log(profile);
+  let profileRoute = "profile";
+  if (user?.email === profile?.email) {
+    profileRoute = "managerProfile";
+  }
+  console.log(profileRoute);
+
   return (
-    <div className='navbar absolute mt-[450px] bg-base-100 h-[10px]'>
+    <div className='navbar sticky  border top-0 z-50 bg-base-100 h-[10px]'>
       <Button
         ref={btnRef}
         display={{ base: "block", md: "none" }}
@@ -56,18 +76,19 @@ const Navbar = () => {
               <Link to='/'>Home</Link>
               <Link to='/about'>About</Link>
               <Link to='/jobs'>Jobs</Link>
+              <Link to='/job-fair'>Jobfair</Link>
+              <Link to='/tech-news'>News</Link>
               <Link to='/contacts'>Contact</Link>
-              {/* <Link to='/signup2'>Register</Link>
-            <Link to='/profile'>Profile</Link> */}
 
               {user ? (
                 <div>
                   <div className=' mb-3'>
-                    <Link to='/profile'>Profile</Link>
+                    <Link to={`/${profileRoute}`}>Profile</Link>
                   </div>
-                  <Link onClick={handleSignOut} to='/login'>
-                    Logout
-                  </Link>
+                  <div className='mb-3'>
+                    <Link to='AdminDashboard'>Admin</Link>
+                  </div>
+                  <Link onClick={handleSignOut}>Logout</Link>
                 </div>
               ) : (
                 <Link to='/signup2'>Register</Link>
@@ -83,7 +104,7 @@ const Navbar = () => {
       <div className='flex-1'>
         <Link
           to='/'
-          className='lg:ml-[200px]  text-3xl md:text-4xl font-bold ml-1 text-[#FF3811]'
+          className='text-3xl md:text-4xl font-bold ml-1 text-[#FF3811]'
         >
           <img
             className=' w-44 md:w-40 lg:w-48 ml-10 md:ml-5 lg:ml-20'
@@ -94,18 +115,23 @@ const Navbar = () => {
       </div>
       <div className='flex-none'>
         <div className='hidden md:flex  items-center space-x-4 mr-4 font-medium lg:text-lg mdmenu menu-horizontal px-1 md:text-base'>
-          <Link>Home</Link>
+          <Link to='/'>Home</Link>
           <Link to='/about'>About</Link>
           <Link to='/jobs'>Jobs</Link>
+          <Link to='/job-fair'>Jobfair</Link>
+          <Link to='/tech-news'>News</Link>
           <Link to='/contacts'>Contact</Link>
           {user ? (
             <div>
-              <Link className='lg:pr-3 md:pr-3' to='/profile'>
+              <Link className='lg:pr-3 md:pr-3' to={`/${profileRoute}`}>
                 Profile
               </Link>
-              <Link onClick={handleSignOut} to='/login'>
-                Logout
+
+              <Link className='lg:pr-3 md:pr-3' to='/AdminDashboard'>
+                Admin
               </Link>
+
+              <Link onClick={handleSignOut}>Logout</Link>
             </div>
           ) : (
             <Link to='/signup2'>Register</Link>

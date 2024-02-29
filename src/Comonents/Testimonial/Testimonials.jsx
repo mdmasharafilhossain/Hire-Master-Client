@@ -23,15 +23,14 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <div className='container px-4 mx-auto my-10 md:my-20'>
-      <div className='mb-10 md:mb-20 space-y-5'>
-        <h2 className='text-3xl lg:text-5xl font-bold text-center '>
+    <div className="container px-4 mx-auto my-10 md:my-20">
+      <div className="mb-10 md:mb-20 space-y-5">
+        <h2 className="text-3xl md:text-5xl font-bold text-center ">
           Collaborative Experiences
         </h2>
-        <p className='text-2xl md:text-3xl text-center font-medium'>
+        <p className="text-2xl md:text-3xl text-center font-medium">
           Insights from Job Applicants and Recruiting Agencies.
         </p>
-
       </div>
 
       <Swiper
@@ -42,7 +41,7 @@ const Testimonials = () => {
           clickable: true,
         }}
         modules={[FreeMode, Pagination]}
-        className='mySwiper'
+        className="mySwiper"
         breakpoints={{
           768: {
             slidesPerView: 2,
@@ -52,24 +51,26 @@ const Testimonials = () => {
           },
         }}
       >
-        {testimonial.map(review => (
+        {testimonial.map((review) => (
           <SwiperSlide key={review.name}>
-            <div className='w-full  h-[420px]'>
-              <div className='-mb-14'>
+            <div className="w-full h-[420px]  shadow-lg rounded-2xl overflow-hidden">
+              <div className="-mb-14">
                 <img
-                  className='rounded-tr-3xl w-24 h-[82px]'
+                  className="rounded-tr-3xl w-24 h-[82px] object-cover"
                   src={review.image}
-                  alt=''
+                  alt={review.name}
                 />
               </div>
-              <div className='p-6 flex flex-col items-center space-y-5 justify-center h-[350px] rounded-2xl border hover:shadow-md'>
-                <div className='text-left  space-y-1'>
-                  <h3 className='font-semibold text-xl'>{review.name}</h3>
-                  <p className='text-gray-500'>{review.profession}</p>
-                  <p className='text-gray-500'>{review.location}</p>
+              <div className="p-6 flex flex-col items-center space-y-5 justify-center h-[350px] rounded-2xl border hover:shadow-md">
+                <div className="text-left space-y-1">
+                  <h3 className="font-semibold text-xl text-gray-800">
+                    {review.name}
+                  </h3>
+                  <p className="text-gray-500">{review.profession}</p>
+                  <p className="text-gray-500">{review.location}</p>
                 </div>
 
-                <p className='text-lg text-center w-full'>
+                <p className="text-lg text-center w-full text-gray-700">
                   {review.testimonial}
                 </p>
               </div>
