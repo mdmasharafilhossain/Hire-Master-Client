@@ -15,7 +15,7 @@ const Image_Hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const Profile_Hosting = `https://api.imgbb.com/1/upload?key=${Image_Hosting_key}`;
 
 const ManagerForm = () => {
-  const { user } = useContext(AuthContext);
+  const { user, updateUserProfile } = useContext(AuthContext);
   console.log(user);
   const { register, handleSubmit } = useForm();
   const AxiosPublic = UseAxiosPublic();
@@ -49,30 +49,34 @@ const ManagerForm = () => {
         role: data.role,
       };
       console.log(managerProfileInfo);
+      updateUserProfile(managerProfileInfo.name, managerProfileInfo.image)
+      .then(
+        () => {
+          AxiosPublic.patch("/managerProfile", managerProfileInfo).then(
+            (res) => {
+              console.log(res.data);
 
-      const ArticleRes = await AxiosPublic.post(
-        "/managerProfile",
-        managerProfileInfo
+              if (res.data.modifiedCount > 0) {
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "Your data Added Successfully",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+              } else {
+                Swal.fire({
+                  position: "top-end",
+                  icon: "error",
+                  title: `${res.data.message}`,
+                  showConfirmButton: false,
+                  timer: 2000,
+                });
+              }
+            }
+          );
+        }
       );
-      console.log(ArticleRes.data);
-
-      if (ArticleRes.data.insertedId > 0) {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Your data Added Successfully",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      } else {
-        Swal.fire({
-          position: "top-end",
-          icon: "error",
-          title: `${ArticleRes.data.message}`,
-          showConfirmButton: false,
-          timer: 2000,
-        });
-      }
     }
   };
   return (
