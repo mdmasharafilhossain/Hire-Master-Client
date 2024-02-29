@@ -3,17 +3,53 @@ import svg from "../../assets/login.svg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 import swal from "sweetalert";
-import { saveHiringTalentInDb } from "../../api";
+// import { saveHiringManagerInfoDB, saveHiringTalentInDb } from "../../api";
 import Navbar2 from "../../Comonents/Navbar/Navbar2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
 
 const ManagerSignup = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, googleSignIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
   const [selectedRole, setSelectedRole] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [show, setShow] = useState(false);
+  const axiosPublic = UseAxiosPublic();
+
+  const handleConfirmPasswordChange = (e) => {
+    const confirmPassword = e.target.value;
+    const password = document.getElementById("password").value;
+
+    if (confirmPassword && password !== confirmPassword) {
+      setErrorMessage("Password and confirm password do not match");
+    } else {
+      setErrorMessage("");
+    }
+  };
+
+  
+  const handleGoogleSignIn = () => {
+    googleSignIn().then((result) => {
+      console.log(result);
+      if (result) {
+        const manager = {
+          name: result.user.displayName,
+          email: result.user.email,
+          photo: result?.user?.photoURL,
+        };
+        axiosPublic.post("/managerProfile", manager).then((res) => {
+          console.log(res.data);
+        });
+      }
+      // navigate(from, { replace: true });
+      navigate(location?.state ? location.state : "/managerProfile");
+      return swal("Success!", "Login Successful", "success");
+    });
+  };
 
   // email sign up
   const handleSignUp = (e) => {
@@ -22,22 +58,33 @@ const ManagerSignup = () => {
     const email = form.email.value;
     const name = form.name.value;
     const password = form.password.value;
+    const confirmPassword = form.confirmPassword.value;
     const photo = form.photo.value;
     // console.log(email, password, selectedRole);
-    const hirer = { email,name,photo, password, role: selectedRole };
+
+    if (password !== confirmPassword) {
+      setErrorMessage("Password and confirm password do not match");
+      return;
+    } else {
+      setErrorMessage("");
+    }
+    const hirer = { email, name, photo, password, role: selectedRole };
 
     createUser(email, password)
       .then((result) => {
         if (result) {
-          const databaseHiringTalent = async () => {
-            try {
-              const response = await saveHiringTalentInDb(hirer);
-              console.log(response);
-            } catch (error) {
-              console.log(error);
-            }
-          };
-          databaseHiringTalent();
+          // const databaseHiringTalent = async () => {
+          //   try {
+          //     const response = await saveHiringTalentInDb(hirer);
+          //     console.log(response);
+          //   } catch (error) {
+          //     console.log(error);
+          //   }
+          // };
+          // databaseHiringTalent();
+          axiosPublic.post("/managerProfile", hirer).then((res) => {
+            console.log(res.data);
+          });
         }
         console.log(result);
         navigate(location?.state ? location.state : "/managerForm");
@@ -51,114 +98,128 @@ const ManagerSignup = () => {
   };
 
   return (
-    <div className="mt-20 md:mt-32">
+    <div className="">
       <Navbar2 />
       <div className="container mx-auto md:flex items-center justify-center">
-        <div className="flex items-center justify-center">
+        {/* ------------------Left side banner---------------- */}
+        <div className="flex items-center justify-center md:mr-6 mb-6 md:mb-0">
           <img
-            className="w-52 lg:w-[400px] md:w-[250px] md:h-[400px] md:mt-16 lg:h-[350px] "
+            className="w-52 lg:w-[400px] md:w-[250px] md:h-[400px] lg:h-[350px]"
             src={svg}
             alt=""
           />
         </div>
-        <div className="border lg:w-[500px] md:w-[420px] rounded-lg p-12 h-[600px]">
-          <h2 className="text-2xl lg:text-4xl text-center mb-5 text-[#444444] font-bold">
+        {/*--------------- SignUp form------------- */}
+        <div className="border lg:w-[500px] md:w-[420px] rounded-lg p-6 md:py-8 px-10 my-5">
+          <h2 className="text-2xl lg:text-4xl text-center mb-5 font-bold">
             Set up your account to start hiring
           </h2>
           <div>
-            <form onSubmit={handleSignUp}>
-              <select
-                value={selectedRole}
-                onChange={(e) => setSelectedRole(e.target.value)}
-                required
-                className="outline-none border border-[#FF3811] px-2 py-1 font-medium text-black"
-              >
-                <option value="">Select Role</option>
-                <option value="hiring-manager">Hiring Manager</option>
-              </select>
-
-
-              <div className='form-control'>
-                <label className='label'>
-                  <span className='label-text text-base font-medium'>
-                    Name{" "}
-                  </span>
-                </label>
-                <input
-                  type='name'
-                  name='name'
-                  placeholder='Your Name'
-                  className='input input-bordered'
+            <form onSubmit={handleSignUp} className="flex flex-col gap-2">
+              <div className="flex flex-col text-black">
+                <select
+                  id="role"
+                  value={selectedRole}
+                  onChange={(e) => setSelectedRole(e.target.value)}
                   required
-                />
+                  className="outline-none border border-[#FF3811] px-2 py-1 font-bold"
+                >
+                  <option value="">Select Role</option>
+                  <option value="hiring-manager">Hiring Manager</option>
+                </select>
               </div>
-              <div className='form-control'>
-                <label className='label'>
-                  <span className='label-text text-base font-medium'>
-                    Business Email{" "}
-                  </span>
-                </label>
+
+              {/* ----------name---------------- */}
+              <div className="flex flex-col">
                 <input
-                  type="email"
-                  name="email"
-                  placeholder="email"
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your Name"
                   className="input input-bordered"
                   required
                 />
               </div>
-
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text text-base font-medium">
-                    Confirm Password
-                  </span>
-                </label>
+              {/* -----------Image------------- */}
+              <div className="flex flex-col">
+                <input
+                  type="url"
+                  id="photo"
+                  name="photo"
+                  placeholder="Upload your photo"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              {/* ---------email--------------- */}
+              <div className="flex flex-col">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Email"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              {/* --------------password---------- */}
+              <div className="flex flex-col">
                 <div className="relative">
                   <input
                     type={showPassword ? "text" : "password"}
+                    id="password"
                     name="password"
-                    placeholder="password"
-                    className="input input-bordered w-full pr-10" // Added pr-10 for padding on the right
+                    placeholder="Password"
+                    className="input input-bordered w-full"
                     required
                   />
                   <span
-                    className="absolute inset-y-0 right-3 flex items-center cursor-pointer" // Adjusted position to the right
-                    onClick={() => setShowPassword(!showPassword)} // Toggles the show/hide of password
+                    className="absolute inset-y-0 right-3 flex items-center cursor-pointer"
+                    onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </span>
                 </div>
               </div>
-              <div className='form-control'>
-                <label className='label'>
-                  <span className='label-text text-base font-medium'>
-                    Photo
-                  </span>
-                </label>
-                <input
-                  type='photo'
-                  name='photo'
-                  placeholder='Your Photo Link'
-                  className='input input-bordered'
-                  required
-                />
-              </div>
-
-              {/* <Link to='/login'> */}
-              <div className="form-control mt-6">
-                <button className="btn bg-[#FF3811] text-white">signup</button>
-              </div>
-
-              <label className="label">
-                <Link to="/managerlogin">
-                  <a
-                    href="#"
-                    className="label-text-alt link link-hover text-base ml-14 lg:ml-28 md:ml-[100px] text-center"
+              {/* -------------confirm password----------- */}
+              <div className="form-control">
+                <div className="relative">
+                  <input
+                    type={show ? "text" : "password"}
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    placeholder="Confirm Password"
+                    className="input input-bordered w-full"
+                    required
+                    onChange={handleConfirmPasswordChange} // Add this line to handle onChange event
+                  />
+                  <span
+                    className="absolute inset-y-0 right-3 flex items-center cursor-pointer"
+                    onClick={() => setShow(!show)}
                   >
-                    Have an Account? Login
-                  </a>
-                </Link>
-              </label>
+                    {show ? <FaEyeSlash /> : <FaEye />}
+                  </span>
+                </div>
+              </div>
+              <p className="text-red-500">{errorMessage}</p>
+              <div className="flex flex-col justify-center">
+                <button className="btn bg-[#FF3811] text-white">Signup</button>
+                <button
+                  onClick={handleGoogleSignIn}
+                  className="btn btn-outline mt-4 btn-warning w-full rounded-md overflow-hidden text-xs sm:text-lg font-bold"
+                >
+                  <FcGoogle className="text-xl" /> Continue with Google
+                </button>
+              </div>
+              <div className="flex justify-center">
+                <label className="label">
+                  <Link to="/managerlogin">
+                    <span className="label-text-alt link link-hover text-base">
+                      Have an Account? Login
+                    </span>
+                  </Link>
+                </label>
+              </div>
             </form>
           </div>
         </div>
