@@ -4,11 +4,13 @@ import useAuth from "../Hooks/Auth/useAuth";
 import useAllFairEvents from "../Hooks/FairEvents/useAllFairEvents";
 import AllFairEventsCard from "./AllFairEventsCard";
 import Loader from "../Loader/Loader";
+import useFairRegister from "../Hooks/FairRegister/useFairRegister";
 
 const AllFairEvents = () => {
   const { user } = useAuth();
 
   const { jobFairData, isFetching } = useAllFairEvents();
+  const { fairUser } = useFairRegister();
 
   const handleInterestedEvent = async slug => {
     try {
@@ -24,7 +26,7 @@ const AllFairEvents = () => {
 
   const handleEventJoining = async slug => {
     try {
-      const res = await saveEventBookingsInDb(slug, user?.email);
+      const res = await saveEventBookingsInDb(slug, fairUser);
       if (res.data.result.insertedId) {
         toast.success(`Event ${slug} booked successfully.`);
       }

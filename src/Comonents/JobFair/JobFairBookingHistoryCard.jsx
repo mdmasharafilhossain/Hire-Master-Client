@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 
 const JobFairBookingHistoryCard = ({ event, handleEventBookingRemove }) => {
-  // console.log(event);
+  console.log(event);
 
   const formatDate = dateString => {
     const dateObj = new Date(dateString);
@@ -28,7 +28,7 @@ const JobFairBookingHistoryCard = ({ event, handleEventBookingRemove }) => {
         p={4}
       >
         <Image
-          src={event?.bannerImage[0].url}
+          src={event?.bannerImage[0]?.url}
           alt={event?.title}
           objectFit='cover'
           h='200px'
