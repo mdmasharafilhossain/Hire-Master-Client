@@ -61,6 +61,7 @@ import PremiumUserCourses from "../../AdminDashboard/PremiumUserCourses/PremiumU
 import PremiumallCourses from "../PremiumUserCourse/PremiumallCourses";
 import Statistics from "../../AdminDashboard/Statistics/Statistics";
 import JobFairAllEvents from "../../Pages/JobFair/JobFairAllEvents";
+import Appmain from "../ChatApp/Appmain";
 
 const router = createBrowserRouter([
   {
@@ -123,6 +124,10 @@ const router = createBrowserRouter([
       {
         path: "/myPostedJobs",
         element: <MyJobs />,
+      },
+      {
+        path: "/manager-chat",
+        element: <PrivateRoute><Appmain></Appmain></PrivateRoute>,
       },
       {
         path: "contacts",
