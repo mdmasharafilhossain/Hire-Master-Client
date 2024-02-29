@@ -7,15 +7,26 @@ import toast from "react-hot-toast";
 import Loader from "../Loader/Loader";
 import { InfoOutlineIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
-import useJobSeekersEventBookings from "../Hooks/FairJobSeekersEventBookings/useJobSeekersEventBookings";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchJobSeekersBookings } from "../../reducers/jobSeekersBookingSlice";
 
 const JobFairBookingHistory = () => {
   const { user } = useAuth();
-  const { eventBookings, isFetching, refetch } = useJobSeekersEventBookings();
-  // console.log(event_bookings);
+  const dispatch = useDispatch();
+
+  const { bookings: eventBookings, status } = useSelector(
+    state => state.jobSeekerBookings
+  );
+
+  useEffect(() => {
+    dispatch(fetchJobSeekersBookings(user?.email));
+  }, [dispatch, user?.email]);
+
+  // console.log(eventBookings);
 
   const handleEventBookingRemove = async slug => {
-    console.log(slug);
+    // console.log(slug);
 
     Swal.fire({
       title: `Are you sure to cancel ?`,
@@ -29,7 +40,7 @@ const JobFairBookingHistory = () => {
         try {
           const res = await deleteJobSeekersEventBookingInDb(slug, user.email);
           if (res.data.deletedCount > 0) {
-            refetch();
+            dispatch(fetchJobSeekersBookings(user?.email));
             Swal.fire({
               position: "top-end",
               icon: "success",
@@ -46,7 +57,7 @@ const JobFairBookingHistory = () => {
     });
   };
 
-  if (!user || isFetching) {
+  if (!user || status === "loading") {
     return <Loader />;
   }
 
