@@ -11,6 +11,7 @@ import {
   import { DeleteIcon } from "@chakra-ui/icons";
 import Swal from "sweetalert2";
 import UseAxiosSecure from "../../Comonents/Hooks/UseAxiosSecure/UseAxiosSecure";
+import { CgDetailsMore } from "react-icons/cg";
 
 const AllJob = ({job,refetch}) => {
     const axiosSecure=UseAxiosSecure()
@@ -78,12 +79,12 @@ const AllJob = ({job,refetch}) => {
 
           <CardFooter gap={5}>
           <Button
-              onClick={() => handleDelete(_id)}
+            
               colorScheme='red'
               variant='solid'
             >
-              <DeleteIcon marginRight={1} />
-              Delete Job
+             <CgDetailsMore />
+            View Details
             </Button>
             <Button
               onClick={() => handleDelete(_id)}
