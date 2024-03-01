@@ -4,7 +4,8 @@ import axios from "axios";
 //   baseURL: "http://localhost:5000",
 // });
 const AxiosPublic = axios.create({
-  baseURL:'https://hire-master-server.vercel.app'
+  baseURL: "http://localhost:5000"
+  // baseURL:'https://hire-master-server.vercel.app'
 })
 
 const UseAxiosPublic = () => {

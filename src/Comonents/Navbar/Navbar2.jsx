@@ -8,6 +8,7 @@ import { FaRegBell } from "react-icons/fa";
 import useFetchData from "../Hooks/UseFetchData/useFetchData";
 import useNotifications from "../Hooks/Notifications/getNotifications";
 import userImage from "./usericon2.png";
+import Theme from "../ThemeChange/Theme";
 const Navbar2 = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -172,6 +173,10 @@ const Navbar2 = () => {
         ) : (
           <Link to='/signup2'>Register</Link>
         )}
+      </div>
+
+      <div className="bg-gray-100 rounded md:mr-3 z-30">
+        <Theme/>
       </div>
 
       {/* -----------------notification bell icon ---------------*/}
