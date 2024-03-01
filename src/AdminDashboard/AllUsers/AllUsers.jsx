@@ -57,7 +57,7 @@ const AllUsers = () => {
             }
         });
     };
-    const totalPages = Math.ceil(UsersCount / 7);
+    const totalPages = Math.ceil(UsersCount / 5);
     const pagesToShow = 5; 
     const pages = Array.from({ length: totalPages }, (_, i) => i);
 
@@ -168,9 +168,9 @@ const AllUsers = () => {
                             <button key={index} onClick={() => setPage(pageNumber)} className={`btn btn-sm border ${page === pageNumber ? "bg-slate-300 text-black" : "bg-orange-600 text-white"}`}>{pageNumber + 1}</button>
                         );
                     } else if (index === 1 && page > Math.floor(pagesToShow / 2) + 1) {
-                        return <span key={index}>...</span>;
+                        return <span key={index}>.......</span>;
                     } else if (index === totalPages - 2 && page < totalPages - Math.floor(pagesToShow / 2) - 2) {
-                        return <span key={index}>...</span>;
+                        return <span key={index}>......</span>;
                     }
                     return null;
                 })}

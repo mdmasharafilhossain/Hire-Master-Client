@@ -56,7 +56,7 @@ const HiringManagerList = () => {
             }
         });
     };
-    const totalPages = Math.ceil(UsersCount / 7);
+    const totalPages = Math.ceil(UsersCount / 5);
     const pagesToShow = 5; 
     const pages = Array.from({ length: totalPages }, (_, i) => i);
 
