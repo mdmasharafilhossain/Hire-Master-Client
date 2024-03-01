@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 const SingleProfile = ({ profileinfo }) => {
     return (
@@ -10,7 +10,6 @@ const SingleProfile = ({ profileinfo }) => {
                    
                 </div>
             </div>
-
             <h3 className='mt-2'>{profileinfo.name}</h3>
         </div>
     );
