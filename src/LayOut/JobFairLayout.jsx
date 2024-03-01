@@ -46,7 +46,7 @@ const JobFairLayout = () => {
         <div className='w-full md:w-4/12 flex flex-col  space-y-5'>
           <Box className='md:block hidden'>
             <Image
-              src={stateProfilePicture[0]?.url}
+              src={stateProfilePicture && stateProfilePicture[0]?.url}
               alt='profile picture'
               roundedTop={20}
             />

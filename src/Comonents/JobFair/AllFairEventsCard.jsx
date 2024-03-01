@@ -73,14 +73,14 @@ const AllFairEventsCard = ({
               width='100%'
             />
             <Tooltip
-              isDisabled={fairUser.userType === "sponsor"}
+              isDisabled={fairUser?.userType === "sponsor"}
               label='Add as interested!'
               hasArrow
               placement='left'
               fontSize='lg'
             >
               <Button
-                disabled={fairUser.userType === "sponsor"}
+                disabled={fairUser?.userType === "sponsor"}
                 onClick={() => handleInterestedEvent(slug)}
                 position='absolute'
                 bottom='0'
@@ -168,7 +168,7 @@ const AllFairEventsCard = ({
               Close
             </Button>
             <Button
-              isDisabled={fairUser.userType === "sponsor"}
+              isDisabled={fairUser?.userType === "sponsor" || fairUser === null}
               onClick={() => handleEventJoining(slug)}
               colorScheme='green'
             >
