@@ -98,14 +98,6 @@ const router = createBrowserRouter([
         element: <JobPostReport></JobPostReport>,
       },
       {
-        path: "/jobpostreport/:id",
-        element: <JobPostReport></JobPostReport>,
-      },
-      {
-        path: "/jobpostreport/:id",
-        element: <JobPostReport></JobPostReport>,
-      },
-      {
         path: "/jobpost",
         element: (
           <PrivateRoute>
