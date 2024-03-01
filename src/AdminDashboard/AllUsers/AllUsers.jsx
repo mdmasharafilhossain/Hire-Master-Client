@@ -57,7 +57,7 @@ const AllUsers = () => {
             }
         });
     };
-    const totalPages = Math.ceil(UsersCount / 4);
+    const totalPages = Math.ceil(UsersCount / 7);
     const pagesToShow = 5; 
     const pages = Array.from({ length: totalPages }, (_, i) => i);
 
@@ -160,8 +160,8 @@ const AllUsers = () => {
                  
                 </table>
             </div>
-            <div className="text-center mt-10 mb-10">
-                <button onClick={handlePreviousPage} disabled={page === 0} className="btn btn-sm bg-orange-600 text-white">{`< Previous`}</button>
+            <div className="text-center  mt-10 mb-10">
+                <button onClick={handlePreviousPage} disabled={page === 0} className="btn mr-3 btn-sm bg-orange-600 text-white">{`< Previous`}</button>
                 {pages.map((pageNumber, index) => {
                     if (index === 0 || index === totalPages - 1 || (index >= page - Math.floor(pagesToShow / 2) && index <= page + Math.floor(pagesToShow / 2))) {
                         return (
@@ -174,7 +174,7 @@ const AllUsers = () => {
                     }
                     return null;
                 })}
-                <button  onClick={handleNextPage} disabled={page === totalPages - 1} className="btn btn-sm bg-orange-600 text-white">{`Next >`}</button>
+                <button  onClick={handleNextPage} disabled={page === totalPages - 1} className="btn ml-3 btn-sm bg-orange-600 text-white">{`Next >`}</button>
             </div>
         </div>
     );
