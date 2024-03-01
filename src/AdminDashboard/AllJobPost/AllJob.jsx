@@ -14,8 +14,8 @@ import UseAxiosSecure from "../../Comonents/Hooks/UseAxiosSecure/UseAxiosSecure"
 
 const AllJob = ({job,refetch}) => {
     const axiosSecure=UseAxiosSecure()
-    const {_id,job_title,company_name,company_logo}=job
-    // ,job_role,salary,job_time,skills,job_description,hiring_manager_name,hiring_manager_photo,hiring_manager_email,responsibilities,benefits,qualification,job_posting_date,user_email,job_location
+    const {_id,job_title,company_name,company_logo,job_role,hiring_manager_name,hiring_manager_email,job_posting_date}=job
+    // ,,salary,job_time,skills,job_description,hiring_manager_name,hiring_manager_photo,hiring_manager_email,responsibilities,benefits,qualification,job_posting_date,user_email,job_location
     console.log(job)
     const handleDelete=(id)=>{
 
@@ -54,7 +54,7 @@ const AllJob = ({job,refetch}) => {
       >
         <Image
           objectFit='cover'
-           height="96px"
+           height="full"
            width="150px"
           src={
             company_logo
@@ -66,13 +66,25 @@ const AllJob = ({job,refetch}) => {
 
         <Stack>
           <CardBody>
-            <Heading size='md'>{job_title}</Heading>
+            <Heading size='lg'>{job_title}</Heading>
 
-            <Text py='2'>{company_name}</Text>
+            <Text py='2' className='text-[#FF3811]'>{company_name}</Text>
+            <Text py='2'> <span className="font-serif font-semibold text-sm">Role:</span>{job_role}</Text>
+            <Text py='2'><span className="font-serif font-semibold text-sm">Hiring Manager Name:</span>{hiring_manager_name}</Text>
+            <Text py='2'><span className="font-serif font-semibold text-sm">Hiring Manager Email:</span>{hiring_manager_email}</Text>
+            <Text py='2'><span className="font-serif font-semibold text-sm">Date:</span>{job_posting_date}</Text>
+            
           </CardBody>
 
           <CardFooter gap={5}>
-           
+          <Button
+              onClick={() => handleDelete(_id)}
+              colorScheme='red'
+              variant='solid'
+            >
+              <DeleteIcon marginRight={1} />
+              Delete Job
+            </Button>
             <Button
               onClick={() => handleDelete(_id)}
               colorScheme='red'
