@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "@firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/firebase.config";
@@ -29,43 +30,16 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  useEffect(() => {
-
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      // const userEmail = currentUser?.email || user?.email;
-      // const loggedUser = { email: userEmail };
-
-      setUser(currentUser);
-      //   console.log("current user", currentUser);
-      setLoading(false);
-
-      // -----------JWT--------------------
-      // if (currentUser) {
-      //   axiosPublic
-      //     .post("/jwt", loggedUser, { withCredentials: true })
-      //     .then((res) => {
-      //       console.log("token response", res.data);
-      //     });
-      // } else {
-      //   axiosPublic
-      //     .post("/logout", loggedUser, {
-      //       withCredentials: true,
-      //     })
-      //     .then((res) => {
-      //       console.log(res.data);
-      //     });
-      // }
-
-
-
-    });
-    return () => unsubscribe();
-    // }, [axiosPublic, user?.email]);
-  }, []);
-
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
+  };
+
+  const updateUserProfile = (name, photoURL) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photoURL,
+    });
   };
 
   const googleSignIn = () => {
@@ -73,12 +47,40 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      const userEmail = currentUser?.email || user?.email;
+      const loggedUser = { email: userEmail };
+      setUser(currentUser);
+      //   console.log("current user", currentUser);
+      setLoading(false);
+      // -----------------JWT ------------------
+      if (currentUser) {
+        axiosPublic
+          .post("/jwt", loggedUser, { withCredentials: true })
+          .then((res) => {
+            console.log("token response", res.data);
+          });
+      } else {
+        axiosPublic
+          .post("/logout", loggedUser, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log(res.data);
+          });
+      }
+    });
+    return () => unsubscribe();
+  }, [axiosPublic, user?.email]);
+
   const authInfo = {
     user,
     loading,
     createUser,
     signIn,
     logOut,
+    updateUserProfile,
     googleSignIn,
     stateProfilePicture,
     setStateProfilePicture,

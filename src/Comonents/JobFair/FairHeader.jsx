@@ -49,7 +49,7 @@ const FairHeader = () => {
 
   // console.log(stateProfilePicture);
   return (
-    <div className='flex items-center justify-between bg-gray-400 px-5 py-3'>
+    <div className='flex items-center sticky top-0 z-50 justify-between bg-gray-400 px-5 py-3'>
       <Link to='/' className='w-32'>
         <img
           src='https://i.ibb.co/BcFWdqk/Hire-Master-Logo-2.png'
@@ -121,6 +121,7 @@ const FairHeader = () => {
                   <TriangleUpIcon marginRight={1} />
                   Job Fair
                 </MenuItem>
+                <MenuDivider />
                 <MenuItem
                   as={Link}
                   to='/job-fair/profile'
@@ -160,6 +161,7 @@ const FairHeader = () => {
                 <MenuItem
                   as={Link}
                   to='/job-fair/profile/settings'
+                  marginBottom={3}
                   _hover={{
                     bg: "red.500",
                     color: "white",
@@ -167,6 +169,16 @@ const FairHeader = () => {
                 >
                   <SettingsIcon marginRight={1} />
                   Settings
+                </MenuItem>
+                <MenuItem
+                  as={Link}
+                  _hover={{
+                    bg: "red.500",
+                    color: "white",
+                  }}
+                >
+                  <Icon as={TbLogout2} marginRight={1} />
+                  Logout
                 </MenuItem>
               </MenuGroup>
             )}
@@ -185,6 +197,9 @@ const FairHeader = () => {
                   <TriangleUpIcon marginRight={1} />
                   Job Fair
                 </MenuItem>
+
+                <MenuDivider />
+
                 <MenuItem
                   as={Link}
                   to='/job-fair/profile'
@@ -225,6 +240,7 @@ const FairHeader = () => {
                 <MenuItem
                   as={Link}
                   to='/job-fair/profile/settings'
+                  marginBottom={3}
                   _hover={{
                     bg: "red.500",
                     color: "white",

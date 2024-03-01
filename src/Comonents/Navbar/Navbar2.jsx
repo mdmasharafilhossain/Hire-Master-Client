@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import { getManagerInfo, getUserInfo } from "../../api";
@@ -7,16 +7,20 @@ import { RiLoginCircleLine, RiLogoutCircleLine } from "react-icons/ri";
 import { FaRegBell } from "react-icons/fa";
 import useFetchData from "../Hooks/UseFetchData/useFetchData";
 import useNotifications from "../Hooks/Notifications/getNotifications";
-
+import userImage from "./usericon2.png";
 const Navbar2 = () => {
   const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const email = user?.email;
 
   const handleSignOut = () => {
     logOut()
-      .then(() => {})
-      .catch();
+      .then(() => {
+        navigate("/signup2");
+        localStorage.removeItem("userEmail");
+      })
+      .catch((error) => console.log(error));
   };
 
   // user profile with context email
@@ -109,7 +113,7 @@ const Navbar2 = () => {
         </Link>
       </div>
 
-      <div className="hidden md:flex flex-1 items-center space-x-4 mr-4 font-medium lg:text-lg menu-horizontal px-1 md:text-base">
+      <div className="hidden md:flex flex-1 items-center -ml-64 space-x-4 mr-4 font-medium lg:text-lg menu-horizontal px-1 md:text-base">
         <Link to="/">Home</Link>
         <NavLink
           to="/jobs"
@@ -200,11 +204,15 @@ const Navbar2 = () => {
             role="button"
             className="btn btn-ghost btn-circle avatar"
           >
-            <div className="w-10 rounded-full">
+            <div className=" w-10 rounded-full">
               <img
                 alt="Tailwind CSS Navbar component"
+
                 src={
-                  "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  user?.photoURL ||
+                  managerProfile.image ||
+                  userProfile.image ||
+                  userImage
                 }
               />
             </div>

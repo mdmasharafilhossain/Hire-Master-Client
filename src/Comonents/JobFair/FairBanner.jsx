@@ -1,8 +1,12 @@
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import useFairRegister from "../Hooks/FairRegister/useFairRegister";
 
 const FairBanner = () => {
+  const { fairUser } = useFairRegister();
+
+  console.log(fairUser);
   return (
     <div className='flex justify-center items-center flex-col'>
       <div className="w-full h-[120px] bg-[url('https://i.ibb.co/R6dcL1M/5ed85c3ae7a78c4a08e4fe310abb0104.webp')] bg-cover bg-center">
@@ -16,11 +20,19 @@ const FairBanner = () => {
             </span>{" "}
             <br /> Never miss out an event that matches your interest!
           </h2>
-          <Link to='/job-fair/registration'>
-            <Button marginTop={2} size='sm' colorScheme='teal' variant='solid'>
-              Get Started <ArrowForwardIcon />
-            </Button>
-          </Link>
+
+          {!fairUser?.userType && (
+            <Link to='/job-fair/registration'>
+              <Button
+                marginTop={2}
+                size='sm'
+                colorScheme='teal'
+                variant='solid'
+              >
+                Get Started <ArrowForwardIcon />
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
     </div>
