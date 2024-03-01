@@ -11,13 +11,12 @@ import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic"
 
 const ManagerSignup = () => {
   const { createUser, googleSignIn } = useContext(AuthContext);
-  const location = useLocation();
-  const navigate = useNavigate();
-
   const [selectedRole, setSelectedRole] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [show, setShow] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
   const axiosPublic = UseAxiosPublic();
 
   const handleConfirmPasswordChange = (e) => {
