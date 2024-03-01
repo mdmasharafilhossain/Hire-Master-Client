@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import useFetchData from "../Hooks/UseFetchData/useFetchData";
+import Theme from "../ThemeChange/Theme";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -107,7 +108,7 @@ const Navbar = () => {
           className='text-3xl md:text-4xl font-bold ml-1 text-[#FF3811]'
         >
           <img
-            className=' w-44 md:w-40 lg:w-48 ml-10 md:ml-5 lg:ml-20'
+            className=' w-28 md:w-40 lg:w-48 ml-10 md:ml-5 lg:ml-20'
             src='https://i.ibb.co/BcFWdqk/Hire-Master-Logo-2.png'
             alt=''
           />
@@ -138,8 +139,10 @@ const Navbar = () => {
           )}
         </div>
       </div>
+      <div className="bg-gray-100 rounded md:mr-3 z-30">
+        <Theme/>
+      </div>
       <Link to='/jobpost'>
-        {" "}
         <button className='hidden md:flex lg:w-44  lg:text-xl md:w-36 md:text-sm px-5 py-2 items-center space-x-1 font-semibold text-lg bg-[#FF3811] text-white rounded-lg'>
           <p className='lg:pl-2'>Post a Job</p>
           <MdPostAdd size={30} />
