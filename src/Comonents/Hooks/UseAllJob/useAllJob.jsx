@@ -7,7 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 const useAllJob = () => {
     const axiosSecure = UseAxiosSecure();
     const {loading} = useContext(AuthContext);
-    const {data:alljob=[]}=useQuery({
+    const {data:alljob=[],refetch}=useQuery({
         queryKey:["alljob"],
         queryFn:async()=>{
             const res =await axiosSecure.get("/staticjobpost")
@@ -17,7 +17,7 @@ const useAllJob = () => {
     })
 
 console.log(alljob)
-return [alljob,loading]
+return [alljob,loading,refetch]
 };
 
 export default useAllJob;

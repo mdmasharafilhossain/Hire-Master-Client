@@ -4,7 +4,7 @@ import AllJob from "./AllJob";
 
 const AllJobPost = () => {
 
-const [alljob]=useAllJob([])
+const [alljob,refetch]=useAllJob([])
 console.log(alljob)
    
     return (
@@ -13,9 +13,9 @@ console.log(alljob)
                 <h2 className="text-4xl font-bold">Manage All <span className='text-[#FF3811]'>Job Post</span></h2>
                
             </div> 
-            <div>
+            <div className="space-y-5">
                 {
-                    alljob.map(job=><AllJob job={job} key={job._id}></AllJob>)
+                    alljob.map(job=><AllJob job={job} key={job._id} refetch={refetch}></AllJob>)
                 }
             </div>
         </div>
