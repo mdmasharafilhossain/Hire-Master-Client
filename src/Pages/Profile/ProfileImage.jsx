@@ -41,7 +41,7 @@ const onSubmit = async data => {
       console.log(menuRes.data)
       if(menuRes.data.modifiedCount > 0){
         refetch()
-          Swal.fire("Pet Updated successfully");
+          Swal.fire("Updated successfully");
       }
 
   }

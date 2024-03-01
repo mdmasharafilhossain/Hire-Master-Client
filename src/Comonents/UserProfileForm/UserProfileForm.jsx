@@ -8,6 +8,7 @@ import ProfileNav from "../ProfileNav/ProfileNav";
 import { useNavigate } from "react-router-dom";
 
 import useProfile from "../Hooks/useProfile/useProfile";
+import Navbar2 from "../Navbar/Navbar2";
 
 
 // image added key from imgbb
@@ -104,6 +105,7 @@ const UserProfileForm = () => {
   
   return (
     <div className="mb-8">
+      <Navbar2></Navbar2>
       <div className="max-w-6xl mx-auto">
         <ProfileNav profile={"profile"} setProfile={"profileForm"}></ProfileNav>
       </div>

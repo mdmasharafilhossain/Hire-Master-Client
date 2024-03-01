@@ -1,4 +1,4 @@
-import { FaPenToSquare } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaPenToSquare } from "react-icons/fa6";
 import { FaExternalLinkAlt, FaBriefcase } from "react-icons/fa";
 import { FaBookAtlas } from "react-icons/fa6";
 
@@ -19,6 +19,7 @@ import PremiumUserCourse from "../../Comonents/PremiumUserCourse/PremiumUserCour
 import Navbar2 from "../../Comonents/Navbar/Navbar2";
 import UseAxiosSecure from "../../Comonents/Hooks/UseAxiosSecure/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { TbWorld } from "react-icons/tb";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
@@ -131,6 +132,23 @@ const Profile = () => {
                       {myData?.aboutDescription}
                       <p className="opacity-0 border-[0.5px] w-[150px] md:w-[400px] lg:w-[700px]"></p>
                     </h3>
+                    <div  className='flex gap-4 mt-4'>
+                    <Link target="_blank" to={myData?.linkedin}>
+                      <h3 className=' text-xl '>
+                        <FaLinkedin></FaLinkedin>
+                      </h3>
+                    </Link>
+                    <Link target="_blank" to={myData?.portfolio}>
+                      <h3 className=' text-2xl '>
+                        <TbWorld></TbWorld>
+                      </h3>
+                    </Link>
+                    <Link target="_blank" to={myData?.github}>
+                      <h3 className=' text-xl '>
+                        <FaGithub></FaGithub>
+                      </h3>
+                    </Link>
+                  </div>
                   </div>
                 </div>
                 {/* Education section */}
