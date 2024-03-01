@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 import swal from "sweetalert";
 import { saveUsersInDb } from "../../api";
@@ -8,10 +8,10 @@ import Navbar2 from "../../Comonents/Navbar/Navbar2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
-  const [userExists, setUserExists] = React.useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [show, setShow] = useState(false);
   const { createUser, googleSignIn } = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [show, setShow] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -21,6 +21,17 @@ const SignUp = () => {
   const saveUser = async (user) => {
     const response = await saveUsersInDb(user);
     console.log(response.data);
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    const confirmPassword = e.target.value;
+    const password = document.getElementById("password").value;
+
+    if (confirmPassword && password !== confirmPassword) {
+      setErrorMessage("Password and confirm password do not match");
+    } else {
+      setErrorMessage("");
+    }
   };
 
   const handleGoogleSignIn = () => {
@@ -49,7 +60,16 @@ const SignUp = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const confirmPassword = form.confirmPassword.value;
     const photo = form.photo.value;
+
+    if (password !== confirmPassword) {
+      setErrorMessage("Password and confirm password do not match");
+      return;
+    } else {
+      setErrorMessage("");
+    }
+
     createUser(email, password)
       .then((result) => {
         if (result) {
@@ -60,7 +80,7 @@ const SignUp = () => {
         return swal("Success!", "Registration Successful", "success");
       })
       .catch((error) => {
-        setUserExists(error.code);
+        return swal("Error!", `${error.message}`, "error");
       });
   };
 
@@ -87,71 +107,80 @@ const SignUp = () => {
             <div className="flex flex-col w-full">
               <div>
                 <form className="space-y-4" onSubmit={handleSignUp}>
-                  <div className="form-control">
+                  {/* -----Name------ */}
+                  <div className="flex flex-col">
                     <input
                       type="text"
+                      id="name"
                       name="name"
-                      placeholder="Full name"
-                      className="input input-bordered w-full pr-10"
+                      placeholder="Your Name"
+                      className="input input-bordered"
                       required
                     />
                   </div>
-                  <div className="form-control">
+                  {/* -----------Image------------- */}
+                  <div className="flex flex-col">
+                    <input
+                      type="url"
+                      id="photo"
+                      name="photo"
+                      placeholder="Upload your photo"
+                      className="input input-bordered"
+                      required
+                    />
+                  </div>
+                  {/* ---------email--------------- */}
+                  <div className="flex flex-col">
                     <input
                       type="email"
+                      id="email"
                       name="email"
-                      placeholder="Email address"
-                      className="input input-bordered w-full pr-10"
+                      placeholder="Email"
+                      className="input input-bordered"
                       required
                     />
                   </div>
-                  {/* ----------password------------ */}
-                  <div className="form-control">
+                  {/* --------------password---------- */}
+                  <div className="flex flex-col">
                     <div className="relative">
                       <input
                         type={showPassword ? "text" : "password"}
+                        id="password"
                         name="password"
-                        placeholder="password"
-                        className="input input-bordered w-full pr-10" // Added pr-10 for padding on the right
+                        placeholder="Password"
+                        className="input input-bordered w-full"
                         required
                       />
                       <span
-                        className="absolute inset-y-0 right-3 flex items-center cursor-pointer" // Adjusted position to the right
-                        onClick={() => setShowPassword(!showPassword)} // Toggles the show/hide of password
+                        className="absolute inset-y-0 right-3 flex items-center cursor-pointer"
+                        onClick={() => setShowPassword(!showPassword)}
                       >
                         {showPassword ? <FaEyeSlash /> : <FaEye />}
                       </span>
                     </div>
                   </div>
-                  {/* --------Confirm password---------- */}
+                  {/* -------------confirm password----------- */}
                   <div className="form-control">
                     <div className="relative">
                       <input
                         type={show ? "text" : "password"}
-                        name="password"
-                        placeholder="Confirm password"
-                        className="input input-bordered w-full pr-10"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        placeholder="Confirm Password"
+                        className="input input-bordered w-full"
                         required
+                        onChange={handleConfirmPasswordChange} // Add this line to handle onChange event
                       />
                       <span
-                        className="absolute inset-y-0 right-3 flex items-center cursor-pointer" // Adjusted position to the right
-                        onClick={() => setShow(!show)} // Toggles the show/hide of password
+                        className="absolute inset-y-0 right-3 flex items-center cursor-pointer"
+                        onClick={() => setShow(!show)}
                       >
                         {show ? <FaEyeSlash /> : <FaEye />}
                       </span>
                     </div>
                   </div>
-                  {/* ----------photo------------ */}
-                  <div className="form-control">
-                    <input
-                      type="photo"
-                      name="photo"
-                      placeholder="Upload your photo"
-                      className="input input-bordered w-full pr-10"
-                      required
-                    />
-                  </div>
-                  <p className="text-red-500 px-3">{userExists}</p>
+
+                  <p className="text-red-500">{errorMessage}</p>
                   <div className="form-control">
                     <button
                       type="submit"
