@@ -56,9 +56,21 @@ const HiringManagerList = () => {
             }
         });
     };
-       const totalPages = Math.ceil(UsersCount / 4);
-    const pages = [...new Array(totalPages).fill(0)]
+    const totalPages = Math.ceil(UsersCount / 5);
+    const pagesToShow = 5; 
+    const pages = Array.from({ length: totalPages }, (_, i) => i);
 
+    const handleNextPage = () => {
+        if (page < totalPages - 1) {
+            setPage(page + 1);
+        }
+    };
+
+    const handlePreviousPage = () => {
+        if (page > 0) {
+            setPage(page - 1);
+        }
+    };
     const handleDelete = (user) =>{
         
         Swal.fire({
@@ -147,13 +159,22 @@ const HiringManagerList = () => {
                  
                 </table>
             </div>
-            <div className="text-center mt-10 mb-10 ">
-           {
-            pages.map((item,index)=><button key={item._id} onClick={()=> setPage(index)}
-            className={`btn border  ${page === index ? "bg-slate-300 text-black":"bg-orange-600 text-white"} `}>{index+1}</button>)
-           }
-           
-           </div>
+            <div className="text-center  mt-10 mb-10">
+                <button onClick={handlePreviousPage} disabled={page === 0} className="btn mr-3 btn-sm bg-orange-600 text-white">{`< Previous`}</button>
+                {pages.map((pageNumber, index) => {
+                    if (index === 0 || index === totalPages - 1 || (index >= page - Math.floor(pagesToShow / 2) && index <= page + Math.floor(pagesToShow / 2))) {
+                        return (
+                            <button key={index} onClick={() => setPage(pageNumber)} className={`btn btn-sm border ${page === pageNumber ? "bg-slate-300 text-black" : "bg-orange-600 text-white"}`}>{pageNumber + 1}</button>
+                        );
+                    } else if (index === 1 && page > Math.floor(pagesToShow / 2) + 1) {
+                        return <span key={index}>...</span>;
+                    } else if (index === totalPages - 2 && page < totalPages - Math.floor(pagesToShow / 2) - 2) {
+                        return <span key={index}>...</span>;
+                    }
+                    return null;
+                })}
+                <button  onClick={handleNextPage} disabled={page === totalPages - 1} className="btn ml-3 btn-sm bg-orange-600 text-white">{`Next >`}</button>
+            </div>
         </div>
         </div>
     );

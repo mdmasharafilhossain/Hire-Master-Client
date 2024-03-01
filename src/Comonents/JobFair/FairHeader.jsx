@@ -43,11 +43,11 @@ const FairHeader = () => {
 
   useEffect(() => {
     if (user && !isFetching) {
-      setStateProfilePicture(fairRegister.profilePicture);
+      setStateProfilePicture(fairRegister?.profilePicture);
     }
-  }, [fairRegister.profilePicture, isFetching, setStateProfilePicture, user]);
+  }, [fairRegister?.profilePicture, isFetching, setStateProfilePicture, user]);
 
-  // console.log(stateProfilePicture);
+  console.log(stateProfilePicture);
   return (
     <div className='flex items-center sticky top-0 z-50 justify-between bg-gray-400 px-5 py-3'>
       <Link to='/' className='w-32'>
@@ -87,24 +87,22 @@ const FairHeader = () => {
             ""
           ) : (
             <MenuButton>
-              <div className=' flex items-center border rounded-xl  px-2'>
-                <Avatar
-                  src={stateProfilePicture[0]?.url || undefined}
-                  icon={
-                    !stateProfilePicture[0]?.url ? (
-                      <BsFillPersonVcardFill />
-                    ) : (
-                      undefined
-                    )
-                  }
-                  size='md'
-                />
-                <Box ml='1'>
-                  <ChevronDownIcon color={"white"} />
-                </Box>
-              </div>
+              {fairRegister !== null && (
+                <div className=' flex items-center border rounded-xl  px-2'>
+                  <Avatar
+                    src={stateProfilePicture && stateProfilePicture[0]?.url}
+                    icon={<BsFillPersonVcardFill />}
+                    size='md'
+                  />
+
+                  <Box ml='1'>
+                    <ChevronDownIcon color={"white"} />
+                  </Box>
+                </div>
+              )}
             </MenuButton>
           )}
+
           <MenuList>
             {fairRegister?.userType === "job-seeker" && (
               <MenuGroup title='Profile' marginBottom={5}>
