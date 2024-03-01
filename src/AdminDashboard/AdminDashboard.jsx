@@ -21,12 +21,12 @@ const AdminDashboard = () => {
     setShowWelcomeMessage(false);
   };
   return (
-    <div className='flex flex-1 max-w-7xl container mx-auto'>
+    <div className='flex'>
       {
         isUserAdmin ?  
         
         <>
-        <div className="max-h-[400px] sticky top-0 lg:bg-orange-600">
+        <div className="max-h-[400px] sticky top-0">
         <div className='drawer lg:drawer-open bg-slate-100'>
           <input id='my-drawer-2' type='checkbox' className='drawer-toggle' />
           <div className='drawer-content flex flex-col items-center justify-center'>
