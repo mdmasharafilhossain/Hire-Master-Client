@@ -301,16 +301,16 @@ const Profile = () => {
           </div>
         </div>
       ) : (
-        <div>
-          <Link to="/">go back</Link>
-          <p className="text-xl text-red-600">Profile Not found!!!!! </p>
-          <button className="btn bg-orange-600">
-            <Link to="/profileForm">Set Your Profile</Link>
-          </button>
-        </div>
+        <div className="text-center m-auto mt-40">
+              <h2 className="text-4xl ">
+                Profile have not set yet
+              </h2>
+              <Link to='/profileForm' className="my-5 text-sm hover:underline">click here to set your profile</Link>
+            </div>
       )}
     </div>
   );
+  
 };
 
 export default Profile;

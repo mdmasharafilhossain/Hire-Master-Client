@@ -8,6 +8,7 @@ import Navbar2 from "../../Comonents/Navbar/Navbar2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
+import { updateProfile } from "firebase/auth";
 
 const ManagerSignup = () => {
   const { createUser, googleSignIn } = useContext(AuthContext);
@@ -40,7 +41,7 @@ const ManagerSignup = () => {
           email: result.user.email,
           photo: result?.user?.photoURL,
         };
-        axiosPublic.post("/managerProfile", manager).then((res) => {
+        axiosPublic.post("/hiring-talents", manager).then((res) => {
           console.log(res.data);
         });
       }
@@ -71,6 +72,11 @@ const ManagerSignup = () => {
 
     createUser(email, password)
       .then((result) => {
+        const user = result.user
+        updateProfile(user, {
+          displayName: name,
+          photoURL: photo,
+      });
         if (result) {
           // const databaseHiringTalent = async () => {
           //   try {
@@ -81,7 +87,7 @@ const ManagerSignup = () => {
           //   }
           // };
           // databaseHiringTalent();
-          axiosPublic.post("/managerProfile", hirer).then((res) => {
+          axiosPublic.post("/hiring-talents", hirer).then((res) => {
             console.log(res.data);
           });
         }

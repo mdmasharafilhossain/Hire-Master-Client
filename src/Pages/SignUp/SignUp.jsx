@@ -6,6 +6,7 @@ import swal from "sweetalert";
 import { saveUsersInDb } from "../../api";
 import Navbar2 from "../../Comonents/Navbar/Navbar2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { updateProfile } from "firebase/auth";
 
 const SignUp = () => {
   const { createUser, googleSignIn } = useContext(AuthContext);
@@ -72,6 +73,11 @@ const SignUp = () => {
 
     createUser(email, password)
       .then((result) => {
+        const user = result.user
+        updateProfile(user, {
+          displayName: name,
+          photoURL: photo,
+      });
         if (result) {
           const user = { name, email, photo };
           saveUser(user);
