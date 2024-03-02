@@ -1,5 +1,5 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../Comonents/AuthProvider/AuthProvider";
 import { FiAlignJustify } from "react-icons/fi";
 import { BiBriefcase } from "react-icons/bi";
@@ -16,17 +16,34 @@ import useAdmin from "./useAdmin/useAdmin";
 const AdminDashboard = () => {
   const [isUserAdmin] = useAdmin();
   const { user } = useContext(AuthContext);
-  const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
+  const [showWelcomeMessage, setShowWelcomeMessage] = useState(false);
+  // useEffect(() => {
+  //   const hasShownWelcomeMessage = localStorage.getItem("hasShownWelcomeMessage");
+  //   if (user && !hasShownWelcomeMessage) {
+  //     setShowWelcomeMessage(true);
+  //     localStorage.setItem("hasShownWelcomeMessage", "true");
+  //   }
+  // }, [user]);
+  useEffect(() => {
+    const hasShownWelcomeMessage = localStorage.getItem("hasShownWelcomeMessage");
+    if (user && !hasShownWelcomeMessage) {
+      setShowWelcomeMessage(true);
+    }
+  }, [user]);
   const handleRouteClick = () => {
+    localStorage.setItem("hasShownWelcomeMessage", "true");
     setShowWelcomeMessage(false);
   };
+  const handleHomeRouteClick = () =>{
+    
+  }
   return (
-    <div className='flex'>
+    <div className='flex '>
       {
         isUserAdmin ?  
         
         <>
-        <div className="max-h-[400px] sticky top-0">
+        <div className="max-h-[400px] sticky z-50 top-0">
         <div className='drawer lg:drawer-open bg-slate-100'>
           <input id='my-drawer-2' type='checkbox' className='drawer-toggle' />
           <div className='drawer-content flex flex-col items-center justify-center'>
@@ -189,7 +206,7 @@ const AdminDashboard = () => {
                   </NavLink>
                 </li>
                 <li
-                  onClick={handleRouteClick}
+                  onClick={handleHomeRouteClick}
                   className='font-bold text-sm text-white'
                 >
                   <NavLink
