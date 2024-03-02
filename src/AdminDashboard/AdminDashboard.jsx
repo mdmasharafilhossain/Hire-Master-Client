@@ -35,7 +35,8 @@ const AdminDashboard = () => {
     setShowWelcomeMessage(false);
   };
   const handleHomeRouteClick = () =>{
-    
+    localStorage.removeItem("hasShownWelcomeMessage");
+    setShowWelcomeMessage(false);
   }
   return (
     <div className='flex '>
