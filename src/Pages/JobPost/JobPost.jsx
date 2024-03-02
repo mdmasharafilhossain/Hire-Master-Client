@@ -40,7 +40,7 @@ const JobPost = () => {
       job_location: data.location,
     };
     console.log(formData);
-    const dataForm = await axiosPublic.post("/jobpost", formData);
+    const dataForm = await axiosPublic.post("/staticjobpost", formData);
 
     if (dataForm.data.insertedId) {
       // show success popup

@@ -27,24 +27,18 @@ const Profile = () => {
   console.log(profileData);
 
   const axiosSecure = UseAxiosSecure();
-  // const { loading } = useContext(AuthContext);
-  const { data: premium = [] } = useQuery({
-    queryKey: ["premium"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/payments");
-      return res.data;
-    },
-  });
-
-  //   fetch("http://localhost:5000/payments")
-  //     .then((res) => res.json())
-  //     .then((data) => setPremium(data))
-  //     .catch((error) => console.error("Error fetching premium data:", error));
-  // }, []);
-  const premiumUser = premium
-    .map((userPremium) => userPremium?.email)
-    .includes(user?.email);
-  console.log(premiumUser);
+  const {loading} = useContext(AuthContext);
+  const {data:premium=[]}=useQuery({
+      queryKey:["premium"],
+      queryFn:async()=>{
+          const res =await axiosSecure.get("/payments")
+          return res.data
+  
+      }
+  })
+ 
+  const premiumUser = premium.map((userPremium) => userPremium?.email).includes(user?.email);
+  console.log(premiumUser)
   return (
     <div>
       <Navbar2></Navbar2>
@@ -307,16 +301,16 @@ const Profile = () => {
           </div>
         </div>
       ) : (
-        <div>
-          <Link to="/">go back</Link>
-          <p className="text-xl text-red-600">Profile Not found!!!!! </p>
-          <button className="btn bg-orange-600">
-            <Link to="/profileForm">Set Your Profile</Link>
-          </button>
-        </div>
+        <div className="text-center m-auto mt-40">
+              <h2 className="text-4xl ">
+                Profile have not set yet
+              </h2>
+              <Link to='/profileForm' className="my-5 text-sm hover:underline">click here to set your profile</Link>
+            </div>
       )}
     </div>
   );
+  
 };
 
 export default Profile;
