@@ -240,9 +240,9 @@ const AdminDashboard = () => {
 :   
 <>
 <div >
-                    <h2 className="text-5xl font-bold text-red-700 mt-[400px] ml-96">DashBoard Only For Admin!!!</h2> 
+                    <h2 className="text-5xl font-bold  text-red-700">DashBoard Only For Admin!!!</h2> 
 
-                    <Link to="/"><button className="btn mt-10 ml-[600px] bg-red-600 text-white text-lg">Go To Home</button></Link>
+                    <Link to="/"><button className="btn  bg-orange-600 text-white text-lg">Go To Home</button></Link>
                     
                 </div>
 </>
