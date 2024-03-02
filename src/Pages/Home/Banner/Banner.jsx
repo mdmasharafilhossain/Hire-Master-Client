@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 import world from '../../../assets/world-animation.json'
 import Lottie from 'lottie-react';
 
@@ -23,13 +24,13 @@ const Banner = () => {
               </p>
             </div>
 
-            <button className='btn hover-none bg-[#FF3811] border-none text-white rounded-sm mr-4 lg:-ml-[500px] my-3'>
+           <Link to="/about"> <button className='btn hover-none bg-[#FF3811] border-none text-white rounded-sm mr-4 lg:-ml-[500px] my-3'>
               Discover More
-            </button>
+            </button></Link>
 
-            <button className='btn btn-outline border-white rounded-sm text-white w-36 my-3'>
+            <Link to="/jobs"><button className='btn btn-outline border-white rounded-sm text-white w-36 my-3'>
               Latest Jobs
-            </button>
+            </button></Link>
           </div>
 
           {/* <div className='border  text-white h-full'></div> */}

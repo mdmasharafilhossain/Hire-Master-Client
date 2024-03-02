@@ -19,6 +19,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
   const [stateProfilePicture, setStateProfilePicture] = useState([]);
+  const [notification, setShowNotification] = useState([]);
   const [stateFairRegisterName, setStateFairRegisterName] = useState("");
 
   const createUser = (email, password) => {
@@ -86,6 +87,8 @@ const AuthProvider = ({ children }) => {
     setStateProfilePicture,
     stateFairRegisterName,
     setStateFairRegisterName,
+    notification,
+    setShowNotification,
   };
 
   return (
