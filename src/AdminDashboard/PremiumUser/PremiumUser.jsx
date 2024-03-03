@@ -23,7 +23,7 @@ const PremiumUser = () => {
         }
 
     })
-    const totalPages = Math.ceil(UsersCount / 4);
+    const totalPages = Math.ceil(UsersCount / 10);
     const pagesToShow = 5; 
     const pages = Array.from({ length: totalPages }, (_, i) => i);
 
