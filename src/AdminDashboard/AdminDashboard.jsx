@@ -13,8 +13,10 @@ import { MdReport } from "react-icons/md";
 import { FaBook } from "react-icons/fa";
 import { FcStatistics } from "react-icons/fc";
 import useAdmin from "./useAdmin/useAdmin";
+import useHiringManagerAdmin from "./useHiringManagerAdmin/useHiringManagerAdmin";
 const AdminDashboard = () => {
   const [isUserAdmin] = useAdmin();
+  const [isHiringManagerAdmin] = useHiringManagerAdmin();
   const { user } = useContext(AuthContext);
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(false);
   // useEffect(() => {
@@ -41,7 +43,7 @@ const AdminDashboard = () => {
   return (
     <div className='flex '>
       {
-        isUserAdmin ?  
+        isUserAdmin || isHiringManagerAdmin ?  
         
         <>
         <div className="max-h-[400px] sticky z-50 top-0">
