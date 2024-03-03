@@ -8,19 +8,19 @@ const useAdmin = () => {
     const {user,loading} = useContext(AuthContext);
     const axiosSecure = UseAxiosSecure();
     // console.log(user.email)
-    const {data:isUserAdmin} = useQuery({
-        queryKey:[user?.email, 'isUserAdmin'],
+    const {data:isHiringManagerAdmin} = useQuery({
+        queryKey:[user?.email, 'isHiringManagerAdmin'],
         enabled:!loading && !!user?.email,
         queryFn: async()=>{
             if(user?.email){
-                const res = await axiosSecure.get(`/users/checkAdmin/${user?.email}`);
+                const res = await axiosSecure.get(`/hiring-talents/checkAdmin/${user?.email}`);
             console.log(res.data);
             return res.data?.admin;
             }
             
         }
     })
-    return [isUserAdmin]
+    return [isHiringManagerAdmin]
 };
 
 export default useAdmin;
