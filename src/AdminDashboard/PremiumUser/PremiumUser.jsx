@@ -4,7 +4,8 @@ import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic"
 import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
-
+import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
+import { Button } from "@chakra-ui/react";
 
 const PremiumUser = () => {
     const [page,setPage]= useState(0);
@@ -99,7 +100,7 @@ const PremiumUser = () => {
                             PremiumUsers.map((user,index) => <tr key={user._id}  className={index % 2 === 0 ? 'bg-gray-300' : 'bg-orange-200'}>
                                 
                                 <td>
-                                   <button> <h1 className='font-bold'>{user.name}</h1></button>
+                                   <button> <h1 className='font-bold'>{user.name || 'anonymous'}</h1></button>
                                     <br />
                                     
                                 </td>
@@ -139,20 +140,20 @@ const PremiumUser = () => {
                 </table>
             </div>
             <div className="text-center  mt-10 mb-10">
-                <button onClick={handlePreviousPage} disabled={page === 0} className="btn mr-3 btn-sm bg-orange-600 text-white">{`< Previous`}</button>
+                <Button colorScheme='orange' variant="outline" onClick={handlePreviousPage} isDisabled={page === 0} className="btn mr-1 btn-sm bg-orange-600 text-white">{<ArrowLeftIcon />}</Button>
                 {pages.map((pageNumber, index) => {
                     if (index === 0 || index === totalPages - 1 || (index >= page - Math.floor(pagesToShow / 2) && index <= page + Math.floor(pagesToShow / 2))) {
                         return (
-                            <button key={index} onClick={() => setPage(pageNumber)} className={`btn btn-sm border ${page === pageNumber ? "bg-slate-300 text-black" : "bg-orange-600 text-white"}`}>{pageNumber + 1}</button>
+                            <Button fontWeight='bold'  isDisabled={page === pageNumber} key={index} onClick={() => setPage(pageNumber)} className={`btn btn-sm mr-1 border ${page === pageNumber ? "bg-slate-300 text-black" : "bg-orange-600 text-white"}`}>{pageNumber + 1}</Button>
                         );
                     } else if (index === 1 && page > Math.floor(pagesToShow / 2) + 1) {
-                        return <span key={index}>.......</span>;
+                        return <span className='mr-1' key={index}>..........</span>;
                     } else if (index === totalPages - 2 && page < totalPages - Math.floor(pagesToShow / 2) - 2) {
-                        return <span key={index}>......</span>;
+                        return <span className='mr-1' key={index}>..........</span>;
                     }
                     return null;
                 })}
-                <button  onClick={handleNextPage} disabled={page === totalPages - 1} className="btn ml-3 btn-sm bg-orange-600 text-white">{`Next >`}</button>
+                <Button colorScheme='orange' variant="outline" onClick={handleNextPage} isDisabled={page === totalPages - 1} className="btn ml-1 btn-sm bg-orange-600 text-white">{<ArrowRightIcon />}</Button>
             </div>
         </div> 
         </div>
