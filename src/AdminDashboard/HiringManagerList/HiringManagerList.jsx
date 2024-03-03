@@ -110,12 +110,12 @@ const HiringManagerList = () => {
                 <table className="table border-separate">
                     {/* head */}
                     <thead>
-                        <tr className="bg-slate-100">
-                            <th className='text-xl text-orange-600'>Image</th>
-                            <th className='text-xl text-orange-600'>Name</th>
-                            <th className='text-xl text-orange-600'>Email</th>
-                            <th className='text-xl text-orange-600'>Role</th>
-                            <th className='text-xl text-orange-600'>Action</th>
+                        <tr className="bg-orange-400">
+                            <th className='text-xl text-black'>Image</th>
+                            <th className='text-xl text-black'>Name</th>
+                            <th className='text-xl text-black'>Email</th>
+                            <th className='text-xl text-black'>Role</th>
+                            <th className='text-xl text-black'>Action</th>
                             
                         </tr>
                     </thead>

@@ -82,14 +82,14 @@ const PremiumUser = () => {
                 <table className="table border-separate">
                     {/* head */}
                     <thead>
-                        <tr className="bg-slate-100">
+                        <tr className="bg-orange-400">
                             
-                            <th className='text-xl text-orange-600'>Name</th>
-                            <th className='text-xl text-orange-600'>Email</th>
-                            <th className='text-xl text-orange-600'>Payed</th>
-                            <th className='text-xl text-orange-600'>Transaction ID</th>
-                            <th className='text-xl text-orange-600'>Date</th>
-                            <th className='text-xl text-orange-600'>Role</th>
+                            <th className='text-xl text-black'>Name</th>
+                            <th className='text-xl text-black'>Email</th>
+                            <th className='text-xl text-black'>Payed</th>
+                            <th className='text-xl text-black'>Transaction ID</th>
+                            <th className='text-xl text-black'>Date</th>
+                            <th className='text-xl text-black'>Role</th>
                             
                             
                         </tr>

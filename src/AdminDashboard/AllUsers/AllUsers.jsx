@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../../Comonents/AuthProvider/AuthProvider';
 import UseAxiosSecure from '../../Comonents/Hooks/UseAxiosSecure/UseAxiosSecure';
 import UseAxiosPublic from '../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic';
-import { Button, LinkOverlay } from '@chakra-ui/react';
+import { Button} from '@chakra-ui/react';
 import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
 import { Link } from 'react-router-dom';
 const AllUsers = () => {
@@ -59,7 +59,7 @@ const AllUsers = () => {
             }
         });
     };
-    const totalPages = Math.ceil(UsersCount / 5);
+    const totalPages = Math.ceil(UsersCount / 10);
     const pagesToShow = 5; 
     const pages = Array.from({ length: totalPages }, (_, i) => i);
 
@@ -112,12 +112,12 @@ const AllUsers = () => {
                 <table className="table  border-separate w-3/4 md:w-1/2 lg:w-full">
                     {/* head */}
                     <thead>
-                        <tr className='bg-slate-100'>
-                            <th className='text-xl text-orange-600'>Image</th>
-                            <th className='text-xl text-orange-600'>Name</th>
-                            <th className='text-xl text-orange-600'>Email</th>
-                            <th className='text-xl text-orange-600'>Role</th>
-                            <th className='text-xl text-orange-600'>Action</th>
+                        <tr className='bg-orange-400'>
+                            <th className='text-xl text-black'>Image</th>
+                            <th className='text-xl text-black'>Name</th>
+                            <th className='text-xl text-black'>Email</th>
+                            <th className='text-xl text-black'>Role</th>
+                            <th className='text-xl text-black'>Action</th>
                             
                         </tr>
                     </thead>
