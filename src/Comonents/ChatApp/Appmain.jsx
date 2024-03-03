@@ -9,7 +9,15 @@ import { useQuery } from "@tanstack/react-query";
 import { getManagerInfo, getUserInfo } from "../../api";
 // import useProfile from "../Hooks/useProfile/useProfile";
 
-const socket = io.connect("http://localhost:5000");
+// const socket = io.connect("https://hire-master-server-sigma.vercel.app");
+
+// client-side
+const socket = io("https://hire-master-server-sigma.vercel.app", {
+  withCredentials: true,
+  extraHeaders: {
+    "my-custom-header": "https://hire-master-server-sigma.vercel.app"
+  }
+});
 
 const Appmain = () => {
   const [message, setMessage] = useState("");
@@ -53,7 +61,7 @@ const Appmain = () => {
   };
 
   useEffect(() => {
-    socket.on("chat", (payload) => {
+    socket.on("chat", (payload) => { 
       setChat([...chat, payload]);
       scrollToBottom();
     });
