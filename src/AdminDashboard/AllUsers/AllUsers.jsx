@@ -57,7 +57,7 @@ const AllUsers = () => {
                     timer: 1500
                 });
             }
-        });
+        }); 
     };
     const totalPages = Math.ceil(UsersCount / 10);
     const pagesToShow = 5; 
