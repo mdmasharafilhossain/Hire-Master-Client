@@ -130,7 +130,7 @@ const PremiumUser = () => {
                                 </td>
                                 <td>
                               
-                                    <button onClick={()=>handleDelete(user)} className='btn btn-sm bg-red-600 text-xs text-white font-bold'>Remove User</button></td>
+                                    <button onClick={()=>handleDelete(user)} className='btn btn-xs bg-red-600 text-xs text-white font-bold'>Remove</button></td>
                             </tr>)
                         }
                         
