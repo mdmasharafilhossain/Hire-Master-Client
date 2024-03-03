@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../Comonents/AuthProvider/AuthProvider";
 import { FiAlignJustify } from "react-icons/fi";
@@ -12,15 +12,21 @@ import { MdPeopleAlt } from "react-icons/md";
 import { MdReport } from "react-icons/md";
 import { FaBook } from "react-icons/fa";
 import { FcStatistics } from "react-icons/fc";
+import useAdmin from "./useAdmin/useAdmin";
 const AdminDashboard = () => {
+  const [isUserAdmin] = useAdmin();
   const { user } = useContext(AuthContext);
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
   const handleRouteClick = () => {
     setShowWelcomeMessage(false);
   };
   return (
-    <div className='flex flex-1 max-w-7xl container mx-auto'>
-      <div className="max-h-[400px] sticky top-0 lg:bg-orange-600">
+    <div className='flex'>
+      {
+        isUserAdmin ?  
+        
+        <>
+        <div className="max-h-[400px] sticky top-0">
         <div className='drawer lg:drawer-open bg-slate-100'>
           <input id='my-drawer-2' type='checkbox' className='drawer-toggle' />
           <div className='drawer-content flex flex-col items-center justify-center'>
@@ -210,6 +216,21 @@ const AdminDashboard = () => {
           </h1>
         </div>
       )}
+        </>
+
+
+:   
+<>
+<div >
+                    <h2 className="text-5xl font-bold text-red-700 mt-[400px] ml-96">DashBoard Only For Admin!!!</h2> 
+
+                    <Link to="/"><button className="btn mt-10 ml-[600px] bg-red-600 text-white text-lg">Go To Home</button></Link>
+                    
+                </div>
+</>
+
+
+      }
 
       {/* Outlet */}
       <div className='w-full md:w-full lg:w-full   pr-10'>

@@ -7,7 +7,7 @@ import { RiLoginCircleLine, RiLogoutCircleLine } from "react-icons/ri";
 import { FaRegBell } from "react-icons/fa";
 import useFetchData from "../Hooks/UseFetchData/useFetchData";
 import useNotifications from "../Hooks/Notifications/getNotifications";
-
+import userImage from "./usericon2.png";
 const Navbar2 = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -102,21 +102,21 @@ const Navbar2 = () => {
   console.log(localDisplay);
 
   return (
-    <div className="navbar shadow-lg sticky top-0 z-50 shadow-base-200  bg-base-100 mb-5">
-      <div className="flex-1">
-        <Link to="/" className="">
+    <div className='navbar shadow-lg sticky top-0 z-50 shadow-base-200  bg-base-100 mb-5'>
+      <div className='flex-1'>
+        <Link to='/' className=''>
           <img
-            src="https://i.ibb.co/BcFWdqk/Hire-Master-Logo-2.png"
-            className="w-28"
-            alt="logo"
+            src='https://i.ibb.co/BcFWdqk/Hire-Master-Logo-2.png'
+            className='w-28'
+            alt='logo'
           />
         </Link>
       </div>
 
-      <div className="hidden md:flex flex-1 items-center space-x-4 mr-4 font-medium lg:text-lg menu-horizontal px-1 md:text-base">
-        <Link to="/">Home</Link>
+      <div className='hidden md:flex flex-1 items-center -ml-64 space-x-4 mr-4 font-medium lg:text-lg menu-horizontal px-1 md:text-base'>
+        <Link to='/'>Home</Link>
         <NavLink
-          to="/jobs"
+          to='/jobs'
           className={({ isActive }) =>
             `{ ${isActive ? "text-[#FF3811] underline " : " "}}`
           }
@@ -124,7 +124,15 @@ const Navbar2 = () => {
           Jobs
         </NavLink>
         <NavLink
-          to="/tech-news"
+          to='/job-fair'
+          className={({ isActive }) =>
+            `{ ${isActive ? "text-[#FF3811] underline " : " "}}`
+          }
+        >
+          Job Fair
+        </NavLink>
+        <NavLink
+          to='/tech-news'
           className={({ isActive }) =>
             `{ ${isActive ? "text-[#FF3811] underline " : " "}}`
           }
@@ -133,7 +141,7 @@ const Navbar2 = () => {
         </NavLink>
 
         <NavLink
-          to="/about"
+          to='/about'
           className={({ isActive }) =>
             `{ ${isActive ? "text-[#FF3811] underline " : " "}}`
           }
@@ -141,7 +149,7 @@ const Navbar2 = () => {
           About
         </NavLink>
         <NavLink
-          to="/contacts"
+          to='/contacts'
           className={({ isActive }) =>
             `{ ${isActive ? "text-[#FF3811] underline " : " "}}`
           }
@@ -150,7 +158,7 @@ const Navbar2 = () => {
         </NavLink>
 
         {user ? (
-          <div className="space-x-4">
+          <div className='space-x-4'>
             <NavLink
               to={`/${profileRoute}`}
               className={({ isActive }) =>
@@ -162,19 +170,19 @@ const Navbar2 = () => {
             <NavLink onClick={handleSignOut}>Logout</NavLink>
           </div>
         ) : (
-          <Link to="/signup2">Register</Link>
+          <Link to='/signup2'>Register</Link>
         )}
       </div>
 
       {/* -----------------notification bell icon ---------------*/}
-      <div className="flex-none">
+      <div className='flex-none'>
         {user && (
           <>
-            <div className="flex items-center cursor-pointer">
-              <div className="relative mr-3" onClick={() => setOpen(!open)}>
-                <FaRegBell className="w-7 h-7 " />
+            <div className='flex items-center cursor-pointer'>
+              <div className='relative mr-3' onClick={() => setOpen(!open)}>
+                <FaRegBell className='w-7 h-7 ' />
                 {localDisplay > 0 && (
-                  <div className="bg-[#FF3811] font-semibold w-4 h-4 rounded-full flex items-center justify-center text-xs absolute top-0 right-0">
+                  <div className='bg-[#FF3811] font-semibold w-4 h-4 rounded-full flex items-center justify-center text-xs absolute top-0 right-0'>
                     {localDisplay}
                   </div>
                 )}
@@ -182,14 +190,14 @@ const Navbar2 = () => {
             </div>
             {/* Dropdown box of bell icon */}
             {open && (
-              <div className="absolute top-16 right-5 bg-white outline text-black font-light flex flex-col p-2 rounded-lg">
+              <div className='absolute top-16 right-5 bg-white outline text-black font-light flex flex-col p-2 rounded-lg'>
                 {showNotifications.map((notification, index) => (
                   <div key={index}>
                     {notification.email} has applied to your job
                   </div>
                 ))}
                 <button
-                  className="text-[#FF3811] font-semibold text-xs underline"
+                  className='text-[#FF3811] font-semibold text-xs underline'
                   onClick={handleRead}
                 >
                   Mark as read
@@ -198,40 +206,43 @@ const Navbar2 = () => {
             )}
           </>
         )}
-        <div className="dropdown dropdown-end">
+        <div className='dropdown dropdown-end'>
           <div
             tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar"
+            role='button'
+            className='btn btn-ghost btn-circle avatar'
           >
-            <div className="w-10 rounded-full">
+            <div className=' w-10 rounded-full'>
               <img
-                alt="Tailwind CSS Navbar component"
+                alt='Tailwind CSS Navbar component'
                 src={
-                  "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  user?.photoURL ||
+                  managerProfile.image ||
+                  userProfile.image ||
+                  userImage
                 }
               />
             </div>
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'
           >
             <hr />
 
             {user ? (
               <Link
-                className="text-xl flex items-center gap-x-1 hover:bg-gray-300 rounded-full font-medium py-2 px-2"
+                className='text-xl flex items-center gap-x-1 hover:bg-gray-300 rounded-full font-medium py-2 px-2'
                 onClick={handleSignOut}
-                to="/login"
+                to='/login'
               >
-                <RiLogoutCircleLine className="inline-block" />
+                <RiLogoutCircleLine className='inline-block' />
                 Logout
               </Link>
             ) : (
               <Link
-                className="text-xl flex items-center gap-x-1 hover:bg-gray-300 rounded-full font-medium py-2 px-2"
-                to="/signup2"
+                className='text-xl flex items-center gap-x-1 hover:bg-gray-300 rounded-full font-medium py-2 px-2'
+                to='/signup2'
               >
                 <RiLoginCircleLine />
                 Login

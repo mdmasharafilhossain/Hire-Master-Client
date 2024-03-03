@@ -22,11 +22,10 @@ const ManagerProfile = () => {
   const navigate = useNavigate();
   const email = user?.email;
 
-  const {
-    data: profile,
-    loading,
-    refetch,
-  } = useFetchData(`/managerProfile/${email}`, "profile");
+  const { data: profile, loading, refetch } = useFetchData(
+    `/managerProfile/${email}`,
+    "profile"
+  );
   if (loading) return <Loader />;
 
   refetch();
@@ -92,13 +91,18 @@ const ManagerProfile = () => {
             </Link>
           </div>
           {!profile ? (
-            <h2 className="text-4xl text-center m-auto">Profile have not set yet</h2>
+            <div className="text-center m-auto">
+              <h2 className="text-4xl ">
+                Profile have not set yet
+              </h2>
+              <Link to='/managerForm' className="my-5 text-sm hover:underline">click here to set your profile</Link>
+            </div>
           ) : (
             <>
               {/* Profile section */}
 
-              <div className="bg-white w-full rounded-md border-[0.5px] border-slate-300 p-6 ">
-                <div className="  bg-white p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50 hover:drop-shadow-lg">
+              <div className=" w-full rounded-md border-[0.5px] border-slate-300 p-6 ">
+                <div className=" p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50 hover:text-black hover:drop-shadow-lg">
                   <Link>
                     <h3 className="flex justify-end text-xl mb-2">
                       <FaPenToSquare></FaPenToSquare>
@@ -145,7 +149,7 @@ const ManagerProfile = () => {
                   </div>
                 </div>
                 {/* Education section */}
-                <div className="mt-4  border-[0.5px] border-slate-300  hover:bg-blue-50  hover:drop-shadow-lg  bg-white p-8 rounded-lg">
+                <div className="mt-4  border-[0.5px] border-slate-300  hover:bg-blue-50  hover:drop-shadow-lg  hover:text-black p-8 rounded-lg">
                   <div className="flex justify-end gap-4">
                     <p className="text-2xl mb-2">
                       <RiAddBoxFill></RiAddBoxFill>
@@ -175,7 +179,7 @@ const ManagerProfile = () => {
                   </div>
                 </div>
                 {/* Company */}
-                <div className="mt-4  border-[0.5px] border-slate-300  hover:bg-blue-50  hover:drop-shadow-lg  bg-white p-8 rounded-lg">
+                <div className="mt-4  border-[0.5px] border-slate-300  hover:bg-blue-50  hover:drop-shadow-lg  hover:text-black p-8 rounded-lg">
                   <div className="flex justify-end gap-4">
                     <p className="text-2xl mb-2">
                       <RiAddBoxFill></RiAddBoxFill>
@@ -218,7 +222,7 @@ const ManagerProfile = () => {
                   </div>
                 </div>
                 {/*work experience section  */}
-                <div className="mt-4  border-[0.5px] border-slate-300 hover:bg-blue-50 bg-white p-8 rounded-lg hover:drop-shadow-lg">
+                <div className="mt-4  border-[0.5px] border-slate-300 hover:bg-blue-50 hover:text-black p-8 rounded-lg hover:drop-shadow-lg">
                   <div className="flex justify-end gap-4">
                     <p className="text-2xl mb-2">
                       <RiAddBoxFill></RiAddBoxFill>

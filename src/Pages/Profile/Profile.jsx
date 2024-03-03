@@ -28,24 +28,18 @@ const Profile = () => {
   console.log(profileData);
 
   const axiosSecure = UseAxiosSecure();
-  // const { loading } = useContext(AuthContext);
-  const { data: premium = [] } = useQuery({
-    queryKey: ["premium"],
-    queryFn: async () => {
-      const res = await axiosSecure.get("/payments");
-      return res.data;
-    },
-  });
-
-  //   fetch("http://localhost:5000/payments")
-  //     .then((res) => res.json())
-  //     .then((data) => setPremium(data))
-  //     .catch((error) => console.error("Error fetching premium data:", error));
-  // }, []);
-  const premiumUser = premium
-    .map((userPremium) => userPremium?.email)
-    .includes(user?.email);
-  console.log(premiumUser);
+  const {loading} = useContext(AuthContext);
+  const {data:premium=[]}=useQuery({
+      queryKey:["premium"],
+      queryFn:async()=>{
+          const res =await axiosSecure.get("/payments")
+          return res.data
+  
+      }
+  })
+ 
+  const premiumUser = premium.map((userPremium) => userPremium?.email).includes(user?.email);
+  console.log(premiumUser)
   return (
     <div>
       <Navbar2></Navbar2>

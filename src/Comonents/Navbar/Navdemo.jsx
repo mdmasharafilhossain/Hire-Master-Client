@@ -24,7 +24,7 @@ const App = () => {
         <>
           <Navbar socket={socket} />
           {posts.map((post) => (
-            <Card key={post.id} post={post} socket={socket} user={user}/>j
+            <Card key={post.id} post={post} socket={socket} user={user}/>
           ))}
           <span className="username">{user}</span>
         </>
