@@ -162,11 +162,11 @@ const AllUsers = () => {
                 </table>
             </div>
             <div className="text-center  mt-10 mb-10">
-                <Button onClick={handlePreviousPage} disabled={page === 0} className="btn mr-3 btn-sm bg-orange-600 text-white">{<ArrowLeftIcon />}</Button>
+                <Button colorScheme='orange' variant="outline" onClick={handlePreviousPage} isDisabled={page === 0} className="btn mr-1 btn-sm bg-orange-600 text-white">{<ArrowLeftIcon />}</Button>
                 {pages.map((pageNumber, index) => {
                     if (index === 0 || index === totalPages - 1 || (index >= page - Math.floor(pagesToShow / 2) && index <= page + Math.floor(pagesToShow / 2))) {
                         return (
-                            <Button isDisabled={page === pageNumber} key={index} onClick={() => setPage(pageNumber)} className={`btn btn-sm mr-1 border ${page === pageNumber ? "bg-slate-300 text-black" : "bg-orange-600 text-white"}`}>{pageNumber + 1}</Button>
+                            <Button fontWeight='bold'  isDisabled={page === pageNumber} key={index} onClick={() => setPage(pageNumber)} className={`btn btn-sm mr-1 border ${page === pageNumber ? "bg-slate-300 text-black" : "bg-orange-600 text-white"}`}>{pageNumber + 1}</Button>
                         );
                     } else if (index === 1 && page > Math.floor(pagesToShow / 2) + 1) {
                         return <span className='mr-1' key={index}>..........</span>;
