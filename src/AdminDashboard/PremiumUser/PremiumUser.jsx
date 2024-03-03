@@ -23,7 +23,7 @@ const PremiumUser = () => {
         }
 
     })
-    const totalPages = Math.ceil(UsersCount / 4);
+    const totalPages = Math.ceil(UsersCount / 10);
     const pagesToShow = 5; 
     const pages = Array.from({ length: totalPages }, (_, i) => i);
 
@@ -79,17 +79,17 @@ const PremiumUser = () => {
                
             </div>
             <div className="overflow-x-auto ml-10">
-                <table className="table">
+                <table className="table border-separate">
                     {/* head */}
                     <thead>
-                        <tr>
+                        <tr className="bg-orange-400">
                             
-                            <th className='text-xl text-orange-600'>Name</th>
-                            <th className='text-xl text-orange-600'>Email</th>
-                            <th className='text-xl text-orange-600'>Payed</th>
-                            <th className='text-xl text-orange-600'>Transaction ID</th>
-                            <th className='text-xl text-orange-600'>Date</th>
-                            <th className='text-xl text-orange-600'>Role</th>
+                            <th className='text-xl text-black'>Name</th>
+                            <th className='text-xl text-black'>Email</th>
+                            <th className='text-xl text-black'>Payed</th>
+                            <th className='text-xl text-black'>Transaction ID</th>
+                            <th className='text-xl text-black'>Date</th>
+                            <th className='text-xl text-black'>Role</th>
                             
                             
                         </tr>
@@ -130,7 +130,7 @@ const PremiumUser = () => {
                                 </td>
                                 <td>
                               
-                                    <button onClick={()=>handleDelete(user)} className='btn btn-sm bg-red-600 text-xs text-white font-bold'>Remove User</button></td>
+                                    <button onClick={()=>handleDelete(user)} className='btn btn-xs bg-red-600 text-xs text-white font-bold'>Remove</button></td>
                             </tr>)
                         }
                         

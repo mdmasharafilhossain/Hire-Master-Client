@@ -62,6 +62,7 @@ import PremiumallCourses from "../PremiumUserCourse/PremiumallCourses";
 import Statistics from "../../AdminDashboard/Statistics/Statistics";
 import JobFairAllEvents from "../../Pages/JobFair/JobFairAllEvents";
 import Appmain from "../ChatApp/Appmain";
+import UserDetails from "../../AdminDashboard/UserDetails/UserDetails";
 
 const router = createBrowserRouter([
   {
@@ -319,6 +320,10 @@ const router = createBrowserRouter([
   {
     path: "/premiumallcourse",
     element: <PremiumallCourses></PremiumallCourses>,
+  },
+  {
+   path:"/AdminDashboard/AllUsers/:email",
+   element:<UserDetails></UserDetails>
   },
 
   // Admin Dashboard
