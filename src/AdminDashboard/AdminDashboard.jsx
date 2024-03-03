@@ -1,5 +1,5 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../Comonents/AuthProvider/AuthProvider";
 import { FiAlignJustify } from "react-icons/fi";
 import { BiBriefcase } from "react-icons/bi";
@@ -13,23 +13,41 @@ import { MdReport } from "react-icons/md";
 import { FaBook } from "react-icons/fa";
 import { FcStatistics } from "react-icons/fc";
 import useAdmin from "./useAdmin/useAdmin";
+import useHiringManagerAdmin from "./useHiringManagerAdmin/useHiringManagerAdmin";
 const AdminDashboard = () => {
   
   const [isUserAdmin] = useAdmin();
-  // const isUserAdmin=true;
-
+  const [isHiringManagerAdmin] = useHiringManagerAdmin();
   const { user } = useContext(AuthContext);
-  const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
+  const [showWelcomeMessage, setShowWelcomeMessage] = useState(false);
+  // useEffect(() => {
+  //   const hasShownWelcomeMessage = localStorage.getItem("hasShownWelcomeMessage");
+  //   if (user && !hasShownWelcomeMessage) {
+  //     setShowWelcomeMessage(true);
+  //     localStorage.setItem("hasShownWelcomeMessage", "true");
+  //   }
+  // }, [user]);
+  useEffect(() => {
+    const hasShownWelcomeMessage = localStorage.getItem("hasShownWelcomeMessage");
+    if (user && !hasShownWelcomeMessage) {
+      setShowWelcomeMessage(true);
+    }
+  }, [user]);
   const handleRouteClick = () => {
+    localStorage.setItem("hasShownWelcomeMessage", "true");
     setShowWelcomeMessage(false);
   };
+  const handleHomeRouteClick = () =>{
+    localStorage.removeItem("hasShownWelcomeMessage");
+    setShowWelcomeMessage(false);
+  }
   return (
-    <div className='flex'>
+    <div className='flex '>
       {
-        isUserAdmin ?  
+        isUserAdmin || isHiringManagerAdmin ?  
         
         <>
-        <div className="max-h-[400px] sticky top-0">
+        <div className="max-h-[400px] sticky z-50 top-0">
         <div className='drawer lg:drawer-open bg-slate-100'>
           <input id='my-drawer-2' type='checkbox' className='drawer-toggle' />
           <div className='drawer-content flex flex-col items-center justify-center'>
@@ -192,7 +210,7 @@ const AdminDashboard = () => {
                   </NavLink>
                 </li>
                 <li
-                  onClick={handleRouteClick}
+                  onClick={handleHomeRouteClick}
                   className='font-bold text-sm text-white'
                 >
                   <NavLink
@@ -225,9 +243,9 @@ const AdminDashboard = () => {
 :   
 <>
 <div >
-                    <h2 className="text-5xl font-bold text-red-700 mt-[400px] ml-96">DashBoard Only For Admin!!!</h2> 
+                    <h2 className="text-5xl font-bold  text-red-700">DashBoard Only For Admin!!!</h2> 
 
-                    <Link to="/"><button className="btn mt-10 ml-[600px] bg-red-600 text-white text-lg">Go To Home</button></Link>
+                    <Link to="/"><button className="btn  bg-orange-600 text-white text-lg">Go To Home</button></Link>
                     
                 </div>
 </>

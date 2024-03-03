@@ -141,7 +141,7 @@ const HiringManagerList = () => {
                                 <td className='font-bold'>{user.email}</td>
                                 <th>
                                    {
-                                    user.role === 'admin' ? <button onClick={() => handleRemoveAdmin(user)} className='btn bg-orange-600 btn-xs text-white font-bold'> Remove Admin</button> : 
+                                    user.role2 === 'admin' ? <button onClick={() => handleRemoveAdmin(user)} className='btn bg-orange-600 btn-xs text-white font-bold'> Remove Admin</button> : 
                                     <button 
                                     onClick={()=> handleMakeAdmin(user) }
                                     className="btn btn-ghost btn-xs font-bold">Make Admin</button>
