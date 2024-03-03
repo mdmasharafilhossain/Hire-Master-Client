@@ -14,7 +14,10 @@ import { FaBook } from "react-icons/fa";
 import { FcStatistics } from "react-icons/fc";
 import useAdmin from "./useAdmin/useAdmin";
 const AdminDashboard = () => {
+  
   const [isUserAdmin] = useAdmin();
+  // const isUserAdmin=true;
+
   const { user } = useContext(AuthContext);
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
   const handleRouteClick = () => {
