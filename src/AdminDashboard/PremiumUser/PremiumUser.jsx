@@ -79,10 +79,10 @@ const PremiumUser = () => {
                
             </div>
             <div className="overflow-x-auto ml-10">
-                <table className="table">
+                <table className="table border-separate">
                     {/* head */}
                     <thead>
-                        <tr>
+                        <tr className="bg-slate-100">
                             
                             <th className='text-xl text-orange-600'>Name</th>
                             <th className='text-xl text-orange-600'>Email</th>
