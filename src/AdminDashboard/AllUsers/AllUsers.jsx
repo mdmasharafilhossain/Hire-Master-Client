@@ -6,8 +6,9 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../../Comonents/AuthProvider/AuthProvider';
 import UseAxiosSecure from '../../Comonents/Hooks/UseAxiosSecure/UseAxiosSecure';
 import UseAxiosPublic from '../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic';
-import { Button } from '@chakra-ui/react';
+import { Button, LinkOverlay } from '@chakra-ui/react';
 import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
+import { Link } from 'react-router-dom';
 const AllUsers = () => {
     const [page,setPage]= useState(0);
     const axiosSecure = UseAxiosSecure();
@@ -136,7 +137,7 @@ const AllUsers = () => {
                                     </div>
                                 </td>
                                 <td>
-                                   <button> <h1 className='font-bold'>{user.name}</h1></button>
+                                   <Link to={`${user?.email}`}><button> <h1 className='font-bold'>{user.name}</h1></button></Link>
                                     <br />
                                     
                                 </td>
