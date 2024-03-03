@@ -100,7 +100,7 @@ const PremiumUser = () => {
                             PremiumUsers.map((user,index) => <tr key={user._id}  className={index % 2 === 0 ? 'bg-gray-300' : 'bg-orange-200'}>
                                 
                                 <td>
-                                   <button> <h1 className='font-bold'>{user.name}</h1></button>
+                                   <button> <h1 className='font-bold'>{user.name || 'anonymous'}</h1></button>
                                     <br />
                                     
                                 </td>
