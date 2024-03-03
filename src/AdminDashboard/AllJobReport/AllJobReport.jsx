@@ -28,10 +28,10 @@ console.log(reports)
                
             </div>
             <div className="overflow-x-auto ml-10">
-                <table className="table">
+                <table className="table border-separate">
                     {/* head */}
                     <thead>
-                        <tr>
+                        <tr className="bg-slate-100">
                             <th className='text-xl text-orange-600'>User Name</th>
                             <th className='text-xl text-orange-600'>User Email</th>
                             <th className='text-xl text-orange-600'>Hiring Manager Email</th>
@@ -53,7 +53,7 @@ console.log(reports)
                           {/* Open the modal using document.getElementById('ID').showModal() method */}
 
 
-                                <td > <button className="btn btn-sm text-[#FF3811]" onClick={()=>document.getElementById('my_modal_1').showModal()}>View Details</button>
+                                <td > <button className="btn btn-xs text-[#FF3811]" onClick={()=>document.getElementById('my_modal_1').showModal()}>View Details</button>
 <dialog id="my_modal_1" className="modal">
   <div className="modal-box">
     <h3 className="font-bold text-lg">Title: {report.job_title}</h3>
