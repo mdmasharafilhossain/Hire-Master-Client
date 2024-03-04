@@ -45,9 +45,9 @@ const PremiumUserCourses = () => {
     };
   
     return (
-      <div className=" mx-auto h-100vh">
+      <div className=" mx-auto h-100vh p-4 m-6 bg-slate-50 border-2 rounded-lg border-orange-500 ">
        
-       <div className="flex justify-evenly my-6 mb-10">
+       <div className="flex justify-evenly  my-6 mb-10">
                 <h2 className="text-4xl font-bold">Add <span className='text-[#FF3811]'>Courses</span></h2>
                
             </div>
