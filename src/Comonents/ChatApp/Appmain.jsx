@@ -12,12 +12,24 @@ import { getManagerInfo, getUserInfo } from "../../api";
 // const socket = io.connect("https://hire-master-server-sigma.vercel.app");
 
 // client-side
+// const socket = io("https://hire-master-server-sigma.vercel.app", {
+//   withCredentials: true,
+//   extraHeaders: {
+//     "Server-Side-Link": "https://hire-master-server-sigma.vercel.app"
+//   }
+// });
+
 const socket = io("https://hire-master-server-sigma.vercel.app", {
   withCredentials: true,
-  extraHeaders: {
-    "my-custom-header": "https://hire-master-server-sigma.vercel.app"
+  transportOptions: {
+    polling: {
+      extraHeaders: {
+        "Server-Side-Link": "https://hire-master-server-sigma.vercel.app"
+      }
+    }
   }
 });
+
 
 const Appmain = () => {
   const [message, setMessage] = useState("");
