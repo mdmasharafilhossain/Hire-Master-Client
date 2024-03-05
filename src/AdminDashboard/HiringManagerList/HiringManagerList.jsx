@@ -4,7 +4,8 @@ import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic"
 import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
-
+import { Button } from "@chakra-ui/react";
+import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
 
 const HiringManagerList = () => {
     const [page,setPage]= useState(0);
@@ -56,7 +57,7 @@ const HiringManagerList = () => {
             }
         });
     };
-    const totalPages = Math.ceil(UsersCount / 5);
+    const totalPages = Math.ceil(UsersCount / 10);
     const pagesToShow = 5; 
     const pages = Array.from({ length: totalPages }, (_, i) => i);
 
@@ -106,15 +107,15 @@ const HiringManagerList = () => {
                
             </div>
             <div className="overflow-x-auto ml-10">
-                <table className="table">
+                <table className="table border-separate">
                     {/* head */}
                     <thead>
-                        <tr>
-                            <th className='text-xl text-orange-600'>Image</th>
-                            <th className='text-xl text-orange-600'>Name</th>
-                            <th className='text-xl text-orange-600'>Email</th>
-                            <th className='text-xl text-orange-600'>Role</th>
-                            <th className='text-xl text-orange-600'>Action</th>
+                        <tr className="bg-orange-400">
+                            <th className='text-xl text-black'>Image</th>
+                            <th className='text-xl text-black'>Name</th>
+                            <th className='text-xl text-black'>Email</th>
+                            <th className='text-xl text-black'>Role</th>
+                            <th className='text-xl text-black'>Action</th>
                             
                         </tr>
                     </thead>
@@ -141,7 +142,7 @@ const HiringManagerList = () => {
                                 <td className='font-bold'>{user.email}</td>
                                 <th>
                                    {
-                                    user.role === 'admin' ? <button onClick={() => handleRemoveAdmin(user)} className='btn bg-orange-600 btn-xs text-white font-bold'> Remove Admin</button> : 
+                                    user.role2 === 'admin' ? <button onClick={() => handleRemoveAdmin(user)} className='btn bg-orange-600 btn-xs text-white font-bold'> Remove Admin</button> : 
                                     <button 
                                     onClick={()=> handleMakeAdmin(user) }
                                     className="btn btn-ghost btn-xs font-bold">Make Admin</button>
@@ -160,20 +161,20 @@ const HiringManagerList = () => {
                 </table>
             </div>
             <div className="text-center  mt-10 mb-10">
-                <button onClick={handlePreviousPage} disabled={page === 0} className="btn mr-3 btn-sm bg-orange-600 text-white">{`< Previous`}</button>
+                <Button colorScheme='orange' variant="outline" onClick={handlePreviousPage} isDisabled={page === 0} className="btn mr-1 btn-sm bg-orange-600 text-white">{<ArrowLeftIcon />}</Button>
                 {pages.map((pageNumber, index) => {
                     if (index === 0 || index === totalPages - 1 || (index >= page - Math.floor(pagesToShow / 2) && index <= page + Math.floor(pagesToShow / 2))) {
                         return (
-                            <button key={index} onClick={() => setPage(pageNumber)} className={`btn btn-sm border ${page === pageNumber ? "bg-slate-300 text-black" : "bg-orange-600 text-white"}`}>{pageNumber + 1}</button>
+                            <Button fontWeight='bold'  isDisabled={page === pageNumber} key={index} onClick={() => setPage(pageNumber)} className={`btn btn-sm mr-1 border ${page === pageNumber ? "bg-slate-300 text-black" : "bg-orange-600 text-white"}`}>{pageNumber + 1}</Button>
                         );
                     } else if (index === 1 && page > Math.floor(pagesToShow / 2) + 1) {
-                        return <span key={index}>...</span>;
+                        return <span className='mr-1' key={index}>..........</span>;
                     } else if (index === totalPages - 2 && page < totalPages - Math.floor(pagesToShow / 2) - 2) {
-                        return <span key={index}>...</span>;
+                        return <span className='mr-1' key={index}>..........</span>;
                     }
                     return null;
                 })}
-                <button  onClick={handleNextPage} disabled={page === totalPages - 1} className="btn ml-3 btn-sm bg-orange-600 text-white">{`Next >`}</button>
+                <Button colorScheme='orange' variant="outline" onClick={handleNextPage} isDisabled={page === totalPages - 1} className="btn ml-1 btn-sm bg-orange-600 text-white">{<ArrowRightIcon />}</Button>
             </div>
         </div>
         </div>

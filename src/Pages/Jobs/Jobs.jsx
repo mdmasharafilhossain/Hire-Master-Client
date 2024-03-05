@@ -70,9 +70,7 @@ const Jobs = () => {
               </h1>
 
               <p
-                className={`mt-3 max-w-[550px] mx-auto text-base font-medium sm:text-lg md:mt-5 md:max-w-3xl ${
-                  theme === "dark" ? "text-gray-300" : "text-gray-600"
-                }`}
+                className="mt-3 max-w-[550px] mx-auto sm:text-lg md:mt-5 md:max-w-3xl"
               >
                 With our comprehensive job listings, you will never miss out on
                 exciting opportunities. Apply today and start your journey with
