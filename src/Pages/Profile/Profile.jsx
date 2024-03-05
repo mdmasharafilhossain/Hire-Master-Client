@@ -1,7 +1,6 @@
 import { FaPenToSquare } from "react-icons/fa6";
 import { FaExternalLinkAlt, FaBriefcase } from "react-icons/fa";
 import { FaBookAtlas } from "react-icons/fa6";
-
 import { PiBookBookmarkFill } from "react-icons/pi";
 import { RiAddBoxFill } from "react-icons/ri";
 import { AiFillProject } from "react-icons/ai";
@@ -25,20 +24,19 @@ const Profile = () => {
   const [profileData] = useProfile();
   const [myData] = profileData;
   console.log(profileData);
-
   const axiosSecure = UseAxiosSecure();
-  const {loading} = useContext(AuthContext);
-  const {data:premium=[]}=useQuery({
-      queryKey:["premium"],
-      queryFn:async()=>{
-          const res =await axiosSecure.get("/payments")
-          return res.data
-  
-      }
-  })
- 
-  const premiumUser = premium.map((userPremium) => userPremium?.email).includes(user?.email);
-  console.log(premiumUser)
+  const { data: premium = [] } = useQuery({
+    queryKey: ["premium"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/payments");
+      return res.data;
+    },
+  });
+
+  const premiumUser = premium
+    .map((userPremium) => userPremium?.email)
+    .includes(user?.email);
+  console.log(premiumUser);
   return (
     <div>
       <Navbar2></Navbar2>
@@ -59,7 +57,7 @@ const Profile = () => {
                 </div>
               </Link>
 
-              <Link to={`/appliedjobs/${user.email}`}>
+              <Link to={`/appliedjobs`}>
                 <div className="p-2 hover:bg-slate-200 rounded-xl ">
                   <p className="text-2xl ml-1 ">
                     {" "}

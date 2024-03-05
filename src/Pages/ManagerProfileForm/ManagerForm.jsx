@@ -68,7 +68,7 @@ const ManagerForm = () => {
                 Swal.fire({
                   position: "top-end",
                   icon: "error",
-                  title: `${res.data.message}`,
+                  title: `Ops! Something went wrong!!!`,
                   showConfirmButton: false,
                   timer: 2000,
                 });
