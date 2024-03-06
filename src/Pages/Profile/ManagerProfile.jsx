@@ -222,7 +222,7 @@ const ManagerProfile = () => {
                   </div>
                 </div>
                 {/*work experience section  */}
-                <div className="mt-4  border-[0.5px] border-slate-300 hover:bg-blue-50 hover:text-black p-8 rounded-lg hover:drop-shadow-lg">
+                {/* <div className="mt-4  border-[0.5px] border-slate-300 hover:bg-blue-50 hover:text-black p-8 rounded-lg hover:drop-shadow-lg">
                   <div className="flex justify-end gap-4">
                     <p className="text-2xl mb-2">
                       <RiAddBoxFill></RiAddBoxFill>
@@ -254,7 +254,7 @@ const ManagerProfile = () => {
                       {profile.WorkingStartDate} | {profile.WorkingEndDate}
                     </h3>
                   </div>
-                </div>
+                </div> */}
               </div>
             </>
           )}

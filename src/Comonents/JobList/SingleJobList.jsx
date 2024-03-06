@@ -4,7 +4,7 @@ import { IoMdTime } from "react-icons/io";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import UseAxiosPublic from "../Hooks/UseAxiosPublic/UseAxiosPublic";
 import Swal from "sweetalert2";
@@ -12,8 +12,10 @@ import toast, { Toaster } from "react-hot-toast";
 import useNotifications from "../Hooks/Notifications/getNotifications";
 import { useQuery } from "@tanstack/react-query";
 import { getUserInfo } from "../../api";
+import useFetchData from "../Hooks/UseFetchData/useFetchData";
 
 const SingleJobList = ({ job }) => {
+  const [isManager, setIsManager] = useState(0);
   const {
     selectedChat,
     setSelectedChat,
@@ -104,6 +106,22 @@ const SingleJobList = ({ job }) => {
 
   const [notifications] = useNotifications(api, key);
 
+  // -----------detecting the route for user/manager------------
+  const { data: profile, loading, refetch } = useFetchData(
+    `/managerProfile/${email}`,
+    "profile"
+  );
+  if (!loading) {
+    refetch();
+  }
+  console.log(profile);
+  let profileRoute = false;
+  if (user?.email === profile?.email || user?.email === "admin@gmail.com") {
+    profileRoute = true;
+  }
+
+  // -------------end--------------------------
+
   return (
     <div className="px-10 py-2 md:py-5 mb-3 flex flex-col md:flex-row justify-between gap-y-1 md:gap-y-0 md:gap-2 border text-center md:text-left hover:shadow-xl">
       <Toaster position="top-right" reverseOrder={false} />
@@ -145,10 +163,7 @@ const SingleJobList = ({ job }) => {
             className="btn btn-sm  btn-warning"
             to={`/jobDetails/${job._id}`}
           >
-            <button>
-              {/* <CiHeart className="text-[#FF3811]" />  */}
-              Details
-            </button>
+            Details
           </Link>
           {!hiring_manager ? (
             <>
@@ -156,6 +171,7 @@ const SingleJobList = ({ job }) => {
                 onClick={() => {
                   handleAppliedJobs();
                 }}
+                hidden={profileRoute}
                 className="btn btn-sm  bg-[#FF3811] text-white"
               >
                 Apply Now
