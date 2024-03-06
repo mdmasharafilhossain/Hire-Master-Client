@@ -56,9 +56,10 @@ const JobPost = () => {
   };
 
   return (
-    <div className=" mx-auto h-100vh">
+    <div className=" mx-auto h-100vh ">
         <Navbar2/>
-      <div>
+        <div className="p-4 m-6 bg-slate-50 border-2 rounded-lg border-orange-500">
+        <div >
         
         <h2 className="text-4xl font-serif  text-center uppercase font-bold">Add <span className='text-[#FF3811]'>Job </span></h2>
     
@@ -378,6 +379,8 @@ const JobPost = () => {
           ADD JOB
         </button>
       </form>
+        </div>
+     
     </div>
   );
 };
