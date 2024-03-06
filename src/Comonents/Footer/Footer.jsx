@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className='max-w-7xl mx-auto px-3 mt-20'>
-      <footer className='footer footer-center p-10 text-2xl rounded '>
+      <footer className='footer footer-center p-10 text-xl md:text-2xl rounded '>
         <nav className='flex flex-wrap items-center justify-center gap-4 font-medium'>
           <Link
             to='/jobs'
