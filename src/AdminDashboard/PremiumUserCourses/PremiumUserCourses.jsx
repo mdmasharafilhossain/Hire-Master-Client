@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
 import Swal from "sweetalert2";
 import TagsInput from "react-tagsinput";
+const image_hosting_key=import.meta.env.VITE_IMAGE_HOSTING_KEY_COURSE_PHOTO
+const image_hosting_api=`https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 
 
 const PremiumUserCourses = () => {
@@ -15,33 +17,43 @@ const PremiumUserCourses = () => {
     const onSubmit = async (data) => {
       console.log(data);
       const axiosPublic = UseAxiosPublic();
+      // image upload to imgbb and then get an url 
+const imageFile={image:data.photourl[0]}
+console.log(imageFile)
+const res = await axiosPublic.post(image_hosting_api, imageFile, {
+    headers: {
+        'content-type': 'multipart/form-data'
+    }
+});
+if(res.data.success){
+  const formData = {
+    courseName: data.name,
+    instructor: data.instructor,
+    duration: data.duration,
+    topics: selectedTopics,
+    level:data.level,
+    price:data.price,
+    photoUrl:res.data.data.display_url,
+    shortDescription:data.shortdes,
+    description:data.des,
+ dailyBreakdown: selectedRoutine,
+  };
+  console.log(formData);
+  const dataForm = await axiosPublic.post("/premiumusercourse", formData);
   
-      const formData = {
-        courseName: data.name,
-        instructor: data.instructor,
-       duration: data.duration,
-        topics: selectedTopics,
-        level:data.level,
-        price:data.price,
-        photoUrl:data.photourl,
-        shortDescription:data.shortdes,
-        description:data.des,
-     dailyBreakdown: selectedRoutine,
-      };
-      console.log(formData);
-      const dataForm = await axiosPublic.post("/premiumusercourse", formData);
-      
-      if (dataForm.data.insertedId) {
-        // show success popup
-        reset();
-        Swal.fire({
-          position: "top",
-          icon: "success",
-          title: "Course Added",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
+  if (dataForm.data.insertedId) {
+    // show success popup
+    reset();
+    Swal.fire({
+      position: "top",
+      icon: "success",
+      title: "Course Added",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  }
+}
+    
     };
   
     return (
@@ -127,48 +139,8 @@ const PremiumUserCourses = () => {
             </div>
           </div>
           <div className="flex gap-6">
-            <div className="form-control w-full my-6">
-              <label className="label">
-                <span className="label-text font-serif font-bold text-lg ">
-                 PhotoUrl*
-                </span>
-              </label>
-              <input
-                type="text"
-                placeholder="PhotoUrl"
-                {...register("photourl", { required: true })}
-                required
-                className="input input-bordered w-full"
-              />
-            </div>
-  
-            <div className="form-control w-full my-6">
-              <label className="label">
-                <span className="label-text font-serif font-bold text-lg ">
-                  Topics*
-                </span>
-              </label>
-              <TagsInput
-                value={selectedTopics}
-                onChange={setselectedTopics}
-                placeHolder="Enter Topics"
-                className="input input-bordered w-full"
-              />
-              <em>press enter to add Topics</em>
-            </div>
-  
-            <pre className="mb-2">
-              <input
-                className="hidden"
-                type="text"
-                placeholder="Topics"
-                {...register("topics")}
-                value={selectedTopics.map((topic) => topic.text).join(", ")}
-                readOnly
-              />
-            </pre>
-          </div>
-          <div className="flex gap-6">
+           
+   <div className="form-control w-full">
             <div className="form-control w-full my-6">
               <label className="label">
                 <span className="label-text font-serif font-bold text-lg ">
@@ -197,6 +169,32 @@ const PremiumUserCourses = () => {
                 />
               </pre>
             </div>
+          </div>
+            <div className="form-control w-full my-6">
+              <label className="label">
+                <span className="label-text font-serif font-bold text-lg ">
+                  Topics*
+                </span>
+              </label>
+              <TagsInput
+                value={selectedTopics}
+                onChange={setselectedTopics}
+                placeHolder="Enter Topics"
+                className="input input-bordered w-full"
+              />
+              <em>press enter to add Topics</em>
+            </div>
+  
+            <pre className="mb-2">
+              <input
+                className="hidden"
+                type="text"
+                placeholder="Topics"
+                {...register("topics")}
+                value={selectedTopics.map((topic) => topic.text).join(", ")}
+                readOnly
+              />
+            </pre>
           </div>
          
           <div className="flex gap-6">
@@ -235,7 +233,16 @@ const PremiumUserCourses = () => {
   
            
           </div>
-
+             <div className="form-control w-full my-6">
+            <label className="label">
+              <span className="label-text font-serif font-bold text-lg ">
+              PhotoUrl*
+              </span>
+            </label>
+              <div className="form-control  w-1/3 ">
+                    <input {...register('photourl', { required:true })} type="file" className="file-input w-full  bg-orange-500" />
+                </div>
+          </div>
           <button
             className="btn btn-warning w-full bg-white text-black text-xl font-semibold hover:bg-orange-500 hover:text-white"
             // className="btn w-full bg-orange-600 text-white"

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ProfileNav from "../../Comonents/ProfileNav/ProfileNav";
 import { IoMdArrowBack } from "react-icons/io";
 import { BsPersonSquare } from "react-icons/bs";
@@ -11,30 +11,41 @@ import SideLabel from "./SideLabel";
 
 import InputPackage from "./InputPackage";
 import InputLabel from "./InputLabel";
+import useFetchData from "../../Comonents/Hooks/UseFetchData/useFetchData";
+import Loader from "../../Comonents/Loader/Loader";
 const Image_Hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const Profile_Hosting = `https://api.imgbb.com/1/upload?key=${Image_Hosting_key}`;
 
 const ManagerForm = () => {
   const { user, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
   console.log(user);
   const { register, handleSubmit } = useForm();
   const AxiosPublic = UseAxiosPublic();
+  const { data: profile, loading, refetch } = useFetchData(
+    `/managerProfile/${user?.email}`,
+    "profile"
+  );
+  if (loading) return <Loader />;
+
+  refetch();
+  console.log(profile);
 
   const onSubmit = async (data) => {
     console.log(data);
-    const ImageFile = { image: data.image[0] };
+    const ImageFile = { image: data.image[0] || profile.image };
     const res = await AxiosPublic.post(Profile_Hosting, ImageFile, {
       headers: {
         "content-type": "multipart/form-data",
       },
     });
-    console.log(res.data);
+    console.log(res);
 
     if (res.data.success) {
       const managerProfileInfo = {
         name: data.name,
         email: user?.email,
-        image: res.data.data.display_url,
+        image: res.data.data.display_url || profile.image,
         location: data.location,
         phone: data.phone,
         companyName: data.companyName,
@@ -49,13 +60,11 @@ const ManagerForm = () => {
         role: data.role,
       };
       console.log(managerProfileInfo);
-      updateUserProfile(managerProfileInfo.name, managerProfileInfo.image)
-      .then(
+      updateUserProfile(managerProfileInfo.name, managerProfileInfo.image).then(
         () => {
           AxiosPublic.patch("/managerProfile", managerProfileInfo).then(
             (res) => {
               console.log(res.data);
-
               if (res.data.modifiedCount > 0) {
                 Swal.fire({
                   position: "top-end",
@@ -64,11 +73,12 @@ const ManagerForm = () => {
                   showConfirmButton: false,
                   timer: 1500,
                 });
+                navigate("/managerProfile");
               } else {
                 Swal.fire({
                   position: "top-end",
                   icon: "error",
-                  title: `${res.data.message}`,
+                  title: `Ops! Something went wrong!!!`,
                   showConfirmButton: false,
                   timer: 2000,
                 });
@@ -85,7 +95,7 @@ const ManagerForm = () => {
       <div className="max-w-6xl p-4 sm:p-8 md:p-12 lg:p-16 mx-auto">
         <div className="rounded-md border-2 border-slate-300 p-4 sm:p-8 md:p-12 lg:p-16">
           <div className="mx-auto text-center">
-            <Link to="/profile">
+            <Link to="/managerProfile">
               <p className="text-2xl flex">
                 <IoMdArrowBack />
                 <BsPersonSquare />
@@ -111,10 +121,10 @@ const ManagerForm = () => {
                     text={"Your name"}
                     regField={"name"}
                     inputType={"text"}
+                    defaultValue={profile.name}
                     placeholder={"Your name"}
                     register={register}
                   />
-
                   {/* Image */}
                   <div className="">
                     <p className="text-lg font-bold">Upload Your Photo*</p>
@@ -129,6 +139,7 @@ const ManagerForm = () => {
                     text={"Your Location"}
                     regField={"location"}
                     inputType={"text"}
+                    defaultValue={profile.location}
                     placeholder={"Location link"}
                     register={register}
                   />
@@ -138,6 +149,7 @@ const ManagerForm = () => {
                     text={"Contact no"}
                     regField={"phone"}
                     inputType={"text"}
+                    defaultValue={profile.phone}
                     placeholder={"Phone"}
                     register={register}
                   />
@@ -156,6 +168,7 @@ const ManagerForm = () => {
                     text={"Company Name"}
                     regField={"companyName"}
                     inputType={"text"}
+                    defaultValue={profile.companyName}
                     placeholder={"Name  of your company"}
                     register={register}
                   />
@@ -163,6 +176,7 @@ const ManagerForm = () => {
                     text={"Company Location"}
                     regField={"companyLocation"}
                     inputType={"text"}
+                    defaultValue={profile.companyLocation}
                     placeholder={"Company Location map link"}
                     register={register}
                   />
@@ -170,6 +184,7 @@ const ManagerForm = () => {
                     text={"Company Website"}
                     regField={"companyWebsite"}
                     inputType={"text"}
+                    defaultValue={profile.companyWebsite}
                     placeholder={"Website Link"}
                     register={register}
                   />
@@ -182,6 +197,7 @@ const ManagerForm = () => {
                     <textarea
                       {...register("companyDetails")}
                       className="textarea textarea-bordered h-24"
+                      defaultValue={profile.companyDetails}
                       placeholder="Details of your Company"
                     ></textarea>
                   </label>
@@ -202,6 +218,7 @@ const ManagerForm = () => {
                     text={"Portfolio"}
                     regField={"portfolio"}
                     inputType={"text"}
+                    defaultValue={profile.portfolio}
                     placeholder={"Your personal portfolio link"}
                     register={register}
                   />
@@ -209,6 +226,7 @@ const ManagerForm = () => {
                     text={"LinkedIn"}
                     regField={"linkedin"}
                     inputType={"text"}
+                    defaultValue={profile.linkedin}
                     placeholder={"Your LinkedIn Link"}
                     register={register}
                   />
@@ -229,6 +247,7 @@ const ManagerForm = () => {
                     text={"University Name"}
                     regField={"universityName"}
                     inputType={"text"}
+                    defaultValue={profile.universityName}
                     placeholder={"Name  of your University"}
                     register={register}
                   />
@@ -236,6 +255,7 @@ const ManagerForm = () => {
                     text={"Graduation Date"}
                     regField={"graduationDate"}
                     inputType={"date"}
+                    defaultValue={profile.graduationDate}
                     placeholder={"Name  of your company"}
                     register={register}
                   />
@@ -243,6 +263,7 @@ const ManagerForm = () => {
                     text={"Degree"}
                     regField={"degree"}
                     inputType={"text"}
+                    defaultValue={profile.degree}
                     placeholder={"Graduation Degree"}
                     register={register}
                   />
@@ -263,9 +284,10 @@ const ManagerForm = () => {
                     <InputLabel text={"Skill preference"} />
                     <select
                       {...register("role")}
+                      defaultValue={profile.role || ""}
                       className="select select-bordered w-full text-lg font-bold mt-4"
                     >
-                      <option disabled selected required>
+                      <option disabled={!profile.role} selected={!profile.role}>
                         Select Your skill preference*
                       </option>
                       <option value="Web Development">Web Development</option>
@@ -300,8 +322,9 @@ const ManagerForm = () => {
 
               {/* -------------Submit-------------- */}
               <input
-                className="btn w-full bg-orange-600 text-white"
+                className="btn w-full bg-orange-600 text-white text-xl font-bold"
                 type="submit"
+                value={"Save"}
               />
             </form>
           </div>

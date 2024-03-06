@@ -4,16 +4,27 @@ import { IoMdTime } from "react-icons/io";
 import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import UseAxiosPublic from "../Hooks/UseAxiosPublic/UseAxiosPublic";
 import Swal from "sweetalert2";
 import toast, { Toaster } from "react-hot-toast";
+import useNotifications from "../Hooks/Notifications/getNotifications";
+import { useQuery } from "@tanstack/react-query";
+import { getUserInfo } from "../../api";
+import useFetchData from "../Hooks/UseFetchData/useFetchData";
 import useProfile from "../Hooks/useProfile/useProfile";
 
 const SingleJobList = ({ job }) => {
   const [profileData] = useProfile()
-  const { user } = useContext(AuthContext);
+  const [isManager, setIsManager] = useState(0);
+  const {
+    selectedChat,
+    setSelectedChat,
+    user,
+    notification,
+    setNotification,
+  } = useContext(AuthContext);
   const email = user?.email;
   let hiring_manager = false;
   if (email === job.hiring_manager_email) {
@@ -38,8 +49,20 @@ const SingleJobList = ({ job }) => {
     job_location,
   } = job;
 
+  // user profile with context email
+  const { data: userProfile = {} } = useQuery({
+    queryKey: ["user"],
+    queryFn: async () => {
+      const res = await getUserInfo(email);
+      console.log(res);
+      return res.data;
+    },
+  });
+
   const appliedJobs = {
     job_id: _id,
+    user_id: userProfile._id,
+    name: userProfile.name,
     email,
     job_title,
     company_name,
@@ -58,6 +81,7 @@ const SingleJobList = ({ job }) => {
   };
 
   const AxiosPublic = UseAxiosPublic();
+
   const handleAppliedJobs = () => {
     AxiosPublic.post("/users-appliedjobs", appliedJobs)
       .then((res) => {
@@ -78,6 +102,27 @@ const SingleJobList = ({ job }) => {
         console.log(error);
       });
   };
+
+  const api = `/notifications/${email}`;
+  const key = "applications";
+
+  const [notifications] = useNotifications(api, key);
+
+  // -----------detecting the route for user/manager------------
+  const { data: profile, loading, refetch } = useFetchData(
+    `/managerProfile/${email}`,
+    "profile"
+  );
+  if (!loading) {
+    refetch();
+  }
+  console.log(profile);
+  let profileRoute = false;
+  if (user?.email === profile?.email || user?.email === "admin@gmail.com") {
+    profileRoute = true;
+  }
+
+  // -------------end--------------------------
 
   return (
     <div className="px-10 py-2 md:py-5 mb-3 flex flex-col md:flex-row justify-between gap-y-1 md:gap-y-0 md:gap-2 border text-center md:text-left hover:shadow-xl">
@@ -120,22 +165,32 @@ const SingleJobList = ({ job }) => {
             className="btn btn-sm  btn-warning"
             to={`/jobDetails/${job._id}`}
           >
-            <button>
-              {/* <CiHeart className="text-[#FF3811]" />  */}
-              Details
-            </button>
+            Details
           </Link>
-          {(!hiring_manager && profileData.length) ?   
-              <button
+          {!hiring_manager ? (
+            <>
+              {
+                profileData.length ? <button
                 onClick={() => {
                   handleAppliedJobs();
                 }}
+                hidden={profileRoute}
                 className="btn btn-sm  bg-[#FF3811] text-white"
               >
                 Apply Now
-              </button>
-            :<button className="tooltip btn btn-sm  bg-[#FF3811] text-white" data-tip='Crete your profile to apply'>Apply Now</button>
-          }
+              </button>: <button className="tooltip btn btn-sm  bg-[#FF3811] text-white" data-tip='Crete your profile to apply'>Apply Now</button>
+              }
+            </>
+          ) : (
+            <>
+              <Link
+                to="/applicants"
+                className="btn btn-sm  bg-[#FF3811] text-white"
+              >
+                Applicants ({notifications.length})
+              </Link>
+            </>
+          )}
         </div>
         <div className="flex items-center justify-center gap-2">
           <FaCalendarAlt className="text-[#FF3811]" />

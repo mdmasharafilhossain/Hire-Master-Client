@@ -1,5 +1,5 @@
 
-const InputPackage = ({text, regField, inputType, placeholder, register }) => {
+const InputPackage = ({text, regField, inputType,defaultValue, placeholder, register }) => {
     
   return (
     <label className="form-control my-3">
@@ -9,6 +9,7 @@ const InputPackage = ({text, regField, inputType, placeholder, register }) => {
       <input
         {...register(`${regField}`)}
         type={inputType}
+        defaultValue={defaultValue}
         placeholder={placeholder}
         required
         className="input input-bordered w-full"
