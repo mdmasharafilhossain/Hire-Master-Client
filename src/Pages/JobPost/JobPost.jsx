@@ -2,63 +2,75 @@ import { useForm } from "react-hook-form";
 import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
 import Swal from "sweetalert2";
 import TagsInput from "react-tagsinput";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Navbar2 from "../../Comonents/Navbar/Navbar2";
+import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
+const image_hosting_key=import.meta.env.VITE_IMAGE_HOSTING_KEY_COMPANY_LOGO
+const image_hosting_api=`https://api.imgbb.com/1/upload?key=${image_hosting_key}`
+
 
 const JobPost = () => {
   const [selectedSkills, setselectedSkills] = useState([]);
-
   const [selectedResponsibilities, setSelectedResponsibilities] = useState([]);
-
   const [selectedBenefits, setSelectedBenefits] = useState([]);
-
   const [selectedQualification, setSelectedQualification] = useState([]);
-
-  const { register, handleSubmit, reset ,formState: { errors },} = useForm();
-
+  const { register, handleSubmit,reset,} = useForm();
+  const { user} = useContext(AuthContext);
   const onSubmit = async (data) => {
-    console.log(data);
-    const axiosPublic = UseAxiosPublic();
 
-    const formData = {
-      job_title: data.name,
-      company_name: data.companyname,
-      company_logo: data.logo,
-      job_role: data.role,
-      salary: data.salary,
-      job_time: data.time,
-      skills: selectedSkills,
-      job_description: data.description,
-      hiring_manager_name: data.managername,
-      hiring_manager_photo: data.managerphoto,
-      hiring_manager_email: data.manageremail,
-      responsibilities: selectedResponsibilities,
-      benefits: selectedBenefits,
-      qualification: selectedQualification,
-      job_posting_date: data.date,
-      user_email: data.email,
-      job_location: data.location,
-    };
-    console.log(formData);
-    const dataForm = await axiosPublic.post("/staticjobpost", formData);
-
-    if (dataForm.data.insertedId) {
-      // show success popup
-      reset();
-      Swal.fire({
-        position: "top",
-        icon: "success",
-        title: `${data.name} is added to the Job Post.`,
-        showConfirmButton: false,
-        timer: 1500,
-      });
+    const axiosPublic = UseAxiosPublic()
+    // image upload to imgbb and then get an url 
+const imageFile={image:data.companylogo[0]}
+console.log(imageFile)
+const res = await axiosPublic.post(image_hosting_api, imageFile, {
+    headers: {
+        'content-type': 'multipart/form-data'
     }
+});
+if(res.data.success){
+  const formData = {
+    job_title: data.name,
+    company_name: data.companyname,
+    company_logo: res.data.data.display_url,
+    job_role: data.role,
+    salary: data.salary,
+    job_time: data.time,
+    skills: selectedSkills,
+    job_description: data.description,
+    hiring_manager_name: data.managername,
+    hiring_manager_photo: user.photoURL,
+    hiring_manager_email: data.manageremail,
+    responsibilities: selectedResponsibilities,
+    benefits: selectedBenefits,
+    qualification: selectedQualification,
+    job_posting_date: data.date,
+    user_email: data.email,
+    job_location: data.location,
+  };
+  console.log(formData)
+  const dataForm = await axiosPublic.post("/staticjobpost", formData);
+  if (dataForm.data.insertedId) {
+    // show success popup
+    reset();
+    Swal.fire({
+      position: "top",
+      icon: "success",
+      title: `${data.name} is added to the Job Post.`,
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  }
+}
+
+
+
   };
 
   return (
-    <div className=" mx-auto h-100vh">
+    <div className=" mx-auto h-100vh ">
         <Navbar2/>
-      <div>
+        <div className="p-4 m-6 bg-slate-50 border-2 rounded-lg border-orange-500">
+        <div >
         
         <h2 className="text-4xl font-serif  text-center uppercase font-bold">Add <span className='text-[#FF3811]'>Job </span></h2>
     
@@ -73,8 +85,8 @@ const JobPost = () => {
           <input
             type="text"
             placeholder="Job Title"
-            {...register("name", { required: true })}
-            required
+            {...register("name", { required:true })}
+          
             className="input input-bordered w-full"
           />
         </div>
@@ -89,7 +101,7 @@ const JobPost = () => {
               type="text"
               placeholder="Company Name"
               {...register("companyname", { required: true })}
-              required
+        
               className="input input-bordered w-full"
             />
           </div>
@@ -100,12 +112,9 @@ const JobPost = () => {
                 Company Logo*
               </span>
             </label>
-            <input
-              type="text"
-              placeholder="Company Logo"
-              {...register("logo", { required: true })}
-              className="input input-bordered w-full"
-            />
+              <div className="form-control  w-full ">
+                    <input {...register('companylogo', { required:true })} type="file" className="file-input w-full  bg-orange-500" />
+                </div>
           </div>
         </div>
         <div className="flex gap-6">
@@ -118,8 +127,8 @@ const JobPost = () => {
             <input
               type="text"
               placeholder="Job Role"
-              {...register("role", { required: true })}
-              required
+              {...register("role", { required: true})}
+            
               className="input input-bordered w-full"
             />
           </div>
@@ -133,7 +142,7 @@ const JobPost = () => {
             <input
               type="text"
               placeholder="Salary"
-              {...register("salary", { required: true })}
+              {...register("salary", { required:true })}
               className="input input-bordered w-full"
             />
           </div>
@@ -148,8 +157,8 @@ const JobPost = () => {
             <input
               type="text"
               placeholder="Job Time"
-              {...register("time", { required: true })}
-              required
+              {...register("time", { required:true})}
+            
               className="input input-bordered w-full"
             />
           </div>
@@ -192,7 +201,7 @@ const JobPost = () => {
               type="text"
               placeholder="Job Description"
               {...register("description", { required: true })}
-              required
+             
               className="input input-bordered w-full"
             />
           </div>
@@ -206,7 +215,7 @@ const JobPost = () => {
             <input
               type="text"
               placeholder="Hiring Manager Name"
-              {...register("managername", { required: true })}
+              {...register("managername", { required:true})}
               className="input input-bordered w-full"
             />
           </div>
@@ -222,9 +231,13 @@ const JobPost = () => {
               type="text"
               placeholder="Hiring Manager Photo"
               {...register("managerphoto", { required: true })}
-              required
+            
               className="input input-bordered w-full"
+              readOnly
+              defaultValue={user.photoURL
+              }
             />
+          
           </div>
 
           <div className="form-control w-full my-6">
@@ -236,7 +249,7 @@ const JobPost = () => {
             <input
               type="text"
               placeholder="Hiring Manager Email"
-              {...register("manageremail", { required: true })}
+              {...register("manageremail", { required:true })}
               className="input input-bordered w-full"
             />
           </div>
@@ -336,7 +349,7 @@ const JobPost = () => {
             <input
               type="date"
               placeholder="Job Posting Date"
-              {...register("date", { required: true })}
+              {...register("date", { required: true})}
               className="input input-bordered w-full"
             />
           </div>
@@ -351,8 +364,9 @@ const JobPost = () => {
             <input
               type="email"
               placeholder="User Email"
-              {...register("email", { required: true })}
-              required
+              {...register("email", { required: 
+                true})}
+             
               className="input input-bordered w-full"
             />
           </div>
@@ -378,6 +392,8 @@ const JobPost = () => {
           ADD JOB
         </button>
       </form>
+        </div>
+     
     </div>
   );
 };
