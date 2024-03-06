@@ -13,8 +13,10 @@ import useNotifications from "../Hooks/Notifications/getNotifications";
 import { useQuery } from "@tanstack/react-query";
 import { getUserInfo } from "../../api";
 import useFetchData from "../Hooks/UseFetchData/useFetchData";
+import useProfile from "../Hooks/useProfile/useProfile";
 
 const SingleJobList = ({ job }) => {
+  const [profileData] = useProfile()
   const [isManager, setIsManager] = useState(0);
   const {
     selectedChat,
@@ -167,7 +169,8 @@ const SingleJobList = ({ job }) => {
           </Link>
           {!hiring_manager ? (
             <>
-              <button
+              {
+                profileData.length ? <button
                 onClick={() => {
                   handleAppliedJobs();
                 }}
@@ -175,7 +178,8 @@ const SingleJobList = ({ job }) => {
                 className="btn btn-sm  bg-[#FF3811] text-white"
               >
                 Apply Now
-              </button>
+              </button>: <button className="tooltip btn btn-sm  bg-[#FF3811] text-white" data-tip='Crete your profile to apply'>Apply Now</button>
+              }
             </>
           ) : (
             <>

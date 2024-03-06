@@ -11,8 +11,10 @@ import Swal from "sweetalert2";
 import Loader from "../../Comonents/Loader/Loader";
 import Navbar2 from "../../Comonents/Navbar/Navbar2";
 import toast, { Toaster } from "react-hot-toast";
+import useProfile from "../../Comonents/Hooks/useProfile/useProfile";
 
 const JobDetails = () => {
+  const [profileData] = useProfile()
   const { id } = useParams();
   const { user } = useContext(AuthContext);
   const AxiosPublic = UseAxiosPublic();
@@ -193,13 +195,15 @@ const JobDetails = () => {
           </div>
           {/* Apply button */}
           <div className="md:block hidden">
-            <button
+            {
+              profileData.length ?<> <button
               onClick={handleAppliedJobs}
               hidden={profileRoute}
               className="btn bg-[#ff6445] text-white mx-auto w-1/2 font-semibold text-lg"
             >
               Apply For this Job
-            </button>
+            </button></>:<><button className="tooltip btn bg-[#ff6445] text-white mx-auto w-1/2 font-semibold text-lg" data-tip='Crete your profile to apply'>Apply For this Job</button></> 
+            }
           </div>
 
           <div className="mt-5">
@@ -223,13 +227,15 @@ const JobDetails = () => {
         <div className=" col-span-4 flex justify-center">
           {/* Apply btn div */}
           <div className="w-4/5 flex flex-col">
-            <button
+            {
+              profileData.length ? <button
               onClick={handleAppliedJobs}
               hidden={profileRoute}
               className="btn bg-[#ff6445] text-white mx-auto w-full font-semibold text-lg sm:hidden md:block"
             >
               Apply For this Job
-            </button>
+            </button>:<button className="tooltip btn bg-[#ff6445] text-white mx-auto w-full font-semibold text-lg sm:hidden md:block" data-tip='Crete your profile to apply'>Apply For this Job</button>
+            }
 
             <div className="md:hidden fixed bottom-0 left-0 right-0">
               <button
