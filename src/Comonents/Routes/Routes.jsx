@@ -341,7 +341,8 @@ const router = createBrowserRouter([
   },
   {
    path:"/AdminDashboard/AllUsers/:email",
-   element:<UserDetails></UserDetails>
+   element:<UserDetails></UserDetails>,
+   
   },
 
   // Admin Dashboard
