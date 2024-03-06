@@ -17,8 +17,8 @@ import { BsTools } from "react-icons/bs";
 const UserDetails = () => {
     const {email} = useParams();
     console.log(email)
-    const { data: profile, loading, refetch } = useFetchData(
-        `/userProfile/all`,
+    const { data: profile = {}, loading, refetch } = useFetchData(
+        "/userProfile/all",
         "profile"
       );
       if (loading) return <Loader />;
@@ -26,11 +26,16 @@ const UserDetails = () => {
       refetch();
     console.log(profile);
     // const [Details] = UseUserDEtails();
+    const userArray = Array.isArray(profile) ? profile : Object.values(profile);
     // console.log(Details);
-    const UserDetail = profile.find(Info =>Info?.email === email );
+    const UserDetail = userArray?.find(Info =>Info?.email === email );
     console.log(UserDetail)
     return (
         <div>
+            {
+                UserDetail ? 
+                <>
+                <div>
             <div>
                <h1 className="text-2xl md:text-2xl lg:text-3xl text-center mt-20 font-bold"> Detail Information of <span className="text-orange-600">{UserDetail?.name || "anonymous"}  ({UserDetail?.email || "No Email Provided"})</span></h1>
                <Link to="/AdminDashboard/AllUsers">
@@ -195,6 +200,12 @@ const UserDetails = () => {
               {/* Back to dashBoard */}
               
             </div>
+        </div></>
+        :
+        <>
+         <Loader />
+        </>
+            }
         </div>
     );
 };
