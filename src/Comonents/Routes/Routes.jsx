@@ -342,7 +342,7 @@ const router = createBrowserRouter([
   {
    path:"/AdminDashboard/AllUsers/:email",
    element:<UserDetails></UserDetails>,
-   loader: ()=> fetch('http://localhost:5000/userProfile/all')
+   
   },
 
   // Admin Dashboard
