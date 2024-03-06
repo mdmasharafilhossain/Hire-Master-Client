@@ -32,13 +32,13 @@ const UserDetails = () => {
     return (
         <div>
             <div>
-               <h1 className="text-3xl text-center mt-20 font-bold"> Detail Information of <span className="text-orange-600">{UserDetail.name}  ({UserDetail.email})</span></h1>
+               <h1 className="md:text-2xl lg:text-3xl text-center mt-20 font-bold"> Detail Information of <span className="text-orange-600">{UserDetail.name}  ({UserDetail.email})</span></h1>
             </div>
-            <div className=" lg:p-20 ">
+            <div className=" p-5 md:p-10 lg:p-20 ">
               <div className=" p-8 rounded-lg border-[1px] border-orange-600 hover:drop-shadow-lg ">
                 
 
-                <div className="p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50  hover:drop-shadow-lg md:flex  gap-8 hover:text-black">
+                <div className="p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50  hover:drop-shadow-lg md:flex-col  gap-8 hover:text-black">
                   <img className="w-52 mb-5" src={UserDetail?.image} alt="" />
 
                   <div className="">
