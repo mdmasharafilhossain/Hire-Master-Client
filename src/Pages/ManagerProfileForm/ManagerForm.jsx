@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import ProfileNav from "../../Comonents/ProfileNav/ProfileNav";
 import { IoMdArrowBack } from "react-icons/io";
 import { BsPersonSquare } from "react-icons/bs";
@@ -16,6 +16,7 @@ const Profile_Hosting = `https://api.imgbb.com/1/upload?key=${Image_Hosting_key}
 
 const ManagerForm = () => {
   const { user, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
   console.log(user);
   const { register, handleSubmit } = useForm();
   const AxiosPublic = UseAxiosPublic();
@@ -49,13 +50,11 @@ const ManagerForm = () => {
         role: data.role,
       };
       console.log(managerProfileInfo);
-      updateUserProfile(managerProfileInfo.name, managerProfileInfo.image)
-      .then(
+      updateUserProfile(managerProfileInfo.name, managerProfileInfo.image).then(
         () => {
           AxiosPublic.patch("/managerProfile", managerProfileInfo).then(
             (res) => {
               console.log(res.data);
-
               if (res.data.modifiedCount > 0) {
                 Swal.fire({
                   position: "top-end",
@@ -64,6 +63,7 @@ const ManagerForm = () => {
                   showConfirmButton: false,
                   timer: 1500,
                 });
+                navigate("/managerProfile");
               } else {
                 Swal.fire({
                   position: "top-end",
