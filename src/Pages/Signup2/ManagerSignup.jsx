@@ -31,7 +31,6 @@ const ManagerSignup = () => {
     }
   };
 
-  
   const handleGoogleSignIn = () => {
     googleSignIn().then((result) => {
       console.log(result);
@@ -72,33 +71,32 @@ const ManagerSignup = () => {
 
     createUser(email, password)
       .then((result) => {
-        const user = result.user
+        const user = result.user;
         updateProfile(user, {
           displayName: name,
           photoURL: photo,
-      });
-        if (result) {
-          // const databaseHiringTalent = async () => {
-          //   try {
-          //     const response = await saveHiringTalentInDb(hirer);
-          //     console.log(response);
-          //   } catch (error) {
-          //     console.log(error);
-          //   }
-          // };
-          // databaseHiringTalent();
-          axiosPublic.post("/hiring-talents", hirer).then((res) => {
-            console.log(res.data);
-          });
-        }
-        console.log(result);
-        navigate(location?.state ? location.state : "/managerForm");
-        return swal("Success!", "Registration Successful", "success");
+        }).then(() => {
+          Promise.all([
+            axiosPublic.post("/hiring-talents", hirer),
+            axiosPublic.post("/managerProfile", hirer),
+          ])
+            .then(([hiringTalentsRes, managerProfileRes]) => {
+              console.log(hiringTalentsRes.data);
+              console.log(managerProfileRes.data);
+              navigate(location?.state ? location.state : "/managerForm");
+              swal("Success!", "Registration Successful", "success");
+            })
+            .catch((error) => {
+              console.log(error);
+              swal("Error!", `${error.message}`, "error");
+            });
+        });
       })
       .catch((error) => {
         console.log(error);
-        return swal("Error!", `${error.message}`, "error");
+        swal("Error!", `${error.message}`, "error");
       });
+
     // console.log(hirer);
   };
 

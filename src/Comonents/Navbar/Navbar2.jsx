@@ -96,7 +96,7 @@ const Navbar2 = () => {
     }
   };
 
-  console.log(notifications);
+  console.log(notifications.length);
   console.log(temp);
   console.log(display);
   console.log(localTemp);
