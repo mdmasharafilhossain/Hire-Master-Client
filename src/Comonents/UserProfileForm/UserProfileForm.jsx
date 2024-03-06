@@ -65,7 +65,6 @@ const UserProfileForm = () => {
         portfolio: data.portfolio,
         github: data.github,
         aboutDescription: data.aboutDescription,
-
         educationInstitute: data.educationInstitute,
         degree: data.degree,
         studyField: data.studyField,
@@ -74,7 +73,6 @@ const UserProfileForm = () => {
         educationEndMonth: data.educationEndMonth,
         educationEndYear: data.educationEndYear,
         educationDescription: data.educationDescription,
-
         projectName: data.projectName,
         projectLink: data.projectLink,
         technologies: data.technologies,
@@ -83,9 +81,7 @@ const UserProfileForm = () => {
         projectEndMonth: data.projectEndMonth,
         projectEndYear: data.projectEndYear,
         projectDescription: data.projectDescription,
-
         skills: data.skills,
-
         jobTitle: data.jobTitle,
         jobType: data.jobType,
         JobType: data.JobType,
@@ -1044,34 +1040,34 @@ const UserProfileForm = () => {
               <p className="border-[0.5px] border-slate-400 mt-2 mb-1 w-full"></p>
 
               {/* Cv upload */}
-              <div className='md:flex gap-16 mb-10 mt-10'>
-                <div className='flex flex-col items-center'>
-                  <h2 className='text-3xl font-bold text-[#FF444A] '>
+              <div className="md:flex gap-16 mb-10 mt-10">
+                <div className="flex flex-col items-center">
+                  <h2 className="text-3xl font-bold text-[#FF444A] ">
                     CV/Resume
                   </h2>
-                  <p className='text-lg font-medium'>Upload CV/Resume</p>
-                  <p className='opacity-0 border-[0.5px]  border-slate-400 mt-2 mb-1 w-[300px]'></p>
+                  <p className="text-lg font-medium">Upload CV/Resume</p>
+                  <p className="opacity-0 border-[0.5px]  border-slate-400 mt-2 mb-1 w-[300px]"></p>
                 </div>
-                <div className='w-full'>
-                  <h3 className='text-slate-600 text-lg font-semibold'>
+                <div className="w-full">
+                  <h3 className="text-slate-600 text-lg font-semibold">
                     Upload CV/Resume
                   </h3>
 
                   <input
                     {...register("resume", { required: true })}
-                    type='file'
-                    className='file-input file-input-bordered file-input-md w-full '
-                    accept='application/pdf'
-                    onChange={e => setFile(e.target.files[0])}
+                    type="file"
+                    className="file-input file-input-bordered file-input-md w-full "
+                    accept="application/pdf"
+                    onChange={(e) => setFile(e.target.files[0])}
                   />
                   {errors.resume && (
-                    <span className='mt-2 text-red-600 w-full'>
+                    <span className="mt-2 text-red-600 w-full">
                       Resume is required{" "}
                     </span>
                   )}
                 </div>
               </div>
-              <p className='border-[0.5px] border-slate-400 mt-2 mb-1 w-full'></p>
+              <p className="border-[0.5px] border-slate-400 mt-2 mb-1 w-full"></p>
 
               {/* experience section */}
               <div className="md:flex gap-16 mb-10 mt-10">
@@ -1284,7 +1280,6 @@ const UserProfileForm = () => {
                       </div>
                     </div>
                   </div>
-
                   {/* end Date */}
                   <div className="">
                     <label className="text-slate-600 text-lg font-semibold">
