@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const AxiosSecure = axios.create({
-    baseURL:'http://localhost:5000'
-})
+  baseURL: "http://localhost:5000",
+});
 // const AxiosSecure = axios.create({
 //     baseURL:'https://hire-master-server.vercel.app'
 // })

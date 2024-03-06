@@ -21,7 +21,10 @@ const UserProfileForm = () => {
 
   const [profileData] = useProfile();
   const [disabled, setDisabled] = useState(false);
+  const [file, setFile] = useState("");
+
   console.log(user);
+  // console.log(file);
   const {
     register,
     handleSubmit,
@@ -37,12 +40,24 @@ const UserProfileForm = () => {
         "content-type": "multipart/form-data",
       },
     });
-
+    const formData = new FormData();
+    formData.append("user_email", user?.email);
+    formData.append("file", file);
+    console.log(formData);
+    const resumeResponse = await AxiosPublic.post(
+      "/upload/cv-resume",
+      formData,
+      {
+        headers: { "Content-Type": "multipart/form-data" },
+      }
+    );
     console.log(res.data);
-    if (res.data.success) {
+    console.log(resumeResponse?.data);
+    if (res.data.success || resumeResponse?.data?.success) {
       const UserProfileInfo = {
         name: data.name,
         image: res.data.data.display_url,
+        resume: resumeResponse?.data?.savedResume?.resume,
         email: user?.email,
         UniversityName: data.institute,
         headline: data.headline,
@@ -107,7 +122,7 @@ const UserProfileForm = () => {
     <div className="mb-8">
       <Navbar2></Navbar2>
       <div className="max-w-6xl mx-auto">
-        <ProfileNav profile={"profile"} setProfile={"profileForm"}></ProfileNav>
+        <ProfileNav profile={"/profile/:_id"} setProfile={"profileForm"}></ProfileNav>
       </div>
       <div className=' max-w-6xl mx-auto border-[0.5px] border-slate-400 p-10 bg-[#f4f2ee] rounded-lg'>
         <div className=''>
@@ -1013,6 +1028,36 @@ const UserProfileForm = () => {
                   {errors.skills && (
                     <span className='mt-2 text-red-600 w-full'>
                       This Field is required{" "}
+                    </span>
+                  )}
+                </div>
+              </div>
+              <p className='border-[0.5px] border-slate-400 mt-2 mb-1 w-full'></p>
+
+              {/* Cv upload */}
+              <div className='md:flex gap-16 mb-10 mt-10'>
+                <div className='flex flex-col items-center'>
+                  <h2 className='text-3xl font-bold text-[#FF444A] '>
+                    CV/Resume
+                  </h2>
+                  <p className='text-lg font-medium'>Upload CV/Resume</p>
+                  <p className='opacity-0 border-[0.5px]  border-slate-400 mt-2 mb-1 w-[300px]'></p>
+                </div>
+                <div className='w-full'>
+                  <h3 className='text-slate-600 text-lg font-semibold'>
+                    Upload CV/Resume
+                  </h3>
+
+                  <input
+                    {...register("resume", { required: true })}
+                    type='file'
+                    className='file-input file-input-bordered file-input-md w-full '
+                    accept='application/pdf'
+                    onChange={e => setFile(e.target.files[0])}
+                  />
+                  {errors.resume && (
+                    <span className='mt-2 text-red-600 w-full'>
+                      Resume is required{" "}
                     </span>
                   )}
                 </div>

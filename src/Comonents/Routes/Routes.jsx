@@ -63,6 +63,7 @@ import Statistics from "../../AdminDashboard/Statistics/Statistics";
 import JobFairAllEvents from "../../Pages/JobFair/JobFairAllEvents";
 import Appmain from "../ChatApp/Appmain";
 import UserDetails from "../../AdminDashboard/UserDetails/UserDetails";
+import JobByCategory from "../../Pages/JobByCategory/JobByCategory";
 
 const router = createBrowserRouter([
   {
@@ -261,7 +262,7 @@ const router = createBrowserRouter([
     element: <Login></Login>,
   },
   {
-    path: "profile",
+    path: "/profile",
     element: <Profile></Profile>,
   },
   {
@@ -324,6 +325,11 @@ const router = createBrowserRouter([
   {
    path:"/AdminDashboard/AllUsers/:email",
    element:<UserDetails></UserDetails>
+  },
+  {
+    path:"/jobByCategory/:_id",
+    element:<JobByCategory></JobByCategory>,
+    loader:() => fetch('/category.json')
   },
 
   // Admin Dashboard

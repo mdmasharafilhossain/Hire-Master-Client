@@ -9,8 +9,10 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import UseAxiosPublic from "../Hooks/UseAxiosPublic/UseAxiosPublic";
 import Swal from "sweetalert2";
 import toast, { Toaster } from "react-hot-toast";
+import useProfile from "../Hooks/useProfile/useProfile";
 
 const SingleJobList = ({ job }) => {
+  const [profileData] = useProfile()
   const { user } = useContext(AuthContext);
   const email = user?.email;
   let hiring_manager = false;
@@ -123,8 +125,7 @@ const SingleJobList = ({ job }) => {
               Details
             </button>
           </Link>
-          {!hiring_manager && (
-            <>
+          {(!hiring_manager && profileData.length) ?   
               <button
                 onClick={() => {
                   handleAppliedJobs();
@@ -133,8 +134,8 @@ const SingleJobList = ({ job }) => {
               >
                 Apply Now
               </button>
-            </>
-          )}
+            :<button className="tooltip btn btn-sm  bg-[#FF3811] text-white" data-tip='Crete your profile to apply'>Apply Now</button>
+          }
         </div>
         <div className="flex items-center justify-center gap-2">
           <FaCalendarAlt className="text-[#FF3811]" />
