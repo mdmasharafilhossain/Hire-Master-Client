@@ -19,16 +19,16 @@ const JobDetails = () => {
 
   const email = user?.email;
   // -----------detecting the route for user/manager------------
-  const { data: profile } = useFetchData(`/managerProfile/${email}`, "profile");
-  if (!loading) {
-    refetch();
+  const { data: profile, loading: load, refetch: refresh } = useFetchData(`/managerProfile/${email}`, "profile");
+  if (!load) {
+    refresh();
   }
   console.log(profile);
   let profileRoute = false;
   if (user?.email === profile?.email || user?.email === "admin@gmail.com") {
     profileRoute = true;
   }
-  
+
   const { data: job, loading, refetch } = useFetchData(
     `/staticjobpost/${id}`,
     "job"
@@ -256,7 +256,7 @@ const JobDetails = () => {
             </div>
             <Link to="/manager-chat">
               <button
-                hidden={profileRoute}
+                hidden={ !user || user?.email === "admin@gmail.com" }
                 className="btn bg-[#ff6445] mt-2 text-white mx-auto w-full font-semibold text-lg sm:hidden md:block"
               >
                 Talk to Manager

@@ -116,9 +116,10 @@ const SingleJobList = ({ job }) => {
   }
   console.log(profile);
   let profileRoute = false;
-  if (user?.email === profile?.email || user?.email === 'admin@gmail.com') {
+  if (user?.email === profile?.email || user?.email === "admin@gmail.com") {
     profileRoute = true;
   }
+
   // -------------end--------------------------
 
   return (
@@ -162,10 +163,7 @@ const SingleJobList = ({ job }) => {
             className="btn btn-sm  btn-warning"
             to={`/jobDetails/${job._id}`}
           >
-            <button>
-              {/* <CiHeart className="text-[#FF3811]" />  */}
-              Details
-            </button>
+            Details
           </Link>
           {!hiring_manager ? (
             <>
