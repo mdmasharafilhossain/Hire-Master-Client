@@ -8,6 +8,7 @@ import ProfileNav from "../ProfileNav/ProfileNav";
 import { useNavigate } from "react-router-dom";
 
 import useProfile from "../Hooks/useProfile/useProfile";
+import Navbar2 from "../Navbar/Navbar2";
 
 // image added key from imgbb
 const Image_Hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -126,8 +127,9 @@ const UserProfileForm = () => {
 
   return (
     <div className="mb-8">
+      <Navbar2></Navbar2>
       <div className="max-w-6xl mx-auto">
-        <ProfileNav profile={"profile"} setProfile={"profileForm"}></ProfileNav>
+        <ProfileNav profile={"/profile/:_id"} setProfile={"profileForm"}></ProfileNav>
       </div>
       <div className=" max-w-6xl mx-auto border-[0.5px] border-slate-400 p-10 bg-[#f4f2ee] rounded-lg">
         <div className="">

@@ -30,16 +30,14 @@ const ProfileImage = () => {
 
     if (res.data.success) {
       const userInfo = {
-        photo: photo,
-      };
-      const menuRes = await axiosPublic.patch(
-        `/UsersProfile/photo/${myProfileData._id}`,
-        userInfo
-      );
-      console.log(menuRes.data);
-      if (menuRes.data.modifiedCount > 0) {
-        refetch();
-        Swal.fire("Pet Updated successfully");
+          photo:photo,    
+          
+      }
+      const menuRes = await axiosPublic.patch(`/UsersProfile/photo/${myProfileData._id}`, userInfo)
+      console.log(menuRes.data)
+      if(menuRes.data.modifiedCount > 0){
+        refetch()
+          Swal.fire("Updated successfully");
       }
     }
   };
