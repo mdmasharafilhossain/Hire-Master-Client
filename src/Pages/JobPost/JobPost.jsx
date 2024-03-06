@@ -14,7 +14,7 @@ const JobPost = () => {
   const [selectedResponsibilities, setSelectedResponsibilities] = useState([]);
   const [selectedBenefits, setSelectedBenefits] = useState([]);
   const [selectedQualification, setSelectedQualification] = useState([]);
-  const { register, handleSubmit,reset, formState: { errors },} = useForm();
+  const { register, handleSubmit,reset,} = useForm();
   const { user} = useContext(AuthContext);
   const onSubmit = async (data) => {
 
