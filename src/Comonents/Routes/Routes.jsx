@@ -15,16 +15,13 @@ import JobDetails from "../../Pages/JobDetails/JobDetails";
 import Profile from "../../Pages/Profile/Profile";
 import UserProfileForm from "../UserProfileForm/UserProfileForm";
 import MyJobs from "../../Pages/Jobs/MyJobs";
-
 import ProfileHead from "../../Pages/ProfileHead/ProfileHead";
 import Education from "../../Pages/Education/Education";
-
 import Appliedjobs from "../../Pages/Appliedjobs/Appliedjobs";
 import PrivateRoute from "./PrivateRoute";
 import ManagerProfile from "../../Pages/Profile/ManagerProfile";
 import ManagerForm from "../../Pages/ManagerProfileForm/ManagerForm";
 import MakePayment from "../MakePatment/MakePayment";
-
 import Projects from "../../Pages/Projects/Projects";
 import Experience from "../../Pages/Experience/Experience";
 import Skills from "../../Pages/Skills/Skills";
@@ -38,7 +35,6 @@ import UpdateNews from "../../AdminDashboard/UpdateNews/UpdateNews";
 import NewsDetails from "../TechNews/NewsDetails";
 import JobFair from "../../Pages/JobFair/JobFair";
 import JobFairRegistrationForm from "../JobFair/JobFairRegistrationForm";
-
 import FairProfileSettings from "../JobFair/FairProfileSettings";
 import JobFairLayout from "../../LayOut/JobFairLayout";
 import JobFairProfile from "../../Pages/JobFair/JobFairProfile";
@@ -82,11 +78,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/jobs",
-        element: (
-          <PrivateRoute>
-            <Jobs></Jobs>
-          </PrivateRoute>
-        ),
+        element: <Jobs></Jobs>,
       },
       {
         path: "/jobDetails/:id",
@@ -138,7 +130,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/manager-chat",
-        element: <PrivateRoute><Appmain></Appmain></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <Appmain></Appmain>
+          </PrivateRoute>
+        ),
       },
       {
         path: "contacts",
@@ -340,8 +336,8 @@ const router = createBrowserRouter([
     element: <PremiumallCourses></PremiumallCourses>,
   },
   {
-   path:"/AdminDashboard/AllUsers/:email",
-   element:<UserDetails></UserDetails>
+    path: "/AdminDashboard/AllUsers/:email",
+    element: <UserDetails></UserDetails>,
   },
 
   // Admin Dashboard
