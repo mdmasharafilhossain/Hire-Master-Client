@@ -1,4 +1,3 @@
-import Navbar from "../../Comonents/Navbar/Navbar";
 import { Button, Center } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import { getUserTechNewsFromDb } from "../../api";
@@ -6,6 +5,7 @@ import Loader from "../../Comonents/Loader/Loader";
 import NewsCard from "../../Comonents/TechNews/NewsCard";
 import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
 import { useState } from "react";
+import Navbar2 from "../../Comonents/Navbar/Navbar2";
 
 const TechNews = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -32,7 +32,7 @@ const TechNews = () => {
   const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
   return (
     <>
-      <Navbar />
+      <Navbar2 />
       <div className='mx-auto my-16 md:my-28 max-w-7xl '>
         <div className='text-center space-y-1'>
           <p className='font-bold tracking-tighter text-[#FF3811]'>
