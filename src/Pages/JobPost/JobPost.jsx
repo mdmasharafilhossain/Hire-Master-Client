@@ -85,7 +85,7 @@ if(res.data.success){
           <input
             type="text"
             placeholder="Job Title"
-            {...register("name", { required: false })}
+            {...register("name", { required:true })}
           
             className="input input-bordered w-full"
           />
@@ -100,7 +100,7 @@ if(res.data.success){
             <input
               type="text"
               placeholder="Company Name"
-              {...register("companyname", { required: false })}
+              {...register("companyname", { required: true })}
         
               className="input input-bordered w-full"
             />
@@ -127,7 +127,7 @@ if(res.data.success){
             <input
               type="text"
               placeholder="Job Role"
-              {...register("role", { required: false})}
+              {...register("role", { required: true})}
             
               className="input input-bordered w-full"
             />
@@ -142,7 +142,7 @@ if(res.data.success){
             <input
               type="text"
               placeholder="Salary"
-              {...register("salary", { required:false })}
+              {...register("salary", { required:true })}
               className="input input-bordered w-full"
             />
           </div>
@@ -157,7 +157,7 @@ if(res.data.success){
             <input
               type="text"
               placeholder="Job Time"
-              {...register("time", { required:false})}
+              {...register("time", { required:true})}
             
               className="input input-bordered w-full"
             />
@@ -200,7 +200,7 @@ if(res.data.success){
             <input
               type="text"
               placeholder="Job Description"
-              {...register("description", { required: false })}
+              {...register("description", { required: true })}
              
               className="input input-bordered w-full"
             />
@@ -215,7 +215,7 @@ if(res.data.success){
             <input
               type="text"
               placeholder="Hiring Manager Name"
-              {...register("managername", { required: false })}
+              {...register("managername", { required:true})}
               className="input input-bordered w-full"
             />
           </div>
@@ -230,7 +230,7 @@ if(res.data.success){
             <input
               type="text"
               placeholder="Hiring Manager Photo"
-              {...register("managerphoto", { required: false })}
+              {...register("managerphoto", { required: true })}
             
               className="input input-bordered w-full"
               readOnly
@@ -249,7 +249,7 @@ if(res.data.success){
             <input
               type="text"
               placeholder="Hiring Manager Email"
-              {...register("manageremail", { required:false })}
+              {...register("manageremail", { required:true })}
               className="input input-bordered w-full"
             />
           </div>
@@ -349,7 +349,7 @@ if(res.data.success){
             <input
               type="date"
               placeholder="Job Posting Date"
-              {...register("date", { required: false })}
+              {...register("date", { required: true})}
               className="input input-bordered w-full"
             />
           </div>
@@ -365,7 +365,7 @@ if(res.data.success){
               type="email"
               placeholder="User Email"
               {...register("email", { required: 
-              false })}
+                true})}
              
               className="input input-bordered w-full"
             />
@@ -380,7 +380,7 @@ if(res.data.success){
             <input
               type="text"
               placeholder="Job Location"
-              {...register("location", { required: false })}
+              {...register("location", { required: true })}
               className="input input-bordered w-full"
             />
           </div>
