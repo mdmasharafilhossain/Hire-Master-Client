@@ -84,7 +84,7 @@ const FileUpload = ({ uploadedImage, setUploadedImage }) => {
   console.log(uploadedImage);
   return (
     <div className=''>
-      <div className='flex  items-center gap-y-5 md:gap-y-0 gap-x-0 md:gap-x-5'>
+      <div className='flex flex-col lg:flex-row items-center gap-y-5 md:gap-y-0 gap-x-0 md:gap-x-5'>
         <WrapItem>
           <Button
             size='sm'

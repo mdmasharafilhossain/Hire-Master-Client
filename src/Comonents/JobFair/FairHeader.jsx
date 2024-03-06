@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   AddIcon,
+  ArrowLeftIcon,
   CheckIcon,
   ChevronDownIcon,
   DragHandleIcon,
   HamburgerIcon,
-  SearchIcon,
   SettingsIcon,
   StarIcon,
   TriangleUpIcon,
@@ -29,7 +29,13 @@ import { TbLogout2 } from "react-icons/tb";
 import { useEffect } from "react";
 
 const FairHeader = () => {
-  const { user, stateProfilePicture, setStateProfilePicture } = useAuth();
+  const {
+    user,
+    stateProfilePicture,
+    setStateProfilePicture,
+    logOut,
+  } = useAuth();
+  const navigate = useNavigate();
 
   const { data: fairRegister = {}, isFetching } = useQuery({
     queryKey: ["fairUser"],
@@ -47,17 +53,27 @@ const FairHeader = () => {
     }
   }, [fairRegister?.profilePicture, isFetching, setStateProfilePicture, user]);
 
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {
+        navigate("/signup2");
+        localStorage.removeItem("userEmail");
+      })
+      .catch(error => console.log(error));
+  };
   console.log(stateProfilePicture);
+
   return (
     <div className='flex items-center sticky top-0 z-50 justify-between bg-gray-400 px-5 py-3'>
-      <Link to='/' className='w-32'>
+      <Link to='/' className='w-32 hidden sm:flex '>
         <img
           src='https://i.ibb.co/BcFWdqk/Hire-Master-Logo-2.png'
           className='w-full'
           alt=''
         />
       </Link>
-      <div className='flex items-center gap-x-5'>
+
+      <div className='flex flex-grow items-center justify-end gap-x-5'>
         {fairRegister?.userType === "sponsor" && (
           <Link
             to='/job-fair/profile/sponsor-create-event'
@@ -74,14 +90,6 @@ const FairHeader = () => {
           </Link>
         ) : null}
 
-        <div className=' bg-white rounded-2xl overflow-hidden px-2 py-1'>
-          <SearchIcon marginRight={1} h={4} w={4} color='black' />
-          <input
-            type='search'
-            className='outline-none bg-inherit placeholder-black'
-            placeholder='Search All Events'
-          />
-        </div>
         <Menu>
           {isFetching ? (
             ""
@@ -107,6 +115,7 @@ const FairHeader = () => {
             {fairRegister?.userType === "job-seeker" && (
               <MenuGroup title='Profile' marginBottom={5}>
                 <MenuDivider />
+
                 <MenuItem
                   as={Link}
                   to='/job-fair'
@@ -170,6 +179,19 @@ const FairHeader = () => {
                 </MenuItem>
                 <MenuItem
                   as={Link}
+                  to='/'
+                  marginBottom={3}
+                  _hover={{
+                    bg: "red.500",
+                    color: "white",
+                  }}
+                >
+                  <ArrowLeftIcon marginRight={1} />
+                  Home
+                </MenuItem>
+                <MenuItem
+                  as={Link}
+                  onClick={handleSignOut}
                   _hover={{
                     bg: "red.500",
                     color: "white",
@@ -249,6 +271,19 @@ const FairHeader = () => {
                 </MenuItem>
                 <MenuItem
                   as={Link}
+                  to='/'
+                  marginBottom={3}
+                  _hover={{
+                    bg: "red.500",
+                    color: "white",
+                  }}
+                >
+                  <ArrowLeftIcon marginRight={1} />
+                  Home
+                </MenuItem>
+                <MenuItem
+                  as={Link}
+                  onClick={handleSignOut}
                   _hover={{
                     bg: "red.500",
                     color: "white",
