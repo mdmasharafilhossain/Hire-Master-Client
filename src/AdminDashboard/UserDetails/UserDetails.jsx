@@ -32,21 +32,21 @@ const UserDetails = () => {
     return (
         <div>
             <div>
-               <h1 className="md:text-2xl lg:text-3xl text-center mt-20 font-bold"> Detail Information of <span className="text-orange-600">{UserDetail?.name || "anonymous"}  ({UserDetail?.email})</span></h1>
+               <h1 className="text-2xl md:text-2xl lg:text-3xl text-center mt-20 font-bold"> Detail Information of <span className="text-orange-600">{UserDetail?.name || "anonymous"}  ({UserDetail?.email || "No Email Provided"})</span></h1>
                <Link to="/AdminDashboard/AllUsers">
-               <button className='ml-20 mt-10 border text-white bg-orange-500 hover:bg-orange-600 transition px-3 py-2 rounded-lg'>Back To Dashboard</button></Link>
+               <button className='ml-5 md:ml-10 lg:ml-20 mt-10 border text-white bg-orange-500 hover:bg-orange-600 transition px-3 py-2 rounded-lg'>Back To Dashboard</button></Link>
             </div>
             <div className=" p-5 md:p-10 lg:p-20 ">
               <div className=" p-8 rounded-lg border-[1px] border-orange-600 hover:drop-shadow-lg ">
                 
 
                 <div className="p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50  hover:drop-shadow-lg md:flex-col  gap-8 hover:text-black">
-                  <img className="w-52 mb-5" src={UserDetail?.image} alt="" />
+                  <img className="w-52 mb-5" src={UserDetail?.image || "No Photo"} alt="Image of User" />
 
                   <div className="">
                     <div className="flex md:justify-between items-center">
                       <div className="flex gap-5">
-                        <h2 className="text-2xl font-bold">{UserDetail?.name}</h2>
+                        <h2 className="text-2xl font-bold">{UserDetail?.name || "anonymous"}</h2>
                         
                       </div>
                       <h3 className=" font-semibold">
