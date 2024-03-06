@@ -65,6 +65,7 @@ import Appmain from "../ChatApp/Appmain";
 import ApplicantsList from "../JobFilter/Applicants/ApplicantsList";
 import ApplicantProfile from "../../Pages/Profile/ApplicantProfile";
 import UserDetails from "../../AdminDashboard/UserDetails/UserDetails";
+import AllPremiumCourses from "../../AdminDashboard/PremiumUserCourses/AllPremiumCourses";
 
 const router = createBrowserRouter([
   {
@@ -335,10 +336,7 @@ const router = createBrowserRouter([
     path: "/courseDetails/:id",
     element: <SingleCourse></SingleCourse>,
   },
-  {
-    path: "/premiumallcourse",
-    element: <PremiumallCourses></PremiumallCourses>,
-  },
+ 
   {
    path:"/AdminDashboard/AllUsers/:email",
    element:<UserDetails></UserDetails>,
@@ -390,6 +388,10 @@ const router = createBrowserRouter([
       {
         path: "/AdminDashboard/Statistics",
         element: <Statistics></Statistics>,
+      },
+      {
+        path: "/AdminDashboard/allpremiumcourses",
+        element:<AllPremiumCourses></AllPremiumCourses>,
       },
     ],
   },

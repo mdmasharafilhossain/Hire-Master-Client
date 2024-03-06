@@ -178,6 +178,20 @@ const AdminDashboard = () => {
                     }
                   >
                    <FaBook />
+                   Add Courses
+                  </NavLink>
+                </li>
+                <li
+                  onClick={handleRouteClick}
+                  className='font-bold text-sm text-white'
+                >
+                  <NavLink
+                    to='/AdminDashboard/premiumusercourses'
+                    className={({ isActive }) =>
+                      `{ ${isActive ? " border  " : " "}}`
+                    }
+                  >
+                   <FaBook />
                     Premium User Courses
                   </NavLink>
                 </li>
