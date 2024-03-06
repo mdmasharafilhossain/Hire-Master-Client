@@ -1,13 +1,15 @@
 // import { useState } from "react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
 import useProfile from "../../Comonents/Hooks/useProfile/useProfile";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
 
 const Image_Hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const Profile_Hosting = `https://api.imgbb.com/1/upload?key=${Image_Hosting_key}`;
 const ProfileImage = () => {
+  const { user } = useContext(AuthContext);
   const axiosPublic = UseAxiosPublic();
   const [upload, setUpload] = useState(false);
   const [profileData, refetch] = useProfile();
@@ -51,7 +53,9 @@ const ProfileImage = () => {
               <img
                 onClick={() => setUpload(!upload)}
                 src={
-                  data.photo || "https://i.ibb.co/Xzrrddv/Screenshot-123.png"
+                  user?.photoURL ||
+                  data.photo ||
+                  "https://i.ibb.co/Xzrrddv/Screenshot-123.png"
                 }
               />
 

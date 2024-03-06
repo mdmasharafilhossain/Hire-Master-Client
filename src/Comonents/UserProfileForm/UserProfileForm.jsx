@@ -100,10 +100,10 @@ const UserProfileForm = () => {
 
       updateUserProfile(UserProfileInfo.name, UserProfileInfo.image).then(
         () => {
-          AxiosPublic.patch("/userProfile", UserProfileInfo).then((res) => {
+          AxiosPublic.post("/userProfile", UserProfileInfo).then((res) => {
             console.log(res.data);
 
-            if (res.data.modifiedCount > 0) {
+            if (res.data.insertedId) {
               Swal.fire({
                 position: "top-end",
                 icon: "success",
@@ -116,7 +116,7 @@ const UserProfileForm = () => {
               Swal.fire({
                 position: "top-end",
                 icon: "error",
-                title: `${res.data.message}`,
+                title: `OOPS!!! An error found`,
                 showConfirmButton: false,
                 timer: 2000,
               });

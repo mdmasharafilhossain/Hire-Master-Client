@@ -1,4 +1,4 @@
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ProfileNav from "../../Comonents/ProfileNav/ProfileNav";
 import { IoMdArrowBack } from "react-icons/io";
 import { BsPersonSquare } from "react-icons/bs";
