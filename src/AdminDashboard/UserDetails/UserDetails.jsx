@@ -2,11 +2,11 @@ import { Link, useParams } from "react-router-dom";
 
 import useFetchData from "../../Comonents/Hooks/UseFetchData/useFetchData";
 import Loader from "../../Comonents/Loader/Loader";
-import { FaPenToSquare } from "react-icons/fa6";
+
 import { FaExternalLinkAlt, FaBriefcase } from "react-icons/fa";
 
 import { PiBookBookmarkFill } from "react-icons/pi";
-import { RiAddBoxFill } from "react-icons/ri";
+
 import { AiFillProject } from "react-icons/ai";
 import { BsTools } from "react-icons/bs";
 
@@ -32,10 +32,7 @@ const UserDetails = () => {
     console.log(UserDetail)
     return (
         <div>
-            {
-                UserDetail ? 
-                <>
-                <div>
+            <div>
             <div>
                <h1 className="text-2xl md:text-2xl lg:text-3xl text-center mt-20 font-bold"> Detail Information of <span className="text-orange-600">{UserDetail?.name || "anonymous"}  ({UserDetail?.email || "No Email Provided"})</span></h1>
                <Link to="/AdminDashboard/AllUsers">
@@ -200,12 +197,7 @@ const UserDetails = () => {
               {/* Back to dashBoard */}
               
             </div>
-        </div></>
-        :
-        <>
-         <Loader />
-        </>
-            }
+        </div>
         </div>
     );
 };
