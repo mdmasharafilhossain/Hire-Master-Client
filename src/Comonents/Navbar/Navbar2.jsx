@@ -29,7 +29,6 @@ const Navbar2 = () => {
     queryKey: ["user"],
     queryFn: async () => {
       const res = await getUserInfo(user?.email);
-      console.log(res);
       return res.data;
     },
   });
@@ -39,12 +38,10 @@ const Navbar2 = () => {
     queryKey: ["manager"],
     queryFn: async () => {
       const res = await getManagerInfo(user?.email);
-      console.log(res);
       return res.data;
     },
   });
-  console.log(userProfile);
-  console.log(managerProfile);
+  
 
   // -----------detecting the route for user/manager------------
   const { data: profile, loading, refetch } = useFetchData(
@@ -54,7 +51,6 @@ const Navbar2 = () => {
   if (!loading) {
     refetch();
   }
-  console.log(profile);
   let profileRoute = "profile";
   if (user?.email === profile?.email) {
     profileRoute = "managerProfile";
@@ -81,7 +77,6 @@ const Navbar2 = () => {
   useEffect(() => {
     setShowNotifications(notifications.slice(-localDisplay));
   }, [notifications, localDisplay]);
-  console.log(showNotifications);
   const handleRead = async () => {
     try {
       setDisplay(0);
@@ -96,11 +91,6 @@ const Navbar2 = () => {
     }
   };
 
-  console.log(notifications);
-  console.log(temp);
-  console.log(display);
-  console.log(localTemp);
-  console.log(localDisplay);
 
   return (
     <div className='navbar shadow-lg sticky top-0 z-50 shadow-base-200  bg-base-100 mb-5'>
