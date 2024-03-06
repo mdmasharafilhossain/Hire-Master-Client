@@ -20,6 +20,7 @@ const AuthProvider = ({ children }) => {
   const googleProvider = new GoogleAuthProvider();
   const [stateProfilePicture, setStateProfilePicture] = useState([]);
   const [notification, setShowNotification] = useState([]);
+  const [selectedChat, setSelectedChat] = useState();
   const [stateFairRegisterName, setStateFairRegisterName] = useState("");
 
   const createUser = (email, password) => {
@@ -89,6 +90,8 @@ const AuthProvider = ({ children }) => {
     setStateFairRegisterName,
     notification,
     setShowNotification,
+    selectedChat,
+    setSelectedChat,
   };
 
   return (

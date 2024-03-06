@@ -62,6 +62,8 @@ import PremiumallCourses from "../PremiumUserCourse/PremiumallCourses";
 import Statistics from "../../AdminDashboard/Statistics/Statistics";
 import JobFairAllEvents from "../../Pages/JobFair/JobFairAllEvents";
 import Appmain from "../ChatApp/Appmain";
+import ApplicantsList from "../JobFilter/Applicants/ApplicantsList";
+import ApplicantProfile from "../../Pages/Profile/ApplicantProfile";
 import UserDetails from "../../AdminDashboard/UserDetails/UserDetails";
 
 const router = createBrowserRouter([
@@ -107,7 +109,23 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/appliedjobs/:email",
+        path: "/applicants",
+        element: (
+          <PrivateRoute>
+            <ApplicantsList></ApplicantsList>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/applicants/:email",
+        element: (
+          <PrivateRoute>
+            <ApplicantProfile></ApplicantProfile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/appliedjobs",
         element: (
           <PrivateRoute>
             <Appliedjobs></Appliedjobs>
