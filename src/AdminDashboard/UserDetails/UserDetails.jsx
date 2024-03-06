@@ -32,7 +32,9 @@ const UserDetails = () => {
     return (
         <div>
             <div>
-               <h1 className="md:text-2xl lg:text-3xl text-center mt-20 font-bold"> Detail Information of <span className="text-orange-600">{UserDetail.name}  ({UserDetail.email})</span></h1>
+               <h1 className="md:text-2xl lg:text-3xl text-center mt-20 font-bold"> Detail Information of <span className="text-orange-600">{UserDetail?.name || "anonymous"}  ({UserDetail?.email})</span></h1>
+               <Link to="/AdminDashboard/AllUsers">
+               <button className='ml-20 mt-10 border text-white bg-orange-500 hover:bg-orange-600 transition px-3 py-2 rounded-lg'>Back To Dashboard</button></Link>
             </div>
             <div className=" p-5 md:p-10 lg:p-20 ">
               <div className=" p-8 rounded-lg border-[1px] border-orange-600 hover:drop-shadow-lg ">
