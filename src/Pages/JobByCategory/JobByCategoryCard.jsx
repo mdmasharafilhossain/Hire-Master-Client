@@ -16,7 +16,7 @@ const JobByCategoryCard = ({card}) => {
     const [loading, setLoading] = useState(true)
     
     useEffect(()=>{
-        fetch('http://localhost:5000/filter/static-job-post')
+        fetch('https://hire-master-server.vercel.app/filter/static-job-post')
         .then(res => res.json())
         .then(data => {
             setData(data)
