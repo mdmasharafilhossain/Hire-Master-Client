@@ -20,13 +20,7 @@ const AdminDashboard = () => {
   const [isHiringManagerAdmin] = useHiringManagerAdmin();
   const { user } = useContext(AuthContext);
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(false);
-  // useEffect(() => {
-  //   const hasShownWelcomeMessage = localStorage.getItem("hasShownWelcomeMessage");
-  //   if (user && !hasShownWelcomeMessage) {
-  //     setShowWelcomeMessage(true);
-  //     localStorage.setItem("hasShownWelcomeMessage", "true");
-  //   }
-  // }, [user]);
+  
   useEffect(() => {
     const hasShownWelcomeMessage = localStorage.getItem("hasShownWelcomeMessage");
     if (user && !hasShownWelcomeMessage) {
@@ -173,6 +167,20 @@ const AdminDashboard = () => {
                 >
                   <NavLink
                     to='/AdminDashboard/premiumusercourses'
+                    className={({ isActive }) =>
+                      `{ ${isActive ? " border  " : " "}}`
+                    }
+                  >
+                   <FaBook />
+                   Add Courses
+                  </NavLink>
+                </li>
+                <li
+                  onClick={handleRouteClick}
+                  className='font-bold text-sm text-white'
+                >
+                  <NavLink
+                    to='/AdminDashboard/allpremiumcourses '
                     className={({ isActive }) =>
                       `{ ${isActive ? " border  " : " "}}`
                     }

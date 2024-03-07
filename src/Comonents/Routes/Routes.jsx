@@ -61,6 +61,11 @@ import Appmain from "../ChatApp/Appmain";
 import ApplicantsList from "../JobFilter/Applicants/ApplicantsList";
 import ApplicantProfile from "../../Pages/Profile/ApplicantProfile";
 import UserDetails from "../../AdminDashboard/UserDetails/UserDetails";
+import AllPremiumCourses from "../../AdminDashboard/PremiumUserCourses/AllPremiumCourses";
+import UpdateCourse from "../../AdminDashboard/PremiumUserCourses/UpdateCourse";
+import JobDetailsAdmin from "../../AdminDashboard/AllJobPost/JobDetailsAdmin";
+import ErrorPage from "../../AdminDashboard/ErrorPage/ErrorPage";
+import HiringManagerDetails from "../../AdminDashboard/HiringManagerDetails/HiringManagerDetails";
 import JobByCategory from "../../Pages/JobByCategory/JobByCategory";
 
 const router = createBrowserRouter([
@@ -209,7 +214,8 @@ const router = createBrowserRouter([
   },
   {
     path: "job-fair/profile",
-    element: <JobFairLayout />,
+    element: <PrivateRoute><JobFairLayout /></PrivateRoute>,
+    errorElement:<Error></Error>,
     children: [
       {
         path: "",
@@ -332,7 +338,12 @@ const router = createBrowserRouter([
     path: "/courseDetails/:id",
     element: <SingleCourse></SingleCourse>,
   },
+
   {
+    path: "/AdminDashboard/AllUsers/:email",
+    element: <UserDetails></UserDetails>,
+  },
+{
     path: "/premiumallcourse",
     element: <PremiumallCourses></PremiumallCourses>,
   },
@@ -345,12 +356,18 @@ const router = createBrowserRouter([
     element:<JobByCategory></JobByCategory>,
     loader:() => fetch('/category.json')
   },
+  {
+   path:"/AdminDashboard/AllHiringManagers/:email",
+   element:<HiringManagerDetails></HiringManagerDetails>,
+   
+  },
 
   // Admin Dashboard
 
   {
     path: "/AdminDashboard",
-    element: <AdminDashboard></AdminDashboard>,
+    element: <PrivateRoute><AdminDashboard></AdminDashboard></PrivateRoute>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/AdminDashboard/AllUsers",
@@ -363,6 +380,11 @@ const router = createBrowserRouter([
       {
         path: "/AdminDashboard/AllJobPost",
         element: <AllJobPost></AllJobPost>,
+      },
+
+      {
+        path: "/AdminDashboard/job_details_admin/:id",
+        element: <JobDetailsAdmin></JobDetailsAdmin>,
       },
       {
         path: "/AdminDashboard/create-news",
@@ -391,6 +413,15 @@ const router = createBrowserRouter([
       {
         path: "/AdminDashboard/Statistics",
         element: <Statistics></Statistics>,
+      },
+      {
+        path: "/AdminDashboard/allpremiumcourses",
+        element: <AllPremiumCourses></AllPremiumCourses>,
+      },
+      {
+        path: "/AdminDashboard/premiumusercourse/update/:id",
+        element: <UpdateCourse></UpdateCourse>,
+
       },
     ],
   },

@@ -200,6 +200,7 @@ const ManagerProfile = () => {
                     <h3 className=" font-semibold flex items-center gap-2">
                       <HiBuildingOffice2 /> {profile.companyName}
                     </h3>
+
                     <Link to={profile.companyLocation}>
                       <h3 className=" text-xl flex gap-2">
                         <FaLocationDot />
@@ -221,6 +222,8 @@ const ManagerProfile = () => {
                     </h3>
                   </div>
                 </div>
+                
+                
               </div>
             </>
           )}

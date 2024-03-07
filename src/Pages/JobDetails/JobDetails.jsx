@@ -202,7 +202,7 @@ const JobDetails = () => {
               className="btn bg-[#ff6445] text-white mx-auto w-1/2 font-semibold text-lg"
             >
               Apply For this Job
-            </button></>:<><button className="tooltip btn bg-[#ff6445] text-white mx-auto w-1/2 font-semibold text-lg" data-tip='Crete user profile to apply'>Apply For this Job</button></> 
+            </button></>:<><button className="tooltip btn bg-[#ff6445] text-white mx-auto w-1/2 font-semibold text-lg" data-tip='Create user profile to apply'>Apply For this Job</button></> 
             }
           </div>
 
@@ -234,7 +234,7 @@ const JobDetails = () => {
               className="btn bg-[#ff6445] text-white mx-auto w-full font-semibold text-lg sm:hidden md:block"
             >
               Apply For this Job
-            </button>:<button className="tooltip btn bg-[#ff6445] text-white mx-auto w-full font-semibold text-lg sm:hidden md:block" data-tip='Crete user profile to apply'>Apply For this Job</button>
+            </button>:<button className="tooltip btn bg-[#ff6445] text-white mx-auto w-full font-semibold text-lg sm:hidden md:block" data-tip='Create user profile to apply'>Apply For this Job</button>
             }
 
             <div className="md:hidden fixed bottom-0 left-0 right-0">

@@ -27,7 +27,7 @@ const AdminNewsCard = ({ news, refetch }) => {
     }).then(async result => {
       if (result.isConfirmed) {
         const res = await deleteNewsFromDb(slug);
-        // console.log(res.data);
+        
         if (res.data) {
           refetch();
           Swal.fire({

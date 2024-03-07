@@ -1,7 +1,6 @@
 
 import { Chart } from "react-google-charts";
-import UseAxiosPublic from "../../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
-import { useEffect, useState } from "react";
+
 import UseAxiosSecure from "../../../Comonents/Hooks/UseAxiosSecure/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 export const options = {
@@ -12,22 +11,8 @@ export const options = {
     legend: { position: "none" },
   };
 const BarChart = () => {
-    const AxiosPublic = UseAxiosPublic();
-    // const [jobs,setJob]= useState('')
-    // useEffect(()=>{
-    //     const fetchData = async () => {
-    //       try {
-    //           const response = await AxiosPublic.get('/staticjobpost');
-    //           const data = response.data;
-    //           setJob(data);
-    //       } catch (error) {
-    //           console.error('Error fetching data:', error);
-    //       }
-    //   };
-      
-    //   fetchData();
-      
-    //   },[])
+    
+    
     const axiosSecure = UseAxiosSecure();
     const {data: jobs = []} = useQuery({
         
@@ -35,7 +20,7 @@ const BarChart = () => {
         
         queryFn: async () => {
             const res = await axiosSecure.get('/staticjobpost');
-            console.log(res.data)
+            
             return res.data;
             
 

@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { useContext } from "react";
 
 const PaymentHomeCard = () => {
+    const { user } = useContext(AuthContext);
 
     const handleFree = e =>{
         e.preventDefault();
@@ -41,7 +44,7 @@ const PaymentHomeCard = () => {
                     
                 </div>
 
-                <button onClick={handleFree} className="btn ml-12 md:ml-10 lg:ml-12 text-base btn-secondary border-none text-black font-bold bg-yellow-300 hover:bg-yellow-400 w-3/4 mt-32 rounded-3xl">Try Free For 1 Months</button>
+                <button disabled={!user} onClick={handleFree} className="btn ml-12 md:ml-10 lg:ml-12 text-base btn-secondary border-none text-black font-bold bg-yellow-300 hover:bg-yellow-400 w-3/4 mt-32 rounded-3xl">Try Free For 1 Months</button>
                 <p className="text-[12px]  text-center">Free for 1 month,then $10.99 per month after <br></br>
                 <span className="underline ">Terms Apply</span>
                 </p>
@@ -71,7 +74,7 @@ const PaymentHomeCard = () => {
                     
                 </div>
 
-                <Link to="/MakePaymentRoute"><button className="btn  ml-12 text-base btn-secondary border-none text-black font-bold bg-orange-400 hover:bg-orange-500 w-3/4 mt-[150px] rounded-3xl">Get Premium</button></Link>
+                <Link to="/MakePaymentRoute"><button disabled={!user} className="btn  ml-12 text-base btn-secondary border-none text-black font-bold bg-orange-400 hover:bg-orange-500 w-3/4 mt-[150px] rounded-3xl">Get Premium</button></Link>
                 <p className="text-[12px] ml-5 text-center">For 6 people who reside at the same address<br></br>
                 <span className="underline ">Terms Apply</span>
                 </p>
