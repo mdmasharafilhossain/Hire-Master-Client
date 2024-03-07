@@ -73,7 +73,7 @@ const Navbar = () => {
           </div>
           <hr className='my-10' />
           <DrawerBody>
-            <div className='flex flex-col font-medium text-2xl space-y-4'>
+            <div className='flex flex-col font-medium  text-2xl space-y-4'>
               <Link to='/'>Home</Link>
               <Link to='/about'>About</Link>
               <Link to='/jobs'>Jobs</Link>
@@ -108,14 +108,14 @@ const Navbar = () => {
           className='text-3xl md:text-4xl font-bold ml-1 text-[#FF3811]'
         >
           <img
-            className=' w-28 md:w-40 lg:w-48 ml-10 md:ml-5 lg:ml-20'
+            className=' w-28 md:w-24 lg:w-48 ml-10 md:ml-5 lg:ml-20'
             src='https://i.ibb.co/BcFWdqk/Hire-Master-Logo-2.png'
             alt=''
           />
         </Link>
       </div>
       <div className='flex-none'>
-        <div className='hidden md:flex  items-center space-x-4 mr-4 font-medium lg:text-lg mdmenu menu-horizontal px-1 md:text-base'>
+        <div className='hidden md:flex  items-center md:space-x-2 lg:space-x-4 lg:mr-4 font-medium   md:text-sm lg:text-lg mdmenu menu-horizontal px-1 '>
           <Link to='/'>Home</Link>
           <Link to='/about'>About</Link>
           <Link to='/jobs'>Jobs</Link>
