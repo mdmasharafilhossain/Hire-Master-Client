@@ -78,8 +78,8 @@ const Profile = () => {
             </div>
             {/* Profile section */}
 
-            <div className='bg-white w-full rounded-md border-[0.5px] border-slate-300 p-6 '>
-              <div className='bg-white mb-4 p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50 hover:drop-shadow-lg'>
+            <div className=' w-full rounded-md border-[0.5px] border-slate-300 p-6 '>
+              <div className=' mb-4 p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50 hover:drop-shadow-lg'>
                 <Link to='/profileHead'>
                   <h3 className='flex justify-end text-xl mb-2'>
                     <FaPenToSquare></FaPenToSquare>
