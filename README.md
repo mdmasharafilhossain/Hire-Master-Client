@@ -1,11 +1,11 @@
 # HireMaster
-HireMaster is a platform where users can find their dream job and a hiring manager can find a better employee for for his/her company.
+Hire Master is a platform where individual job seekers can apply for jobs, create profile with all necessary information also manage it. On the other hand, hiring managers post jobs containing all information of the job with individuals’ profile. Managing jobs posted by the hiring manager, applications related to job, confirming an applicant can be performed from this side.
 
 
 
 # Homepage of HireMaster
 
-![](https://i.ibb.co/gJcKyrV/screencapture-hiremaster-netlify-app-2024-03-07-13-00-22.jpg)
+![](https://i.ibb.co/VNs1WfR/screencapture-localhost-5173-2024-03-07-14-37-27.jpg)
 
 
 ## Key Features
@@ -31,9 +31,9 @@ HireMaster is a platform where users can find their dream job and a hiring manag
 * Users can filter job by job title, job location, salary range, job type ect.
 
 
-## How To Use
+## How To Start
 
-To star working you need to follow these step.
+To start working you need to follow these steps.
 
 ```bash
 # Clone this repository
@@ -58,10 +58,20 @@ VITE_PAYMENT_GATEWAY_PK=pk_test_51OILW1J6HJQdkfhWoVZSMrGxcwGjq84xp6tiMWTTLI8XjyO
 VITE_IMAGE_HOSTING_KEY_COMPANY_LOGO=ccbaf51fa2d1fd48dc9cc80274dab471
 VITE_IMAGE_HOSTING_KEY_COURSE_PHOTO=000b9b32a2a9baab2d0199d42a3c2ace
 
+# Connect frontend with backend by this link given bellow.
+https://hire-master-server.vercel.app
+
+* Replace this link in axiosPublic, axiosSecure and explore by category if needed.
+
+
 # Run the app
 $ npm run dev
 
 ```
+
+
+
+
 ## Contributors
 1. Mohammad Mashrafil Hossain Mahi
 2. Abu Ibrahim Md Moeenuddin Miran
