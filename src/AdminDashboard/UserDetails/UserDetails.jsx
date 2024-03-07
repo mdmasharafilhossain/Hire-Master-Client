@@ -16,7 +16,7 @@ import { BsTools } from "react-icons/bs";
 
 const UserDetails = () => {
     const {email} = useParams();
-    console.log(email)
+    
     const { data: profile = {}, loading, refetch } = useFetchData(
         "/userProfile/all",
         "profile"
@@ -24,12 +24,12 @@ const UserDetails = () => {
       if (loading) return <Loader />;
     
       refetch();
-    console.log(profile);
-    // const [Details] = UseUserDEtails();
+    
+    
     const userArray = Array.isArray(profile) ? profile : Object.values(profile);
-    // console.log(Details);
+    
     const UserDetail = userArray?.find(Info =>Info?.email === email );
-    console.log(UserDetail)
+    
     return (
         <div>
             <div>

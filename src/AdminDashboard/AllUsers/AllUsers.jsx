@@ -19,7 +19,7 @@ const AllUsers = () => {
         enabled:!loading,
         queryFn: async () => {
             const res = await axiosSecure.get(`/users/pagination?page=${page}`);
-            console.log(res.data)
+            
             return res.data;
 
         }
@@ -29,7 +29,7 @@ const AllUsers = () => {
     const handleMakeAdmin = user =>{
         axiosSecure.patch(`/users/admin/${user._id}`)
         .then(res=>{
-           console.log(res.data);
+           
            if(res.data.modifiedCount > 0){
                refetch();
                Swal.fire({
@@ -46,7 +46,7 @@ const AllUsers = () => {
        const handleRemoveAdmin = user => {
         axiosSecure.patch(`/users/remove-admin/${user._id}`)
         .then(res => {
-            console.log(res.data);
+            
             if (res.data.modifiedCount > 0) {
                 refetch();
                 Swal.fire({
@@ -88,7 +88,7 @@ const AllUsers = () => {
           }).then(async (result) => {
             if (result.isConfirmed) {
                 const res = await AxiosPublic.delete(`/users/JobSeeker/${user._id}`);
-                console.log(res.data);
+                
             if(res.data.deletedCount){
                 refetch();
                 Swal.fire({
@@ -162,7 +162,7 @@ const AllUsers = () => {
                  
                 </table>
             </div>
-            <div className="text-center  mt-10 mb-10">
+             <div className="text-center  mt-10 mb-10">
                 <Button colorScheme='orange' variant="outline" onClick={handlePreviousPage} isDisabled={page === 0} className="btn mr-1 btn-sm bg-orange-600 text-white">{<ArrowLeftIcon />}</Button>
                 {pages.map((pageNumber, index) => {
                     if (index === 0 || index === totalPages - 1 || (index >= page - Math.floor(pagesToShow / 2) && index <= page + Math.floor(pagesToShow / 2))) {

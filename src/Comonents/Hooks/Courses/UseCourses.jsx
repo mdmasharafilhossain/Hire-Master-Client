@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 const useCourses=()=>{
     const axiosSecure = UseAxiosSecure();
     const {loading} = useContext(AuthContext);
-    const {data:courses=[]}=useQuery({
+    const {data:courses=[],refetch}=useQuery({
         queryKey:["courses"],
         queryFn:async()=>{
             const res =await axiosSecure.get("/premiumusercourse")
@@ -16,6 +16,6 @@ const useCourses=()=>{
     })
 
 console.log(courses)
-return [courses,loading]
+return [courses,loading,refetch]
 }
 export default useCourses;

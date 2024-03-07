@@ -17,7 +17,7 @@ const AllJobReport = () => {
         }
     })
 
-console.log(reports)
+
 
 
     return (
@@ -50,7 +50,7 @@ console.log(reports)
                                 <td className='font-bold'> <h1>{report?.hiring_manager_email}</h1></td>
                                 <td className='font-bold'> <h1>{report?.job_title}</h1></td>
 
-                          {/* Open the modal using document.getElementById('ID').showModal() method */}
+                         
 
 
                                 <td > <button className="btn btn-xs text-[#FF3811]" onClick={()=>document.getElementById('my_modal_1').showModal()}>View Details</button>
