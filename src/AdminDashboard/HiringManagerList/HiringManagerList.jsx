@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import { Button } from "@chakra-ui/react";
 import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
 
 const HiringManagerList = () => {
     const [page,setPage]= useState(0);
@@ -135,7 +136,8 @@ const HiringManagerList = () => {
                                     </div>
                                 </td>
                                 <td>
-                                   <button> <h1 className='font-bold'>{user.name}</h1></button>
+                                   <Link to={`${user?.email}`}>
+                                   <button> <h1 className='font-bold lg:tooltip'data-tip="See Details">{user.name}</h1></button></Link>
                                     <br />
                                     
                                 </td>
