@@ -58,13 +58,13 @@ const UpdateCourse = () => {
   return (
     <div>
 
-      <div className=" mx-auto h-100vh p-4 m-6 bg-slate-50 border-2 rounded-lg border-orange-500 ">
+      <div className="mx-auto h-100vh p-2 md:p-4 md:m-6 m-4  bg-slate-50 border-2 rounded-lg border-orange-500  ">
 
         <div className="flex justify-evenly  my-6 mb-10">
           <h2 className="text-4xl font-bold">Update <span className='text-[#FF3811]'>Courses</span></h2>
 
         </div>
-        <form className="p-10" onSubmit={handleSubmit(onSubmit)}>
+        <form className="md:p-10" onSubmit={handleSubmit(onSubmit)}>
           <div className="form-control w-full my-6">
             <label className="label">
               <span className="label-text font-serif font-bold text-lg ">
@@ -81,7 +81,7 @@ const UpdateCourse = () => {
               required
             />
           </div>
-          <div className="flex gap-6">
+          <div className="md:flex gap-6">
             <div className="form-control w-full my-6">
               <label className="label">
                 <span className="label-text font-serif font-bold text-lg ">
@@ -115,7 +115,7 @@ const UpdateCourse = () => {
               />
             </div>
           </div>
-          <div className="flex gap-6">
+          <div className="md:flex gap-6">
             <div className="form-control w-full my-6">
               <label className="label">
                 <span className="label-text font-serif font-bold text-lg ">
@@ -149,7 +149,7 @@ const UpdateCourse = () => {
               />
             </div>
           </div>
-          <div className="flex gap-6">
+          <div className="md:flex gap-6">
 
             <div className="form-control w-full">
               <div className="form-control w-full my-6">
@@ -210,7 +210,7 @@ const UpdateCourse = () => {
             </pre>
           </div>
 
-          <div className="flex gap-6">
+          <div className="md:flex gap-6">
             <div className="form-control w-full my-6">
               <label className="label">
                 <span className="label-text font-serif font-bold text-lg ">
@@ -228,7 +228,7 @@ const UpdateCourse = () => {
 
 
           </div>
-          <div className="flex gap-6">
+          <div className="md:flex gap-6">
             <div className="form-control w-full my-6">
               <label className="label">
                 <span className="label-text font-serif font-bold text-lg ">

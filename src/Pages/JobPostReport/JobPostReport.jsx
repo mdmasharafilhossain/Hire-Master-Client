@@ -65,7 +65,7 @@ const JobPostReport = () => {
     return (
         <div>
           <Navbar2></Navbar2>
-            <form className="p-10" onSubmit={handleSubmit(onSubmit)}>
+            <form className="md:p-10 p-4" onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control w-full my-6">
           <label className="label">
             <span className="label-text font-serif font-bold text-lg ">
@@ -83,7 +83,7 @@ const JobPostReport = () => {
             readOnly
           />
         </div>
-        <div className="flex gap-6">
+        <div className="md:flex gap-6">
           <div className="form-control w-full my-6">
             <label className="label">
               <span className="label-text font-serif font-bold text-lg ">
@@ -117,7 +117,7 @@ const JobPostReport = () => {
             />
           </div>
         </div>
-        <div className="flex gap-6">
+        <div className="md:flex gap-6">
           <div className="form-control w-full my-6">
             <label className="label">
               <span className="label-text font-serif font-bold text-lg ">

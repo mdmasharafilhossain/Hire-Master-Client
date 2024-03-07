@@ -9,7 +9,7 @@ const AllPremiumCourses = () => {
             <div className="flex justify-evenly my-6 mb-10">
                 <h2 className="text-4xl font-bold">All <span className='text-[#FF3811]'>Premium Courses</span></h2>
             </div>
-            <div className="space-y-6">
+            <div className="ml-10 space-y-6">
                 {
                     courses.map(course => <AllCourseDashboard course={course} key={course._id} refetch={refetch} ></AllCourseDashboard>)
                 }

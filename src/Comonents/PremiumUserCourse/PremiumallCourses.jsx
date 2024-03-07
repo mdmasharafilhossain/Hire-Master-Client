@@ -19,7 +19,7 @@ const PremiumallCourses = () => {
             </div>
 
 
-            <div className="grid grid-cols-4 gap-5 p-2 ">
+            <div className="md:grid grid-cols-4 gap-5 p-2 ">
                 {
                     courses.map(course => <CourseCard key={course._id} course={course}></CourseCard>)
                 }

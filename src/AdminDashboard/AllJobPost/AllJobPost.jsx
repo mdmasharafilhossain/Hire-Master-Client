@@ -12,7 +12,7 @@ const AllJobPost = () => {
                 <h2 className="text-4xl font-bold">Manage All <span className='text-[#FF3811]'>Job Post</span></h2>
 
             </div>
-            <div className="space-y-5">
+            <div className="space-y-5 ml-10">
                 {
                     alljob.map(job => <AllJob job={job} key={job._id} refetch={refetch}></AllJob>)
                 }
