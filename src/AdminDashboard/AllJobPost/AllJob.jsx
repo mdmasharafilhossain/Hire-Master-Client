@@ -12,6 +12,7 @@ import {
 import Swal from "sweetalert2";
 import UseAxiosSecure from "../../Comonents/Hooks/UseAxiosSecure/UseAxiosSecure";
 import { CgDetailsMore } from "react-icons/cg";
+import { Link } from "react-router-dom";
 
 const AllJob = ({job,refetch}) => {
     const axiosSecure=UseAxiosSecure()
@@ -28,7 +29,8 @@ const AllJob = ({job,refetch}) => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
-        }) .then((result) => {
+        }) 
+        .then((result) => {
             if (result.isConfirmed) {
     
                 axiosSecure.delete(`/staticjobpost/${id}`)
@@ -78,14 +80,15 @@ const AllJob = ({job,refetch}) => {
           </CardBody>
 
           <CardFooter gap={5}>
-          <Button
+         <Link to={`/AdminDashboard/job_details_admin/${_id}`} >
+         <Button
             
-              colorScheme='red'
-              variant='solid'
-            >
-             <CgDetailsMore />
-            View Details
-            </Button>
+            colorScheme='red'
+            variant='solid'
+          >
+           <CgDetailsMore />
+          View Details
+          </Button></Link>
             <Button
               onClick={() => handleDelete(_id)}
               colorScheme='red'
