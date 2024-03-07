@@ -5,11 +5,13 @@ import TagsInput from "react-tagsinput";
 import { useContext, useState } from "react";
 import Navbar2 from "../../Comonents/Navbar/Navbar2";
 import { AuthContext } from "../../Comonents/AuthProvider/AuthProvider";
+import useProfile from "../../Comonents/Hooks/useProfile/useProfile";
 const image_hosting_key=import.meta.env.VITE_IMAGE_HOSTING_KEY_COMPANY_LOGO
 const image_hosting_api=`https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 
 
 const JobPost = () => {
+  const [profileData] = useProfile()
   const [selectedSkills, setselectedSkills] = useState([]);
   const [selectedResponsibilities, setSelectedResponsibilities] = useState([]);
   const [selectedBenefits, setSelectedBenefits] = useState([]);
@@ -385,12 +387,14 @@ if(res.data.success){
             />
           </div>
         </div>
-        <button
+        {
+          profileData.length ? <button className="tooltip btn btn-warning w-full bg-white text-[#FF3811] text-xl font-semibold hover:bg-[#FF3811]   hover:text-white" data-tip='Only hiring manager can post'>ADD JOB</button> :<button
           className="btn btn-warning w-full bg-white text-[#FF3811] text-xl font-semibold hover:bg-[#FF3811]   hover:text-white"
           // className="btn w-full bg-orange-600 text-white"
         >
           ADD JOB
         </button>
+        }
       </form>
         </div>
      

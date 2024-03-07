@@ -7,7 +7,7 @@ const ExploreByCategoryCard = ({ job }) => {
 
     return (
         <Link to={`/jobByCategory/${id}`}>
-            <div className="border-[1px]   hover:border-[1px] hover:shadow-lg hover:border-slate-200 card card-compact  ">
+            <div className="border-[1px]  hover:border-[1px] hover:shadow-lg hover:border-slate-200 card card-compact  ">
                 <figure><img src={image} alt="" /></figure>
                 <div className="card-body">
                     <h2 className="text-lg font-medium">{job_title}</h2>
