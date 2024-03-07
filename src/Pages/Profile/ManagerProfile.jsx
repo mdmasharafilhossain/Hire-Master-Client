@@ -200,6 +200,7 @@ const ManagerProfile = () => {
                     <h3 className="text-slate-600 font-semibold flex items-center gap-2">
                       <HiBuildingOffice2 /> {profile.companyName}
                     </h3>
+
                     <Link to={profile.companyLocation}>
                       <h3 className=" text-xl flex">
                         <FaLocationDot />
@@ -221,40 +222,8 @@ const ManagerProfile = () => {
                     </h3>
                   </div>
                 </div>
-                {/*work experience section  */}
-                {/* <div className="mt-4  border-[0.5px] border-slate-300 hover:bg-blue-50 hover:text-black p-8 rounded-lg hover:drop-shadow-lg">
-                  <div className="flex justify-end gap-4">
-                    <p className="text-2xl mb-2">
-                      <RiAddBoxFill></RiAddBoxFill>
-                    </p>
-                    <p className="text-xl mb-2">
-                      <FaPenToSquare></FaPenToSquare>
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <h3 className="text-xl font-bold">Experience</h3>
-                    <p className="text-2xl">
-                      <FaBriefcase></FaBriefcase>
-                    </p>
-                  </div>
-                  <div className="ml-4 mb-10">
-                    <h3 className="text-slate-600 font-semibold">
-                      {profile.JobTitle}
-                    </h3>
-                    <h3 className="text-slate-600 font-semibold">
-                      {profile.JobType}
-                    </h3>
-                    <h3 className="text-slate-600 font-semibold">
-                      {profile.CompanyName}
-                    </h3>
-                    <h3 className="text-slate-600 font-semibold">
-                      {profile.Location}
-                    </h3>
-                    <h3 className="text-slate-600 font-semibold">
-                      {profile.WorkingStartDate} | {profile.WorkingEndDate}
-                    </h3>
-                  </div>
-                </div> */}
+                
+                
               </div>
             </>
           )}
