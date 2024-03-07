@@ -10,7 +10,7 @@ const SingleCourse = () => {
   const [courses] = useCourses()
 
   const course = courses.find(courseData => courseData._id == id)
-  // const {courseId,courseName,instructor,duration,topics,level,price,photoUrl,description,shortDescription,dailyBreakdown}=course
+
   return (
     <div>
       <Navbar2></Navbar2>
