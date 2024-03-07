@@ -20,13 +20,7 @@ const AdminDashboard = () => {
   const [isHiringManagerAdmin] = useHiringManagerAdmin();
   const { user } = useContext(AuthContext);
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(false);
-  // useEffect(() => {
-  //   const hasShownWelcomeMessage = localStorage.getItem("hasShownWelcomeMessage");
-  //   if (user && !hasShownWelcomeMessage) {
-  //     setShowWelcomeMessage(true);
-  //     localStorage.setItem("hasShownWelcomeMessage", "true");
-  //   }
-  // }, [user]);
+  
   useEffect(() => {
     const hasShownWelcomeMessage = localStorage.getItem("hasShownWelcomeMessage");
     if (user && !hasShownWelcomeMessage) {

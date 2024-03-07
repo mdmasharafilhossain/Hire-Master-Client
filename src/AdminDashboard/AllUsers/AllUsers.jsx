@@ -19,7 +19,7 @@ const AllUsers = () => {
         enabled:!loading,
         queryFn: async () => {
             const res = await axiosSecure.get(`/users/pagination?page=${page}`);
-            console.log(res.data)
+            
             return res.data;
 
         }
@@ -29,7 +29,7 @@ const AllUsers = () => {
     const handleMakeAdmin = user =>{
         axiosSecure.patch(`/users/admin/${user._id}`)
         .then(res=>{
-           console.log(res.data);
+           
            if(res.data.modifiedCount > 0){
                refetch();
                Swal.fire({
@@ -46,7 +46,7 @@ const AllUsers = () => {
        const handleRemoveAdmin = user => {
         axiosSecure.patch(`/users/remove-admin/${user._id}`)
         .then(res => {
-            console.log(res.data);
+            
             if (res.data.modifiedCount > 0) {
                 refetch();
                 Swal.fire({
@@ -88,7 +88,7 @@ const AllUsers = () => {
           }).then(async (result) => {
             if (result.isConfirmed) {
                 const res = await AxiosPublic.delete(`/users/JobSeeker/${user._id}`);
-                console.log(res.data);
+                
             if(res.data.deletedCount){
                 refetch();
                 Swal.fire({
