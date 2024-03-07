@@ -66,7 +66,7 @@ $ npm run dev
 1. Md. Mashrafil Hussain
 2. Miran Ibrahim
 3. Thouhid Hussain
-4. Md Mohoshin
+4. Md Mohosin Ali
 5. Arafat Hussain 
 6. Abu Rayhan
 
