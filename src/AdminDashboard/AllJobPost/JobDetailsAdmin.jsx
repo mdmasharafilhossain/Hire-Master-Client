@@ -5,14 +5,14 @@ import { CiDollar } from "react-icons/ci";
 import { FaWifi } from "react-icons/fa6";
 import { LiaIndustrySolid } from "react-icons/lia";
 const JobDetailsAdmin = () => {
-    const { id } = useParams();
-    const [allJob]=useAllJob()
-    const singleJob=allJob.find(job=>job._id==id)
-  
+  const { id } = useParams();
+  const [allJob] = useAllJob()
+  const singleJob = allJob.find(job => job._id == id)
 
-    return (
-        <div>
-             <div className="md:grid grid-cols-12 max-w-screen-xl mx-auto px-4 py-10">
+
+  return (
+    <div>
+      <div className="md:grid grid-cols-12 max-w-screen-xl mx-auto px-4 py-10">
         {/* Left div */}
         <div className=" col-span-8">
           {/* heading div */}
@@ -103,7 +103,7 @@ const JobDetailsAdmin = () => {
           {/* Apply button */}
           <div className="md:block hidden">
             <button
-            
+
               className="btn bg-[#ff6445] text-white mx-auto w-1/2 font-semibold text-lg"
             >
               Apply For this Job
@@ -115,7 +115,7 @@ const JobDetailsAdmin = () => {
           {/* Apply btn div */}
           <div className="w-4/5 flex flex-col">
             <button
-              
+
               className="btn bg-[#ff6445] text-white mx-auto w-full font-semibold text-lg sm:hidden md:block"
             >
               Apply For this Job
@@ -124,7 +124,7 @@ const JobDetailsAdmin = () => {
 
             <div className="md:hidden fixed bottom-0 left-0 right-0">
               <button
-                
+
                 className="btn bg-[#ff6445] text-white mx-auto w-full font-semibold text-lg"
               >
                 Apply For this Job
@@ -144,7 +144,7 @@ const JobDetailsAdmin = () => {
                 <p className="font-semibold"> {singleJob?.hiring_manager_email}</p>
               </div>
             </div>
-           
+
 
 
           </div>
@@ -155,8 +155,8 @@ const JobDetailsAdmin = () => {
           <div></div>
         </div>
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default JobDetailsAdmin;
