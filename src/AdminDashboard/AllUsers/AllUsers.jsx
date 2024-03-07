@@ -162,7 +162,7 @@ const AllUsers = () => {
                  
                 </table>
             </div>
-            <div className="text-center  mt-10 mb-10">
+             <div className="text-center  mt-10 mb-10">
                 <Button colorScheme='orange' variant="outline" onClick={handlePreviousPage} isDisabled={page === 0} className="btn mr-1 btn-sm bg-orange-600 text-white">{<ArrowLeftIcon />}</Button>
                 {pages.map((pageNumber, index) => {
                     if (index === 0 || index === totalPages - 1 || (index >= page - Math.floor(pagesToShow / 2) && index <= page + Math.floor(pagesToShow / 2))) {
