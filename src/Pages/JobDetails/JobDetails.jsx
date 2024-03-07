@@ -25,7 +25,7 @@ const JobDetails = () => {
   if (!load) {
     refresh();
   }
-  console.log(profile);
+  
   let profileRoute = false;
   if (user?.email === profile?.email || user?.email === "admin@gmail.com") {
     profileRoute = true;
@@ -41,7 +41,7 @@ const JobDetails = () => {
   }
 
   refetch();
-  console.log(job);
+  
   const {
     job_title,
     company_name,
@@ -78,12 +78,11 @@ const JobDetails = () => {
     job_location,
   };
 
-  // console.log(appliedJobs);
+  
   const handleAppliedJobs = () => {
     AxiosPublic.post("/users-appliedjobs", appliedJobs)
       .then((res) => {
-        console.log("add to database");
-        console.log(res);
+       
         if (res.data.insertedId) {
           Swal.fire({
             title: "Success!",

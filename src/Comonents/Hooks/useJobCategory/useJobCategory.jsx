@@ -14,7 +14,7 @@ const useJobCategory = () => {
       return res.data;
     },
   });
-  console.log(jobCategory, refetch);
+  
   return [jobCategory, refetch];
 };
 

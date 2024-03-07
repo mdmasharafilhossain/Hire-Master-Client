@@ -18,14 +18,14 @@ const ProfileImage = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    
     const ImageFile = { image: data.image[0] };
     const res = await axiosPublic.post(Profile_Hosting, ImageFile, {
       headers: {
         "content-type": "multipart/form-data",
       },
     });
-    console.log(res.data.data.display_url);
+    
     const photo = res.data.data.display_url;
 
     if (res.data.success) {
@@ -34,7 +34,7 @@ const ProfileImage = () => {
           
       }
       const menuRes = await axiosPublic.patch(`/UsersProfile/photo/${myProfileData._id}`, userInfo)
-      console.log(menuRes.data)
+      
       if(menuRes.data.modifiedCount > 0){
         refetch()
           Swal.fire("Updated successfully");

@@ -45,7 +45,7 @@ const JobFairRegistrationForm = () => {
         localStorage.removeItem("userEmail");
       }
     } catch (error) {
-      console.log(error);
+      
       toast.error(error?.message);
     }
     reset();

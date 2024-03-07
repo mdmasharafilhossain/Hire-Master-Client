@@ -33,11 +33,11 @@ const FileUpload = ({ uploadedImage, setUploadedImage }) => {
               0,
 
               uri => {
-                // console.log(uri);
+                
                 axiosPublic
                   .post("/profile/imageUpload", { image: uri })
                   .then(res => {
-                    // console.log("Image upload res", res);
+                   
                     if (res) {
                       image.push(res.data);
                       resolve();
@@ -60,7 +60,7 @@ const FileUpload = ({ uploadedImage, setUploadedImage }) => {
       });
     }
   };
-  // console.log(uploadedImage);
+  
   const handleImageRemove = public_id => {
     setLoading(true);
     axiosPublic
@@ -68,20 +68,20 @@ const FileUpload = ({ uploadedImage, setUploadedImage }) => {
       .then(res => {
         if (res) {
           setLoading(false);
-          // console.log(res.data);
+          
           const filteredImage = uploadedImage.filter(image => {
             return image.public_id !== res.data.removed.public_id;
           });
           setUploadedImage(filteredImage);
-          console.log(filteredImage);
+          
         }
       })
       .catch(err => {
-        console.log(err);
+        
         setLoading(false);
       });
   };
-  console.log(uploadedImage);
+  
   return (
     <div className=''>
       <div className='flex flex-col lg:flex-row items-center gap-y-5 md:gap-y-0 gap-x-0 md:gap-x-5'>

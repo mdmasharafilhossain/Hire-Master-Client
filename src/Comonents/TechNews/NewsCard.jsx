@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 
 const NewsCard = ({ news }) => {
   const { title, slug, author, imageUrl, datePublished } = news;
-  // console.log(news);
+  
   return (
     <Card maxW='xs' height='md'>
       <CardBody>

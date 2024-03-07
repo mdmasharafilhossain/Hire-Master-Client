@@ -45,7 +45,7 @@ const AllFairEventsCard = ({
     slug,
   } = event;
 
-  // console.log(event);
+ 
 
   const formatDate = dateString => {
     const dateObj = new Date(dateString);
@@ -53,7 +53,7 @@ const AllFairEventsCard = ({
     return dateObj.toLocaleDateString("en-US", options);
   };
   const formattedDate = formatDate(dateOfEvent);
-  // console.log(event);
+  
 
   const { fairUser } = useFairRegister();
 

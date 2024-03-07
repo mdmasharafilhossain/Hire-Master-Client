@@ -8,7 +8,7 @@ import { getSingleTechNewsFromDb } from "../../api";
 const NewsDetails = () => {
   const [newsDetails, setNewsDetails] = useState(null);
   const { slug } = useParams();
-  // console.log(slug);
+  
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {

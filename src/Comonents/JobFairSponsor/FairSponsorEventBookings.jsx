@@ -12,7 +12,7 @@ const FairSponsorEventBookings = () => {
     return <Loader />;
   }
 
-  console.log(bookedEvents);
+  
   // EmailIcon
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-5 md:gap-y-0 md:gap-x-5 justify-items-center'>

@@ -16,7 +16,7 @@ const useAllJob = () => {
         }
     })
 
-console.log(alljob)
+
 return [alljob,loading,refetch]
 };
 

@@ -14,7 +14,7 @@ const useProfile = () => {
       return res.data;
     },
   });
-  console.log(profileData, refetch);
+  
   return [profileData, refetch];
 };
 

@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 
 const JobFairBookingHistoryCard = ({ event, handleEventBookingRemove }) => {
-  console.log(event);
+  
 
   const formatDate = dateString => {
     const dateObj = new Date(dateString);

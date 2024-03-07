@@ -24,7 +24,7 @@ const ManagerLogin = () => {
   const axiosPublic = UseAxiosPublic();
   const handleGoogleSignIn = () => {
     googleSignIn().then((result) => {
-      console.log(result);
+     
       if (result) {
         const manager = {
           name: result.user.displayName,
@@ -32,7 +32,7 @@ const ManagerLogin = () => {
           photo: result?.user?.photoURL,
         };
         axiosPublic.post("/managerProfile", manager).then((res) => {
-          console.log(res.data);
+          
         });
       }
       // navigate(from, { replace: true });
@@ -54,7 +54,7 @@ const ManagerLogin = () => {
         }
       })
       .catch((error) => {
-        console.log(error);
+        
         setInvalidAuth(error?.code);
       });
   };

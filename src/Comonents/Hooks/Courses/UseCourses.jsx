@@ -15,7 +15,7 @@ const useCourses=()=>{
         }
     })
 
-console.log(courses)
+
 return [courses,loading,refetch]
 }
 export default useCourses;

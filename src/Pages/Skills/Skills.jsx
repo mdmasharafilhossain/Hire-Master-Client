@@ -9,7 +9,7 @@ const Skills = () => {
     const axiosPublic = UseAxiosPublic()
     const [profileData] = useProfile()
     const myProfileData = profileData[0]
-    console.log(profileData[0])
+    
 
     const {
         register,
@@ -18,7 +18,7 @@ const Skills = () => {
     } = useForm()
 
     const onSubmit = async (data) => {
-        console.log(data)
+        
 
         const userInfo = {
             UniversityName: data.institute
@@ -26,7 +26,7 @@ const Skills = () => {
 
         }
         const userRes = await axiosPublic.patch(`/UsersProfile/${myProfileData._id}`, userInfo)
-        console.log(userRes.data)
+        
         if (userRes.data.modifiedCount > 0) {
             Swal.fire("Successfully Edited");
         }

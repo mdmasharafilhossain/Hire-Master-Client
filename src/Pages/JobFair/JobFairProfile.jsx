@@ -19,7 +19,7 @@ const JobFairProfile = () => {
   if (isFetching || fetching) {
     return <Loader />;
   }
-  console.log(interestedEvents);
+ 
 
   return (
     <Box textAlign='center' marginTop={10}>

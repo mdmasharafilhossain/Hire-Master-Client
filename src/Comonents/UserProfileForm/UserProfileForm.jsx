@@ -23,8 +23,7 @@ const UserProfileForm = () => {
   const [disabled, setDisabled] = useState(false);
   const [file, setFile] = useState("");
 
-  console.log(user);
-  console.log(profileData);
+ 
   const {
     register,
     handleSubmit,
@@ -33,7 +32,7 @@ const UserProfileForm = () => {
   const AxiosPublic = UseAxiosPublic();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    
     const ImageFile = { image: data.image[0] };
     const res = await AxiosPublic.post(Profile_Hosting, ImageFile, {
       headers: {
@@ -43,7 +42,7 @@ const UserProfileForm = () => {
     const formData = new FormData();
     formData.append("user_email", user?.email);
     formData.append("file", file);
-    console.log(formData);
+    
     const resumeResponse = await AxiosPublic.post(
       "/upload/cv-resume",
       formData,
@@ -51,8 +50,7 @@ const UserProfileForm = () => {
         headers: { "Content-Type": "multipart/form-data" },
       }
     );
-    console.log(res.data);
-    console.log(resumeResponse?.data);
+    
     if (res.data.success || resumeResponse?.data?.success) {
       const UserProfileInfo = {
         name: data.name,
@@ -98,7 +96,7 @@ const UserProfileForm = () => {
       updateUserProfile(UserProfileInfo.name, UserProfileInfo.image).then(
         () => {
           AxiosPublic.post("/userProfile", UserProfileInfo).then((res) => {
-            console.log(res.data);
+           
 
             if (res.data.insertedId) {
               Swal.fire({

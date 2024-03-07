@@ -65,7 +65,7 @@ const FairProfileSettings = () => {
 
   const profilePicture = uploadedImage?.length > 0 ? uploadedImage : [];
 
-  console.log(profilePicture);
+ 
 
   return (
     <>

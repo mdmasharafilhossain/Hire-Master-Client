@@ -27,7 +27,7 @@ const FairSponsorEventCard = ({ event, refetch }) => {
   const formattedDate = formatDate(dateOfEvent);
 
   const handleEventDelete = async slug => {
-    console.log(slug);
+    
     Swal.fire({
       title: `Are you sure to delete ?`,
       icon: "warning",
@@ -39,7 +39,7 @@ const FairSponsorEventCard = ({ event, refetch }) => {
       if (result.isConfirmed) {
         try {
           const result = await deleteFairSponsorEventFromDb(slug);
-          console.log(result.data);
+          
           if (result.data) {
             refetch();
             Swal.fire({
@@ -52,13 +52,13 @@ const FairSponsorEventCard = ({ event, refetch }) => {
           }
         } catch (error) {
           toast.error(error.message);
-          console.log(error.message);
+          
         }
       }
     });
   };
 
-  console.log(event);
+
 
   return (
     <div className=''>
