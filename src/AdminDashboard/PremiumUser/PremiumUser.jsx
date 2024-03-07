@@ -17,7 +17,7 @@ const PremiumUser = () => {
         enabled:!loading,
         queryFn: async () => {
             const res = await axiosSecure.get(`/payments/pagination?page=${page}`);
-            console.log(res.data)
+            
             return res.data;
 
         }
@@ -56,7 +56,7 @@ const PremiumUser = () => {
           }).then(async (result) => {
             if (result.isConfirmed) {
                 const res = await AxiosPublic.delete(`/payments/PremiumUser/${user._id}`);
-                console.log(res.data);
+                
             if(res.data.deletedCount){
                 refetch();
                 Swal.fire({
@@ -105,14 +105,7 @@ const PremiumUser = () => {
                                     
                                 </td>
                                 <td className='font-bold'>{user.email}</td>
-                                {/* <th>
-                                   {
-                                    user.role === 'admin' ? <button onClick={() => handleRemoveAdmin(user)} className='btn bg-orange-600 btn-xs text-white font-bold'> Remove Admin</button> : 
-                                    <button 
-                                    onClick={()=> handleMakeAdmin(user) }
-                                    className="btn btn-ghost btn-xs font-bold">Make Admin</button>
-                                   }
-                                </th> */}
+                                
                                 <td>
                                    <button> <h1 className='font-bold'>${user.price}</h1></button>
                                     <br />

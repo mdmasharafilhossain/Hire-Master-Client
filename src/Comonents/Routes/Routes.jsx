@@ -214,7 +214,7 @@ const router = createBrowserRouter([
   },
   {
     path: "job-fair/profile",
-    element: <JobFairLayout />,
+    element: <PrivateRoute><JobFairLayout /></PrivateRoute>,
     errorElement:<Error></Error>,
     children: [
       {
@@ -366,7 +366,7 @@ const router = createBrowserRouter([
 
   {
     path: "/AdminDashboard",
-    element: <AdminDashboard></AdminDashboard>,
+    element: <PrivateRoute><AdminDashboard></AdminDashboard></PrivateRoute>,
     errorElement:<ErrorPage></ErrorPage>,
     children: [
       {

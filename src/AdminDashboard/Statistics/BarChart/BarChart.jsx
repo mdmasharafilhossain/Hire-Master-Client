@@ -20,7 +20,7 @@ const BarChart = () => {
         
         queryFn: async () => {
             const res = await axiosSecure.get('/staticjobpost');
-            console.log(res.data)
+            
             return res.data;
             
 
