@@ -15,8 +15,7 @@ const FairEvent = () => {
 
   const { jobFairData, isFetching } = useAllFairEvents();
   const { fairUser } = useFairRegister();
-  console.log(fairUser);
-  console.log(jobFairData);
+  
 
   const handleInterestedEvent = async slug => {
     try {
@@ -25,7 +24,7 @@ const FairEvent = () => {
         toast.success(`${slug} added as interested event.`);
       }
     } catch (error) {
-      // console.log(error.response.data.message);
+      
       toast.error(error.response.data.message);
     }
   };
@@ -37,7 +36,7 @@ const FairEvent = () => {
         toast.success(`Event ${slug} booked successfully.`);
       }
     } catch (error) {
-      // console.log(error.response.data.message);
+      
       toast.error(error.response.data.message);
     }
   };

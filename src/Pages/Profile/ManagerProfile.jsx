@@ -29,7 +29,7 @@ const ManagerProfile = () => {
   if (loading) return <Loader />;
 
   refetch();
-  console.log(profile);
+  
   const handleLogOut = () => {
     logOut()
       .then(() => {

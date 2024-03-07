@@ -15,17 +15,17 @@ const FairSponsorCreateEvent = () => {
   const { isFetching } = useFairRegister();
 
   const onSubmit = async (data, reset) => {
-    console.log(data);
+   
     const tagsArr = data.tags.split(",").map(tag => tag.trim());
     const modifiedData = {
       ...data,
       tags: tagsArr,
       bannerImage: uploadedImage,
     };
-    console.log(modifiedData);
+    
     try {
       const res = await saveFairEventDataInDb(modifiedData);
-      console.log(res.data);
+      
       if (res.data.insertedId) {
         setUploadedImage([]);
         reset();

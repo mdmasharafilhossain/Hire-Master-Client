@@ -6,7 +6,7 @@ import useFairRegister from "../Hooks/FairRegister/useFairRegister";
 const FairBanner = () => {
   const { fairUser } = useFairRegister();
 
-  console.log(fairUser);
+ 
   return (
     <div className='flex justify-center items-center flex-col'>
       <div className="w-full h-[120px] bg-[url('https://i.ibb.co/R6dcL1M/5ed85c3ae7a78c4a08e4fe310abb0104.webp')] bg-cover bg-center">

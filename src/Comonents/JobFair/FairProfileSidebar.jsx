@@ -10,7 +10,7 @@ import { Box } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 
 const FairProfileSidebar = ({ jobFair_register }) => {
-  console.log(jobFair_register);
+  
 
   return (
     <Box className='w-full font-bold flex  md:flex-col  md:items-start justify-center md:justify-start  md:space-y-3 mb-20 md:mb-0 '>

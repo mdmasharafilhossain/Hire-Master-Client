@@ -9,7 +9,7 @@ const Experience = () => {
     const axiosPublic = UseAxiosPublic()
     const [profileData] = useProfile()
     const myProfileData = profileData[0]
-    console.log(profileData[0])
+    
 
     const {
         register,
@@ -18,7 +18,7 @@ const Experience = () => {
     } = useForm()
 
     const onSubmit = async (data) => {
-        console.log(data)
+        
 
         const userInfo = {
             jobTitle: data.jobTitle,
@@ -35,7 +35,7 @@ const Experience = () => {
 
         }
         const userRes = await axiosPublic.patch(`/UsersProfile/experience/${myProfileData._id}`, userInfo)
-        console.log(userRes.data)
+       
         if (userRes.data.modifiedCount > 0) {
             Swal.fire("Successfully Edited");
         }

@@ -91,11 +91,7 @@ const Navbar2 = () => {
     }
   };
 
-  console.log(notifications.length);
-  console.log(temp);
-  console.log(display);
-  console.log(localTemp);
-  console.log(localDisplay);
+ 
 
   return (
     <div className="navbar shadow-lg sticky top-0 z-50 shadow-base-200  bg-base-100 mb-5">

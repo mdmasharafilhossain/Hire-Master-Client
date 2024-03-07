@@ -23,7 +23,7 @@ const Profile = () => {
   const { user } = useContext(AuthContext);
   const [profileData] = useProfile();
   const [myData] = profileData;
-  console.log(profileData);
+  
   const axiosSecure = UseAxiosSecure();
   const { data: premium = [] } = useQuery({
     queryKey: ["premium"],
@@ -36,7 +36,7 @@ const Profile = () => {
   const premiumUser = premium
     .map((userPremium) => userPremium?.email)
     .includes(user?.email);
-  console.log(premiumUser);
+  
   return (
     <div>
       <Navbar2></Navbar2>

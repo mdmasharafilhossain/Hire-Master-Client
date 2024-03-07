@@ -23,10 +23,10 @@ const JobFairBookingHistory = () => {
     dispatch(fetchJobSeekersBookings(user?.email));
   }, [dispatch, user?.email]);
 
-  // console.log(eventBookings);
+  
 
   const handleEventBookingRemove = async slug => {
-    // console.log(slug);
+    
 
     Swal.fire({
       title: `Are you sure to cancel ?`,
@@ -51,7 +51,7 @@ const JobFairBookingHistory = () => {
           }
         } catch (error) {
           toast.error(error.message);
-          console.log(error.message);
+         
         }
       }
     });

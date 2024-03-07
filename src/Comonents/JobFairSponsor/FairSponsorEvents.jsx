@@ -11,7 +11,7 @@ const FairSponsorEvents = () => {
     return <Loader />;
   }
 
-  // console.log(sponsorEvents);
+  
   return (
     <>
       {sponsorEvents.length > 0 && (

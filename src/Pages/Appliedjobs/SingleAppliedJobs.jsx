@@ -6,10 +6,10 @@ import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic"
 const SingleAppliedJobs = ({ job, refetch }) => {
   const { user } = useContext(AuthContext);
   const axiosPublic = UseAxiosPublic();
-  // console.log(job.job_title);
+  
   const email = user?.email;
   const handleDelete = (id) => {
-    console.log(id);
+    
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -25,7 +25,7 @@ const SingleAppliedJobs = ({ job, refetch }) => {
         );
 
         if (res.data.deletedCount > 0) {
-          console.log("kjnfs");
+          
           Swal.fire({
             title: "Canceled!",
             text: "Your application has been canceled.",

@@ -21,7 +21,7 @@ const ContactUs = () => {
       )
       .then(
         result => {
-          console.log(result.text);
+         
           setFormSubmitted(true);
           if (formSubmitted) {
             setTimeout(() => {

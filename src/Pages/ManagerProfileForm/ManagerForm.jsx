@@ -19,7 +19,7 @@ const Profile_Hosting = `https://api.imgbb.com/1/upload?key=${Image_Hosting_key}
 const ManagerForm = () => {
   const { user, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
-  console.log(user);
+  
   const { register, handleSubmit } = useForm();
   const AxiosPublic = UseAxiosPublic();
   const { data: profile, loading, refetch } = useFetchData(
@@ -29,17 +29,17 @@ const ManagerForm = () => {
   if (loading) return <Loader />;
 
   refetch();
-  console.log(profile);
+ 
 
   const onSubmit = async (data) => {
-    console.log(data);
+    
     const ImageFile = { image: data.image[0] || profile.image };
     const res = await AxiosPublic.post(Profile_Hosting, ImageFile, {
       headers: {
         "content-type": "multipart/form-data",
       },
     });
-    console.log(res);
+    
 
     if (res.data.success) {
       const managerProfileInfo = {
@@ -59,12 +59,12 @@ const ManagerForm = () => {
         degree: data.degree,
         role: data.role,
       };
-      console.log(managerProfileInfo);
+      
       updateUserProfile(managerProfileInfo.name, managerProfileInfo.image).then(
         () => {
           AxiosPublic.patch("/managerProfile", managerProfileInfo).then(
             (res) => {
-              console.log(res.data);
+              
               if (res.data.modifiedCount > 0) {
                 Swal.fire({
                   position: "top-end",

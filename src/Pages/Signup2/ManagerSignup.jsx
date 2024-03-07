@@ -33,7 +33,7 @@ const ManagerSignup = () => {
 
   const handleGoogleSignIn = () => {
     googleSignIn().then((result) => {
-      console.log(result);
+      
       if (result) {
         const manager = {
           name: result.user.displayName,
@@ -41,7 +41,7 @@ const ManagerSignup = () => {
           photo: result?.user?.photoURL,
         };
         axiosPublic.post("/hiring-talents", manager).then((res) => {
-          console.log(res.data);
+          
         });
       }
       // navigate(from, { replace: true });
@@ -59,7 +59,7 @@ const ManagerSignup = () => {
     const password = form.password.value;
     const confirmPassword = form.confirmPassword.value;
     const photo = form.photo.value;
-    // console.log(email, password, selectedRole);
+    
 
     if (password !== confirmPassword) {
       setErrorMessage("Password and confirm password do not match");
@@ -81,8 +81,7 @@ const ManagerSignup = () => {
             axiosPublic.post("/managerProfile", hirer),
           ])
             .then(([hiringTalentsRes, managerProfileRes]) => {
-              console.log(hiringTalentsRes.data);
-              console.log(managerProfileRes.data);
+              
               navigate(location?.state ? location.state : "/managerForm");
               swal("Success!", "Registration Successful", "success");
             })
@@ -97,7 +96,7 @@ const ManagerSignup = () => {
         swal("Error!", `${error.message}`, "error");
       });
 
-    // console.log(hirer);
+    
   };
 
   return (
