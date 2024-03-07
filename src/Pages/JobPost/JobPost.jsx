@@ -21,7 +21,7 @@ const JobPost = () => {
     const axiosPublic = UseAxiosPublic()
     // image upload to imgbb and then get an url 
 const imageFile={image:data.companylogo[0]}
-console.log(imageFile)
+
 const res = await axiosPublic.post(image_hosting_api, imageFile, {
     headers: {
         'content-type': 'multipart/form-data'
@@ -47,7 +47,7 @@ if(res.data.success){
     user_email: data.email,
     job_location: data.location,
   };
-  console.log(formData)
+  
   const dataForm = await axiosPublic.post("/staticjobpost", formData);
   if (dataForm.data.insertedId) {
     // show success popup

@@ -21,7 +21,7 @@ const Login = () => {
 
   const saveUser = async (user) => {
     const response = await saveUsersInDb(user);
-    console.log(response.data);
+  
   };
   // google sign in
   const handleGoogleSignIn = () => {

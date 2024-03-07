@@ -41,7 +41,7 @@ const FairHeader = () => {
     queryKey: ["fairUser"],
     queryFn: async () => {
       const res = await getFairRegisteredUser(user?.email);
-      console.log(res);
+      
       return res.data;
     },
     enabled: !!user,
@@ -61,7 +61,7 @@ const FairHeader = () => {
       })
       .catch(error => console.log(error));
   };
-  console.log(stateProfilePicture);
+  
 
   return (
     <div className='flex items-center sticky top-0 z-50 justify-between bg-gray-400 px-5 py-3'>

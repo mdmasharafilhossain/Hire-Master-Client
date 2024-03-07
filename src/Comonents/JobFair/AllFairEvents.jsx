@@ -19,7 +19,7 @@ const AllFairEvents = () => {
         toast.success(`${slug} added as interested event.`);
       }
     } catch (error) {
-      // console.log(error.response.data.message);
+      
       toast.error(error.response.data.message);
     }
   };
@@ -31,7 +31,7 @@ const AllFairEvents = () => {
         toast.success(`Event ${slug} booked successfully.`);
       }
     } catch (error) {
-      console.log(error);
+      
       toast.error(error.response.data.message);
     }
   };

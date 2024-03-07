@@ -11,8 +11,7 @@ const JobByCategory = () => {
     const [cards,setCards] = useState([])
     const {_id} = useParams()
 
-    console.log(card)
-    console.log(cards)
+    
 
     useEffect(() =>{
         fetch('/category.json')

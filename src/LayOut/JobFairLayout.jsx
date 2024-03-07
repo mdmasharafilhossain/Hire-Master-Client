@@ -35,9 +35,7 @@ const JobFairLayout = () => {
     return <Loader />;
   }
 
-  console.log(stateProfilePicture);
-  console.log(stateFairRegisterName);
-  console.log(data);
+
   return (
     <>
       <FairHeader />

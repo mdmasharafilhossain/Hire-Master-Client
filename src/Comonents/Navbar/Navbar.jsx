@@ -38,12 +38,12 @@ const Navbar = () => {
   if (!loading) {
     refetch();
   }
-  console.log(profile);
+ 
   let profileRoute = "profile";
   if (user?.email === profile?.email) {
     profileRoute = "managerProfile";
   }
-  console.log(profileRoute);
+  
 
   return (
     <div className='navbar sticky  border top-0 z-50 bg-base-100 h-[10px]'>

@@ -40,7 +40,7 @@ const FairInterestedEvents = () => {
           }
         } catch (error) {
           toast.error(error.message);
-          console.log(error.message);
+          
         }
       }
     });
@@ -50,7 +50,7 @@ const FairInterestedEvents = () => {
     return <Loader />;
   }
 
-  console.log(interestedEvents);
+  
 
   return (
     <>

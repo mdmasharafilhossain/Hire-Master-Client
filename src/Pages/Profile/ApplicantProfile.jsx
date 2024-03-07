@@ -9,7 +9,7 @@ import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic"
 
 const ApplicantProfile = () => {
   const { email } = useParams();
-  console.log(email);
+  
   const axiosPublic = UseAxiosPublic();
   // user profile with params email
   const api = `/userProfile/${email}`;
@@ -25,10 +25,10 @@ const ApplicantProfile = () => {
         responseType: 'blob', // Specify response type as blob
       });
       
-      console.log(response);
+      
       // Create a URL for the blob response
       const url = window.URL.createObjectURL(new Blob([response.data]));
-      console.log(url);
+      
       // Create a temporary anchor element
       const link = document.createElement('a');
       link.href = url;

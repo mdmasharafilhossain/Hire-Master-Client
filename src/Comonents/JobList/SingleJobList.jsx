@@ -54,7 +54,7 @@ const SingleJobList = ({ job }) => {
     queryKey: ["user"],
     queryFn: async () => {
       const res = await getUserInfo(email);
-      console.log(res);
+    
       return res.data;
     },
   });
@@ -85,8 +85,7 @@ const SingleJobList = ({ job }) => {
   const handleAppliedJobs = () => {
     AxiosPublic.post("/users-appliedjobs", appliedJobs)
       .then((res) => {
-        console.log("add to database");
-        console.log(res);
+        
         if (res.data.insertedId) {
           Swal.fire({
             title: "Success!",
@@ -116,7 +115,7 @@ const SingleJobList = ({ job }) => {
   if (!loading) {
     refetch();
   }
-  console.log(profile);
+  
   let profileRoute = false;
   if (user?.email === profile?.email || user?.email === "admin@gmail.com") {
     profileRoute = true;

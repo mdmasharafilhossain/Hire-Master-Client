@@ -13,7 +13,7 @@ const JobPostReport = () => {
 
     const {id}=useParams()
     const { user } = useContext(AuthContext);
-   console.log(user)
+  
   const axiosPublic = UseAxiosPublic();
   const { register, handleSubmit, reset } = useForm();
   
@@ -45,7 +45,7 @@ const JobPostReport = () => {
       user_comments:data.comments
      
     };
-    console.log(formData);
+    
     const dataForm = await axiosPublic.post("/userreport", formData);
     if (dataForm.data.insertedId) {
               reset();

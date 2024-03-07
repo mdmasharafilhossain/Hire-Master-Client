@@ -54,14 +54,14 @@ const AuthProvider = ({ children }) => {
       const userEmail = currentUser?.email || user?.email;
       const loggedUser = { email: userEmail };
       setUser(currentUser);
-      //   console.log("current user", currentUser);
+      
       setLoading(false);
       // -----------------JWT ------------------
       if (currentUser) {
         axiosPublic
           .post("/jwt", loggedUser, { withCredentials: true })
           .then((res) => {
-            console.log("token response", res.data);
+            
           });
       } else {
         axiosPublic
@@ -69,7 +69,7 @@ const AuthProvider = ({ children }) => {
             withCredentials: true,
           })
           .then((res) => {
-            console.log(res.data);
+            
           });
       }
     });

@@ -9,7 +9,7 @@ import { IoMdTime } from "react-icons/io";
 
 const JobByCategoryCard = ({card}) => {
     const { job_title} = card ||{}
-    console.log(job_title)
+    
     const axiosPublic = UseAxiosPublic()
     const [data,setData] = useState([])
     const [filterData,setFilterData] = useState([])
@@ -32,8 +32,7 @@ const JobByCategoryCard = ({card}) => {
         setFilterData(filterDataNew)
     },[data, job_title])
     
-   console.log(filterData)
-    console.log(data)
+   
 
     return (
         <div>

@@ -21,7 +21,7 @@ const SignUp = () => {
 
   const saveUser = async (user) => {
     const response = await saveUsersInDb(user);
-    console.log(response.data);
+    
   };
 
   const handleConfirmPasswordChange = (e) => {

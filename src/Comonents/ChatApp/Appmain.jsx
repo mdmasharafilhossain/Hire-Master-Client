@@ -9,8 +9,8 @@ import { useQuery } from "@tanstack/react-query";
 import { getManagerInfo, getUserInfo } from "../../api";
 // import useProfile from "../Hooks/useProfile/useProfile";
 
-const socket = io.connect("http://localhost:5000");
-// const socket = io.connect("https://hire-master-server.vercel.app");
+// const socket = io.connect("http://localhost:5000");
+const socket = io.connect("https://hire-master-server.vercel.app");
 
 const Appmain = () => {
   const [message, setMessage] = useState("");
@@ -18,10 +18,9 @@ const Appmain = () => {
   const chatContainerRef = useRef(null);
 
   const [managerInfo] = useManager();
-  // const [profileData] = useProfile();
-  // console.log(profileData.name);
+ 
   const { user } = useContext(AuthContext);
-  console.log(user);
+  
   const email = user?.email;
   const picture = user?.photoURL;
 
@@ -30,7 +29,7 @@ const Appmain = () => {
     queryKey: ["user"],
     queryFn: async () => {
       const res = await getUserInfo(user?.email);
-      console.log(res);
+     
       return res.data;
     },
   });
@@ -40,12 +39,11 @@ const Appmain = () => {
     queryKey: ["manager"],
     queryFn: async () => {
       const res = await getManagerInfo(user?.email);
-      console.log(res);
+    
       return res.data;
     },
   });
-  console.log(userProfile);
-  console.log(managerProfile);
+  
 
   const sendChat = e => {
     e.preventDefault();

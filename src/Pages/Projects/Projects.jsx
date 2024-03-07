@@ -9,7 +9,7 @@ const Projects = () => {
     const axiosPublic = UseAxiosPublic()
     const [profileData] = useProfile()
     const myProfileData = profileData[0]
-    console.log(profileData[0])
+   
 
     const {
         register,
@@ -18,7 +18,7 @@ const Projects = () => {
     } = useForm()
 
     const onSubmit = async (data) => {
-        console.log(data)
+      
 
         const userInfo = {
         projectName: data.projectName,
@@ -34,7 +34,7 @@ const Projects = () => {
 
         }
         const userRes = await axiosPublic.patch(`/UsersProfile/projects/${myProfileData._id}`, userInfo)
-        console.log(userRes.data)
+        
         if (userRes.data.modifiedCount > 0) {
             Swal.fire("Successfully Edited");
         }

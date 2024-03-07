@@ -17,15 +17,7 @@ const FairSponsorUpdateEvent = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
 
-  //   const { data: fairUser = {}, isFetching } = useQuery({
-  //     queryKey: ["fair-sponsor", user?.email],
-  //     queryFn: async () => {
-  //       const res = await getFairRegisteredUser(user?.email);
-  //       return res.data;
-  //     },
-  //     enabled: !!user,
-  //   });
-  //   console.log(fairUser.userType);
+  
 
   const { data: singleEvent = {}, isFetching } = useQuery({
     queryKey: ["single-event"],
@@ -34,7 +26,7 @@ const FairSponsorUpdateEvent = () => {
       return res.data;
     },
   });
-  //   console.log(singleEvent);
+ 
 
   useEffect(() => {
     if (singleEvent) {
@@ -42,20 +34,20 @@ const FairSponsorUpdateEvent = () => {
     }
   }, [singleEvent]);
 
-  //   const bannerImage = uploadedImage.length > 0 ? uploadedImage[0].url : "";
+  
 
   const onSubmit = async (data, reset) => {
-    // console.log(data);
+    
     const tagsArr = data.tags.split(",").map(tag => tag.trim());
     const modifiedData = {
       ...data,
       tags: tagsArr,
       bannerImage: uploadedImage,
     };
-    // console.log(modifiedData);
+    
     try {
       const res = await updateFairSponsorEventInDb(slug, modifiedData);
-      console.log(res.data);
+      
       if (res.data) {
         navigate("/job-fair/profile/sponsor-event");
         setUploadedImage([]);
@@ -63,7 +55,7 @@ const FairSponsorUpdateEvent = () => {
         toast.success(`Event ${modifiedData.title} updates successful.`);
       }
     } catch (error) {
-      console.log(error.message);
+      
       toast.error(error.message);
     }
   };
