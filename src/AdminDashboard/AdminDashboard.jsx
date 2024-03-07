@@ -186,7 +186,7 @@ const AdminDashboard = () => {
                   className='font-bold text-sm text-white'
                 >
                   <NavLink
-                    to='/AdminDashboard/premiumusercourses'
+                    to='/AdminDashboard/allpremiumcourses '
                     className={({ isActive }) =>
                       `{ ${isActive ? " border  " : " "}}`
                     }
