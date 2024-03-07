@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 
 const AllCourseDashboard = ({course,refetch}) => {
 
-const{_id,courseName,dailyBreakdown,description,duration,instructor,level,photoUrl,price,shortDescription,topics
+const{_id,courseName,photoUrl,shortDescription,
 }=course
 
 console.log(course)
