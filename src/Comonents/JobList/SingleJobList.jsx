@@ -178,7 +178,7 @@ const SingleJobList = ({ job }) => {
                 className="btn btn-sm  bg-[#FF3811] text-white"
               >
                 Apply Now
-              </button>: <button className="tooltip btn btn-sm  bg-[#FF3811] text-white" data-tip='Crete your profile to apply'>Apply Now</button>
+              </button>: <button className="tooltip btn btn-sm  bg-[#FF3811] text-white" data-tip='Crete user profile to apply'>Apply Now</button>
               }
             </>
           ) : (
