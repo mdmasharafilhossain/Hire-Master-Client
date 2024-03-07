@@ -69,8 +69,16 @@ $ npm run dev
 
 ```
 
-
-
+## Technologies Used
+* React
+* Redux
+* Tailwind CSS
+* Node.Js
+* Express.Js
+* MongoDB
+* Firebase
+* Vercel
+* Netlify
 
 ## Contributors
 1. Mohammad Mashrafil Hossain Mahi
