@@ -51,9 +51,7 @@ const ProfileImage = () => {
               <img
                 onClick={() => setUpload(!upload)}
                 src={
-                  user?.photoURL ||
-                  data.photo ||
-                  "https://i.ibb.co/Xzrrddv/Screenshot-123.png"
+                  data?.photo || user?.photoURL ||"https://i.ibb.co/Xzrrddv/Screenshot-123.png"
                 }
               />
 

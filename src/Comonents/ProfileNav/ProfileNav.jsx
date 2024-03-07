@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import useProfile from "../Hooks/useProfile/useProfile";
-;
+
 
 
 
