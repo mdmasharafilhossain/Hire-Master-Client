@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import Swal from "sweetalert2";
 import UseAxiosSecure from "../../Comonents/Hooks/UseAxiosSecure/UseAxiosSecure";
+import { Link } from "react-router-dom";
 
 const AllCourseDashboard = ({course,refetch}) => {
 
@@ -77,6 +78,15 @@ const handleDelete=(id)=>{
           </CardBody>
 
           <CardFooter gap={5}>
+
+         
+          <Link to={`/AdminDashboard/premiumusercourse/update/${_id}`}>
+              <Button si variant='outline' colorScheme='orange'>
+                <EditIcon marginRight={1} />
+                Edit Course
+              </Button>
+            </Link>
+
            
             <Button
               onClick={() => handleDelete(_id)}

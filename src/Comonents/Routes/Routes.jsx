@@ -66,6 +66,7 @@ import ApplicantsList from "../JobFilter/Applicants/ApplicantsList";
 import ApplicantProfile from "../../Pages/Profile/ApplicantProfile";
 import UserDetails from "../../AdminDashboard/UserDetails/UserDetails";
 import AllPremiumCourses from "../../AdminDashboard/PremiumUserCourses/AllPremiumCourses";
+import UpdateCourse from "../../AdminDashboard/PremiumUserCourses/UpdateCourse";
 
 const router = createBrowserRouter([
   {
@@ -392,6 +393,11 @@ const router = createBrowserRouter([
       {
         path: "/AdminDashboard/allpremiumcourses",
         element:<AllPremiumCourses></AllPremiumCourses>,
+      },
+      {
+        path: "/AdminDashboard/premiumusercourse/update/:id",
+        element:<UpdateCourse></UpdateCourse>,
+        
       },
     ],
   },
