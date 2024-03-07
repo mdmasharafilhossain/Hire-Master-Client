@@ -66,6 +66,7 @@ import ApplicantsList from "../JobFilter/Applicants/ApplicantsList";
 import ApplicantProfile from "../../Pages/Profile/ApplicantProfile";
 import UserDetails from "../../AdminDashboard/UserDetails/UserDetails";
 import ErrorPage from "../../AdminDashboard/ErrorPage/ErrorPage";
+import HiringManagerDetails from "../../AdminDashboard/HiringManagerDetails/HiringManagerDetails";
 
 const router = createBrowserRouter([
   {
@@ -344,6 +345,11 @@ const router = createBrowserRouter([
   {
    path:"/AdminDashboard/AllUsers/:email",
    element:<UserDetails></UserDetails>,
+   
+  },
+  {
+   path:"/AdminDashboard/AllHiringManagers/:email",
+   element:<HiringManagerDetails></HiringManagerDetails>,
    
   },
 
