@@ -65,6 +65,7 @@ import Appmain from "../ChatApp/Appmain";
 import ApplicantsList from "../JobFilter/Applicants/ApplicantsList";
 import ApplicantProfile from "../../Pages/Profile/ApplicantProfile";
 import UserDetails from "../../AdminDashboard/UserDetails/UserDetails";
+import ErrorPage from "../../AdminDashboard/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -213,6 +214,7 @@ const router = createBrowserRouter([
   {
     path: "job-fair/profile",
     element: <JobFairLayout />,
+    errorElement:<Error></Error>,
     children: [
       {
         path: "",
@@ -350,6 +352,7 @@ const router = createBrowserRouter([
   {
     path: "/AdminDashboard",
     element: <AdminDashboard></AdminDashboard>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/AdminDashboard/AllUsers",
