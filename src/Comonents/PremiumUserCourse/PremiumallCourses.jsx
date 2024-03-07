@@ -3,7 +3,7 @@ import Navbar2 from "../Navbar/Navbar2";
 import CourseCard from "./CourseCard";
 
 const PremiumallCourses = () => {
-    const [courses]=useCourses([])
+    const [courses]=useCourses()
     return (
         <div>
             <Navbar2></Navbar2>
