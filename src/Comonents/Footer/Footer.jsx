@@ -7,10 +7,16 @@ import {
 import { FaSquareTwitter, FaInstagram } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
+
 const Footer = () => {
   return (
     <div className='max-w-7xl mx-auto px-3 mt-20'>
       <footer className='footer footer-center p-10 text-xl md:text-2xl rounded '>
+      <div className=' w-28 md:w-40 lg:w-48'>
+        
+            
+        <img src="https://i.ibb.co/BcFWdqk/Hire-Master-Logo-2.png" alt="" />
+    </div>
         <nav className='flex flex-wrap items-center justify-center gap-4 font-medium'>
           <Link
             to='/jobs'
@@ -79,6 +85,7 @@ const Footer = () => {
             </a>
           </div>
         </nav>
+        
 
         <aside>
           <p>Copyright &copy; 2024 - All right reserved by HireMaster</p>
