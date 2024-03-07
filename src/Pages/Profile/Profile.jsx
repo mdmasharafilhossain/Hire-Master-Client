@@ -1,8 +1,7 @@
-import { FaPenToSquare } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaPenToSquare } from "react-icons/fa6";
 import { FaExternalLinkAlt, FaBriefcase } from "react-icons/fa";
 import { FaBookAtlas } from "react-icons/fa6";
 import { PiBookBookmarkFill } from "react-icons/pi";
-import { RiAddBoxFill } from "react-icons/ri";
 import { AiFillProject } from "react-icons/ai";
 import { BsTools } from "react-icons/bs";
 import { IoHome } from "react-icons/io5";
@@ -18,6 +17,7 @@ import PremiumUserCourse from "../../Comonents/PremiumUserCourse/PremiumUserCour
 import Navbar2 from "../../Comonents/Navbar/Navbar2";
 import UseAxiosSecure from "../../Comonents/Hooks/UseAxiosSecure/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { TbWorld } from "react-icons/tb";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
@@ -78,10 +78,10 @@ const Profile = () => {
             </div>
             {/* Profile section */}
 
-            <div className=" w-full rounded-md border-[0.5px] border-slate-300 p-6  ">
-              <div className=" p-8 rounded-lg border-[0.5px] border-slate-300 hover:drop-shadow-lg ">
-                <Link to="/profileHead">
-                  <h3 className="flex justify-end text-xl mb-2">
+            <div className=' w-full rounded-md border-[0.5px] border-slate-300 p-6 '>
+              <div className=' mb-4 p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50 hover:drop-shadow-lg'>
+                <Link to='/profileHead'>
+                  <h3 className='flex justify-end text-xl mb-2'>
                     <FaPenToSquare></FaPenToSquare>
                   </h3>
                 </Link>
@@ -119,13 +119,31 @@ const Profile = () => {
                       {myData?.aboutDescription}
                       <p className="opacity-0 border-[0.5px] w-[150px] md:w-[400px] lg:w-[700px]"></p>
                     </h3>
+                    <div  className='flex gap-4 mt-4'>
+                    <Link target="_blank" to={myData?.linkedin}>
+                      <h3 className=' text-xl '>
+                        <FaLinkedin></FaLinkedin>
+                      </h3>
+                    </Link>
+                    <Link target="_blank" to={myData?.portfolio}>
+                      <h3 className=' text-2xl '>
+                        <TbWorld></TbWorld>
+                      </h3>
+                    </Link>
+                    <Link target="_blank" to={myData?.github}>
+                      <h3 className=' text-xl '>
+                        <FaGithub></FaGithub>
+                      </h3>
+                    </Link>
+                  </div>
                   </div>
                 </div>
+                </div>
                 {/* Education section */}
-                <div className="p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50 hover:text-black hover:drop-shadow-lg">
-                  <div className="flex justify-end gap-4">
-                    <p className="text-2xl mb-2">
-                      <RiAddBoxFill></RiAddBoxFill>
+                <div className='mb-4 p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50 hover:text-black hover:drop-shadow-lg'>
+                  <div className='flex justify-end gap-4'>
+                    <p className='text-2xl mb-2'>
+                     
                     </p>
                     <Link to="/education">
                       <p className="text-xl mb-2">
@@ -153,10 +171,10 @@ const Profile = () => {
                   </div>
                 </div>
                 {/*Project section */}
-                <div className="p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50 hover:text-black hover:drop-shadow-lg">
-                  <div className="flex justify-end gap-4">
-                    <p className="text-2xl mb-2">
-                      <RiAddBoxFill></RiAddBoxFill>
+                <div className='mb-4 p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50 hover:text-black hover:drop-shadow-lg'>
+                  <div className='flex justify-end gap-4'>
+                    <p className='text-2xl mb-2'>
+                     
                     </p>
                     <Link to="/projects">
                       <p className="text-xl mb-2">
@@ -195,10 +213,10 @@ const Profile = () => {
                   </div>
                 </div>
                 {/*Skills section  */}
-                <div className="p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50 hover:text-black hover:drop-shadow-lg">
-                  <div className="flex justify-end gap-4">
-                    <p className="text-2xl mb-2">
-                      <RiAddBoxFill></RiAddBoxFill>
+                <div className='mb-4 p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50 hover:text-black hover:drop-shadow-lg'>
+                  <div className='flex justify-end gap-4'>
+                    <p className='text-2xl mb-2'>
+                     
                     </p>
                     <Link to="/skills">
                       <p className="text-xl mb-2">
@@ -236,10 +254,10 @@ const Profile = () => {
                 </div>
 
                 {/*work experience section  */}
-                <div className="p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50 hover:text-black hover:drop-shadow-lg">
-                  <div className="flex justify-end gap-4">
-                    <p className="text-2xl mb-2">
-                      <RiAddBoxFill></RiAddBoxFill>
+                <div className='mb-4 p-8 rounded-lg border-[0.5px] border-slate-300 hover:bg-blue-50 hover:text-black hover:drop-shadow-lg'>
+                  <div className='flex justify-end gap-4'>
+                    <p className='text-2xl mb-2'>
+                     
                     </p>
                     <Link to="/experience">
                       <p className="text-xl mb-2">
@@ -265,7 +283,7 @@ const Profile = () => {
                     <h3 className=" font-semibold">{myData?.jobDescription}</h3>
                   </div>
                 </div>
-              </div>
+              
               {/* premium User Section */}
               <div>
                 <div className="mt-4  border-[0.5px] border-slate-300 hover:bg-blue-50 hover:text-black  p-8 rounded-lg hover:drop-shadow-lg">

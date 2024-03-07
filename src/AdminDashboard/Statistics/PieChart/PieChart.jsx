@@ -21,22 +21,11 @@ export const options = {
 const PieChart = () => {
     
 const AxiosPublic = UseAxiosPublic();
-// const {loading} = useContext(AuthContext);
+
 const [HiringManagers,setHiringManagers] = useState('');
 const [JobSeekers,setJobSeekers]= useState('');
 const [PremiumUsers, setPremiumUsers] = useState('');
-// const {data: HiringManagers = []} = useQuery({
-//         queryKey: ['HiringManagers'],
-//         enabled:!loading,
-//         queryFn: async () => {
-//             const res = await axiosSecure.get("/hiring-talents");
-//             console.log(res.data)
-//             return res.data;
-    
-//         }
-    
-//     })
-// for Hiring Manager 
+ 
 useEffect(()=>{
   const fetchData = async () => {
     try {
@@ -83,10 +72,7 @@ fetchData();
 },[])
 
     
-    // const JobSeekers = HiringManagers.filter(jobSeeker => jobSeeker.length);
-    // console.log(JobSeekers)
-    // const TotalJobseeker = JobSeekers.length;
-    // console.log(TotalJobseeker)
+   
      const data = [
         ["Task", "Hours per Day"],
         ["Premium Users", PremiumUsers.length],

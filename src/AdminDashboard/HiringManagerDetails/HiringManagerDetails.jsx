@@ -1,8 +1,6 @@
 import { Link, useParams } from "react-router-dom";
-
 import useFetchData from "../../Comonents/Hooks/UseFetchData/useFetchData";
 import Loader from "../../Comonents/Loader/Loader";
-
 import { FaExternalLinkAlt, FaBriefcase } from "react-icons/fa";
 
 import { PiBookBookmarkFill } from "react-icons/pi";
@@ -10,15 +8,11 @@ import { PiBookBookmarkFill } from "react-icons/pi";
 import { AiFillProject } from "react-icons/ai";
 import { BsTools } from "react-icons/bs";
 
-
-
-
-
-const UserDetails = () => {
+const HiringManagerDetails = () => {
     const {email} = useParams();
     console.log(email)
     const { data: profile = {}, loading, refetch } = useFetchData(
-        "/userProfile/all",
+        "/managerProfile",
         "profile"
       );
       if (loading) return <Loader />;
@@ -202,4 +196,4 @@ const UserDetails = () => {
     );
 };
 
-export default UserDetails;
+export default HiringManagerDetails;

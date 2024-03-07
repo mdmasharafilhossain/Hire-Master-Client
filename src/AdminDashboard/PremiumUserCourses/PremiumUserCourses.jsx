@@ -29,11 +29,11 @@ if(res.data.success){
   const formData = {
     courseName: data.name,
     instructor: data.instructor,
-    duration: data.duration,
+   duration: data.duration,
     topics: selectedTopics,
     level:data.level,
     price:data.price,
-    photoUrl:res.data.data.display_url,
+    photoUrl:data.photourl,
     shortDescription:data.shortdes,
     description:data.des,
  dailyBreakdown: selectedRoutine,
@@ -245,7 +245,6 @@ if(res.data.success){
           </div>
           <button
             className="btn btn-warning w-full bg-white text-black text-xl font-semibold hover:bg-orange-500 hover:text-white"
-            // className="btn w-full bg-orange-600 text-white"
           >
             ADD COURSE
           </button>
