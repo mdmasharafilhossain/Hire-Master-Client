@@ -18,7 +18,7 @@ const HiringManagerList = () => {
         enabled:!loading,
         queryFn: async () => {
             const res = await axiosSecure.get(`/hiring-talents/pagination?page=${page}`);
-            console.log(res.data)
+            
             return res.data;
 
         }
@@ -28,7 +28,7 @@ const HiringManagerList = () => {
     const handleMakeAdmin = user =>{
         axiosSecure.patch(`/hiring-talents/admin/${user._id}`)
         .then(res=>{
-           console.log(res.data);
+           
            if(res.data.modifiedCount > 0){
                refetch();
                Swal.fire({
@@ -45,7 +45,7 @@ const HiringManagerList = () => {
        const handleRemoveAdmin = user => {
         axiosSecure.patch(`/hiring-talents/remove-admin/${user._id}`)
         .then(res => {
-            console.log(res.data);
+            
             if (res.data.modifiedCount > 0) {
                 refetch();
                 Swal.fire({
@@ -86,7 +86,7 @@ const HiringManagerList = () => {
           }).then(async (result) => {
             if (result.isConfirmed) {
                 const res = await AxiosPublic.delete(`/hiring-talents/HR/${user._id}`);
-                console.log(res.data);
+                
             if(res.data.deletedCount){
                 refetch();
                 Swal.fire({

@@ -20,7 +20,7 @@ const CheckoutForm = () => {
     axiosSecure
       .post("/create-payment-intent", { price: PayAblePrice })
       .then((res) => {
-        console.log(res.data.clientSecret);
+        
         setClinetSecret(res.data.clientSecret);
       });
   }, [axiosSecure, PayAblePrice]);
@@ -43,10 +43,10 @@ const CheckoutForm = () => {
     });
 
     if (error) {
-      console.log("[error]", error);
+      
       setError(error.message);
     } else {
-      console.log("Payment Successful", paymentMethod);
+      
 
       setError("");
     }
@@ -67,11 +67,11 @@ const CheckoutForm = () => {
     });
 
     if (confirmError) {
-      console.log("Confirm Error", confirmError.message);
+      setError(confirmError.message);
     } else {
-      console.log("payment Intent", paymentIntent);
+      
       if (paymentIntent.status === "succeeded") {
-        console.log("Transition ID :", paymentIntent.id);
+        
         setTransitionId(paymentIntent.id);
         Swal.fire({
           position: "top-end",
@@ -90,9 +90,9 @@ const CheckoutForm = () => {
           date: new Date(),
           transaction_ID: paymentIntent.id,
         };
-        console.log(payment);
+        
         axiosSecure.post("/payments", payment).then((res) => {
-          console.log(res.data);
+          
         });
       }
     }
@@ -100,7 +100,7 @@ const CheckoutForm = () => {
 
   return (
     <form
-      className="container mx-auto border-2 rounded-lg border-orange-600 sm:w-full md:w-3/4 lg:w-1/2 py-10 px-5 sm:px-10 md:px-20"
+      className="container mx-auto border-2 rounded-lg border-orange-600 sm:w-full md:w-3/4 lg:w-1/2 py-10 px-5 sm:px-0 md:px-5"
       onSubmit={handleSubmit}
     >
       <CardElement
