@@ -135,7 +135,7 @@ const HiringManagerList = () => {
                                     </div>
                                 </td>
                                 <td>
-                                   <button> <h1 className='font-bold'>{user.name}</h1></button>
+                                   <button> <h1 className='font-bold lg:tooltip'data-tip="See Details">{user.name}</h1></button>
                                     <br />
                                     
                                 </td>

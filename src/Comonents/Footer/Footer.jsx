@@ -15,7 +15,7 @@ const Footer = () => {
       <div className=' w-28 md:w-40 lg:w-48'>
         
             
-        <img src="https://i.ibb.co/BcFWdqk/Hire-Master-Logo-2.png" alt="" />
+        <img src="https://i.ibb.co/BcFWdqk/Hire-Master-Logo-2.png" alt="HireMaster Logo" />
     </div>
         <nav className='flex flex-wrap items-center justify-center gap-4 font-medium'>
           <Link
