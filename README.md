@@ -3,7 +3,7 @@ HireMaster is a platform where users can find their dream job and a hiring manag
 
 
 
-#Homepage of HireMaster
+# Homepage of HireMaster
 
 ![](https://i.ibb.co/gJcKyrV/screencapture-hiremaster-netlify-app-2024-03-07-13-00-22.jpg)
 
@@ -40,7 +40,7 @@ To star working you need to follow these step.
 $ git clone https://github.com/mdmasharafilhossain/HireMaster-Client.git
 
 # Go into the repository
-$ cd electron-markdownify
+$ cd HireMaster-Client
 
 # Install dependencies
 $ npm install
@@ -63,11 +63,11 @@ $ npm run dev
 
 ```
 ## Contributors
-1. Md. Mashrafil Hussain
-2. Miran Ibrahim
-3. Thouhid Hussain
-4. Md Mohoshin
-5. Arafat Hussain 
+1. Mohammad Mashrafil Hossain Mahi
+2. Abu Ibrahim Md Moeenuddin Miran
+3. Md Thouhid Hussain
+4. Md Mohosin Ali Shah
+5. Muhammad Arafat Hossain
 6. Abu Rayhan
 
 
