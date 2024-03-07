@@ -120,17 +120,17 @@ const ManagerProfile = () => {
                         <h2 className="text-xl font-bold">{profile.name}</h2>
                       </div>
                       <div className="mb-2">
-                        <h3 className="text-slate-600 font-semibold">
+                        <h3 className=" font-semibold">
                           Expertise field : {profile.role}
                         </h3>
-                        <h3 className="text-slate-600 font-semibold">
+                        <h3 className=" font-semibold">
                           Phone : {profile.phone}
                         </h3>
-                        <h3 className="text-slate-600 font-semibold">
+                        <h3 className=" font-semibold">
                           {profile.location}
                         </h3>
                       </div>
-                      <h3 className="w-full text-slate-600 text-lg font-normal">
+                      <h3 className="w-full  text-lg font-normal">
                         {profile.bio}
                       </h3>
                       <div className="flex gap-4 mt-4">
@@ -152,7 +152,7 @@ const ManagerProfile = () => {
                 <div className="mt-4  border-[0.5px] border-slate-300  hover:bg-blue-50  hover:drop-shadow-lg  hover:text-black p-8 rounded-lg">
                   <div className="flex justify-end gap-4">
                     <p className="text-2xl mb-2">
-                      <RiAddBoxFill></RiAddBoxFill>
+                     
                     </p>
                     <Link to="/education">
                       <p className="text-xl mb-2">
@@ -167,13 +167,13 @@ const ManagerProfile = () => {
                     </p>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-slate-600 font-semibold">
+                    <h3 className=" font-semibold">
                       {profile.universityName}
                     </h3>
-                    <h3 className="text-slate-600 font-semibold">
+                    <h3 className=" font-semibold">
                       {profile.degree}
                     </h3>
-                    <h3 className="text-slate-600 font-semibold">
+                    <h3 className=" font-semibold">
                       {profile.graduationDate}
                     </h3>
                   </div>
@@ -182,7 +182,7 @@ const ManagerProfile = () => {
                 <div className="mt-4  border-[0.5px] border-slate-300  hover:bg-blue-50  hover:drop-shadow-lg  hover:text-black p-8 rounded-lg">
                   <div className="flex justify-end gap-4">
                     <p className="text-2xl mb-2">
-                      <RiAddBoxFill></RiAddBoxFill>
+                     
                     </p>
                     <Link to="/education">
                       <p className="text-xl mb-2">
@@ -197,27 +197,27 @@ const ManagerProfile = () => {
                     </p>
                   </div>
                   <div className="ml-4 flex flex-col gap-2">
-                    <h3 className="text-slate-600 font-semibold flex items-center gap-2">
+                    <h3 className=" font-semibold flex items-center gap-2">
                       <HiBuildingOffice2 /> {profile.companyName}
                     </h3>
 
                     <Link to={profile.companyLocation}>
-                      <h3 className=" text-xl flex">
+                      <h3 className=" text-xl flex gap-2">
                         <FaLocationDot />
-                        <span className="text-blue underline text-sm">
+                        <p className="text-blue-500 underline text-sm overflow-hidden">
                           {profile.companyLocation}
-                        </span>
+                        </p>
                       </h3>
                     </Link>
                     <Link to={profile.companyWebsite}>
-                      <h3 className=" text-xl flex">
+                      <h3 className=" text-xl flex gap-2">
                         <CgWebsite />
-                        <span className="text-blue underline text-sm">
+                        <span className="text-blue-500 underline text-sm">
                           {profile.companyWebsite}
                         </span>
                       </h3>
                     </Link>
-                    <h3 className="text-slate-600 font-semibold flex items-center">
+                    <h3 className=" font-semibold flex gap-2 items-center">
                       <FcViewDetails /> {profile.companyDetails}
                     </h3>
                   </div>

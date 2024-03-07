@@ -15,7 +15,7 @@ const ExploreByCategory = () => {
     },[])
 
   return (
-    <div className="container mx-6 px-10 md:mx-auto ">
+    <div className="max-w-7xl mx-6  md:mx-auto ">
       <h2 className="text-center text-5xl font-bold mt-8 mb-8">
         Explore By Category
       </h2>
