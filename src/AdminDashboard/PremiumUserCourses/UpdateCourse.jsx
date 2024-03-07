@@ -11,61 +11,60 @@ import TagsInput from "react-tagsinput";
 
 const UpdateCourse = () => {
 
-    const { id } = useParams();
-    const [courses]=useCourses()
-   const course=courses.find(courseData=>courseData._id==id)
-   const [selectedTopics, setselectedTopics] = useState([]);
+  const { id } = useParams();
+  const [courses] = useCourses()
+  const course = courses.find(courseData => courseData._id == id)
+  const [selectedTopics, setselectedTopics] = useState([]);
 
-   const [selectedRoutine, setSelectedRoutine] = useState([]);
- 
-   const { register, handleSubmit, reset } = useForm();
- 
-   const onSubmit = async (data) => {
-    console.log(data);
+  const [selectedRoutine, setSelectedRoutine] = useState([]);
+
+  const { register, handleSubmit, reset } = useForm();
+
+  const onSubmit = async (data) => {
     const axiosPublic = UseAxiosPublic();
     // image upload to imgbb and then get an url 
-// const imageFile={image:data.photourl[0]}
-// const res = await axiosPublic.post(image_hosting_api, imageFile, {
-//   headers: {
-//       'content-type': 'multipart/form-data'
-//   }
-// });
-const formData = {
-  courseName: data.name,
-  instructor: data.instructor,
-  duration: data.duration,
-  topics: selectedTopics,
-  level:data.level,
-  price:data.price,
-  shortDescription:data.shortdes,
-  description:data.des,
-dailyBreakdown: selectedRoutine,
-};
-const dataForm = await axiosPublic.patch(`/premiumusercourse/update/${course?._id}`, formData);
+    // const imageFile={image:data.photourl[0]}
+    // const res = await axiosPublic.post(image_hosting_api, imageFile, {
+    //   headers: {
+    //       'content-type': 'multipart/form-data'
+    //   }
+    // });
+    const formData = {
+      courseName: data.name,
+      instructor: data.instructor,
+      duration: data.duration,
+      topics: selectedTopics,
+      level: data.level,
+      price: data.price,
+      shortDescription: data.shortdes,
+      description: data.des,
+      dailyBreakdown: selectedRoutine,
+    };
+    const dataForm = await axiosPublic.patch(`/premiumusercourse/update/${course?._id}`, formData);
 
-if (dataForm.data.modifiedCount>0) {
-  // show success popup
-  reset();
-  Swal.fire({
-    position: "top",
-    icon: "success",
-    title: "Course Updated",
-    showConfirmButton: false,
-    timer: 1500,
-  });
-}
-  
+    if (dataForm.data.modifiedCount > 0) {
+      // show success popup
+      reset();
+      Swal.fire({
+        position: "top",
+        icon: "success",
+        title: "Course Updated",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+
   };
-    return (
-        <div>
-            
-            <div className=" mx-auto h-100vh p-4 m-6 bg-slate-50 border-2 rounded-lg border-orange-500 ">
-       
-       <div className="flex justify-evenly  my-6 mb-10">
-                <h2 className="text-4xl font-bold">Update <span className='text-[#FF3811]'>Courses</span></h2>
-               
-            </div>
-        <form className="p-10" onSubmit={handleSubmit(onSubmit)}>
+  return (
+    <div>
+
+      <div className="mx-auto h-100vh p-2 md:p-4 md:m-6 m-4  bg-slate-50 border-2 rounded-lg border-orange-500  ">
+
+        <div className="flex justify-evenly  my-6 mb-10">
+          <h2 className="text-4xl font-bold">Update <span className='text-[#FF3811]'>Courses</span></h2>
+
+        </div>
+        <form className="md:p-10" onSubmit={handleSubmit(onSubmit)}>
           <div className="form-control w-full my-6">
             <label className="label">
               <span className="label-text font-serif font-bold text-lg ">
@@ -76,30 +75,30 @@ if (dataForm.data.modifiedCount>0) {
               type="text"
               placeholder="Course Name"
               {...register("name", { required: true })}
-         
+
               className="input input-bordered w-full"
               defaultValue={course?.courseName}
               required
             />
           </div>
-          <div className="flex gap-6">
+          <div className="md:flex gap-6">
             <div className="form-control w-full my-6">
               <label className="label">
                 <span className="label-text font-serif font-bold text-lg ">
-                Instructor Name*
+                  Instructor Name*
                 </span>
               </label>
               <input
                 type="text"
                 placeholder="Instructor Name"
                 {...register("instructor", { required: true })}
- 
+
                 className="input input-bordered w-full"
                 defaultValue={course?.instructor}
                 required
               />
             </div>
-  
+
             <div className="form-control w-full my-6">
               <label className="label">
                 <span className="label-text font-serif font-bold text-lg ">
@@ -109,31 +108,31 @@ if (dataForm.data.modifiedCount>0) {
               <input
                 type="text"
                 placeholder="Duration"
-                {...register("duration",  { required: true })}
+                {...register("duration", { required: true })}
                 className="input input-bordered w-full"
                 defaultValue={course?.duration}
                 required
               />
             </div>
           </div>
-          <div className="flex gap-6">
+          <div className="md:flex gap-6">
             <div className="form-control w-full my-6">
               <label className="label">
                 <span className="label-text font-serif font-bold text-lg ">
-                Level*
+                  Level*
                 </span>
               </label>
               <input
                 type="text"
                 placeholder="Level"
-                {...register("level",  { required: true })}
-               
+                {...register("level", { required: true })}
+
                 className="input input-bordered w-full"
                 defaultValue={course?.level}
                 required
               />
             </div>
-  
+
             <div className="form-control w-full my-6">
               <label className="label">
                 <span className="label-text font-serif font-bold text-lg ">
@@ -150,40 +149,40 @@ if (dataForm.data.modifiedCount>0) {
               />
             </div>
           </div>
-          <div className="flex gap-6">
-           
-   <div className="form-control w-full">
-            <div className="form-control w-full my-6">
-              <label className="label">
-                <span className="label-text font-serif font-bold text-lg ">
-                  Routine*
-                </span>
-              </label>
-              <TagsInput
-                value={selectedRoutine}
-                onChange={setSelectedRoutine}
-                placeHolder="Enter Routine"
-                className="input input-bordered w-full"
-               
-              />
-              <em>press enter to add Routine</em>
-            </div>
-            <div>
-              <pre className="mb-2">
-                <input
-                  className="hidden"
-                  type="text"
-                  placeholder="Routine"
-                  {...register("routine")}
-                  value={selectedRoutine
-                    .map((routine) => routine.text)
-                    .join(", ")}
-                  readOnly
-                 
+          <div className="md:flex gap-6">
+
+            <div className="form-control w-full">
+              <div className="form-control w-full my-6">
+                <label className="label">
+                  <span className="label-text font-serif font-bold text-lg ">
+                    Routine*
+                  </span>
+                </label>
+                <TagsInput
+                  value={selectedRoutine}
+                  onChange={setSelectedRoutine}
+                  placeHolder="Enter Routine"
+                  className="input input-bordered w-full"
+
                 />
-              </pre>
+                <em>press enter to add Routine</em>
+              </div>
+              <div>
+                <pre className="mb-2">
+                  <input
+                    className="hidden"
+                    type="text"
+                    placeholder="Routine"
+                    {...register("routine")}
+                    value={selectedRoutine
+                      .map((routine) => routine.text)
+                      .join(", ")}
+                    readOnly
+
+                  />
+                </pre>
+              </div>
             </div>
-          </div>
             <div className="form-control w-full my-6">
               <label className="label">
                 <span className="label-text font-serif font-bold text-lg ">
@@ -198,7 +197,7 @@ if (dataForm.data.modifiedCount>0) {
               />
               <em>press enter to add Topics</em>
             </div>
-  
+
             <pre className="mb-2">
               <input
                 className="hidden"
@@ -210,8 +209,8 @@ if (dataForm.data.modifiedCount>0) {
               />
             </pre>
           </div>
-         
-          <div className="flex gap-6">
+
+          <div className="md:flex gap-6">
             <div className="form-control w-full my-6">
               <label className="label">
                 <span className="label-text font-serif font-bold text-lg ">
@@ -221,15 +220,15 @@ if (dataForm.data.modifiedCount>0) {
               <input
                 type="text"
                 placeholder="Short Description"
-                {...register("shortdes",  { required: true })}
-             required
+                {...register("shortdes", { required: true })}
+                required
                 className="input input-bordered w-full"
               />
             </div>
-  
-           
+
+
           </div>
-          <div className="flex gap-6">
+          <div className="md:flex gap-6">
             <div className="form-control w-full my-6">
               <label className="label">
                 <span className="label-text font-serif font-bold text-lg ">
@@ -239,27 +238,27 @@ if (dataForm.data.modifiedCount>0) {
               <input
                 type="text"
                 placeholder="Description"
-                {...register("des",  { required: true })}
-           required
+                {...register("des", { required: true })}
+                required
                 className="input input-bordered w-full"
               />
             </div>
-  
-           
+
+
           </div>
-             <div className="form-control w-full my-6">
+          <div className="form-control w-full my-6">
             <label className="label">
               <span className="label-text font-serif font-bold text-lg ">
-              PhotoUrl*
+                PhotoUrl*
               </span>
             </label>
-              <div className="form-control  w-1/3 ">
-                    <input {...register('photourl', { required: false })} type="file" className="file-input w-full  bg-orange-500" />
-                </div>
+            <div className="form-control  w-1/3 ">
+              <input {...register('photourl', { required: false })} type="file" className="file-input w-full  bg-orange-500" />
+            </div>
           </div>
           <button
             className="btn btn-warning w-full bg-white text-black text-xl font-semibold hover:bg-orange-500 hover:text-white"
-            // className="btn w-full bg-orange-600 text-white"
+          // className="btn w-full bg-orange-600 text-white"
           >
             UPDATE COURSE
           </button>
@@ -269,8 +268,8 @@ if (dataForm.data.modifiedCount>0) {
 
 
 
-        </div>
-    );
+    </div>
+  );
 };
 
 export default UpdateCourse;

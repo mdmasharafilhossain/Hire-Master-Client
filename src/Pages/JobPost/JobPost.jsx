@@ -69,13 +69,13 @@ if(res.data.success){
   return (
     <div className=" mx-auto h-100vh ">
         <Navbar2/>
-        <div className="p-4 m-6 bg-slate-50 border-2 rounded-lg border-orange-500">
+        <div className="md:p-4 p-2 m-6 bg-slate-50 border-2 rounded-lg border-orange-500">
         <div >
         
         <h2 className="text-4xl font-serif  text-center uppercase font-bold">Add <span className='text-[#FF3811]'>Job </span></h2>
     
       </div>
-      <form className="p-10" onSubmit={handleSubmit(onSubmit)}>
+      <form className="md:p-10 p-2" onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control w-full my-6">
           <label className="label">
             <span className="label-text font-serif font-bold text-lg ">
@@ -90,7 +90,7 @@ if(res.data.success){
             className="input input-bordered w-full"
           />
         </div>
-        <div className="flex gap-6">
+        <div className="md:flex gap-6">
           <div className="form-control w-full my-6">
             <label className="label">
               <span className="label-text font-serif font-bold text-lg ">
@@ -117,7 +117,7 @@ if(res.data.success){
                 </div>
           </div>
         </div>
-        <div className="flex gap-6">
+        <div className="md:flex gap-6">
           <div className="form-control w-full my-6">
             <label className="label">
               <span className="label-text font-serif font-bold text-lg ">
@@ -147,7 +147,7 @@ if(res.data.success){
             />
           </div>
         </div>
-        <div className="flex gap-6">
+        <div className="md:flex gap-6">
           <div className="form-control w-full my-6">
             <label className="label">
               <span className="label-text font-serif font-bold text-lg ">
@@ -190,7 +190,7 @@ if(res.data.success){
           </pre>
         </div>
 
-        <div className="flex gap-6">
+        <div className="md:flex gap-6">
           <div className="form-control w-full my-6">
             <label className="label">
               <span className="label-text font-serif font-bold text-lg ">
@@ -220,7 +220,7 @@ if(res.data.success){
             />
           </div>
         </div>
-        <div className="flex gap-6">
+        <div className="md:flex gap-6">
           <div className="form-control w-full my-6">
             <label className="label">
               <span className="label-text font-serif font-bold text-lg ">
@@ -254,7 +254,7 @@ if(res.data.success){
             />
           </div>
         </div>
-        <div className="flex gap-6">
+        <div className="md:flex gap-6">
           <div className="form-control w-full my-6">
             <label className="label">
               <span className="label-text font-serif font-bold text-lg ">
@@ -312,7 +312,7 @@ if(res.data.success){
             </pre>
           </div>
         </div>
-        <div className="flex gap-6">
+        <div className="md:flex gap-6">
           <div className="form-control w-full my-6">
             <label className="label">
               <span className="label-text font-serif font-bold text-lg ">
@@ -354,7 +354,7 @@ if(res.data.success){
             />
           </div>
         </div>
-        <div className="flex gap-6">
+        <div className="md:flex gap-6">
           <div className="form-control w-full my-6">
             <label className="label">
               <span className="label-text font-serif font-bold text-lg ">
