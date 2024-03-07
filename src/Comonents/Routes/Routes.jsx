@@ -15,16 +15,13 @@ import JobDetails from "../../Pages/JobDetails/JobDetails";
 import Profile from "../../Pages/Profile/Profile";
 import UserProfileForm from "../UserProfileForm/UserProfileForm";
 import MyJobs from "../../Pages/Jobs/MyJobs";
-
 import ProfileHead from "../../Pages/ProfileHead/ProfileHead";
 import Education from "../../Pages/Education/Education";
-
 import Appliedjobs from "../../Pages/Appliedjobs/Appliedjobs";
 import PrivateRoute from "./PrivateRoute";
 import ManagerProfile from "../../Pages/Profile/ManagerProfile";
 import ManagerForm from "../../Pages/ManagerProfileForm/ManagerForm";
 import MakePayment from "../MakePatment/MakePayment";
-
 import Projects from "../../Pages/Projects/Projects";
 import Experience from "../../Pages/Experience/Experience";
 import Skills from "../../Pages/Skills/Skills";
@@ -38,7 +35,6 @@ import UpdateNews from "../../AdminDashboard/UpdateNews/UpdateNews";
 import NewsDetails from "../TechNews/NewsDetails";
 import JobFair from "../../Pages/JobFair/JobFair";
 import JobFairRegistrationForm from "../JobFair/JobFairRegistrationForm";
-
 import FairProfileSettings from "../JobFair/FairProfileSettings";
 import JobFairLayout from "../../LayOut/JobFairLayout";
 import JobFairProfile from "../../Pages/JobFair/JobFairProfile";
@@ -68,6 +64,9 @@ import UserDetails from "../../AdminDashboard/UserDetails/UserDetails";
 import AllPremiumCourses from "../../AdminDashboard/PremiumUserCourses/AllPremiumCourses";
 import UpdateCourse from "../../AdminDashboard/PremiumUserCourses/UpdateCourse";
 import JobDetailsAdmin from "../../AdminDashboard/AllJobPost/JobDetailsAdmin";
+import ErrorPage from "../../AdminDashboard/ErrorPage/ErrorPage";
+import HiringManagerDetails from "../../AdminDashboard/HiringManagerDetails/HiringManagerDetails";
+import JobByCategory from "../../Pages/JobByCategory/JobByCategory";
 
 const router = createBrowserRouter([
   {
@@ -85,11 +84,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/jobs",
-        element: (
-          <PrivateRoute>
-            <Jobs></Jobs>
-          </PrivateRoute>
-        ),
+        element: <Jobs></Jobs>,
       },
       {
         path: "/jobDetails/:id",
@@ -141,7 +136,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/manager-chat",
-        element: <PrivateRoute><Appmain></Appmain></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <Appmain></Appmain>
+          </PrivateRoute>
+        ),
       },
       {
         path: "contacts",
@@ -216,6 +215,7 @@ const router = createBrowserRouter([
   {
     path: "job-fair/profile",
     element: <JobFairLayout />,
+    errorElement:<Error></Error>,
     children: [
       {
         path: "",
@@ -282,7 +282,7 @@ const router = createBrowserRouter([
     element: <Login></Login>,
   },
   {
-    path: "profile",
+    path: "/profile",
     element: <Profile></Profile>,
   },
   {
@@ -342,7 +342,24 @@ const router = createBrowserRouter([
   {
     path: "/AdminDashboard/AllUsers/:email",
     element: <UserDetails></UserDetails>,
-
+  },
+{
+    path: "/premiumallcourse",
+    element: <PremiumallCourses></PremiumallCourses>,
+  },
+  {
+    path: "/AdminDashboard/AllUsers/:email",
+    element: <UserDetails></UserDetails>,
+  },
+  {
+    path:"/jobByCategory/:_id",
+    element:<JobByCategory></JobByCategory>,
+    loader:() => fetch('/category.json')
+  },
+  {
+   path:"/AdminDashboard/AllHiringManagers/:email",
+   element:<HiringManagerDetails></HiringManagerDetails>,
+   
   },
 
   // Admin Dashboard
@@ -350,6 +367,7 @@ const router = createBrowserRouter([
   {
     path: "/AdminDashboard",
     element: <AdminDashboard></AdminDashboard>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/AdminDashboard/AllUsers",

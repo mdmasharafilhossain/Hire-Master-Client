@@ -10,27 +10,35 @@ import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic"
 import Swal from "sweetalert2";
 import Loader from "../../Comonents/Loader/Loader";
 import Navbar2 from "../../Comonents/Navbar/Navbar2";
-
+import toast, { Toaster } from "react-hot-toast";
+import useProfile from "../../Comonents/Hooks/useProfile/useProfile";
 
 const JobDetails = () => {
+  const [profileData] = useProfile()
   const { id } = useParams();
   const { user } = useContext(AuthContext);
   const AxiosPublic = UseAxiosPublic();
 
-
   const email = user?.email;
-
+  // -----------detecting the route for user/manager------------
+  const { data: profile, loading: load, refetch: refresh } = useFetchData(`/managerProfile/${email}`, "profile");
+  if (!load) {
+    refresh();
+  }
+  console.log(profile);
+  let profileRoute = false;
+  if (user?.email === profile?.email || user?.email === "admin@gmail.com") {
+    profileRoute = true;
+  }
 
   const { data: job, loading, refetch } = useFetchData(
     `/staticjobpost/${id}`,
     "job"
   );
 
-
   if (loading) {
     return <Loader />;
   }
-
 
   refetch();
   console.log(job);
@@ -51,7 +59,6 @@ const JobDetails = () => {
     job_location,
   } = job;
 
-
   const appliedJobs = {
     id,
     email,
@@ -71,12 +78,12 @@ const JobDetails = () => {
     job_location,
   };
 
-
   // console.log(appliedJobs);
   const handleAppliedJobs = () => {
     AxiosPublic.post("/users-appliedjobs", appliedJobs)
       .then((res) => {
         console.log("add to database");
+        console.log(res);
         if (res.data.insertedId) {
           Swal.fire({
             title: "Success!",
@@ -84,6 +91,8 @@ const JobDetails = () => {
             icon: "success",
             confirmButtonText: "Cool",
           });
+        } else {
+          toast.error(`${res.data.message}`);
         }
       })
       .catch((error) => {
@@ -91,9 +100,9 @@ const JobDetails = () => {
       });
   };
 
-
   return (
     <>
+      <Toaster position="top-right" reverseOrder={false} />
       <Navbar2 />
       {/* Main Div */}
       <div className="md:grid grid-cols-12 max-w-screen-xl mx-auto px-4 py-10">
@@ -186,44 +195,52 @@ const JobDetails = () => {
           </div>
           {/* Apply button */}
           <div className="md:block hidden">
-            <button
+            {
+              profileData.length ?<> <button
               onClick={handleAppliedJobs}
+              hidden={profileRoute}
               className="btn bg-[#ff6445] text-white mx-auto w-1/2 font-semibold text-lg"
             >
               Apply For this Job
-            </button>
+            </button></>:<><button className="tooltip btn bg-[#ff6445] text-white mx-auto w-1/2 font-semibold text-lg" data-tip='Crete your profile to apply'>Apply For this Job</button></> 
+            }
           </div>
 
-
-
-
-          <div className="mt-5"><h1 className="text-base font-bold">NOTE: Please be aware that if you suspect this post is fraudulent or a scam, we encourage you to report it. Your vigilance helps maintain the integrity of our platform and ensures a safer community for everyone.</h1>
+          <div className="mt-5">
+            <h1 className="text-base font-bold">
+              NOTE: Please be aware that if you suspect this post is fraudulent
+              or a scam, we encourage you to report it. Your vigilance helps
+              maintain the integrity of our platform and ensures a safer
+              community for everyone.
+            </h1>
             <Link to={`/jobpostreport/${id}`}>
-              <button type="button" className="mt-2 btn-sm focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm  me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Report</button>
-
+              <button
+                type="button"
+                className="mt-2 btn-sm focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm  me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+              >
+                Report
+              </button>
             </Link>
           </div>
-
-
-
-
-
         </div>
         {/* right div */}
         <div className=" col-span-4 flex justify-center">
           {/* Apply btn div */}
           <div className="w-4/5 flex flex-col">
-            <button
+            {
+              profileData.length ? <button
               onClick={handleAppliedJobs}
+              hidden={profileRoute}
               className="btn bg-[#ff6445] text-white mx-auto w-full font-semibold text-lg sm:hidden md:block"
             >
               Apply For this Job
-            </button>
-
+            </button>:<button className="tooltip btn bg-[#ff6445] text-white mx-auto w-full font-semibold text-lg sm:hidden md:block" data-tip='Crete your profile to apply'>Apply For this Job</button>
+            }
 
             <div className="md:hidden fixed bottom-0 left-0 right-0">
               <button
                 onClick={handleAppliedJobs}
+                hidden={profileRoute}
                 className="btn bg-[#ff6445] text-white mx-auto w-full font-semibold text-lg"
               >
                 Apply For this Job
@@ -243,18 +260,15 @@ const JobDetails = () => {
                 <p className="font-semibold"> {hiring_manager_email}</p>
               </div>
             </div>
-            <Link to='/manager-chat'>
+            <Link to="/manager-chat">
               <button
+                hidden={ !user || user?.email === "admin@gmail.com" }
                 className="btn bg-[#ff6445] mt-2 text-white mx-auto w-full font-semibold text-lg sm:hidden md:block"
               >
                 Talk to Manager
               </button>
             </Link>
-
-
           </div>
-
-
 
           {/* sharing link div */}
           <div></div>
@@ -264,8 +278,4 @@ const JobDetails = () => {
   );
 };
 
-
 export default JobDetails;
-
-
-

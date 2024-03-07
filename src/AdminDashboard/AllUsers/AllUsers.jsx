@@ -137,7 +137,7 @@ const AllUsers = () => {
                                     </div>
                                 </td>
                                 <td>
-                                   <Link to={`${user?.email}`}><button> <h1 className='font-bold'>{user.name}</h1></button></Link>
+                                   <Link to={`${user?.email}`}><button> <h1 className='font-bold lg:tooltip' data-tip="See Details">{user.name}</h1></button></Link>
                                     <br />
                                     
                                 </td>

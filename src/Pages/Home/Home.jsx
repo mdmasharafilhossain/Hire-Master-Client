@@ -7,6 +7,7 @@ import PaymentHomeCard from "../../Comonents/Payment/PaymentHomeCard/PaymentHome
 import Sponsors from "../../Comonents/Sponsors/Sponsors";
 import NewsSubscription from "../../Comonents/TechNews/NewsSubscription";
 
+
 const Home = () => {
   return (
     <div>
@@ -18,6 +19,7 @@ const Home = () => {
       <PaymentHomeCard></PaymentHomeCard>
       <Sponsors />
       <NewsSubscription />
+      
     </div>
   );
 };
