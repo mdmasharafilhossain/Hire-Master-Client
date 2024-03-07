@@ -1,14 +1,16 @@
 import { useParams } from "react-router-dom";
 import { PiBookBookmarkFill } from "react-icons/pi";
-import { FaBriefcase } from "react-icons/fa";
+import { FaBriefcase, FaDownload } from "react-icons/fa";
 import { BsTools } from "react-icons/bs";
 import { AiFillProject } from "react-icons/ai";
 import Navbar2 from "../../Comonents/Navbar/Navbar2";
 import useFetchData from "../../Comonents/Hooks/UseFetchData/useFetchData";
+import UseAxiosPublic from "../../Comonents/Hooks/UseAxiosPublic/UseAxiosPublic";
 
 const ApplicantProfile = () => {
   const { email } = useParams();
   console.log(email);
+  const axiosPublic = UseAxiosPublic();
   // user profile with params email
   const api = `/userProfile/${email}`;
   const key = "userProfile";
@@ -16,6 +18,35 @@ const ApplicantProfile = () => {
   if (!loading) {
     refetch();
   }
+
+  const handleDownload = async () => {
+    try {
+      const response = await axiosPublic.get(`/get-resumes/${email}`, {
+        responseType: 'blob', // Specify response type as blob
+      });
+      
+      console.log(response);
+      // Create a URL for the blob response
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      console.log(url);
+      // Create a temporary anchor element
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', `${userProfile.name}.pdf`); // Set default filename
+      document.body.appendChild(link);
+  
+      // Simulate click on the anchor element to trigger download
+      link.click();
+  
+      // Clean up: remove the anchor element and revoke the URL
+      link.parentNode.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error downloading resume:', error);
+      // Handle error
+    }
+  };
+  
   return (
     <>
       <Navbar2 />
@@ -40,6 +71,17 @@ const ApplicantProfile = () => {
                 {userProfile?.aboutDescription}
                 <p className="opacity-0 border-[0.5px] w-[150px] md:w-[400px] lg:w-[700px]"></p>
               </h3>
+              <div className="my-8 md:my-16 lg:my-28">
+                <button
+                  onClick={handleDownload}
+                  className="flex items-center gap-2 btn bg-[#FF3811] text-white hover:text-black"
+                >
+                  <span>Resume</span>{" "}
+                  <span>
+                    <FaDownload />
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
           {/* Education section */}

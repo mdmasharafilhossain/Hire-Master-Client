@@ -10,7 +10,6 @@ import { getManagerInfo, getUserInfo } from "../../api";
 // import useProfile from "../Hooks/useProfile/useProfile";
 
 const socket = io.connect("http://localhost:5000");
-
 // const socket = io.connect("https://hire-master-server.vercel.app");
 
 const Appmain = () => {

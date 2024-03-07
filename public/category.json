@@ -1,0 +1,43 @@
+[
+    {
+        "id": 1,
+      "job_title": "Frontend Developer",
+      "image":"https://i.ibb.co/sVYzs0n/programming-background-collage-23-2149901783.jpg"
+      
+    },
+    {
+        "id": 2,
+      "job_title": "Senior Full-Stack Developer",
+      "image":"https://i.ibb.co/JQNnFNt/Screenshot-141.png"
+    },
+    {
+        "id": 3,
+      "job_title": "Software Engineer",
+      "image":"https://i.ibb.co/VjvnSqh/Screenshot-138.png"
+    },
+    {
+        "id": 4,
+      "job_title": "Cloud Solutions Architect",
+      "image":"https://i.ibb.co/swMNbVy/cloud-computing-data-streaming-concept-1017-31867.jpg"
+    },
+    {
+        "id": 5,
+      "job_title": "Data Scientist",
+      "image":"https://i.ibb.co/2yFF79p/Screenshot-140.png"
+    },
+    {
+        "id": 6,
+      "job_title": "UX/UI Designer",
+      "image":"https://i.ibb.co/j32htPz/gradient-ui-ux-background-23-2149052117.jpg"
+    },
+    {
+        "id": 7,
+      "job_title": "Network Engineer",
+      "image":"https://i.ibb.co/XkyBs2w/laptop-which-there-is-world-people-drawn-1232-288.jpg"
+    },
+    {
+        "id": 8,
+      "job_title": "DevOps Engineer",
+      "image":"https://i.ibb.co/2Svh1yv/gradient-devops-illustration-23-2149370941.jpg"
+    }
+  ]
