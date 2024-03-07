@@ -75,10 +75,11 @@ if (dataForm.data.modifiedCount>0) {
             <input
               type="text"
               placeholder="Course Name"
-              {...register("name", { required: false })}
+              {...register("name", { required: true })}
          
               className="input input-bordered w-full"
               defaultValue={course?.courseName}
+              required
             />
           </div>
           <div className="flex gap-6">
@@ -91,10 +92,11 @@ if (dataForm.data.modifiedCount>0) {
               <input
                 type="text"
                 placeholder="Instructor Name"
-                {...register("instructor", { required: false })}
+                {...register("instructor", { required: true })}
  
                 className="input input-bordered w-full"
                 defaultValue={course?.instructor}
+                required
               />
             </div>
   
@@ -107,9 +109,10 @@ if (dataForm.data.modifiedCount>0) {
               <input
                 type="text"
                 placeholder="Duration"
-                {...register("duration",  { required: false })}
+                {...register("duration",  { required: true })}
                 className="input input-bordered w-full"
                 defaultValue={course?.duration}
+                required
               />
             </div>
           </div>
@@ -123,10 +126,11 @@ if (dataForm.data.modifiedCount>0) {
               <input
                 type="text"
                 placeholder="Level"
-                {...register("level",  { required: false })}
+                {...register("level",  { required: true })}
                
                 className="input input-bordered w-full"
                 defaultValue={course?.level}
+                required
               />
             </div>
   
@@ -139,9 +143,10 @@ if (dataForm.data.modifiedCount>0) {
               <input
                 type="text"
                 placeholder="Price"
-                {...register("price", { required: false })}
+                {...register("price", { required: true })}
                 className="input input-bordered w-full"
                 defaultValue={course?.price}
+                required
               />
             </div>
           </div>
@@ -216,8 +221,8 @@ if (dataForm.data.modifiedCount>0) {
               <input
                 type="text"
                 placeholder="Short Description"
-                {...register("shortdes",  { required: false })}
-            
+                {...register("shortdes",  { required: true })}
+             required
                 className="input input-bordered w-full"
               />
             </div>
@@ -234,8 +239,8 @@ if (dataForm.data.modifiedCount>0) {
               <input
                 type="text"
                 placeholder="Description"
-                {...register("des",  { required: false })}
-           
+                {...register("des",  { required: true })}
+           required
                 className="input input-bordered w-full"
               />
             </div>
