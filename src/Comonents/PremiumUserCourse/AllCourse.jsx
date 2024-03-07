@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 
 const AllCourse = ({course}) => {
-    const {courseId,courseName,instructor,duration,topics,level,price,photoUrl,description,shortDescription,dailyBreakdown}=course
-    console.log(course)
+    const {courseId,courseName,photoUrl,shortDescription}=course
     return (
         <div>
            <div className="max-w-sm h-[460px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

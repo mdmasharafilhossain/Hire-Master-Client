@@ -67,6 +67,7 @@ import ApplicantProfile from "../../Pages/Profile/ApplicantProfile";
 import UserDetails from "../../AdminDashboard/UserDetails/UserDetails";
 import AllPremiumCourses from "../../AdminDashboard/PremiumUserCourses/AllPremiumCourses";
 import UpdateCourse from "../../AdminDashboard/PremiumUserCourses/UpdateCourse";
+import JobDetailsAdmin from "../../AdminDashboard/AllJobPost/JobDetailsAdmin";
 
 const router = createBrowserRouter([
   {
@@ -337,11 +338,11 @@ const router = createBrowserRouter([
     path: "/courseDetails/:id",
     element: <SingleCourse></SingleCourse>,
   },
- 
+
   {
-   path:"/AdminDashboard/AllUsers/:email",
-   element:<UserDetails></UserDetails>,
-   
+    path: "/AdminDashboard/AllUsers/:email",
+    element: <UserDetails></UserDetails>,
+
   },
 
   // Admin Dashboard
@@ -361,6 +362,11 @@ const router = createBrowserRouter([
       {
         path: "/AdminDashboard/AllJobPost",
         element: <AllJobPost></AllJobPost>,
+      },
+
+      {
+        path: "/AdminDashboard/job_details_admin/:id",
+        element: <JobDetailsAdmin></JobDetailsAdmin>,
       },
       {
         path: "/AdminDashboard/create-news",
@@ -392,12 +398,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/AdminDashboard/allpremiumcourses",
-        element:<AllPremiumCourses></AllPremiumCourses>,
+        element: <AllPremiumCourses></AllPremiumCourses>,
       },
       {
         path: "/AdminDashboard/premiumusercourse/update/:id",
-        element:<UpdateCourse></UpdateCourse>,
-        
+        element: <UpdateCourse></UpdateCourse>,
+
       },
     ],
   },
