@@ -90,9 +90,9 @@ $ npm run dev
 
 
 ## 🔗 Links
-- live site link : https://hiremaster.netlify.app/ 
-- client side code link :  : https://github.com/mdmasharafilhossain/HireMaster-Client 
-- server side code link : https://github.com/mdmasharafilhossain/HireMaster-Server 
+- Live Site Link : https://hiremaster.netlify.app/ 
+- Client Site Code Link :  : https://github.com/mdmasharafilhossain/HireMaster-Client 
+- Server Side Code Link : https://github.com/mdmasharafilhossain/HireMaster-Server 
 
 
 
