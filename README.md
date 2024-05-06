@@ -67,6 +67,20 @@ https://hire-master-server.vercel.app
 # Run the app
 $ npm run dev
 
+# Login Info
+
+User :
+user50@gmail.com
+Pass: 123456
+
+Admin:
+admin@gmail.com
+pass:admin123@
+
+Manger:
+manager4@gmail.com
+Pass:manager123@
+
 ```
 
 ## Technologies Used
