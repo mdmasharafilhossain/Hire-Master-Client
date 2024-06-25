@@ -72,9 +72,7 @@ User :
 user50@gmail.com
 Pass: 123456
 
-Admin:
-admin@gmail.com
-pass:admin123@
+
 
 Manger:
 manager4@gmail.com
