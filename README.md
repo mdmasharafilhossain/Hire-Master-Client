@@ -72,8 +72,6 @@ User :
 user50@gmail.com
 Pass: 123456
 
-
-
 Manger:
 manager4@gmail.com
 Pass:manager123@
